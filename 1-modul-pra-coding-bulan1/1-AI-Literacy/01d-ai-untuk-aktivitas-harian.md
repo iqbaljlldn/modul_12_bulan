@@ -2,17 +2,17 @@
 
 **Minggu 1: AI Literacy | Sesi 4 (Kamis)**  
 **Target Waktu:** 90 - 120 Menit  
-**Output Sesi:** Mini-Proyek UMKM + Slide Presentasi 5 Menit
+**Output Sesi:** Draf Solusi Operasional UMKM (Berbasis Asumsi) + Rencana Riset Lapangan
 
 ---
 
 ## 1. Mengapa Ini Penting?
 
-Banyak pelaku UMKM di Indonesia adalah *solopreneur* atau usaha keluarga kecil: mereka memasak sendiri, melayani pembeli sendiri, mencatat kas sendiri, dan membuat postingan media sosial sendiri di malam hari saat sudah kelelahan.
+Banyak pelaku UMKM di Indonesia adalah *solopreneur* (dijalankan seorang diri) atau usaha keluarga kecil: mereka memasak sendiri, melayani pembeli sendiri, mencatat stok di buku tulis lecek, dan membalas chat WhatsApp pembeli satu per satu hingga larut malam.
 
-Bagi mereka, AI adalah "karyawan magang serba bisa gratis" jika tahu cara memanfaatkannya.
+Bagi mereka, AI bisa menjadi "asisten magang serba bisa" tanpa biaya jika mereka tahu cara mengarahkannya dengan benar.
 
-Hari ini, squad-mu akan bertindak sebagai konsultan teknologi untuk UMKM nyata atau fiktif. Kamu akan mempraktikkan bagaimana AI mempercepat pekerjaan operasional harian UMKM, sekaligus mengidentifikasi jebakan dan risiko jika hasilnya tidak divalidasi.
+Hari ini, squad-mu bertindak sebagai konsultan teknologi pemula untuk UMKM. Kamu akan mempraktikkan bagaimana AI mempercepat penulisan deskripsi katalog produk dan standar layanan, sekaligus belajar **menandai dengan jujur mana data yang merupakan asumsi sementara** sebelum nantinya divalidasi ke pelaku UMKM nyata di lapangan.
 
 ---
 
@@ -20,71 +20,95 @@ Hari ini, squad-mu akan bertindak sebagai konsultan teknologi untuk UMKM nyata a
 
 ```text
 ┌────────────────────────────────────────────────────────┐
-│               AI SEBAGAI ASISTEN OPERASIONAL           │
+│             AI SEBAGAI ASISTEN OPERASIONAL             │
 ├──────────────────────────┬─────────────────────────────┤
-│ 1. Riset & Wawasan Pasar │ 2. Pembuatan Konten Produk  │
-│    Analisis kompetitor,  │    Copywriting memikat,     │
-│    tren minat pembeli    │    deskripsi katalog rapi   │
+│ 1. Riset Awal & Pola     │ 2. Pembuatan Konten Produk  │
+│    Melihat variasi menu, │    Deskripsi katalog rapi,  │
+│    tren minat pembeli    │    kejelasan varian & harga │
 ├──────────────────────────┼─────────────────────────────┤
-│ 3. Perencanaan Bisnis    │ 4. Standardisasi Layanan    │
-│    Jadwal harian toko,   │    FAQ pelanggan, draf SOP  │
-│    kalkulasi modal dasar │    penanganan komplain      │
+│ 3. Perencanaan Sederhana │ 4. Standardisasi Pesan WA   │
+│    Jadwal harian toko,   │    Template balas pesan,    │
+│    pengingat stok habis  │    respons ramah komplain   │
 └──────────────────────────┴─────────────────────────────┘
 ```
 
-### 1. Riset & Perbandingan Kompetitor
-AI dapat merangkum kelebihan dan kekurangan produk sejenis di pasaran untuk menemukan nilai pembeda (*unique selling proposition*).
-*Kritis:* Pastikan data harga dan ketersediaan bahan dicek ulang secara manual ke marketplace lokal.
-
-### 2. Copywriting & Deskripsi Katalog Produk
-Pedagang sering kesulitan menulis deskripsi barang di katalog online. Deskripsi seperti *"Baju bagus bahan adem"* bisa diubah menjadi deskripsi menarik yang menonjolkan spesifikasi bahan, ukuran, cara perawatan, dan kecocokan acara.
-
-### 3. Perencanaan Operasional & Jadwal Harian
-Membantu merancang jadwal stok mingguan atau pembagian tugas karyawan toko sederhana agar tidak ada waktu kosong yang terbuang.
-
-### 4. Draf Standar Layanan (Customer Service Script)
-Menyusun template jawaban ramah dan cepat saat menghadapi pelanggan yang cerewet, komplain makanan terlambat, atau barang rusak saat pengiriman.
+> [!WARNING]
+> **Prinsip Kejujuran Data (Tandai Sebagai Asumsi):**  
+> Di sesi ini kita menggunakan profil UMKM binaan percontohan. Semua data harga, perkiraan omzet, atau kebiasaan pembeli yang kamu diskusikan bersama AI **wajib diberi label tegas: [ASUMSI SQUAD]**, sampai squad-mu melakukan wawancara nyata dengan pelaku UMKM di sekitar tempat tinggalmu pada Minggu 3!
 
 ---
 
-## 3. Langkah Kerja Workshop Mini-Proyek (60 Menit)
+## 3. Langkah Kerja Workshop Tim (60 Menit)
 
-Tiap squad memilih **1 UMKM Binaan**:
-- **Opsi A: Dapur Sambal Mak Inem** (Kuliner rumahan khas pedas botolan).
-- **Opsi B: Kerajinan Anyaman Bambu Pak Tirto** (Produk kriya rumah tangga dan suvenir).
-- **Opsi C: Kopi Susu Gang Buntu** (Kedai kopi gerobakan dekat kampus).
+Tiap squad memilih **1 Profil UMKM Binaan Percontohan**:
+- **Pilihan A: Dapur Sambal Mak Inem** (Kuliner rumahan sambal botol khas Jawa Timur).
+- **Pilihan B: Kerajinan Anyaman Bambu Pak Tirto** (Produk kriya rumah tangga dan suvenir bambu).
+- **Pilihan C: Kopi Susu Gang Buntu** (Kedai kopi gerobakan dekat kampus).
 
-### Alur Pengerjaan Bersama AI:
-1. **Langkah 1: Menentukan Target Masalah (10 Menit)**
-   Pilih 2 tugas operasional yang ingin diselesaikan untuk UMKM tersebut (contoh: Menulis 3 deskripsi produk katalog + Membuat naskah SOP penanganan komplain pesanan pecah/basi).
-2. **Langkah 2: Eksekusi Prompting Terstruktur (25 Menit)**
-   Gunakan formula R-C-I-C-O dari Sesi 01c. Catat prompt yang kalian kirimkan dan catat respons AI.
-3. **Langkah 3: Kurasi & Uji Realitas (15 Menit)**
-   Coret bagian-bagian output AI yang "terlalu teoritis", tidak cocok dengan budaya Indonesia, atau berhalusinasi. Sesuaikan dengan gaya bahasa pemilik usaha.
-4. **Langkah 4: Kemas ke Slide Ringkas (10 Menit)**
-   Susun 3-4 slide (atau 1 lembar ringkasan visual) untuk dipresentasikan.
+*(Catatan: Profil di atas adalah studi kasus percontohan. Beri tanda [ASUMSI] pada seluruh data angka yang digunakan).*
 
----
-
-## 4. Format Slide Presentasi Mini (Maksimal 4 Slide)
-
-- **Slide 1:** Profil UMKM & Masalah yang Ingin Diselesaikan.
-- **Slide 2:** Prompt yang Digunakan (Tunjukkan teknik R-C-I-C-O yang diterapkan).
-- **Slide 3:** Output AI vs Hasil Akhir yang Sudah Diedit Manusia (Tunjukkan apa yang dibuang dan apa yang dipertahankan).
-- **Slide 4:** Refleksi Squad: Apa kendala saat mengarahkan AI?
+### Alur Kerja Squad:
+1. **Langkah 1: Menentukan 2 Kebutuhan Utama (10 Menit)**  
+   Pilih 2 hal operasional yang ingin diselesaikan:
+   - Contoh: Menulis 3 deskripsi produk katalog yang menggugah selera + Membuat 1 template pesan WhatsApp untuk konfirmasi pesanan masuk.
+2. **Langkah 2: Eksekusi Prompting R-C-I-C-O (25 Menit)**  
+   Gunakan formula R-C-I-C-O dari Sesi 01c. Catat prompt yang dikirim dan hasil respon dari AI.
+3. **Langkah 3: Kurasi Manusia & Coret Halusinasi (15 Menit)**  
+   Coret saran AI yang tidak realistis untuk pedagang kecil (misal: AI menyarankan kemasan kaleng bersegel vakum mahal untuk warung sambal kecil). Sesuaikan gaya bahasa agar tetap ramah dan membumi.
+4. **Langkah 4: Tinjau Rencana Wawancara Nyata (10 Menit)**  
+   Ingat bahwa di Minggu 3 nanti, tiap squad wajib mewawancarai 1 pelaku UMKM nyata di sekitar. Diskusikan calon warung/toko di dekat tempat tinggal anggota tim yang bisa didatangi.
 
 ---
 
-## 5. Output Sesi
+## 4. Output Sesi
 
-1. Dokumen hasil kerja UMKM (misal: 3 deskripsi produk siap pajang di katalog + SOP penanganan komplain).
-2. Tautan slide atau file PDF presentasi mini (durasi presentasi: 5 menit per squad).
+Kumpulkan satu file Markdown (`studi-kasus-umkm-asumsi.md`) berisi:
+1. Profil UMKM percontohan yang dipilih (lengkap dengan label `[ASUMSI]`).
+2. Teks prompt formula R-C-I-C-O yang digunakan tim.
+3. Hasil akhir: 3 deskripsi produk katalog + 1 template pesan balasan WhatsApp yang sudah dikurasi manusia.
+4. Catatan kurasi: 2 hal aneh/halusinasi dari AI yang sengaja dibuang oleh squad beserta alasannya.
+
+---
+
+## 5. Tugas Mandiri (Individual)
+
+- **Sifat:** Individu (dikerjakan sendiri di luar jam kelas)
+- **Target Waktu:** 25 menit
+- **Nama File:** Simpan di folder pribadimu dalam repo squad dengan nama `tugas_01d.md`
+
+### Instruksi:
+1. Pikirkan satu produk makanan/minuman yang sering kamu beli di dekat rumahmu (misal: pisang goreng Bu Ani, es teh manis, atau nasi goreng Mas Doni).
+2. Tuliskan deskripsi produk tersebut yang saat ini ada di kepalamu (biasanya sangat singkat).
+3. Buat prompt formula R-C-I-C-O ke AI untuk membuatkan deskripsi katalog produk yang menarik (maksimal 3-4 kalimat ringkas, sebutkan bahan, rasa, dan harga terjangkau).
+4. Edit hasilnya sendiri: buang kalimat lebay/berlebihan yang tidak sesuai dengan warung aslinya.
+
+### Contoh Hasil yang Diharapkan:
+```markdown
+# Tugas Mandiri 01d — Kurasi Deskripsi Produk
+Nama: [Nama Kamu]
+Produk: Pisang Goreng Crispy "Warung Bu Ani"
+
+## 1. Deskripsi Awal Saya:
+Pisang goreng manis enak anget harga dua ribu sebiji.
+
+## 2. Prompt R-C-I-C-O:
+[Role] Copywriter kuliner lokal Indonesia.
+[Context] Warung Bu Ani berjualan di pinggir jalan perkampungan, pembeli utamanya warga sekitar yang mencari camilan sore.
+[Instruction] Tulis deskripsi produk singkat untuk kartu katalog online.
+[Constraint] Maksimal 3 kalimat, gaya bahasa ramah sehari-hari, jangan pakai kata puitis lebay.
+[Output] 1 paragraf pendek + info harga.
+
+## 3. Hasil Kurasi Mandiri:
+Pisang kepok manis pilihan digoreng hangat dengan balutan tepung renyah keemasan. Pas dinikmati bersama secangkir kopi atau teh di sore hari. Hanya Rp 2.000 per potong, selalu fresh setiap sore!
+```
 
 ---
 
 ## 6. Cek Pemahaman Diri
 
 1. Mengapa gaya bahasa hasil copywriting murni dari AI sering terasa kaku dan perlu sentuhan kurasi manusia?
-2. Jika AI menyarankan UMKM keripik pisang untuk memakai kemasan impor seharga Rp 15.000 per bungkus padahal harga keripiknya hanya Rp 10.000, prinsip apa yang dilanggar oleh AI tersebut?
+2. Mengapa kita wajib menandai profil studi kasus fiktif sebagai `[ASUMSI]` sebelum melakukan wawancara lapangan nyata?
 
-Lanjut ke: **[01e-ai-untuk-belajar-mandiri.md](file:///home/iqbaal/gelombang-3/modul%2012%20bulan/modul-pra-coding-bulan1/1-AI-Literacy/01e-ai-untuk-belajar-mandiri.md)**
+---
+
+Lanjut ke: **[01e-ai-untuk-belajar-mandiri.md](01e-ai-untuk-belajar-mandiri.md)**

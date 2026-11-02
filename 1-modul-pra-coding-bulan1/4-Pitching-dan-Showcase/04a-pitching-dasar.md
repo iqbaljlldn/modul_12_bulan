@@ -2,17 +2,17 @@
 
 **Minggu 4: Pitching & Showcase | Sesi 1 (Senin)**  
 **Target Waktu:** 90 - 120 Menit  
-**Output Sesi:** Latihan Pitch Impromptu 2 Menit per Peserta + Umpan Balik Pasangan
+**Output Sesi:** Latihan Hook Pembuka 30 Detik per Murid + Umpan Balik Pasangan
 
 ---
 
 ## 1. Mengapa Ini Penting?
 
-Banyak engineer hebat memiliki ide brilian dan kode yang canggih, namun gagal mendapatkan pendanaan, gagal meyakinkan timnya, atau gagal membuat produknya dipakai orang hanya karena satu hal: **mereka tidak bisa menjelaskan nilainya secara sederhana kepada manusia lain**.
+Banyak engineer berbakat memiliki ide brilian dan kode yang canggih, namun gagal meyakinkan timnya, gagal mendapatkan pendanaan, atau gagal membuat aplikasinya dipakai orang hanya karena satu hal: **mereka tidak bisa menjelaskan nilainya secara sederhana kepada manusia lain**.
 
-Jika kamu hanya bisa berbicara dengan komputer lewat kode, nilaimu sebagai profesional akan terbatas. Namun jika kamu bisa menjembatani antara **masalah manusia** dan **solusi teknologi** melalui komunikasi yang lugas, kamu akan menjadi engineer yang sangat dicari.
+Jika kamu hanya bisa berbicara dengan komputer lewat kode, nilaimu sebagai profesional akan terbatas. Namun jika kamu bisa menjembatani antara **masalah manusia nyata** dan **solusi teknologi** melalui komunikasi yang lugas, kamu akan menjadi software engineer yang sangat dicari dan dihargai.
 
-Hari ini kita akan membedah formula **Pitching 5 Menit** berstandar industri startup teknologi.
+Hari ini kita akan membedah formula presentasi produk berstandar industri startup teknologi.
 
 ---
 
@@ -25,70 +25,102 @@ Sebuah presentasi pitch yang efektif selalu mengikuti alur emosional dan logika 
 │               5 BABAK STRUKTUR PITCHING                │
 ├────────────────────────────────────────────────────────┤
 │ 1. The Hook & The Problem (Masalah Nyata yang Pedih)  │
-│    Ceritakan satu manusia nyata (persona) yang menderita│
+│    Ceritakan satu sosok manusia nyata (persona riset)  │
 │                                                        │
-│ 2. The Solution (Solusi Unik Produk Kita)             │
-│    Tunjukkan konsep platform kita sebagai pahlawan     │
+│ 2. The Solution (Solusi Unik Katalog Kita)            │
+│    Tunjukkan konsep platform kita sebagai pemecah      │
+│    masalah yang praktis                                │
 │                                                        │
 │ 3. The Proof / Demo (Bukti Nyata: Wireframe & Alur)   │
-│    Bukan sekadar omong kosong; tunjukkan bukti konkret │
+│    Bukan sekadar kata-kata manis; tunjukkan artefak    │
+│    desain dan diagram alur nyata                       │
 │                                                        │
-│ 4. The Impact & Business (Manfaat Nyata bagi Pengguna)│
-│    Bagaimana hidup pedagang dan pembeli jadi lebih baik│
+│ 4. The Impact & Value (Manfaat bagi Pengguna)         │
+│    Bagaimana hidup pedagang dan pembeli jadi lebih     │
+│    mudah dan bebas dari salah catat                    │
 │                                                        │
-│ 5. Call to Action & The Ask (Langkah Berikutnya)      │
+│ 5. Roadmap & Call to Action (Langkah Berikutnya)      │
 │    Apa yang akan dibangun tim di Bulan 2 ke depan?     │
 └────────────────────────────────────────────────────────┘
 ```
 
 ### Formula Menghidupkan Cerita (*The Persona Hook*):
 ❌ **Jangan Mulai Seperti Ini:**  
-> *"Selamat pagi teman-teman, hari ini kami dari kelompok 3 ingin mempresentasikan web aplikasi katalog UMKM berbasis React..."* (Membosankan, semua orang langsung membuka HP).
+> *"Selamat pagi teman-teman, hari ini kami dari Squad 3 ingin mempresentasikan web aplikasi katalog UMKM berbasis React..."* (Membosankan, semua orang langsung membuka HP).
 
 ✅ **Mulailah dengan Cerita Manusia Nyata:**  
-> *"Ini adalah Bu Sri. Setiap jam 5 pagi, Bu Sri sudah mengaduk sambal pecel di dapurnya. Tapi setiap jam 10 pagi, Bu Sri menangis karena puluhan pesanan di WhatsApp saling bertumpuk, salah catat alamat, dan modalnya habis tertahan karena pembeli lupa transfer. Ada 64 juta pelaku UMKM seperti Bu Sri di Indonesia yang terjebak masalah yang sama setiap hari. Hari ini, kami memperkenalkan Platform Katalog UMKM..."* (Audiens langsung terikat secara emosional).
+> *"Ini adalah Ibu Marni, pedagang sarapan yang kami wawancarai langsung di dekat asrama kemarin. Setiap jam 6 pagi, Bu Marni kerepotan membalas belasan chat WhatsApp dari tetangga yang memesan lontong sayur sambil tangannya memegang wajan penggorengan panas. Sering kali pesanan salah catat dan pembeli kecewa karena makanan sudah ludes dibeli orang yang datang langsung ke warung. Jutaan pelaku usaha mikro di Indonesia menghadapi kerepotan yang persis sama setiap hari (cek data resmi Kementerian Koperasi dan UKM / BPS untuk angka statistik terbarunya). Hari ini, kami memperkenalkan Platform Katalog UMKM..."* (Audiens langsung terikat secara emosional dan fokus mendengarkan).
 
 ---
 
 ## 3. Tiga Kunci Penguasaan Panggung
 
-1. **Bahasa Manusia, Bukan Jargon:** Jangan katakan *"Kami mengimplementasikan relational database management system 3NF..."*. Katakan *"Sistem kami memastikan riwayat pesanan Bu Sri tidak akan pernah hilang meskipun tokonya berganti nomor HP."*
+1. **Bahasa Manusia, Bukan Pamer Jargon:** Jangan katakan *"Kami mengimplementasikan relational database 3NF dengan foreign key constraint..."*. Katakan *"Sistem kami memastikan riwayat pesanan Ibu Marni tidak akan pernah hilang meskipun tokonya berganti nomor HP."*
 2. **Kontak Mata & Postur Terbuka:** Tatap mata penonton bergantian (kiri, tengah, kanan). Jangan menatap lantai atau terus-menerus menatap slide di belakangmu.
 3. **Mengatasi Gugup (*Nervousness*):** Tarik napas dalam 4 detik, tahan 4 detik, hembuskan 4 detik. Ingat: audiens ingin melihatmu berhasil, mereka bukan musuh yang sedang mengadilimu.
 
 ---
 
-## 4. Workshop Praktik Pairing: Pitch Impromptu 2 Menit (60 Menit)
+## 4. Workshop Praktik Pairing: Latihan Hook 30 Detik (60 Menit)
 
 Latihan hari ini dilakukan secara **berpasangan (pairing)** di dalam squad.
 
-### Alur Latihan:
-1. **Persiapan Sendiri (10 Menit):**  
-   Tuliskan poin-poin utama pitch 2 menit tanpa melihat naskah teks panjang. Hanya 5 poin peluru: Masalah Bu Sri → Solusi Katalog → Fitur Kunci → Dampak bagi Toko → Harapan.
+1. **Persiapan Mandiri (10 Menit):**  
+   Tuliskan 3–4 kalimat pembuka (*Hook*) berdurasi 30 detik pertama berdasarkan hasil wawancara UMKM nyata yang dilakukan squad-mu di Minggu 3.
 2. **Putaran 1 (15 Menit):**  
-   Peserta A melakukan pitch live selama 2 menit di depan Peserta B (gunakan timer HP). Peserta B mencatat:
-   - Apakah masalahnya terdengar jelas?
-   - Apakah intonasi bicaranya meyakinkan?
-   - Di detik ke berapa presenter mulai terbata-bata?
+   Peserta A membawakan kalimat pembuka secara live di depan Peserta B (gunakan timer HP). Peserta B mencatat:
+   - Apakah masalah pedagang terdengar jelas dan menyentuh?
+   - Apakah intonasi bicaranya tegas dan tidak berbisik-bisik?
 3. **Putaran 2 (15 Menit):**  
-   Tukar peran: Peserta B melakukan pitch, Peserta A memberi feedback.
+   Tukar peran: Peserta B melakukan pitch pembuka, Peserta A memberi feedback.
 4. **Iterasi & Putaran Final (20 Menit):**  
-   Ulangi sekali lagi dengan menerapkan masukan dari pasangan.
+   Ulangi sekali lagi dengan menerapkan masukan dari rekan pasangan.
 
 ---
 
 ## 5. Output Sesi
 
-Setiap peserta memiliki **Lembar Rangkuman Pitch Pribadi**:
-- Kalimat pembuka (*Hook*) berdurasi 30 detik pertama.
-- 3 Poin bukti solusi yang akan dibawakan.
-- Catatan perbaikan dari teman pasangan.
+Lembar kerja naskah pembuka pribadi (*The Hook*) berdurasi 30 detik yang siap digabungkan ke dalam naskah slide tim.
 
 ---
 
-## 6. Cek Pemahaman Diri
+## 6. Tugas Mandiri (Individual)
 
-1. Mengapa mengawali presentasi dengan cerita satu orang manusia nyata jauh lebih kuat daripada langsung menampilkan diagram data?
-2. Apa tanda-tanda fisik bahwa seorang presenter sedang membaca teks di layar slide alih-alih sedang berkomunikasi dengan audiens?
+- **Sifat:** Individu (dikerjakan sendiri di luar jam kelas)
+- **Target Waktu:** 20 menit
+- **Nama File:** Simpan di folder pribadimu dalam repo squad dengan nama `tugas_04a.md`
 
-Lanjut ke: **[04b-ai-untuk-merancang-alur-aplikasi.md](file:///home/iqbaal/gelombang-3/modul 12 bulan/modul-pra-coding-bulan1/4-Pitching-dan-Showcase/04b-ai-untuk-merancang-alur-aplikasi.md)**
+### Instruksi:
+1. Sempurnakan naskah pembuka 30 detik pribadimu menjadi teks yang sangat mengalir dan alami saat diucapkan dengan mulut.
+2. Rekam dirimu berbicara menggunakan perekam suara HP (voice note) dengan stopwatch.
+3. Catat di file `tugas_04a.md`:
+   - Naskah pembuka finalmu.
+   - Durasi waktu riil yang kamu capai (apakah tepat 25–35 detik?).
+   - 1 Kata atau kalimat yang sempat membuat lidahmu terpeleset saat berlatih.
+
+### Contoh Hasil yang Diharapkan:
+```markdown
+# Tugas Mandiri 04a — Naskah Pembuka Pitching
+Nama: [Nama Kamu]
+
+## 1. Naskah Pembuka (The Hook):
+"Bayangkan kamu sedang menggoreng tempe panas, lalu HP-mu bergetar sepuluh kali berturut-turut karena pelanggan bertanya: 'Bu, masih ada lontong sayur nggak?'. Inilah kenyataan harian Ibu Marni, pedagang sarapan yang kami wawancarai langsung kemarin. Hari ini, kami hadir membawa solusi: sebuah katalog web yang langsung menunjukkan sisa stok secara live ke pembeli dan meneruskan pesanan otomatis ke WhatsApp."
+
+## 2. Catatan Latihan Waktu:
+- Durasi Latihan 1: 38 detik (terlalu lambat).
+- Durasi Latihan 2: 29 detik (pas dan bertenaga!).
+
+## 3. Titik Evaluasi Lidah:
+Saya sempat tersendat saat mengucapkan kata 'menunjukkan sisa stok secara live'. Saya perhalus menjadi 'menunjukkan stok yang tersisa secara langsung' agar lebih lancar diucapkan.
+```
+
+---
+
+## 7. Cek Pemahaman Diri
+
+1. Mengapa mengawali presentasi dengan cerita satu sosok manusia nyata jauh lebih memikat penonton daripada langsung menampilkan diagram data?
+2. Mengapa klaim statistik besar (seperti jumlah UMKM di Indonesia) sebaiknya disertai catatan untuk memeriksa sumber data resmi sebelum dipakai?
+
+---
+
+Lanjut ke: **[04b-ai-untuk-merancang-alur-aplikasi.md](04b-ai-untuk-merancang-alur-aplikasi.md)**

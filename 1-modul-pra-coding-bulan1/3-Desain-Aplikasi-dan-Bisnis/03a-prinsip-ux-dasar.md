@@ -8,14 +8,14 @@
 
 ## 1. Mengapa Ini Penting?
 
-Banyak software gagal bukan karena fiturnya kurang banyak atau kodenya lambat, melainkan karena pengguna merasa bingung, frustrasi, lalu menghapus aplikasi tersebut setelah 30 detik pertama:
-- *"Tombol bayarnya di mana ya?"*
-- *"Kok muter-muter terus nggak ada pemberitahuan apa-apa?"*
-- *"Udah ngetik form panjang, pas salah huruf malah kereset semua!"*
+Banyak aplikasi gagal bukan karena fiturnya kurang canggih atau kodenya lambat, melainkan karena pengguna merasa bingung, frustrasi, lalu menutup aplikasi tersebut dalam 30 detik pertama:
+- *"Tombol pesannya di mana ya?"*
+- *"Kok muter-muter terus nggak ada keterangan apa-apa?"*
+- *"Udah capek-capek ngetik form panjang, pas salah satu huruf malah kereset semua!"*
 
-Sebagai pembuat software, kamu tidak membuat aplikasi untuk dirimu sendiri. Kamu membuatnya untuk manusia lain dengan berbagai tingkat literasi digital.
+Sebagai pembuat software, kamu tidak membuat aplikasi untuk dirimu sendiri. Kamu membuatnya untuk manusia lain dengan berbagai tingkat literasi teknologi.
 
-Hari ini kita akan membedah **User Experience (UX)** dan memahami prinsip dasar psikologi antarmuka.
+Hari ini kita akan membedah **User Experience (UX)** dan memahami prinsip dasar psikologi antarmuka manusia.
 
 ---
 
@@ -26,70 +26,110 @@ Hari ini kita akan membedah **User Experience (UX)** dan memahami prinsip dasar 
 │        UI (User Interface)            │        UX (User Experience)           │
 ├───────────────────────────────────────┼───────────────────────────────────────┤
 │ "Bagaimana tampilannya terlihat"      │ "Bagaimana rasanya saat digunakan"    │
-│ Warna, font, icon, keindahan grafis,  │ Kecepatan alur, kemudahan menemukan   │
-│ animasi transisi, konsistensi visual. │ menu, kejelasan pesan error, rasa     │
+│ Warna, font, icon, keindahan visual,  │ Kecepatan alur, kemudahan menemukan   │
+│ animasi transisi, konsistensi tombol. │ menu, kejelasan pesan error, rasa     │
 │                                       │ puas tanpa kebingungan.               │
 └───────────────────────────────────────┴───────────────────────────────────────┘
 ```
 
 > **Analogi Sendok Makan:**  
-> Sendok makan berbahan emas berkilau dengan ukiran bunga yang indah adalah **UI yang cantik**.  
-> Tetapi jika gagangnya terlalu berat ke belakang dan cekungannya datar sehingga kuah sup selalu tumpah, sendok itu memiliki **UX yang sangat buruk**.
+> Sendok makan berbahan emas berkilau dengan ukiran bunga indah adalah **UI yang cantik**.  
+> Tetapi jika gagangnya terlalu berat ke belakang dan cekungannya sangat ceper sehingga kuah sup selalu tumpah saat disendok, sendok itu memiliki **UX yang sangat buruk**.
 
 ---
 
 ## 3. Empat Prinsip Emas UX untuk Aplikasi UMKM
 
-### 1. Hukum Jakob (*Jakob’s Law*)
-> *"Pengguna menghabiskan sebagian besar waktu mereka di aplikasi lain, bukan di aplikasimu."*
+### 1. Prinsip Kebiasaan Pengguna (Jangan Bikin Pusing dengan Pola Aneh)
+> *"Orang terbiasa dengan pola yang sering mereka temui di aplikasi lain."*
 
-Jangan membuat tata letak yang aneh-aneh hanya demi terlihat "unik". Jika di hampir semua toko online tombol keranjang ada di pojok kanan atas dan tombol beli ada di bagian bawah layar, ikutilah pola itu! Mengubah pola familiar hanya akan membingungkan pengguna.
+Jangan membuat tata letak yang aneh-aneh hanya demi terlihat "beda". Jika di hampir semua aplikasi tombol keranjang/pesanan ada di pojok kanan atau di bawah layar ponsel, ikutilah pola itu! Mengubah pola yang sudah mendarah daging hanya akan membuat pengguna merasa tersesat.
 
-### 2. Visibilitas Status Sistem & Feedback Cepat
-Sistem harus selalu memberi tahu pengguna apa yang sedang terjadi melalui umpan balik yang jelas dalam waktu wajar.
-- Saat tombol "Beli" ditekan: Jangan biarkan layar membeku. Tampilkan animasi loading atau teks *"Sedang memproses pesanan..."*.
-- Saat berhasil: Tampilkan centang hijau *"Pesanan berhasil dicatat!"*.
-- Saat gagal: Jangan tampilkan *"Error 500"*! Tampilkan *"Koneksi internetmu terputus. Silakan coba lagi."*.
+### 2. Prinsip Tombol Mudah Dijangkau Jempol (Hierarki Ukuran & Jarak)
+> *"Semakin penting sebuah tindakan, semakin besar tombolnya dan semakin dekat dengan jangkauan jempol."*
 
-### 3. Hierarki Visual & Fitts's Law
-Elemen penting harus lebih mencolok dan mudah disentuh jempol:
-- **Tombol Utama (Primary Button):** Ukuran lebih besar, warna tegas dan kontras tinggi (misal: "Konfirmasi Pesanan").
-- **Tombol Sekunder (Secondary Button):** Garis tepi saja / warna redup (misal: "Batal").
-- Tombol penting di smartphone harus berada di zona jangkauan jempol (*thumb zone*).
+- **Tombol Utama (Call to Action / CTA):** Harus berukuran paling besar dengan warna kontras tegas (misal: tombol hijau besar *"Pesan via WhatsApp"*).
+- **Tombol Sekunder:** Cukup garis tepi atau warna redup (misal: tombol *"Batal"*).
+- Karena pengguna membuka katalog di layar smartphone sambil memegang HP dengan satu tangan, letakkan tombol aksi di zona jangkauan jempol (*thumb zone*) di bagian bawah layar.
 
-### 4. Pencegahan & Pengampunan Kesalahan (*Error Prevention & Recovery*)
-- Cegah error sebelum terjadi (misal: jika nomor HP wajib angka, tampilkan keyboard khusus angka di layar ponsel).
-- Jika pengguna salah mengisi, jangan kosongkan kembali seluruh form. Beri tanda merah tepat di kolom yang salah disertai petunjuk cara memperbaikinya.
+### 3. Visibilitas Status Sistem (Beri Kabar Cepat)
+Sistem harus selalu memberi tahu pengguna apa yang sedang terjadi melalui umpan balik yang jelas dan wajar:
+- Saat tombol ditekan: Tampilkan teks *"Sedang membuka WhatsApp..."* atau indikator loading. Jangan biarkan layar membeku tanpa respon.
+- Saat sukses: Tampilkan centang hijau jelas.
+- Saat error: Jangan tampilkan kode teknis asing seperti *"Error 500"*! Tampilkan pesan ramah: *"Koneksi internetmu terputus. Silakan coba kirim ulang."*
 
----
-
-## 5. Workshop Praktik Squad (60 Menit)
-
-Tiap squad akan melakukan **Audit UX Sederhana** terhadap 2 aplikasi nyata yang sering dipakai di Indonesia (misal: Tokopedia, Shopee, WhatsApp Bisnis, Sayurbox, atau website dinas pemerintah):
-
-### Panduan Audit:
-1. Pilih 1 aplikasi yang menurut timmu memiliki UX **Sangat Nyaman / Hebat**.
-2. Pilih 1 aplikasi/website yang menurut timmu memiliki UX **Sangat Membingungkan / Menyebalkan**.
-3. Bedah masing-masing aplikasi berdasarkan 4 prinsip di atas. Temukan:
-   - 3 hal positif yang membuat aplikasi pertama terasa mulus.
-   - 3 hal negatif yang membuat aplikasi kedua membuat jengkel pengguna.
-   - Usulan perbaikan konkrit untuk kekurangan tersebut.
+### 4. Pencegahan & Pengampunan Kesalahan (*Error Prevention*)
+- Cegah error sebelum terjadi: Jika kolom nomor WhatsApp hanya boleh angka, langsung munculkan keyboard angka di layar ponsel pengguna.
+- Jika pengguna salah mengisi form, jangan mengosongkan kembali kolom lain yang sudah diketik dengan susah payah. Beri penanda merah tepat di kolom yang salah disertai petunjuk cara membenarkannya.
 
 ---
 
-## 6. Output Sesi: Laporan "UX Review" Squad
+> [!NOTE]
+> **Istilah Tambahan / Referensi Desain (Opsional):**  
+> Di dunia profesional UI/UX, Prinsip Kebiasaan Pengguna dikenal sebagai **Hukum Jakob (*Jakob’s Law*)**, sedangkan prinsip ukuran dan jangkauan tombol dikenal sebagai **Hukum Fitts (*Fitts’s Law*)**.
 
-Kumpulkan file Markdown singkat berisi:
-- Nama aplikasi yang diaudit.
-- Bukti tangkapan layar / sketsa bagian antarmuka yang diulas.
-- Catatan 3 Temuan Bagus vs 3 Temuan Buruk.
-- 1 Pembelajaran UX terpenting yang akan diadopsi ke Platform Katalog UMKM timmu.
+---
+
+## 4. Workshop Praktik Squad (60 Menit)
+
+Tiap squad akan melakukan **Audit UX Sederhana** terhadap 2 aplikasi nyata yang sering dipakai di Indonesia (misal: WhatsApp Bisnis, Tokopedia, Shopee, Sayurbox, atau website dinas publik):
+
+### Panduan Audit Tim:
+1. Pilih 1 aplikasi yang menurut timmu memiliki UX **Sangat Nyaman / Enak Digunakan**.
+2. Pilih 1 aplikasi/website yang menurut timmu memiliki UX **Sangat Membingungkan / Menjengkelkan**.
+3. Bedah kedua aplikasi tersebut menggunakan 4 prinsip emas di atas:
+   - Temukan 3 hal positif yang membuat aplikasi pertama terasa nyaman.
+   - Temukan 3 hal negatif yang membuat aplikasi kedua membuat jengkel pengguna.
+   - Tuliskan 1 saran perbaikan konkret untuk kekurangan tersebut.
+
+---
+
+## 5. Output Sesi
+
+Kumpulkan dokumen Markdown laporan UX Review squad berisi:
+- Nama kedua aplikasi yang diulas.
+- Bukti tangkapan layar bagian antarmuka yang dibahas.
+- Catatan 3 Temuan Positif vs 3 Temuan Menjengkelkan.
+- 1 Pembelajaran UX terpenting yang akan diterapkan pada Platform Katalog UMKM timmu.
+
+---
+
+## 6. Tugas Mandiri (Individual)
+
+- **Sifat:** Individu (dikerjakan sendiri di luar jam kelas)
+- **Target Waktu:** 20 menit
+- **Nama File:** Simpan di folder pribadimu dalam repo squad dengan nama `tugas_03a.md`
+
+### Instruksi:
+1. Amati orang tua, saudara, atau tetangga di sekitarmu saat mereka sedang menggunakan smartphone mereka (atau refleksikan pengalaman pribadimu).
+2. Temukan **1 momen di mana mereka sempat bingung, salah pencet, atau mengeluh** saat memakai sebuah aplikasi.
+3. Tuliskan dalam 3 poin:
+   - Apa aplikasi yang digunakan dan apa yang ingin mereka lakukan?
+   - Mengapa antarmuka aplikasi tersebut membingungkan mereka?
+   - Bagaimana solusi perbaikan tombol/tata letak yang lebih ramah pengguna?
+
+### Contoh Hasil yang Diharapkan:
+```markdown
+# Tugas Mandiri 03a — Observasi Hambatan UX
+Nama: [Nama Kamu]
+
+## 1. Situasi Pengamatan:
+Ibu saya ingin mencari resep opor ayam di sebuah website resep masakan lokal.
+
+## 2. Masalah UX yang Ditemukan:
+Ketika membuka halaman, layar langsung tertutup 3 jendela pop-up iklan yang bertumpuk. Tombol tanda silang (X) untuk menutup iklan sangat kecil di pojok kanan atas, sehingga ibu saya berulang kali salah memencet iklan dan terlempar ke halaman lain. Ibu saya langsung merasa panik dan mengira HP-nya terkena virus.
+
+## 3. Solusi Perbaikan Berdasarkan Prinsip UX:
+Jangan memasang iklan menutupi konten utama. Jika ada jendela pemberitahuan, tombol tutup (X) harus berukuran minimal 44x44 pixel dan kontras jelas agar mudah disentuh jari pengguna paruh baya.
+```
 
 ---
 
 ## 7. Cek Pemahaman Diri
 
-1. Mengapa tombol "Hapus Toko" atau "Hapus Produk" sebaiknya tidak diberi warna mencolok yang sama dengan tombol "Simpan"?
-2. Mengapa pengguna paruh baya pemilik UMKM sering takut menekan tombol baru di aplikasi ponsel mereka? Bagaimana prinsip UX mengatasi ketakutan ini?
+1. Mengapa tombol penting seperti *"Pesan via WhatsApp"* harus diletakkan di bagian bawah layar smartphone (bukan di pojok atas)?
+2. Mengapa menampilkan kode error teknis seperti *"Error 404"* sangat buruk bagi pengalaman pengguna awam UMKM?
 
-Lanjut ke: **[03b-wireframe-dan-merancang-tampilan.md](file:///home/iqbaal/gelombang-3/modul 12 bulan/modul-pra-coding-bulan1/3-Desain-Aplikasi-dan-Bisnis/03b-wireframe-dan-merancang-tampilan.md)**
+---
+
+Lanjut ke: **[03b-wireframe-dan-merancang-tampilan.md](03b-wireframe-dan-merancang-tampilan.md)**

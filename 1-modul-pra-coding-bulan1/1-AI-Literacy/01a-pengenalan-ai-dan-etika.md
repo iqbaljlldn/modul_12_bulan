@@ -32,13 +32,13 @@ LLM menghitung secara statistik: kata apa yang paling mungkin muncul berikutnya 
 ### 2.2 Apa yang AI Sangat Bagus Lakukan
 - **Sintesis & Rangkuman:** Mengubah teks panjang menjadi poin-poin penting.
 - **Pencarian Pola & Variasi Ide:** Memberikan 10 opsi ide nama produk, slogan, atau strategi kampanye.
-- **Transformasi Format:** Mengubah teks biasa menjadi tabel, format JSON, atau poin presentasi.
+- **Transformasi Format:** Mengubah teks biasa menjadi tabel, daftar terstruktur, atau poin presentasi.
 - **Penjelasan Berulang Tanpa Lelah:** Menerangkan kembali konsep sulit dengan gaya bahasa berbeda (misal: "jelaskan seperti untuk anak usia 10 tahun").
 
 ### 2.3 Apa yang AI Tidak Bisa / Sangat Berbahaya Jika Diandalkan Sendirian
 - **Kebenaran Mutlak & Fakta Baru:** AI sering mengalami **Halusinasi** (*hallucination*) — yaitu mengarang fakta, referensi buku, aturan hukum, atau fungsi kode yang sebenarnya tidak pernah ada dengan nada bicara yang sangat meyakinkan.
-- **Konteks Lokal Spesifik:** AI tidak tahu kondisi riil pasar becek tempat penjual keripik singkong UMKM binaanmu berjualan, kecuali kamu memberitahukannya secara eksplisit.
-- **Pertanggungjawaban Moral:** Jika kamu merilis software yang menghapus saldo pengguna karena mengikuti saran AI, kamu yang dipecat atau digugat, bukan AI-nya.
+- **Konteks Lokal Spesifik:** AI tidak tahu kondisi riil pasar becek tempat penjual keripik singkong UMKM di sekitarmu berjualan, kecuali kamu memberitahukannya secara eksplisit.
+- **Pertanggungjawaban Moral:** Jika kamu merilis software yang merugikan pelanggan karena mengikuti saran AI, kamu yang bertanggung jawab penuh, bukan AI-nya.
 
 ---
 
@@ -64,18 +64,18 @@ Andi mendapat tugas membuat presentasi profil UMKM binaan. Karena kehabisan wakt
 - *Pertanyaan Diskusi:* Apa kesalahan fatal Andi? Apa dampaknya bagi bisnis Pak Joko? Bagaimana seharusnya Andi menggunakan AI dalam kasus ini?
 
 ### Kasus B: "Copy-Paste Pembawa Petaka"
-Siti meminta AI membuatkan aturan diskon untuk aplikasi katalog. AI menyarankan kode logika diskon beli 2 gratis 1, namun ada bug tersembunyi yang membuat pembeli bisa mendapat barang gratis tanpa batas. Siti tidak membaca teliti dan langsung menyetujui alur tersebut.
+Siti meminta AI membuatkan aturan diskon untuk aplikasi katalog. AI menyarankan logika diskon beli 2 gratis 1, namun ada celah logika tersembunyi yang membuat pembeli bisa mendapat barang gratis tanpa batas. Siti tidak membaca teliti dan langsung menyetujui alur tersebut.
 - *Pertanyaan Diskusi:* Siapa yang bersalah jika toko mengalami kerugian besar? Apa pelajaran tentang verifikasi logika?
 
 ### Kasus C: "Transparansi ke Mentor"
-Budi menyelesaikan tugas dekomposisi masalah dalam waktu 15 menit dengan bantuan prompt terstruktur ke Claude. Budi menyertakan tangkapan layar prompt dan menjelaskan secara lisan bagian mana yang merupakan hasil brainstorming AI dan bagian mana yang merupakan keputusan timnya.
+Budi menyelesaikan tugas dekomposisi masalah dalam waktu 15 menit dengan bantuan prompt terstruktur ke AI. Budi menyertakan tangkapan layar prompt dan menjelaskan secara lisan bagian mana yang merupakan hasil brainstorming AI dan bagian mana yang merupakan keputusan timnya.
 - *Pertanyaan Diskusi:* Apakah tindakan Budi etis? Mengapa transparansi proses lebih dihargai daripada hasil instan tanpa jejak?
 
 ---
 
 ## 5. Output Sesi: Draft "Piagam Etika AI Tribe"
 
-Tiap squad wajib menyusun **5 Butir Kesepakatan Etika Penggunaan AI** yang akan berlaku selama 12 bulan ke depan.
+Tiap squad wajib menyusun **5 Butir Kesepakatan Etika Penggunaan AI** yang akan berlaku selama proses belajar.
 
 Contoh format:
 ```markdown
@@ -91,10 +91,40 @@ Kumpulkan draf ini ke mentor untuk digabungkan menjadi **Piagam Etika AI Tribe r
 
 ---
 
-## 6. Cek Pemahaman Diri
+## 6. Tugas Mandiri (Individual)
 
-Sebelum mengakhiri sesi, jawablah dalam hati:
-1. Mengapa LLM bisa menjawab pertanyaan yang salah dengan bahasa yang sangat yakin?
+- **Sifat:** Individu (dikerjakan sendiri di luar jam kelas)
+- **Target Waktu:** 20 menit
+- **Nama File:** Simpan di folder pribadimu dalam repo squad dengan nama `tugas_01a.md`
+
+### Instruksi:
+1. Pikirkan satu situasi di mana kamu tergoda menggunakan AI untuk jalan pintas instan (misal: merangkum materi tanpa membaca atau membuat jawaban tugas otomatis).
+2. Tuliskan dalam 1 halaman ringkas:
+   - Apa risiko jangka panjang bagi dirimu sendiri jika kamu mengambil jalan pintas tersebut?
+   - Tuliskan 1 aturan etika pribadi yang kamu tetapkan untuk dirimu agar tetap belajar mandiri secara jujur.
+
+### Contoh Hasil yang Diharapkan:
+```markdown
+# Tugas Mandiri 01a — Refleksi Etika AI
+Nama: [Nama Kamu]
+
+## 1. Godaan Jalan Pintas yang Pernah Terlintas
+Saat disuruh merangkum materi sulit, saya tergoda menyalin teks dari AI tanpa benar-benar membacanya.
+
+## 2. Risiko Jangka Panjang
+Otak saya tidak terlatih memecahkan masalah. Saat wawancara kerja atau saat terjadi bug di server, saya tidak akan bisa menyelesaikannya sendiri tanpa AI.
+
+## 3. Aturan Pribadi Saya
+Saya boleh minta AI merangkum materi, tetapi saya wajib menulis ulang kesimpulan akhir dengan 3 kalimat versi bahasa saya sendiri sebelum tugas dikumpulkan.
+```
+
+---
+
+## 7. Cek Pemahaman Diri
+
+1. Mengapa LLM bisa memberikan jawaban yang salah dengan nada bahasa yang sangat meyakinkan?
 2. Jika mentormu menanyakan: *"Jelaskan kenapa alur ini memilih percabangan X?"*, apakah kamu bisa menjawabnya tanpa membuka riwayat chat AI-mu?
 
-Lanjut ke: **[01b-ct-dan-problem-solving-dengan-ai.md](file:///home/iqbaal/gelombang-3/modul%2012%20bulan/modul-pra-coding-bulan1/1-AI-Literacy/01b-ct-dan-problem-solving-dengan-ai.md)**
+---
+
+Lanjut ke: **[01b-ct-dan-problem-solving-dengan-ai.md](01b-ct-dan-problem-solving-dengan-ai.md)**

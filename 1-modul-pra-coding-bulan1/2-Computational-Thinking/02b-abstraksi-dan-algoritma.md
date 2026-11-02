@@ -2,68 +2,60 @@
 
 **Minggu 2: Computational Thinking & Algoritma | Sesi 2 (Selasa)**  
 **Target Waktu:** 90 - 120 Menit  
-**Output Sesi:** Dokumen Pseudocode Logika Bisnis UMKM
+**Output Sesi:** Dokumen Pseudocode Logika Bisnis UMKM + Jembatan Kode JS
 
 ---
 
 ## 1. Mengapa Ini Penting?
 
-Dua pilar terakhir Computational Thinking adalah **Abstraksi** dan **Algoritma**:
-- **Abstraksi** mengajari kita membuang "kebisingan" (*noise*) dan fokus pada informasi penting yang dibutuhkan sistem.
+Dua pilar berikutnya dalam Computational Thinking adalah **Abstraksi** dan **Algoritma**:
+- **Abstraksi** mengajari kita menyaring informasi: membuang hal-hal yang tidak relevan (*noise*) dan hanya menyimpan data inti yang dibutuhkan sistem.
 - **Algoritma** mengajari kita menyusun instruksi yang runtut, tegas, dan tidak bermakna ganda (*unambiguous*).
 
-Sebelum kamu menulis kode dalam bahasa JavaScript atau TypeScript di Bulan 2, kamu harus bisa menulis algoritma dalam bahasa manusia yang terstruktur—dikenal sebagai **Pseudocode**. Jika algoritmamu dalam bahasa Indonesia saja masih membingungkan, menerjemahkannya ke bahasa pemrograman hanya akan menghasilkan ribuan bug.
+Sebelum kamu menulis kode JavaScript atau TypeScript di Bulan 2, kamu harus bisa menuliskan alur logika tersebut dalam bentuk **Pseudocode** (kode semu berbahasa Indonesia yang terstruktur). Jika logikamu dalam bahasa manusia saja masih rancu, menerjemahkannya ke kode komputer hanya akan memicu kebingungan dan error.
 
 ---
 
-## 2. Pilar 3: Abstraksi (Fokus pada Inti, Buang yang Tidak Relevan)
+## 2. Pilar 3: Abstraksi (Fokus pada Data Inti)
 
 Abstraksi adalah kemampuan menyaring fakta.
 
 ### Contoh Kasus di Toko Kelontong:
-Ketika seorang pembeli bernama Pak Budi datang membeli 2 kg beras:
-- *Detail Nyata:* Pak Budi memakai baju merah, naik motor matic warna biru, bercanda tentang cuaca panas, membayar pakai uang kertas Rp 50.000 yang agak lecek, dan tersenyum ramah.
+Seorang pembeli datang membeli 2 kg beras:
+- *Detail Nyata di Toko:* Pembeli memakai baju biru, naik motor matic, bercanda tentang cuaca panas, dan membayar dengan uang kertas Rp 50.000 yang agak lecek.
 - *Abstraksi Sistem Kasir:*
   ```text
-  ID_Pembeli     : 08123456789 (Nomor HP jika member, atau 'Anonim')
-  Item_Dibeli    : Beras Ramos (ID: PRD-001)
-  Jumlah         : 2
+  ID_Barang      : BRG-001 (Beras Ramos)
+  Jumlah_Beli    : 2
+  Harga_Satuan   : Rp 14.000
   Total_Bayar    : Rp 28.000
   Uang_Diterima  : Rp 50.000
   Kembalian      : Rp 22.000
-  Waktu_Transaksi: 10-10-2026 14:15:00
   ```
 
-Warna baju, merek motor, dan leceknya uang adalah *noise*. Mengabaikan hal tersebut agar sistem bisa bekerja cepat adalah contoh penerapan abstraksi.
+Warna baju, merek motor, dan leceknya uang kertas adalah *noise* yang sengaja dibuang. Sistem hanya mencatat data yang berpengaruh pada perhitungan transaksi dan stok.
 
 ---
 
-## 3. Pilar 4: Algoritma & Struktur Logika Dasar
+## 3. Pilar 4: Algoritma & Format Baku Pseudocode
 
-Algoritma adalah serangkaian instruksi langkah-demi-langkah yang berurutan dan memiliki kondisi berhenti.
+Algoritma dibangun dari 3 blok dasar:
+1. **Sekuensial:** Langkah berjalan berurutan dari atas ke bawah.
+2. **Percabangan (Kondisional):** Mengambil keputusan berdasarkan kondisi.
+3. **Perulangan (Looping):** Mengulang aksi selama syarat terpenuhi.
 
-Setiap algoritma di dunia komputer dibangun dari **3 blok dasar**:
-
-```text
-1. SEKUENSIAL (Berurutan)       2. PERCABANGAN (If-Else)        3. PERULANGAN (Looping)
-   Langkah 1                       JIKA kondisi MAKA               SELAMA ada item
-   Langkah 2                          Lakukan A                       Lakukan B
-   Langkah 3                       LAINNYA                         Selesai loop
-                                      Lakukan B
-```
-
-### Format Standar Pseudocode Bahasa Indonesia:
-Gunakan kata kunci kapital berikut agar logikamu rapi dan terstandar:
+### Format Kata Kunci Baku Bahasa Indonesia:
+Gunakan kata kunci kapital berikut agar logikamu seragam dan mudah dibaca:
 - `MULAI` / `SELESAI`
 - `MASUKKAN` / `TAMPILKAN`
-- `JIKA ... MAKA ... LAINNYA`
-- `UNTUK SETIAP ... LAKUKAN` / `SELAMA ... LAKUKAN`
+- `JIKA ... MAKA ... LAINNYA ... AKHIR-JIKA`
+- `UNTUK SETIAP ... LAKUKAN ... AKHIR-UNTUK`
 
-### Contoh Pseudocode: Validasi Pembelian Produk di Katalog UMKM
+### Contoh Pseudocode: Logika Pemesanan Produk via WhatsApp
 ```text
-ALGORITMA ProsesBeliProduk
+ALGORITMA BuatPesananWhatsApp
 MULAI
-    MASUKKAN id_produk, jumlah_beli, uang_dibayar
+    MASUKKAN nama_pembeli, nomor_wa_pembeli, id_produk, jumlah_beli
 
     AMBIL data_produk BERDASARKAN id_produk
     
@@ -75,18 +67,11 @@ MULAI
     JIKA data_produk.stok < jumlah_beli MAKA
         TAMPILKAN "Maaf, stok hanya tersisa: " + data_produk.stok
         SELESAI
-    AKHIR-JIKA
-
-    HITUNG total_tagihan = data_produk.harga * jumlah_beli
-
-    JIKA uang_dibayar < total_tagihan MAKA
-        TAMPILKAN "Uang tidak cukup. Kurang: " + (total_tagihan - uang_dibayar)
-        SELESAI
     LAINNYA
-        HITUNG kembalian = uang_dibayar - total_tagihan
-        KURANGI data_produk.stok DENGAN jumlah_beli
-        CATAT transaksi ke riwayat
-        TAMPILKAN "Transaksi Berhasil! Kembalian Anda: " + kembalian
+        HITUNG total_harga = data_produk.harga * jumlah_beli
+        BUAT template_pesan = "Halo " + data_produk.nama_toko + ", saya " + nama_pembeli + " ingin memesan: " + data_produk.nama_produk + " sejumlah " + jumlah_beli + " pcs. Total: Rp " + total_harga
+        BUKA_WHATSAPP DENGAN URL ("https://wa.me/" + data_produk.nomor_wa_toko + "?text=" + template_pesan)
+        TAMPILKAN "Mengarahkan ke WhatsApp penjual..."
     AKHIR-JIKA
 SELESAI
 ```
@@ -95,34 +80,100 @@ SELESAI
 
 ## 4. Workshop Praktik Squad (60 Menit)
 
-Ambil hasil dekomposisi dari Sesi 02a kemarin. Setiap squad akan menyusun pseudocode untuk **2 Kasus Logika Nyata**:
+Setiap squad menyusun pseudocode dan tabel uji manual (*Dry Run Table*) untuk **2 Kasus Nyata UMKM**:
 
-### Kasus 1: "Algoritma Hitung Diskon & Ongkos Kirim UMKM"
-Sebuah toko oleh-oleh memberlakukan aturan:
-- Jika total belanja >= Rp 100.000, berikan diskon 10% (maksimal potongan Rp 20.000).
-- Jika alamat pembeli berjarak <= 3 km dari toko, gratis ongkos kirim. Jika lebih dari 3 km, kenakan tarif Rp 2.500 per km kelebihannya.
-- Hitung total akhir yang harus dibayar pembeli.
+### Kasus 1: "Algoritma Hitung Diskon & Ongkir Warung"
+Aturan toko:
+- Jika total belanja >= Rp 100.000, berikan potongan diskon 10% (maksimal diskon Rp 20.000).
+- Jika jarak alamat pembeli <= 3 km, ongkir gratis (Rp 0). Jika lebih dari 3 km, tarif ongkir adalah Rp 2.500 per km kelebihannya.
+- Hitung total akhir yang harus dibayarkan pembeli.
 
-### Kasus 2: "Algoritma Cek Notifikasi Restok Otomatis"
-Sistem harus memeriksa seluruh daftar produk di toko kue (ada 50 jenis kue).
-- Untuk setiap kue, periksa jumlah stok yang tersisa.
-- Jika stok <= 5 buah, tambahkan nama kue tersebut ke dalam "Daftar Peringatan Restok Besok".
-- Di akhir pengecekan, jika daftar peringatan tidak kosong, kirim pesan rekapitulasi ke WhatsApp pemilik toko.
+### Kasus 2: "Algoritma Peringatan Stok Menipis"
+Sistem memeriksa daftar produk toko:
+- Untuk setiap produk, cek stok yang tersisa.
+- JIKA stok <= 3, catat nama produk ke daftar *"Peringatan Stok Menipis"*.
+- Di akhir pengecekan, tampilkan daftar produk yang butuh restok segera ke dashboard penjual.
+
+### Uji Coba Manual (Dry Run Table):
+Uji Kasus 1 dengan 3 skenario angka pada tabel:
+| Skenario | Total Belanja | Jarak (km) | Diskon Didapat | Biaya Ongkir | Total Akhir |
+|---|---|---|---|---|---|
+| A | Rp 50.000 | 2 km | Rp 0 | Rp 0 | Rp 50.000 |
+| B | Rp 150.000 | 5 km | Rp 15.000 | Rp 5.000 | Rp 140.000 |
+| C | Rp 300.000 | 1 km | Rp 20.000 (max) | Rp 0 | Rp 280.000 |
 
 ---
 
-## 5. Output Sesi: Dokumen Pseudocode
+## 5. Output Sesi
 
-Setiap squad mengumpulkan file Markdown berisi:
-1. Daftar hasil **Abstraksi**: data apa saja yang disimpan dan data apa yang sengaja dibuang untuk Kasus 1 dan Kasus 2.
-2. Teks **Pseudocode lengkap** untuk Kasus 1 dan Kasus 2 sesuai format baku di atas.
-3. Uji Coba Manual (*Dry Run Table*): Uji algoritma Kasus 1 dengan 3 skenario angka nyata (misal: belanja 50rb jarak 2km; belanja 150rb jarak 5km; belanja 300rb jarak 1km) untuk membuktikan perhitungannya akurat!
+Dokumen Markdown squad yang memuat:
+1. Hasil abstraksi data untuk Kasus 1 dan Kasus 2.
+2. Teks Pseudocode lengkap Kasus 1 dan Kasus 2 sesuai format baku.
+3. Tabel Dry Run Kasus 1 membuktikan perhitungan akurat.
 
 ---
 
-## 6. Cek Pemahaman Diri
+## 6. Tugas Mandiri (Individual): Jembatan ke Kode JavaScript
 
-1. Apa bedanya pseudocode dengan bahasa pemrograman nyata seperti JavaScript?
-2. Mengapa algoritma wajib memiliki instruksi penutup (`SELESAI`) dan tidak boleh berjalan tanpa henti tanpa batas?
+- **Sifat:** Individu (dikerjakan sendiri di luar jam kelas)
+- **Target Waktu:** 25 menit
+- **Nama File:** Simpan di folder pribadimu dalam repo squad dengan nama `tugas_02b.md`
 
-Lanjut ke: **[02c-flowchart.md](file:///home/iqbaal/gelombang-3/modul 12 bulan/modul-pra-coding-bulan1/2-Computational-Thinking/02c-flowchart.md)**
+> [!TIP]
+> **Sentuhan Kode Mingguan (Jembatan Menuju Bulan 2):**  
+> Ingat sintaks dasar JavaScript yang sudah kamu pelajari sebelumnya? Sekarang saatnya menyegarkan ingatan jarimu dengan menerjemahkan pseudocode Kasus 1 di atas menjadi satu fungsi JavaScript sederhana!
+
+### Instruksi:
+1. Tuliskan satu fungsi JavaScript bernama `hitungTotalBayar(totalBelanja, jarakKm)`.
+2. Gunakan percabangan `if` dan `else` sederhana untuk menghitung diskon dan ongkir sesuai aturan Kasus 1.
+3. Cocokkan hasil `console.log()` fungsi kodemu dengan tabel *Dry Run* di atas.
+4. Tuliskan kode JS tersebut dan hasil ujinya di file `tugas_02b.md`.
+
+### Contoh Hasil yang Diharapkan:
+```markdown
+# Tugas Mandiri 02b — Jembatan Kode: Fungsi Diskon & Ongkir
+Nama: [Nama Kamu]
+
+## 1. Kode JavaScript Sederhana:
+```javascript
+function hitungTotalBayar(totalBelanja, jarakKm) {
+  // 1. Hitung Diskon
+  let diskon = 0;
+  if (totalBelanja >= 100000) {
+    diskon = totalBelanja * 0.10;
+    if (diskon > 20000) {
+      diskon = 20000;
+    }
+  }
+
+  // 2. Hitung Ongkir
+  let ongkir = 0;
+  if (jarakKm > 3) {
+    let kelebihanKm = jarakKm - 3;
+    ongkir = kelebihanKm * 2500;
+  }
+
+  // 3. Total Akhir
+  let totalAkhir = totalBelanja - diskon + ongkir;
+  return totalAkhir;
+}
+
+// Uji coba skenario B: belanja 150rb, jarak 5km
+console.log("Total Skenario B:", hitungTotalBayar(150000, 5));
+// Output: 140000 (Cocok dengan Dry Run Table!)
+```
+
+## 2. Refleksi Singkat:
+Menerjemahkan pseudocode ke kode JavaScript terasa jauh lebih mudah saat kondisi `if-else` dan batas maksimalnya sudah kita tuliskan jelas di kertas sebelumnya.
+```
+
+---
+
+## 7. Cek Pemahaman Diri
+
+1. Apa perbedaan mendasar antara pseudocode dan kode JavaScript nyata?
+2. Mengapa kita perlu membuat tabel uji (*dry run table*) sebelum langsung mempercayai logika algoritma kita?
+
+---
+
+Lanjut ke: **[02c-flowchart.md](02c-flowchart.md)**

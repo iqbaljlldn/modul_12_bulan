@@ -1,96 +1,137 @@
-# 03c. Desain Bisnis: Value Proposition & Model Bisnis Berkelanjutan
+# 03c. Desain Bisnis: Mencocokkan Masalah Nyata UMKM dengan Nilai Solusi
 
 **Minggu 3: Desain Aplikasi & Bisnis | Sesi 3 (Rabu)**  
 **Target Waktu:** 90 - 120 Menit  
-**Output Sesi:** Value Proposition Canvas Platform UMKM per Squad
+**Output Sesi:** Value Proposition Canvas Platform UMKM & Panduan Wawancara Nyata
 
 ---
 
 ## 1. Mengapa Ini Penting?
 
-Sebuah aplikasi bisa saja memiliki kode yang bersih dan tampilan visual yang menarik, tetapi jika **tidak ada orang yang butuh menggunakannya**, aplikasi tersebut adalah produk gagal.
+Sebuah aplikasi bisa saja memiliki kode yang bersih dan tampilan visual yang menarik, tetapi jika **tidak ada orang yang butuh memakainya**, aplikasi tersebut adalah produk gagal.
 
-Sebagai insinyur perangkat lunak, kamu bukan sekadar "tukang ketik kode yang disuruh bos". Kamu adalah pemecah masalah bisnis (*business problem solver*).
+Sebagai insinyur perangkat lunak, kamu bukan sekadar "tukang ketik kode yang disuruh bos". Kamu adalah pemecah masalah nyata (*problem solver*).
 
-Hari ini kita akan membedah sisi bisnis dari Platform UMKM: **Kenapa UMKM mau repot-repot memajang produk di aplikasi kita? Dan kenapa pembeli mau membeli lewat platform ini daripada langsung lewat chat biasa?**
+Hari ini kita akan membedah sisi bisnis dari Platform UMKM: **Kenapa pedagang mau repot-repot memajang produk di aplikasi katalog kita? Dan kenapa pembeli mau memesan lewat katalog web daripada sekadar chat biasa?**
 
 ---
 
-## 2. Mengenal Value Proposition Canvas (VPC)
+## 2. Memetakan Masalah vs Solusi (Analogi Gembok dan Kunci)
 
-Value Proposition Canvas memetakan kecocokan (*Product-Market Fit*) antara **Profil Pengguna** dengan **Solusi yang Ditawarkan Aplikasi**:
+Alat bantu yang kita pakai adalah peta kecocokan solusi: mempertemukan **Penderitaan Pengguna** dengan **Fitur Aplikasi**:
 
 ```text
 ┌─────────────────────────────────┐       ┌─────────────────────────────────┐
-│          VALUE MAP              │       │        CUSTOMER PROFILE         │
-│         (Aplikasi Kita)         │       │           (Pengguna)            │
+│       KUNCI (Aplikasi Kita)     │       │     GEMBOK (Kondisi Pengguna)   │
 ├─────────────────────────────────┤       ├─────────────────────────────────┤
-│ [Pain Relievers]                │ ◄───► │ [Pains / Beban & Penderitaan]   │
-│ Fitur yang menghapus masalah    │       │ Hambatan, rasa takut, frustrasi │
+│ [Pereda Masalah / Pain Relief]  │ ◄───► │ [Pains / Beban & Penderitaan]   │
+│ Fitur yang menghapus kerepotan  │       │ Hambatan harian, rasa frustrasi │
 │                                 │       │                                 │
-│ [Gain Creators]                 │ ◄───► │ [Gains / Keinginan & Harapan]   │
-│ Fitur yang memberi nilai tambah │       │ Cita-cita omzet, rasa bangga    │
+│ [Pemberi Nilai / Gain Creator]  │ ◄───► │ [Gains / Keinginan & Harapan]   │
+│ Nilai tambah yang bikin senang  │       │ Cita-cita jualan, rasa praktis  │
 │                                 │       │                                 │
-│ [Products & Services]           │ ◄───► │ [Customer Jobs]                 │
-│ Fitur konkret yang dibangun     │       │ Pekerjaan harian yang dilakukan │
+│ [Fitur Konkret / Services]      │ ◄───► │ [Customer Jobs / Aktivitas]     │
+│ Fitur nyata yang kita bangun    │       │ Hal rutin yang dikerjakan user  │
 └─────────────────────────────────┘       └─────────────────────────────────┘
 ```
 
+> [!NOTE]
+> **Istilah Tambahan (Opsional):**  
+> Di dunia bisnis teknologi, peta pencocokan gembok dan kunci ini secara formal disebut **Value Proposition Canvas (VPC)**.
+
 ---
 
-## 3. Pasar Dua Sisi (*Two-Sided Marketplace*): Merchant & Buyer
+## 3. Dua Sisi Pengguna: Pedagang (Merchant) vs Pembeli (Buyer)
 
-Platform UMKM melayani dua kelompok manusia yang memiliki motivasi berbeda:
+Platform Katalog UMKM melayani dua kelompok manusia yang memiliki kebutuhan berbeda:
 
 ### Sisi 1: Pedagang UMKM (Merchant)
-- **Pekerjaan Harian (*Customer Jobs*):** Menyiapkan bahan dagangan, melayani pembeli, mencatat stok yang habis, menghitung keuntungan harian.
-- **Penderitaan (*Pains*):** Lupa mencatat sehingga rugi, sering ditanya stok produk yang sama berulang-ulang di WhatsApp, kalah saing dengan produk pabrikan besar di marketplace raksasa karena algoritma yang menenggelamkan toko kecil.
-- **Nilai Solusi Kita (*Pain Relievers*):** Katalog link tunggal yang selalu update stoknya, membagikan link toko semudah membagikan kontak WA, pencatatan otomatis pesanan masuk.
+- **Aktivitas Rutin (*Jobs*):** Menyiapkan bahan dagangan, melayani pembeli, mencatat sisa stok, menghitung pemasukan harian.
+- **Penderitaan (*Pains*):** Sering ditanya pertanyaan berulang di WhatsApp (*"Masih ada nggak? Harganya berapa?"*), chat pembeli sering tertimbun, salah catat pesanan.
+- **Solusi Katalog (*Pain Relievers*):** Satu link etalase web yang selalu update stoknya, tombol pemesanan yang otomatis menyusun pesan WhatsApp rapi, tidak perlu mengetik ulang daftar menu setiap hari.
 
 ### Sisi 2: Pembeli Lokal (Buyer)
-- **Pekerjaan Harian (*Customer Jobs*):** Mencari camilan/kebutuhan rumah tangga yang segar, higienis, dan terjangkau di sekitar lingkungan tempat tinggal.
-- **Penderitaan (*Pains*):** Ongkos kirim aplikasi ojek online terlalu mahal untuk belanja jarak dekat, ragu dengan kebersihan/keaslian penjual tak dikenal, proses pemesanan berbelit-belit.
-- **Nilai Solusi Kita (*Gain Creators*):** Menemukan produk tetangga sekitar dengan ongkir murah/gratis COD, transaksi langsung transparan, mendukung tetangga sendiri (*support local*).
+- **Aktivitas Rutin (*Jobs*):** Mencari camilan atau kebutuhan dapur segar di sekitar lingkungan tempat tinggal.
+- **Penderitaan (*Pains*):** Malas membuka marketplace besar karena ongkos kirim mahal, malas bertanya menu satu per satu via chat panjang.
+- **Solusi Katalog (*Gain Creators*):** Bisa melihat foto dan harga menu secara instan tanpa perlu bertanya, memesan langsung ke WhatsApp pedagang langganan dengan 1 klik.
 
 ---
 
-## 4. Model Bisnis Berkelanjutan (Bukan Sekadar Komisi Mencekik)
+## 4. Panduan Riset Wawancara 1 UMKM Nyata (Tugas Kunci Squad)
 
-Banyak platform e-commerce membebankan potongan komisi 10-20% per transaksi, yang membuat UMKM kecil justru merugi.
+Agar aplikasi kita tidak dibangun di atas angan-angan fiktif, **setiap squad wajib mewawancarai 1 pelaku UMKM nyata di sekitar** (misal: warung kelontong, penjual kue basah, pedagang sate, atau warung jus).
 
-Bagaimana Platform UMKM kita bertahan secara berkelanjutan tanpa mencekik pedagang?
-1. **Model Freemium:** Fitur dasar (katalog 20 produk + link WA) gratis selamanya.
-2. **Fitur Tambahan Terjangkau:** Biaya langganan sangat murah (misal Rp 15.000/bulan) untuk fitur laporan pembukuan bulanan atau pencetakan resi massal.
-3. **Kolaborasi Komunitas / Koperasi:** Platform bermitra dengan komunitas UMKM desa/kelurahan sebagai kanal digitalisasi resmi.
+Gunakan **5 Pertanyaan Wawancara Terarah** berikut saat mengobrol:
+
+1. *"Bapak/Ibu biasanya menjual produk apa saja dan bagaimana cara mencatat stok barang yang masih ada atau yang sudah habis?"*
+2. *"Bagaimana biasanya pelanggan memesan atau membeli dagangan (apakah langsung datang, lewat WhatsApp, atau cara lain)?"*
+3. *"Apa kerepotan atau masalah terbesar yang paling sering dialami saat melayani pesanan lewat HP/WhatsApp?"*
+4. *"Pernahkah terjadi salah catat pesanan, salah harga, atau pembeli memesan barang yang ternyata stoknya sudah habis? Bagaimana Bapak/Ibu menyelesaikannya?"*
+5. *"Jika ada link website sederhana yang menampilkan foto produk, harga, dan stok yang langsung terhubung ke WhatsApp Bapak/Ibu, apakah itu akan membantu? Apa kekhawatiran Bapak/Ibu saat memakai teknologi baru di HP?"*
 
 ---
 
 ## 5. Workshop Praktik Squad (60 Menit)
 
-Setiap squad menyusun **2 Lembar Value Proposition Canvas**:
-1. **Kanvas A:** Untuk Pedagang UMKM.
-2. **Kanvas B:** Untuk Pembeli Lokal.
-
-### Pertanyaan Pemantik:
-- Apa 3 masalah paling menyakitkan yang dihadapi pedagang UMKM saat berjualan online saat ini?
-- Fitur spesifik apa di katalog kita yang langsung menghapus rasa sakit tersebut?
-- Mengapa mereka tidak cukup hanya memakai WhatsApp biasa? Apa keunggulan mutlak katalog web kita?
+1. **Langkah 1 (Diskusi Target UMKM Nyata - 15 Menit):**  
+   Tentukan 1 pelaku UMKM nyata di sekitar asrama/rumah yang akan diwawancarai oleh anggota tim sore/malam ini.
+2. **Langkah 2 (Rakit Peta Masalah vs Solusi - 30 Menit):**  
+   Susun tabel pencocokan untuk Pedagang dan Pembeli (Pains, Gains, Jobs vs Pain Relievers, Gain Creators).
+3. **Langkah 3 (Rumuskan Kalimat Nilai Solusi - 15 Menit):**  
+   Tuliskan 1 kalimat inti yang padat:
+   > *"Platform Katalog UMKM kami membantu [target pedagang] untuk [pekerjaan jualan] dengan cara [solusi unik katalog WhatsApp], sehingga mereka terbebas dari [kerepotan chat manual berulang]."*
 
 ---
 
 ## 6. Output Sesi
 
-Kumpulkan lembar Value Proposition Canvas squad (dalam bentuk tabel Markdown atau diagram gambar) yang berisi:
-- Customer Jobs, Pains, dan Gains (Merchant & Buyer).
-- Products/Services, Pain Relievers, dan Gain Creators yang sesuai.
-- Kalimat *Value Proposition Statement* 1 baris yang padat dan jelas:
-  > *"Platform Katalog UMKM membantu [siapa targetnya] untuk [pekerjaan apa] dengan cara [solusi unik apa], tanpa harus [beban/masalah yang dihindari]."*
+Dokumen Markdown squad yang memuat:
+1. Peta Pencocokan Nilai (Value Map) untuk Pedagang dan Pembeli.
+2. Rumusan 1 Kalimat Nilai Solusi (*Value Proposition Statement*).
+3. Rencana Wawancara Lapangan: Nama toko sasaran, jenis usaha, lokasi, dan pembagian anggota yang mewawancarai.
 
 ---
 
-## 7. Cek Pemahaman Diri
+## 7. Tugas Mandiri (Individual): Catatan Wawancara UMKM Nyata
 
-1. Apa bedanya fitur aplikasi (*feature*) dengan nilai manfaat (*value*)?
-2. Mengapa aplikasi dengan fitur paling canggih sekalipun bisa ditinggalkan oleh pengguna jika tidak memecahkan *pain point* utamanya?
+- **Sifat:** Individu / Squad (wawancara bisa dilakukan bersama squad, tetapi setiap murid wajib menuliskan catatan rangkuman pribadinya)
+- **Target Waktu:** 30 menit
+- **Nama File:** Simpan di folder pribadimu dalam repo squad dengan nama `tugas_03c.md`
 
-Lanjut ke: **[03d-sudut-pandang-pelanggan-umkm.md](file:///home/iqbaal/gelombang-3/modul 12 bulan/modul-pra-coding-bulan1/3-Desain-Aplikasi-dan-Bisnis/03d-sudut-pandang-pelanggan-umkm.md)**
+### Instruksi:
+1. Ikut serta melakukan wawancara langsung (atau telepon/chat) dengan 1 pelaku UMKM nyata menggunakan 5 pertanyaan terarah di atas.
+2. Tuliskan catatan ringkas yang memuat:
+   - Nama toko / pedagang, usia, dan jenis usaha.
+   - **Minimal 3 temuan fakta lapangan** tentang cara mereka berjualan dan mencatat pesanan.
+   - **Minimal 1 kutipan asli langsung (*quote*)** keluhan dari pedagang tersebut.
+
+### Contoh Hasil yang Diharapkan:
+```markdown
+# Tugas Mandiri 03c — Catatan Wawancara UMKM Nyata
+Nama: [Nama Kamu]
+Squad: [Nama Squad]
+
+## 1. Profil Narasumber:
+- Nama: Ibu Marni (52 tahun)
+- Usaha: Warung Nasi Gurih & Gorengan Bu Marni
+- Lokasi: Jalan Melati, RT 02 (dekat asrama)
+
+## 2. Tiga Temuan Fakta Lapangan:
+1. Bu Marni sama sekali tidak mencatat stok makanan di buku tulis; hanya mengandalkan ingatan kepala dan melihat sisa baskom gorengan.
+2. Setiap jam sarapan (06.30 - 08.00), Bu Marni kerepotan membalas chat WA tetangga yang pesan lontong sayur karena tangannya sedang basah memegang spatula penggorengan.
+3. Bu Marni sering menolak pembeli via WA karena lontong sayur sudah habis dibeli orang yang datang langsung ke warung.
+
+## 3. Kutipan Asli Narasumber:
+"Kadang pusing mas kalau HP getar terus pas lagi goreng tempe. Mau dibalas tangan minyak semua, kalau nggak dibalas pelanggan ngambek dikira sombong."
+```
+
+---
+
+## 8. Cek Pemahaman Diri
+
+1. Apa bedanya daftar fitur aplikasi (*features*) dengan nilai manfaat nyata (*value*) bagi seorang pedagang?
+2. Mengapa kutipan langsung dari pelaku UMKM nyata jauh lebih berharga daripada asumsi di kepala programmer?
+
+---
+
+Lanjut ke: **[03d-sudut-pandang-pelanggan-umkm.md](03d-sudut-pandang-pelanggan-umkm.md)**

@@ -8,7 +8,7 @@ Oleh karena itu, sejak hari pertama Bulan 1, kamu dimasukkan ke dalam sistem **S
 
 ## 1. Pembagian Squad Rolling
 
-- **Ukuran Tim:** 6 Squad per tribe, masing-masing beranggotakan 3 orang.
+- **Ukuran Tim:** 6 Squad per tribe, masing-masing beranggotakan 3 orang (total 18 murid).
 - **Sistem Rolling:** Setiap 1-2 minggu, komposisi squad akan diacak ulang oleh mentor.
 - **Tujuan Rolling:** Agar kamu belajar beradaptasi dengan berbagai tipe kepribadian dan cara berkomunikasi, tidak hanya bergantung pada satu teman akrab saja.
 
@@ -39,21 +39,24 @@ Setiap hari terdiri dari 1 sesi terstruktur dengan alur standar berikut:
    - Mentor membawakan pengantar materi singkat dan kontekstual ke studi kasus UMKM.
 
 3. Workshop Praktik Squad (50-60 Menit)
-   - Kolaborasi menyelesaikan tugas harian menghasilkan artefak nyata.
+   - Kolaborasi tim menyelesaikan tugas harian menghasilkan artefak nyata.
 
-4. Lightning Review & Refleksi (15-20 Menit)
+4. Lightning Review & Refleksi Kelas (15-20 Menit)
    - 1-2 squad terpilih mendemokan hasil kerja, feedback singkat dari mentor, wrap-up.
+
+5. Tugas Mandiri Individual (20-30 Menit, di luar sesi kelas)
+   - Latihan kecil mandiri untuk memastikan pemahaman personal setiap murid.
 ```
 
 ---
 
-## 3. Ritme Mingguan: Sabtu Sprint Review / Evaluasi
+## 3. Ritme Mingguan: Sabtu Sprint Review & Retrospektif
 
 Hari Sabtu adalah puncak dari kerja keras satu minggu:
 
-- **Sprint Review (90-120 Menit):** Seluruh squad berkumpul. Tiap squad mempresentasikan artefak mingguan mereka selama 5-7 menit, diikuti tanya jawab dan kritik konstruktif.
-- **Evaluasi Individu & Squad:** Mentor memberikan feedback langsung terhadap artefak, kedalaman pemahaman konsep, dan dinamika kolaborasi.
-- **Sprint Retrospective (15 Menit):** Refleksi tim:
+- **Sprint Review (±90 Menit):** Seluruh squad berkumpul. Tiap squad mempresentasikan artefak mingguan mereka selama **5 menit presentasi + 3 menit tanya jawab** dari mentor dan rekan tribe.
+- **Evaluasi Berbasis Kapabilitas:** Mentor tidak memberikan nilai angka/skor, melainkan memeriksa ketercapaian kapabilitas dengan 3 status: **Siap**, **Hampir Siap**, atau **Perlu Pendampingan**, disertai catatan feedback konkret.
+- **Sprint Retrospective (15-30 Menit):** Refleksi tim menggunakan format *Mad / Sad / Glad* atau *I Like / I Wish / What If*:
   - *What went well?* (Apa yang sudah bagus minggu ini?)
   - *What could be improved?* (Apa yang masih macet dan perlu diperbaiki minggu depan?)
 
@@ -67,7 +70,7 @@ Jika squad mengalami kebuntuan (*stuck*):
 2. **Diskusikan di internal squad:** Dengarkan perspektif teman se-squad.
 3. **Tanya Squad Lain:** Seringkali squad sebelah menemukan solusi yang segar.
 4. **Minta Bantuan Mentor dengan Format Rinci:**
-   Jangan pernah berkata: *"Mas, saya bingung / ini error."*
+   Jangan pernah berkata: *"Mas, saya bingung / ini error."*  
    Gunakan format:
    ```text
    - Masalah yang dihadapi: ...
@@ -82,4 +85,6 @@ Jika squad mengalami kebuntuan (*stuck*):
 
 Sekarang squad-mu sudah terbentuk. Bersiaplah memasuki **Minggu 1: AI Literacy**, di mana kamu dan squad-mu akan merumuskan aturan main penggunaan kecerdasan buatan dan belajar berdialog secara efektif dengan LLM.
 
-Lanjut ke: **[1-AI-Literacy/PANDUAN-MENTOR.md](file:///home/iqbaal/gelombang-3/modul%2012%20bulan/modul-pra-coding-bulan1/1-AI-Literacy/PANDUAN-MENTOR.md)**
+---
+
+Lanjut ke: **[1-AI-Literacy/PANDUAN-MENTOR.md](../1-AI-Literacy/PANDUAN-MENTOR.md)**

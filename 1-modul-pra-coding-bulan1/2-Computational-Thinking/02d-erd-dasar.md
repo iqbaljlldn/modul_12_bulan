@@ -2,22 +2,22 @@
 
 **Minggu 2: Computational Thinking & Algoritma | Sesi 4 (Kamis)**  
 **Target Waktu:** 90 - 120 Menit  
-**Output Sesi:** Draft Pertama ERD Platform Katalog UMKM per Squad
+**Output Sesi:** Draft ERD Platform Katalog UMKM per Squad
 
 ---
 
 ## 1. Mengapa Ini Penting?
 
-Sebuah aplikasi pada dasarnya adalah: **Alur Logika + Penyimpanan Data**.
+Sebuah aplikasi pada dasarnya adalah: **Alur Logika + Tempat Menyimpan Data**.
 
-Kemarin kita sudah merancang alur logika menggunakan flowchart. Tapi ke mana data produk, data harga, data penjual, dan data pesanan disimpan? Dan bagaimana data-data tersebut saling terhubung satu sama lain?
+Kemarin kita sudah merancang alur logika menggunakan flowchart. Namun, ke mana data produk, harga, data pedagang, dan daftar pesanan disimpan? Dan bagaimana data-data tersebut saling terhubung satu sama lain?
 
-Jika kamu salah merancang struktur data sejak awal, aplikasimu akan mengalami masalah besar di kemudian hari:
+Jika kamu salah merancang struktur data sejak awal:
 - Data duplikat di mana-mana (*redundancy*).
-- Jika nama toko berganti, ribuan data produk ikut rusak (*inconsistency*).
-- Riwayat transaksi masa lalu terhapus saat produk dihapus.
+- Jika nama toko berganti, ratusan baris data produk ikut rusak (*inconsistency*).
+- Jika produk dihapus, riwayat transaksi masa lalu ikut hilang tanpa jejak.
 
-Keterampilan memodelkan data ini disebut **Entity Relationship Diagram (ERD)**. Kita tidak akan langsung menyentuh SQL yang rumit; hari ini kita fokus pada logika relasi di dunia nyata.
+Keterampilan memodelkan struktur data ini disebut **Entity Relationship Diagram (ERD)**. Kita tidak akan langsung menyentuh kode SQL rumit; hari ini kita fokus pada logika relasi di dunia nyata.
 
 ---
 
@@ -29,7 +29,7 @@ Keterampilan memodelkan data ini disebut **Entity Relationship Diagram (ERD)**. 
 │   (Benda Nyata) │─────────────│ (Informasi/Ciri)│
 └─────────────────┘             └─────────────────┘
          │
-         │ (Memiliki / Berelasi)
+         │ (Memiliki Hubungan / Relasi)
          ▼
 ┌─────────────────┐
 │     RELASI      │ (1:1, 1:N, N:N)
@@ -37,33 +37,54 @@ Keterampilan memodelkan data ini disebut **Entity Relationship Diagram (ERD)**. 
 ```
 
 ### 1. Entitas (*Entity*)
-Objek, orang, tempat, atau konsep di dunia nyata yang informasinya ingin kita catat ke dalam sistem. Biasanya berupa kata benda.
-- *Contoh:* `Merchant` (Penjual), `Produk`, `Kategori`, `Pesanan`.
-- *Catatan:* Nama entitas biasanya ditulis dalam bentuk tunggal.
+Objek, orang, tempat, atau hal nyata yang datanya ingin dicatat ke sistem. Biasanya berupa kata benda tunggal.
+- *Contoh:* `Merchant` (Toko), `Produk`, `Kategori`, `Pesanan`.
 
 ### 2. Atribut (*Attribute*)
-Ciri-ciri, karakteristik, atau data spesifik yang melekat pada suatu entitas.
-- *Contoh pada entitas `Produk`:* `id_produk`, `nama_produk`, `harga`, `stok`, `deskripsi`.
-- **Primary Key (PK / Kunci Utama):** Satu atribut unik yang membedakan satu baris data dengan data lainnya (misal: `id_produk` atau nomor KTP; tidak boleh ada 2 produk dengan `id` yang sama).
+Ciri-ciri, informasi, atau kolom isian yang melekat pada suatu entitas.
+- *Contoh pada entitas `Produk`:* `id_produk`, `nama_produk`, `harga`, `stok`.
+- **Primary Key (PK / Kunci Utama):** Satu atribut unik yang membedakan satu baris data dengan data lainnya (misal: nomor identitas unik `id_produk`; tidak boleh ada 2 produk berbeda yang memiliki ID sama).
+- **Foreign Key (FK / Kunci Tamu):** Atribut penghubung yang menunjuk ke Primary Key milik entitas lain.
 
-### 3. Kardinalitas Relasi (*Cardinality*)
-Bagaimana hubungan jumlah antara dua entitas:
+### 3. Hubungan Relasi Data (Berapa Banyak Pasangannya?)
+Bagaimana hubungan jumlah antara dua entitas di dunia nyata:
 
-| Tipe Relasi | Penjelasan | Contoh Dunia Nyata |
+| Tipe Relasi | Bahasa Sehari-hari | Contoh Nyata di Katalog UMKM |
 |---|---|---|
-| **One-to-One (1 : 1)** | Satu entitas A hanya berpasangan dengan satu entitas B | 1 Akun Merchant hanya memiliki 1 Profil Toko Resmi. |
-| **One-to-Many (1 : N)** | Satu entitas A bisa memiliki banyak entitas B, tapi entitas B hanya dimiliki satu entitas A | 1 `Kategori` (misal: "Makanan") memiliki banyak `Produk` (Keripik, Kue, Roti). Satu produk hanya masuk ke satu kategori utama. |
-| **Many-to-Many (N : N)** | Banyak entitas A bisa terhubung ke banyak entitas B | Banyak `Pesanan` bisa berisi banyak `Produk`, dan satu jenis `Produk` bisa dibeli di dalam banyak `Pesanan`. |
+| **Satu ke Satu (1 : 1)** | Satu hal hanya punya satu pasangan | 1 Toko Merchant hanya memiliki 1 Pengaturan Jam Buka Toko. |
+| **Satu ke Banyak (1 : N)** | Satu induk punya banyak anak, tapi anak hanya punya satu induk | 1 `Kategori` ("Makanan Ringan") memiliki banyak `Produk` (Keripik, Roti, Biskuit). Tiap produk hanya masuk ke satu kategori utama. |
+| **Banyak ke Banyak (N : N)** | Banyak hal di sisi kiri bisa berpasangan dengan banyak hal di sisi kanan | 1 `Pesanan` bisa berisi banyak `Produk`, dan 1 jenis `Produk` bisa dibeli di dalam banyak `Pesanan`. |
+
+> [!NOTE]
+> **Istilah Tambahan (Opsional):**  
+> Dalam teori basis data, jumlah hubungan pasangan data ini disebut **Kardinalitas (*Cardinality*)**.
 
 ---
 
-## 3. Contoh ERD Sederhana dengan Format Mermaid
+## 3. Menyelesaikan Relasi Banyak-ke-Banyak (N:N) dengan "ItemPesanan"
+
+Komputer tidak bisa menyimpan relasi Banyak-ke-Banyak secara langsung tanpa memicu kekacauan data.  
+*Pertanyaan:* Jika 1 pesanan membeli 3 produk sekaligus (Keripik Tempe 2 bungkus dan Sambal Botol 1 botol), di mana jumlah per barang disimpan?
+
+Solusinya: Kita membuat satu **Entitas Penghubung (*Junction Entity*)** bernama `ItemPesanan`.
+- `Pesanan` berhubungan (1 : N) dengan `ItemPesanan`.
+- `Produk` berhubungan (1 : N) dengan `ItemPesanan`.
+- Di dalam `ItemPesanan`, kita mencatat: `id_pesanan`, `id_produk`, `jumlah`, dan `harga_saat_beli`.
+
+### Bagaimana dengan Data Pembeli?
+Di Bulan 1, pembeli berbelanja sebagai **tamu (*guest checkout*)** tanpa perlu membuat akun atau login dengan password yang merepotkan. Oleh karena itu, data pembeli (nama dan nomor WhatsApp) **cukup dicatat langsung di dalam entitas `Pesanan`**. Jika nanti di bulan-bulan berikutnya aplikasi berkembang memiliki program loyalitas member, barulah kita memisahkan entitas `Pembeli` tersendiri.
+
+---
+
+## 4. Contoh ERD Platform Katalog UMKM (Sintaks Mermaid)
 
 ```mermaid
 erDiagram
     MERCHANT ||--o{ PRODUK : "memiliki dan menjual"
     KATEGORI ||--o{ PRODUK : "mengelompokkan"
-    
+    PESANAN ||--|{ ITEM_PESANAN : "memiliki rincian"
+    PRODUK ||--o{ ITEM_PESANAN : "dipesan dalam"
+
     MERCHANT {
         string id_merchant PK
         string nama_pemilik
@@ -86,42 +107,92 @@ erDiagram
         int stok
         string foto_url
     }
+
+    PESANAN {
+        string id_pesanan PK
+        string nama_pembeli
+        string nomor_wa_pembeli
+        int total_harga
+        string status_pesanan
+        string waktu_pesanan
+    }
+
+    ITEM_PESANAN {
+        string id_item PK
+        string id_pesanan FK
+        string id_produk FK
+        int jumlah
+        int harga_satuan
+    }
 ```
 
-*Penjelasan Simbol:*
-- `||--o{` melambangkan relasi **One-to-Many** (Satu Merchant ke Banyak Produk).
-- `PK` (*Primary Key*) adalah identitas unik.
-- `FK` (*Foreign Key*) adalah kunci penghubung yang menunjuk ke entitas induknya.
+### Status Pesanan Sesuai Alur WhatsApp:
+Karena alur belanja diteruskan ke WhatsApp penjual, status pesanan disesuaikan dengan alur komunikasi nyata:
+- `Draft WA` (Pesanan baru dirakit di web).
+- `Diteruskan ke WA` (Pembeli sudah mengklik tombol kirim chat WhatsApp).
+- `Dikonfirmasi Penjual` (Penjual membalas chat dan menyetujui pesanan).
+- `Selesai` (Barang sudah diserahkan/diterima).
+- `Batal` (Stok mendadak habis atau pembeli membatalkan pesanan via chat).
 
 ---
 
-## 4. Workshop Praktik Squad (60 Menit)
+## 5. Workshop Praktik Squad (60 Menit)
 
-Rancanglah **Draft ERD Platform Katalog UMKM** untuk squad-mu!
+Rancanglah **Draft ERD Platform Katalog UMKM** untuk squad-mu:
 
-### Kasus yang Harus Dimodelkan:
-1. **Entitas Merchant (Penjual):** Menyimpan identitas toko dan kontak WhatsApp.
-2. **Entitas Kategori:** Pengelompokan produk (makanan, pakaian, kerajinan).
-3. **Entitas Produk:** Informasi detail barang dagangan.
-4. **Entitas Pesanan (Order) Sederhana:** Ketika pembeli memesan produk melalui platform. Catat: siapa pembelinya (nama & no telp), produk apa yang dibeli, berapa jumlahnya, dan apa status pesanannya (`Menunggu Bayar`, `Diproses`, `Selesai`).
-
-### Langkah Kerja:
-1. **Langkah 1 (Kertas/Whiteboard - 20 Menit):** Tuliskan 4 kotak entitas dan daftar atribut masing-masing. Tandai atribut kunci (`PK`).
-2. **Langkah 2 (Tentukan Hubungan - 20 Menit):** Tarik garis antar entitas. Tanyakan pada diri sendiri: *"Apakah 1 pesanan bisa punya banyak produk? Di mana kunci penghubungnya diletakkan?"*
-3. **Langkah 3 (Konversi ke Mermaid / Gambar Digital - 20 Menit):** Salin draf kalian ke format Mermaid diagram atau draw.io yang rapi.
+1. **Langkah 1 (Bedah Entitas - 20 Menit):**  
+   Periksa 5 entitas di atas (`Merchant`, `Kategori`, `Produk`, `Pesanan`, `ItemPesanan`). Apakah ada atribut penting yang masih kurang untuk mendukung alur pemesanan WhatsApp?
+2. **Langkah 2 (Tentukan Tipe Data Sederhana - 20 Menit):**  
+   Tentukan tipe data untuk setiap atribut: teks (`string`) atau angka bulat (`int`).
+3. **Langkah 3 (Rakit Diagram Mermaid - 20 Menit):**  
+   Salin draf kalian ke format Mermaid diagram yang rapi dan pastikan semua Foreign Key (`FK`) terhubung ke Primary Key (`PK`) yang tepat.
 
 ---
 
-## 5. Output Sesi
+## 6. Output Sesi
 
-1. Diagram ERD berformat Mermaid (atau gambar dari diagram tool) yang menampilkan minimal **4 Entitas**: `Merchant`, `Kategori`, `Produk`, dan `Pesanan`.
-2. Penjelasan Singkat Relasi (1 paragraf per relasi): Alasan mengapa relasi tersebut dipilih (misal: mengapa hubungan Kategori ke Produk adalah 1 ke N).
+1. Diagram ERD format Mermaid (atau gambar dari diagram tool) menampilkan 5 entitas inti: `Merchant`, `Kategori`, `Produk`, `Pesanan`, dan `ItemPesanan`.
+2. Penjelasan 1 paragraf mengapa entitas penghubung `ItemPesanan` wajib ada dan mengapa data pembeli cukup dicatat di entitas `Pesanan` pada scope pra-coding saat ini.
 
 ---
 
-## 6. Cek Pemahaman Diri
+## 7. Tugas Mandiri (Individual)
 
-1. Apa bedanya *Entitas* dengan *Atribut*? Berikan contoh!
-2. Mengapa kita tidak boleh menyimpan nama kategori secara manual berulang-ulang di setiap baris produk, melainkan harus dipisah ke entitas `Kategori` tersendiri?
+- **Sifat:** Individu (dikerjakan sendiri di luar jam kelas)
+- **Target Waktu:** 25 menit
+- **Nama File:** Simpan di folder pribadimu dalam repo squad dengan nama `tugas_02d.md`
 
-Lanjut ke: **[02e-latihan-terpadu-ct.md](file:///home/iqbaal/gelombang-3/modul 12 bulan/modul-pra-coding-bulan1/2-Computational-Thinking/02e-latihan-terpadu-ct.md)**
+### Instruksi:
+1. Bayangkan kamu ingin menambahkan fitur **Ulasan Singkat Produk** (bintang 1–5 dan komentar pembeli) di katalog.
+2. Rancang satu entitas baru bernama `Ulasan`.
+3. Tuliskan atributnya (tandai Primary Key dan Foreign Key).
+4. Jelaskan apa relasi antara entitas `Produk` dengan entitas `Ulasan` (apakah 1:1, 1:N, atau N:N?).
+
+### Contoh Hasil yang Diharapkan:
+```markdown
+# Tugas Mandiri 02d — Model Data Fitur Ulasan
+Nama: [Nama Kamu]
+
+## 1. Entitas Baru: ULASAN
+- id_ulasan (string, PK)
+- id_produk (string, FK — menghubungkan ke entitas Produk)
+- nama_pembeli (string)
+- rating_bintang (int, 1-5)
+- komentar (string)
+- waktu_kirim (string)
+
+## 2. Hubungan Relasi dengan Produk:
+Relasi: Satu ke Banyak (1 : N).
+Satu jenis Produk bisa memiliki banyak Ulasan dari pembeli yang berbeda-beda, tetapi satu baris ulasan hanya tertuju pada satu produk tertentu.
+```
+
+---
+
+## 8. Cek Pemahaman Diri
+
+1. Apa perbedaan mendasar antara *Entitas* dan *Atribut*? Berikan contohnya!
+2. Mengapa kita membutuhkan entitas penghubung `ItemPesanan` untuk menghubungkan `Pesanan` dan `Produk`?
+
+---
+
+Lanjut ke: **[02e-latihan-terpadu-ct.md](02e-latihan-terpadu-ct.md)**

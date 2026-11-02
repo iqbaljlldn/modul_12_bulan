@@ -1,4 +1,4 @@
-# 04b. AI untuk Merancang Alur Aplikasi: User Flow Tervalidasi
+# 04b. AI untuk Merancang Alur Aplikasi: User Flow Pemesanan WhatsApp Tervalidasi
 
 **Minggu 4: Pitching & Showcase | Sesi 2 (Selasa)**  
 **Target Waktu:** 90 - 120 Menit  
@@ -10,76 +10,110 @@
 
 Sebelum memasukkan artefak ke dalam slide pitch deck, kita harus memastikan tidak ada "lubang hitam" dalam pengalaman pengguna aplikasi kita:
 - Pengguna masuk dari mana?
-- Setelah menekan tombol konfirmasi, layar apa yang muncul?
-- Bagaimana data mengalir dari layar pembeli ke layar dashboard penjual?
+- Setelah menekan tombol pesan, layar apa yang terbuka?
+- Bagaimana alur pedagang saat ingin mengelola produk di dashboard?
 
-Kombinasi antara **User Flow** (perjalanan langkah pengguna dari awal sampai akhir) dan **Flowchart Sistem** adalah bukti otentik bahwa produkmu matang dan siap dibangun di Bulan 2.
+Kombinasi antara **User Flow** (perjalanan langkah pengguna dari awal sampai akhir) dan **Flowchart Sistem** adalah bukti otentik bahwa produkmu matang dan siap dibangun dengan React di Bulan 2.
 
-Hari ini kita akan memanfaatkan AI untuk melakukan *stress-test* terhadap user flow aplikasi kita, lalu memvalidasinya dengan ketat.
+Hari ini kita akan memanfaatkan AI untuk melakukan audit uji ketahanan (*stress-test*) terhadap user flow aplikasi kita.
 
 ---
 
 ## 2. Apa Itu User Flow?
 
-Jika flowchart berfokus pada **logika mesin** (*"Apakah stok > 0?"*), maka **User Flow** berfokus pada **tindakan dan layar yang dilalui manusia**:
+Jika flowchart berfokus pada **logika mesin** (*"Apakah stok > 0?"*), maka **User Flow** berfokus pada **layar dan tindakan yang dilalui manusia**:
 
 ```text
 ┌─────────────────┐       ┌─────────────────┐       ┌─────────────────┐       ┌─────────────────┐
-│  Landing Page   │ ──►   │ Filter Kategori │ ──►   │  Halaman Detail │ ──►   │ Klik Hubungi WA │
-│ (Melihat Promo) │       │ (Pilih Sambal)  │       │ (Baca Komposisi)│       │ (Kirim Pesanan) │
+│  Halaman Depan  │ ──►   │ Filter Kategori │ ──►   │  Halaman Detail │ ──►   │ Klik Pesan WA   │
+│ (Melihat Menu)  │       │ (Pilih Gorengan)│       │ (Cek Harga/Stok)│       │ (Buka Chat WA)  │
 └─────────────────┘       └─────────────────┘       └─────────────────┘       └─────────────────┘
 ```
 
 ---
 
-## 3. Memanfaatkan AI untuk Melakukan Audit "Titik Kebuntuan" (*Blindspots*)
+## 3. Menggunakan AI untuk Mencari Celah Alur (*Blindspot Audit*)
 
-AI sangat hebat dalam memetakan skenario yang sering dilupakan manusia.
+AI sangat tajam dalam memetakan skenario tak terduga yang sering terlupakan oleh manusia.
 
-### Template Prompt Audit User Flow:
-> **[Role]** Bertindaklah sebagai Lead UX Architect & QA Engineer profesional.  
-> **[Context]** Kami sedang merancang User Flow untuk Platform Katalog UMKM. Pengguna utama kami adalah pembeli lokal yang memesan produk camilan dari pedagang rumahan.  
-> **[Instruction]** Berikut adalah draf alur pengguna kami:  
-> 1. Pembeli membuka link katalog toko di WhatsApp.  
-> 2. Pembeli mencari produk camilan keripik.  
+### Template Prompt Audit User Flow Alur WhatsApp:
+> **[Role]** Bertindaklah sebagai Lead UX Architect & QA Engineer aplikasi web UMKM Indonesia.  
+> **[Context]** Kami sedang merancang User Flow untuk Platform Katalog UMKM. Pengguna utama kami adalah pembeli lokal yang memesan produk kuliner/camilan dari pedagang kecil. Pemesanan diteruskan langsung ke WhatsApp penjual tanpa alur checkout kartu yang rumit.  
+> **[Instruction]** Berikut draf alur kami:  
+> 1. Pembeli membuka link katalog toko via browser HP.  
+> 2. Pembeli menyaring produk berdasarkan kategori.  
 > 3. Pembeli membuka halaman detail produk.  
 > 4. Pembeli menekan tombol 'Pesan via WhatsApp'.  
-> 5. Sistem membuka aplikasi WhatsApp dengan template pesan otomatis terisi.  
-> **[Task]** Analisis 4 skenario kebuntuan atau kegagalan (edge cases) di mana alur ini bisa rusak atau membuat pengguna frustrasi di dunia nyata Indonesia. Berikan rekomendasi perbaikan untuk setiap skenario.
+> 5. Sistem memeriksa stok: jika ada, sistem merakit pesan otomatis dan membuka aplikasi WhatsApp penjual.  
+> **[Constraint]** Berikan 3 skenario kegagalan atau kendala nyata di lapangan (misal: penjual salah pasang nomor HP atau pembeli tidak punya aplikasi WA) beserta solusi penanganan antarmukanya.  
+> **[Output]** Sajikan dalam bentuk tabel ringkas: Skenario Kendala, Dampak bagi User, dan Solusi Antarmuka.
 
 ---
 
 ## 4. Workshop Praktik Squad (60 Menit)
 
-Setiap squad akan menyempurnakan **2 Alur Pengguna Utama**:
+Setiap squad menyempurnakan **2 Alur Perjalanan Utama**:
 
 ### Alur A: Perjalanan Pembeli (Buyer Journey)
-Dari pertama kali menerima tautan toko → menyaring produk makanan → melihat detail & stok → melakukan pemesanan langsung ke WhatsApp penjual.
+Dari pertama kali membuka tautan katalog toko → melihat daftar produk & filter kategori → membuka halaman detail → mengecek status stok → menekan tombol pesan → membuka aplikasi WhatsApp dengan template pesan rapi terisi.
 
 ### Alur B: Perjalanan Pedagang (Merchant Journey)
-Dari login pemilik toko → melihat ringkasan stok → mengedit harga produk yang sedang promo → menambah foto produk baru → mengecek tampilan katalog toko dari sisi pembeli.
+*(Scope: Masuk langsung ke dashboard kelola toko tanpa login akun/password yang rumit).*  
+Dari pedagang membuka halaman dashboard kelola toko → melihat ringkasan daftar barang & sisa stok → mengedit harga atau stok produk → menambah produk baru lewat formulir → melihat perubahan langsung ter-update di katalog toko.
 
-### Langkah Kerja:
-1. **Langkah 1 (Brainstorming Awal - 15 Menit):** Susun draf langkah-langkah Alur A dan Alur B di dokumen Markdown squad.
-2. **Langkah 2 (Audit dengan AI - 20 Menit):** Gunakan prompt di atas untuk mencari celah kebuntuan pada alur kalian.
-3. **Langkah 3 (Validasi Silang dengan ERD & Wireframe - 25 Menit):**
-   - Pastikan setiap layar di User Flow memiliki gambar wireframe pendukung (dari Minggu 3).
-   - Pastikan setiap data yang berpindah (misal: template pesan WA) memiliki atribut yang cocok di ERD (dari Minggu 2).
+### Langkah Pengerjaan Tim:
+1. **Langkah 1 (Susun Draf Alur - 15 Menit):** Tuliskan urutan langkah Alur A dan Alur B di dokumen squad.
+2. **Langkah 2 (Audit dengan AI - 20 Menit):** Jalankan prompt audit di atas untuk mencari titik buntu.
+3. **Langkah 3 (Validasi Silang dengan Wireframe & ERD - 25 Menit):**
+   - Pastikan setiap langkah di User Flow memiliki gambar wireframe pendukung (dari Minggu 3).
+   - Pastikan data yang dikirimkan (nomor WhatsApp, nama barang, jumlah pesan) memiliki atribut yang cocok di ERD (dari Minggu 2).
 
 ---
 
 ## 5. Output Sesi
 
-Dokumen Markdown terpadu (`user-flow-tervalidasi.md`) yang memuat:
-1. Diagram User Flow lengkap (bisa menggunakan sintaks Mermaid `graph LR` atau flowchart visual).
-2. Daftar 3 potensi celah/kebuntuan yang ditemukan bersama AI beserta solusi penanganannya.
-3. Konfirmasi keselarasan dengan Wireframe dan ERD.
+Dokumen Markdown squad (`user-flow-tervalidasi.md`) yang memuat:
+1. Diagram User Flow Alur A (Pembeli) dan Alur B (Pedagang) menggunakan sintaks Mermaid (`graph LR`).
+2. Daftar 3 potensi titik buntu yang ditemukan bersama AI beserta solusi antarmuka yang diadopsi.
+3. Konfirmasi keselarasan silang dengan Wireframe dan ERD.
 
 ---
 
-## 6. Cek Pemahaman Diri
+## 6. Tugas Mandiri (Individual)
 
-1. Apa perbedaan fokus antara diagram *User Flow* dengan *Flowchart Sistem*?
-2. Mengapa integrasi pesan WhatsApp otomatis merupakan solusi yang sangat cerdas untuk UMKM Indonesia dibandingkan memaksa pembeli menggunakan keranjang belanja checkout yang rumit?
+- **Sifat:** Individu (dikerjakan sendiri di luar jam kelas)
+- **Target Waktu:** 20 menit
+- **Nama File:** Simpan di folder pribadimu dalam repo squad dengan nama `tugas_04b.md`
 
-Lanjut ke: **[04c-menyusun-pitch-deck.md](file:///home/iqbaal/gelombang-3/modul 12 bulan/modul-pra-coding-bulan1/4-Pitching-dan-Showcase/04c-menyusun-pitch-deck.md)**
+### Instruksi:
+1. Pikirkan satu skenario gagal yang mungkin dialami pembeli saat menekan tombol *"Pesan via WhatsApp"* (misal: nomor WhatsApp pedagang yang tersimpan salah atau tidak aktif).
+2. Tuliskan dalam 1 halaman ringkas:
+   - Apa skenario kendala tersebut?
+   - Mengapa kendala itu bisa merusak kepercayaan pembeli?
+   - Bagaimana solusi antarmuka atau pesan ramah yang harus ditampilkan aplikasi untuk mengatasi kendala tersebut?
+
+### Contoh Hasil yang Diharapkan:
+```markdown
+# Tugas Mandiri 04b — Antisipasi Kendala Alur WhatsApp
+Nama: [Nama Kamu]
+
+## 1. Skenario Kendala:
+Nomor WhatsApp yang dimasukkan pedagang saat mendaftarkan toko tidak lengkap (misal kurang 1 digit atau salah format).
+
+## 2. Dampak bagi Pengguna:
+Saat pembeli menekan tombol 'Pesan via WhatsApp', aplikasi WhatsApp menampilkan error: "Nomor telepon tidak terdaftar di WhatsApp". Pembeli bingung dan membatalkan pesanan.
+
+## 3. Solusi Pencegahan Antarmuka:
+Pada dashboard saat pedagang memasukkan nomor HP, buat validasi otomatis yang memastikan nomor diawali '08' atau '+62', memiliki panjang minimal 10-13 digit, dan sediakan tombol "Uji Coba Kirim Chat ke Nomor Saya Sendiri" sebelum toko dipublikasikan secara live.
+```
+
+---
+
+## 7. Cek Pemahaman Diri
+
+1. Apa perbedaan fokus antara diagram *User Flow* (langkah manusia) dan *Flowchart Sistem* (logika mesin)?
+2. Mengapa alur masuk ke dashboard toko di Bulan 1 disederhanakan tanpa sistem login password yang rumit?
+
+---
+
+Lanjut ke: **[04c-menyusun-pitch-deck.md](04c-menyusun-pitch-deck.md)**

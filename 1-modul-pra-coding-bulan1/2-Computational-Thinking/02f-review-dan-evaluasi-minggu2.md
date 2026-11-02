@@ -1,45 +1,45 @@
-# 02f. Review dan Evaluasi Mingguan: Sprint Review 2
+# 02f. Review Mingguan: Sprint Review 2 & Bug Hunt
 
 **Minggu 2: Computational Thinking & Algoritma | Sesi 6 (Sabtu)**  
 **Target Waktu:** 120 Menit  
-**Output Sesi:** Nilai Evaluasi Minggu 2, Flowchart & ERD Tervalidasi, Catatan Retrospektif
+**Output Sesi:** Checklist Kapabilitas Minggu 2, Flowchart & ERD Tervalidasi, Catatan Retrospektif
 
 ---
 
 ## 1. Format Sesi Hari Sabtu
 
-Hari ini seluruh squad akan menguji ketajaman logika sistem mereka di hadapan mentor dan rekan-rekan tribe.
+Hari ini seluruh squad akan menguji ketajaman logika sistem mereka di hadapan mentor dan rekan tribe. Sesi dibagi menjadi 3 babak terstruktur:
 
 ```text
 ┌─────────────────────────────────────────────────────────────┐
 │                 AGENDA SPRINT REVIEW SABTU                  │
 ├─────────────────┬───────────────────────────────────────────┤
 │ 1. Showcase     │ Presentasi Portofolio Logika & Diagram    │
-│    (60 Menit)   │ (6 squad x 8 menit presentasi + Q&A)      │
+│    (50 Menit)   │ (6 squad x 8 menit: 5m presentasi + 3m QA)│
 ├─────────────────┼───────────────────────────────────────────┤
 │ 2. Uji Praktik  │ Bug Hunt: Menemukan bug logika pada       │
-│    (30 Menit)   │ Flowchart & ERD yang rusak                │
+│    (35 Menit)   │ Flowchart & ERD yang cacat                │
 ├─────────────────┼───────────────────────────────────────────┤
-│ 3. Retrospektif │ Refleksi tim & rolling pembagian squad    │
-│    (30 Menit)   │ (evaluasi ritme kerja 2 minggu pertama)   │
+│ 3. Retrospektif │ Refleksi tim & persiapan rolling squad    │
+│    (35 Menit)   │ (evaluasi ritme 2 minggu pertama)         │
 └─────────────────┴───────────────────────────────────────────┘
 ```
 
 ---
 
-## 2. Bagian 1: Showcase Portofolio Logika (60 Menit)
+## 2. Bagian 1: Showcase Portofolio Logika (50 Menit)
 
 Setiap squad mendemokan hasil kerja Minggu 2 (5 menit presentasi + 3 menit sesi kritik/tanya jawab):
-1. **Paparan Dekomposisi & Pseudocode:** Tunjukkan bagaimana masalah bisnis UMKM dipilah secara runtut.
-2. **Presentasi Flowchart:** Jelaskan alur normal (*happy path*) dan alur penanganan kegagalan (*unhappy path*).
-3. **Presentasi ERD:** Tunjukkan struktur entitas, atribut kunci (*Primary Key*), dan logika hubungan (*One-to-Many*).
-4. **Tantangan Tracing Mentor:** Mentor akan menunjuk satu kondisi ekstrem secara acak (misal: *"Jika input harga dimasukkan angka minus -5000, diagrammu lari ke mana?"*). Presenter harus mampu melacak panahnya dalam hitungan detik.
+1. **Dekomposisi & Pseudocode:** Tunjukkan bagaimana proses bisnis warung dipilah secara runtut tanpa instruksi ambigu.
+2. **Presentasi Flowchart:** Tunjukkan alur pemesanan via WhatsApp dan alur penanganan kondisi stok habis.
+3. **Presentasi ERD:** Tunjukkan struktur entitas, primary key, relasi 1:N, serta fungsi entitas penghubung `ItemPesanan`.
+4. **Tantangan Tracing Mentor:** Mentor akan menunjuk satu kondisi ekstrem secara acak (misal: *"Jika input jumlah pesanan dimasukkan angka minus -3 atau 0, panah diagrammu lari ke mana?"*). Presenter menunjukkan jalurnya dalam hitungan detik.
 
 ---
 
-## 3. Bagian 2: Ujian Praktik — "Bug Hunt: Bedah Diagram Cacat" (30 Menit)
+## 3. Bagian 2: Tantangan Praktik — "Bug Hunt: Bedah Diagram Cacat" (35 Menit)
 
-Mentor menampilkan diagram flowchart dan ERD di bawah ini yang sengaja dirancang memiliki **4 kesalahan fatal**. Setiap squad memiliki waktu 15 menit untuk menemukan semua kesalahan dan menuliskannya di lembar jawaban.
+Mentor menampilkan diagram flowchart dan ERD di bawah ini yang sengaja dirancang memiliki **4 kesalahan fatal**. Setiap squad memiliki waktu 15 menit untuk menemukan semua kesalahan dan menuliskannya di lembar kerja tim.
 
 ### Skenario Ujian: "Sistem Kasir Warung yang Cacat"
 
@@ -63,44 +63,83 @@ Tabel_Produk:
 - stok
 ```
 
-### Pertanyaan Ujian:
+### Pertanyaan Bug Hunt:
 1. Temukan **2 kesalahan logika fatal** pada flowchart di atas!
 2. Temukan **2 kesalahan arsitektur data** pada draft ERD `Tabel_Produk` di atas!
 3. Tuliskan perbaikan yang benar untuk kedua diagram tersebut!
 
-*(Kunci jawaban mentor: Flowchart tidak punya cabang jika belanja <= 100rb (panah buntu) dan tidak ada input uang bayar/kembalian; ERD mencampur entitas Kategori dan riwayat Pembeli ke dalam tabel master Produk).*
+*(Kunci telaah mentor: Flowchart tidak memiliki panah jika belanja <= 100.000 / panah buntu, dan tidak ada kalkulasi pembayaran/uang; ERD mencampur entitas Kategori dan riwayat Pembeli ke dalam tabel master Produk).*
 
 ---
 
-## 4. Bagian 3: Sprint Retrospective & Evaluasi Squad Rolling (30 Menit)
+## 4. Bagian 3: Sprint Retrospective & Persiapan Rolling Squad (35 Menit)
 
-Karena ini adalah akhir dari Minggu ke-2, ini adalah akhir dari siklus squad pertama sebelum mentor melakukan rolling anggota:
+Karena Minggu 2 adalah akhir dari paruh pertama Bulan 1, ini adalah momen evaluasi siklus squad pertama sebelum dilakukan rolling anggota untuk Minggu 3 & 4:
 
 1. **Evaluasi Dinamika Tim:**
-   - Apakah pembagian peran Driver, Navigator, dan Presenter berjalan adil?
-   - Apakah ada anggota yang merasa suaranya kurang didengarkan?
+   - Apakah rotasi peran Driver, Navigator, dan Presenter berjalan adil?
+   - Apakah semua anggota berkesempatan mencoba menulis logika pseudocode dan flowchart?
 2. **Pelajaran Berharga (*Key Learnings*):**
    - Apa hal paling mencerahkan yang didapatkan selama 2 minggu berpikir komputasional?
-3. **Pengumuman Rolling Squad:** Mentor mengumumkan komposisi 6 squad baru untuk Minggu 3 & 4.
+3. **Pengumuman Rolling Squad:** Mentor mengumumkan komposisi squad baru untuk Minggu 3 & 4 agar semua saling beradaptasi.
 
 ---
 
-## 5. Rubrik Penilaian Kelulusan Minggu 2
+## 5. Output Sesi
 
-| Aspek | Bobot | Kriteria Lulus (Skor 3 - 4) |
-|---|---|---|
-| **Kebenaran Flowchart** | 35% | Menggunakan simbol baku; tidak ada panah buntu; percabangan jelas; tahan uji skenario batas (*edge cases*). |
-| **Kematangan ERD** | 35% | Pemisahan entitas dan atribut bersih; kardinalitas relasi 1:N dan N:N masuk akal; primary key jelas. |
-| **Hasil Ujian Praktik Bug Hunt** | 30% | Mampu mendeteksi minimal 3 dari 4 kesalahan fatal diagram ujian dan memberikan solusinya. |
+1. Berita acara Sprint Review 2 dan catatan masukan teknis mentor.
+2. Lembar jawaban tim untuk sesi Bug Hunt.
 
 ---
 
-## 6. Penutup Minggu 2 & Menatap Minggu 3
+## 6. Tugas Mandiri (Individual)
 
-Kerja luar biasa! Kamu sudah menyelesaikan setengah perjalanan Bulan 1. Kamu sekarang mampu berpikir seperti komputer: runtut, presisi, dan terstruktur.
+- **Sifat:** Individu (dikerjakan sendiri setelah sesi Sabtu)
+- **Target Waktu:** 15 menit
+- **Nama File:** Simpan di folder pribadimu dalam repo squad dengan nama `tugas_02f.md`
 
-Namun, sistem yang logikanya sempurna tetap bisa gagal di pasaran jika **tampilannya membingungkan manusia (UX buruk)** atau **tidak menyelesaikan masalah bisnis nyata (Value Proposition salah)**.
+### Instruksi:
+Tuliskan refleksi pribadi singkat (3–5 kalimat) yang menjawab 3 hal berikut:
+1. Apa 1 hal tentang Computational Thinking (Flowchart atau ERD) yang paling kamu pahami minggu ini?
+2. Bagian mana yang menurutmu paling menantang atau masih butuh latihan?
+3. Apa 1 komitmenmu untuk menyambut materi Desain Tampilan (Wireframe) dan Wawancara UMKM Nyata di Minggu 3?
 
-Di **Minggu 3**, kita akan mempelajari dunia **Desain Aplikasi (UX & Wireframe) & Desain Bisnis UMKM**!
+### Contoh Hasil yang Diharapkan:
+```markdown
+# Tugas Mandiri 02f — Refleksi Pribadi Sprint 2
+Nama: [Nama Kamu]
 
-Lanjut ke: **[3-Desain-Aplikasi-dan-Bisnis/PANDUAN-MENTOR.md](file:///home/iqbaal/gelombang-3/modul%2012%20bulan/modul-pra-coding-bulan1/3-Desain-Aplikasi-dan-Bisnis/PANDUAN-MENTOR.md)**
+1. Hal yang paling saya pahami: Saya memahami bahwa relasi Banyak-ke-Banyak antara Pesanan dan Produk harus dipecah lewat entitas penghubung ItemPesanan agar jumlah tiap barang bisa dicatat dengan rapi.
+2. Hal yang masih menantang: Memastikan semua panah keputusan (decision) di flowchart memiliki label Ya dan Tidak yang tidak buntu.
+3. Komitmen Minggu 3: Saya siap belajar mendesain wireframe antarmuka yang ramah bagi pengguna awam dan siap ikut mewawancarai pedagang UMKM di sekitar tempat tinggal saya.
+```
+
+---
+
+## 7. Checklist Kapabilitas Minggu 2
+
+Mentor memeriksa ketercapaian kapabilitas dengan 3 status: **Siap**, **Hampir Siap**, atau **Perlu Pendampingan**.
+
+| Indikator Kapabilitas | Bukti Evaluasi | Status | Catatan Feedback Mentor |
+|---|---|---|---|
+| **Dekomposisi & Pseudocode** | Langkah runtut, menggunakan kata kunci baku, bebas dari makna ganda | [ ] Siap<br>[ ] Hampir Siap<br>[ ] Perlu Pendampingan | |
+| **Kebenaran Flowchart** | Simbol standar, percabangan jelas (Ya/Tidak), alur pemesanan WA lengkap tanpa panah buntu | [ ] Siap<br>[ ] Hampir Siap<br>[ ] Perlu Pendampingan | |
+| **Model Data ERD Dasar** | Entitas dan atribut terpisah benar, relasi 1:N dan N:N (ItemPesanan) masuk akal | [ ] Siap<br>[ ] Hampir Siap<br>[ ] Perlu Pendampingan | |
+| **Jembatan Kode JavaScript** | Mampu menerjemahkan pseudocode ke fungsi JS sederhana dan mencocokkan dry run table | [ ] Siap<br>[ ] Hampir Siap<br>[ ] Perlu Pendampingan | |
+| **Analisis Bug Hunt** | Menemukan minimal 3 dari 4 celah kesalahan pada diagram uji Sabtu | [ ] Siap<br>[ ] Hampir Siap<br>[ ] Perlu Pendampingan | |
+
+> *Catatan Mentor:* Murid berstatus **Perlu Pendampingan** akan mendapatkan sesi klinik penelusuran diagram (*tracing clinic*) selama 15 menit bersama mentor atau rekan pairing sebelum memasuki materi UX Minggu 3.
+
+---
+
+## 8. Penutup Minggu 2 & Menatap Minggu 3
+
+Kerja luar biasa! Kamu sudah menyelesaikan paruh pertama Bulan 1. Kamu sekarang mampu membedah masalah seperti programmer sejati: terstruktur, logis, dan teliti.
+
+Namun, sistem yang logikanya sempurna tetap bisa gagal total jika **tampilannya membingungkan pengguna awam (UX buruk)** atau **tidak menyelesaikan masalah nyata pedagang (Value Proposition meleset)**.
+
+Di **Minggu 3**, kita akan mempelajari dunia **Desain Antarmuka (Wireframe) & Riset Pengguna Nyata UMKM**!
+
+---
+
+Lanjut ke: **[3-Desain-Aplikasi-dan-Bisnis/PANDUAN-MENTOR.md](../3-Desain-Aplikasi-dan-Bisnis/PANDUAN-MENTOR.md)**

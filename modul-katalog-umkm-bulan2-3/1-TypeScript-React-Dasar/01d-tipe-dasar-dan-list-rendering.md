@@ -1,40 +1,49 @@
 # 1.0d Slice 0 — Katalog Tampil (Tipe Dasar & List Rendering)
 
-## Tujuan slice ini
+## Tujuan Slice Ini
 
-Menampilkan daftar produk UMKM di halaman, sebagai kartu-kartu. Datanya masih **hardcode** (ditulis langsung di kode) — belum dari server. Itu boleh, karena tujuan slice ini adalah paham TypeScript dasar dan komponen React, bukan soal data asli dulu.
+Menampilkan daftar produk UMKM di halaman web dalam bentuk kartu-kartu rapi. Pada slice perdana ini, data produk masih bersifat **statis (hardcode)** dari file lokal. Ini sengaja dilakukan agar kamu fokus memahami **kontrak tipe TypeScript** dan **cara React merender daftar data** sebelum berurusan dengan server.
 
-> **Prasyarat:** kamu sudah membaca dan menjalankan langkah di `01a` (orientasi), `01b` (JSX & komponen bertipe), dan `01c` (styling). Kalau belum, kerjakan dulu — slice ini membangun di atas semua itu.
+---
 
-## Bacaan wajib (modul React bootcamp)
+## Aktivitas Terbimbing di Kelas (Blok 1, 10-15 Menit)
 
-Kalau belum dibaca dari sesi sebelumnya, baca sekarang:
-- **Bab 1.2** — JSX & Rendering Elements (conditional rendering, list rendering dengan `map` + `key`)
-- **Bab 1.3** — Components & Props (component composition)
-- **Bab 4.1** — Pengenalan TypeScript pada React
+Mentor akan memandu pembahasan:
+- Cara merancang `interface` TypeScript untuk data produk UMKM.
+- Perbedaan `interface` (bentuk objek) dan `type` (union pilihan tetap).
+- Mengapa data backend menggunakan format `snake_case` (seperti `category_id`, `merchant_name`).
+- Menggunakan fungsi bawaan JavaScript `Intl.NumberFormat` untuk mata uang Rupiah.
 
-## Kenapa ini penting untuk produk
+*(Bahan bacaan pendalaman opsional: Modul React Bootcamp Bab 4.1 tentang Dasar TypeScript pada React).*
 
-Sebelum bisa menyambungkan ke database atau API, kita harus tahu **bentuk data** yang kita kerjakan. Slice ini melatih itu: mendefinisikan bentuk `Product`, lalu menampilkannya.
+---
 
-## Konsep yang dipakai
+## Ringkasan Konsep Kunci & Analogi
 
-- **Tipe dasar TypeScript:** `string`, `number`, array (`Product[]`)
-- **`interface`** untuk mendeskripsikan bentuk objek
-- **Union type** / **literal type**: `'active' | 'draft'`
-- **Komponen React** dengan **props bertipe**
-- **List rendering**: `.map()` + `key`
-- **Conditional rendering**: tampilan berbeda kalau kondisi tertentu (misal stok habis)
+### 1. Apa itu TypeScript Interface?
 
-## Langkah demi langkah
+> **Analogi Sehari-hari:**  
+> Pikirkan `interface` seperti **formulir pendaftaran resmi dengan kolom bergaris tegas**:
+> - Kolom *Nama*: wajib diisi huruf (string).
+> - Kolom *Harga*: wajib diisi angka (number).
+> - Kolom *Status*: hanya boleh dicentang salah satu: "Aktif" atau "Draft".  
+> Jika seorang staf salah memasukkan teks "Murah Sekali" di kolom harga, petugas pemeriksa dokumen (**compiler TypeScript**) langsung menegur saat itu juga di ruang kerja (editor kodemu), sebelum dokumen itu sempat disebarkan ke publik (browser pengguna).
 
-### 1. Definisikan bentuk data `Product`
+---
 
-Buat `src/types/product.ts`:
+## Langkah demi Langkah Mengembangkan Slice 0
+
+### Langkah 1: Definisikan Bentuk Data Produk
+
+Buka berkas `src/types/product.ts` dan pastikan kontrak tipe produk tersusun rapi:
 
 ```ts
+// src/types/product.ts
+
+// Union type: status hanya boleh salah satu dari dua kata ini persis
 export type ProductStatus = 'active' | 'draft'
 
+// Interface: mendeskripsikan bentuk lengkap data satu produk
 export interface Product {
   id: number
   name: string
@@ -48,39 +57,65 @@ export interface Product {
 }
 ```
 
-**Kenapa `type` untuk `ProductStatus` tapi `interface` untuk `Product`?** Aturan sederhana yang kita pakai di modul ini: `interface` untuk bentuk objek, `type` untuk union/literal seperti `ProductStatus`. Dua-duanya sebenarnya bisa dipakai bergantian untuk banyak kasus — ini soal konsistensi tim, bukan aturan mutlak TypeScript.
+> **Catatan Penamaan Field:** Nama `category_id` dan `merchant_name` menggunakan `snake_case` karena menyesuaikan kesepakatan format data API backend (kontrak API).
 
-**Kenapa `category_id`, bukan `categoryId`?** Karena ini bentuk data yang datang dari API/database nanti, dan tribe sudah sepakat field data pakai `snake_case` (lihat `docs/kontrak-api.md` dan konvensi di kurikulum Bagian 14.2). Variabel biasa di kode tetap `camelCase` — bedanya akan lebih jelas di slice-slice berikutnya.
+---
 
-### 2. Siapkan data contoh (sementara, hardcode)
+### Langkah 2: Siapkan Data Contoh Statis (Sementara)
 
-Buat `src/data/products.ts`. Isi beberapa produk contoh sesuai tipe `Product` di atas (boleh contek dari `db.seed.json` kalau mau data yang sama). Ingat: file ini sementara — akan **dihapus** di Slice 1 saat data pindah ke API.
+Buat berkas `src/data/products.ts`. Data ini menjadi jembatan sementara untuk Slice 0 dan nantinya akan diganti oleh panggilan API di Slice 1:
 
 ```ts
+// src/data/products.ts
 import type { Product } from '../types/product'
 
-// Data sementara (hardcode) untuk Slice 0. Akan diganti data dari API di Slice 1.
 export const products: Product[] = [
   {
     id: 1,
-    name: 'Keripik Tempe Original',
-    description: 'Keripik tempe renyah tanpa pengawet, kemasan 250 gram.',
+    name: 'Keripik Tempe Renyah 250g',
+    description: 'Keripik tempe kedelai lokal tanpa bahan pengawet.',
     price: 18000,
-    stock: 120,
+    stock: 45,
     status: 'active',
     category_id: 1,
-    merchant_name: 'Dapur Bu Sari',
-    created_at: '2026-01-12T08:00:00Z',
+    merchant_name: 'Dapur Bu Sri',
+    created_at: '2026-01-15T08:00:00Z',
   },
-  // ...tambah beberapa lagi
+  {
+    id: 2,
+    name: 'Sambal Roa Khas Manado 150g',
+    description: 'Sambal ikan roa asap pedas gurih aroma khas.',
+    price: 35000,
+    stock: 0, // Stok habis untuk menguji tampilan conditional rendering
+    status: 'active',
+    category_id: 1,
+    merchant_name: 'Warung Bu Ani',
+    created_at: '2026-01-16T09:30:00Z',
+  },
+  {
+    id: 3,
+    name: 'Kopi Bubuk Robusta Dampit 200g',
+    description: 'Biji kopi pilihan roasted medium dark khas Malang.',
+    price: 28000,
+    stock: 20,
+    status: 'draft',
+    category_id: 2,
+    merchant_name: 'Kopi Sejahtera',
+    created_at: '2026-01-17T11:00:00Z',
+  },
 ]
 ```
 
-### 3. Bikin fungsi bantu untuk format harga
+---
 
-Buat `src/utils/format.ts`:
+### Langkah 3: Membuat Helper Format Mata Uang
+
+Buat berkas `src/utils/format.ts`:
 
 ```ts
+// src/utils/format.ts
+
+// Mengubah angka 18000 menjadi format standar "Rp 18.000"
 export function formatRupiah(amount: number): string {
   return new Intl.NumberFormat('id-ID', {
     style: 'currency',
@@ -90,13 +125,14 @@ export function formatRupiah(amount: number): string {
 }
 ```
 
-`Intl.NumberFormat` adalah fitur bawaan JavaScript (bukan library tambahan) untuk format angka/mata uang sesuai lokal (`id-ID` = Indonesia).
+---
 
-### 4. Bikin komponen `ProductCard`
+### Langkah 4: Rangkai Komponen `ProductCard.tsx`
 
-Buat `src/components/ProductCard.tsx`:
+Buka `src/components/ProductCard.tsx`:
 
 ```tsx
+// src/components/ProductCard.tsx
 import type { Product } from '../types/product'
 import { formatRupiah } from '../utils/format'
 
@@ -112,12 +148,19 @@ function ProductCard({ product }: ProductCardProps) {
       <h3>{product.name}</h3>
       {product.status === 'draft' && <span className="badge">Draft</span>}
       <p>{product.description}</p>
+      
+      {/* Tampilkan harga terformat */}
       <p>
         <strong>{formatRupiah(product.price)}</strong>
       </p>
-      <p>{isOutOfStock ? 'Stok habis' : `Stok: ${product.stock}`}</p>
+
+      {/* TODO: Terapkan dynamic class dan teks stok bersyarat */}
+      <p className={isOutOfStock ? 'stock-warning' : ''}>
+        {isOutOfStock ? 'Stok habis' : `Stok: ${product.stock}`}
+      </p>
+
       <p>
-        <small>{product.merchant_name}</small>
+        <small>UMKM: {product.merchant_name}</small>
       </p>
     </article>
   )
@@ -126,54 +169,26 @@ function ProductCard({ product }: ProductCardProps) {
 export default ProductCard
 ```
 
-Perhatikan dua bentuk conditional rendering yang berbeda:
-- `{product.status === 'draft' && <span>...</span>}` → tampil **atau tidak sama sekali**.
-- `{isOutOfStock ? '...' : '...'}` → tampil **salah satu dari dua pilihan**.
+---
 
-### 5. Bikin komponen `ProductList`
+### Langkah 5: Rangkai di `App.tsx`
 
-Buat `src/components/ProductList.tsx`:
+Buka `src/App.tsx` dan hubungkan data dengan komponen:
 
 ```tsx
-import type { Product } from '../types/product'
-import ProductCard from './ProductCard'
-
-interface ProductListProps {
-  products: Product[]
-}
-
-function ProductList({ products }: ProductListProps) {
-  if (products.length === 0) {
-    return <p>Belum ada produk.</p>
-  }
-
-  return (
-    <div className="product-list">
-      {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
-    </div>
-  )
-}
-
-export default ProductList
-```
-
-**`key={product.id}` wajib.** React butuh cara mengenali tiap item dalam list supaya tahu mana yang berubah. Jangan pakai index array (`key={index}`) kalau list-nya bisa berubah urutan/isi — kita sudah punya `id` yang lebih aman.
-
-Perhatikan juga **empty state**: kalau `products.length === 0`, kita tampilkan pesan, bukan halaman kosong tanpa penjelasan. Ini kebiasaan kecil yang penting dijaga terus.
-
-### 6. Pasang di `App.tsx`
-
-```tsx
+// src/App.tsx
 import ProductList from './components/ProductList'
 import { products } from './data/products'
 
 function App() {
   return (
-    <main>
-      <h1>Katalog UMKM</h1>
-      <p>Menampilkan {products.length} produk</p>
+    <main style={{ maxWidth: '1000px', margin: '0 auto', padding: '24px 16px' }}>
+      <header>
+        <h1>Mini Katalog UMKM</h1>
+        <p>Menampilkan {products.length} produk pilihan lokal</p>
+      </header>
+
+      {/* TODO: Render komponen ProductList dan kirimkan data products lewat props */}
       <ProductList products={products} />
     </main>
   )
@@ -182,37 +197,76 @@ function App() {
 export default App
 ```
 
-### 7. Cek hasilnya
+---
 
-```bash
-npm run dev
-```
+## Analisis Bug & Prediksi (Aktivitas Blok 2)
 
-Buka `localhost:5173` — harus muncul kartu-kartu produk.
+Diskusikan bersama pasangan pairing:
 
-## Latihan
-
-1. Tambahkan field baru di `Product`, misal `sku: string`, lalu tampilkan di kartu. Perhatikan: TypeScript akan menegur di semua tempat yang butuh disesuaikan.
-2. Ubah `ProductCard` supaya kartu produk dengan status `'draft'` punya warna latar sedikit berbeda (CSS sederhana).
-3. Coba hapus `key={product.id}` sengaja, jalankan `npm run dev`, lihat peringatan apa yang muncul di console browser.
-
-## Cek pemahaman
-
-- Kalau `product.stock` berubah dari `number` jadi `string` di salah satu data, apa yang akan ditegur TypeScript, dan di mana?
-- Apa bedanya `interface ProductCardProps` di sini dengan `interface Product` di `types/product.ts`? Kenapa dipisah?
-
-## Kesalahan umum
-
-| Gejala | Sebab | Solusi |
-|---|---|---|
-| `Type 'string' is not assignable to type 'ProductStatus'` | Menulis status selain `'active'`/`'draft'` (misal `'aktif'`) | Cocokkan persis dengan union type yang didefinisikan |
-| Error `Cannot find module './types/product'` | Salah path import, atau lupa `import type` | `verbatimModuleSyntax` di starter mewajibkan `import type` untuk yang hanya dipakai sebagai tipe |
-| Kartu tidak tampil sama sekali, tidak ada error | `products` array kosong, atau lupa render `<ProductList products={products} />` | Cek `console.log(products)` sementara di `App.tsx` |
-
-## Kaitkan ke rujukan
-
-Kalau masih ragu soal dasar komponen/props/JSX, buka bab **Pengenalan React** di modul React bootcamp sebagai penyegar.
+1. **Prediksi Error TypeScript:**  
+   Jika kamu sengaja menambahkan data baru di `products.ts` dengan status `'tersedia'` (bahasa Indonesia):
+   ```ts
+   status: 'tersedia'
+   ```
+   Tebak pesan error apa yang akan dimunculkan oleh compiler TypeScript di editor kodemu! Mengapa hal itu terjadi?
+2. **Uji Coba Linter:**  
+   Buka terminal dan jalankan `npm run lint`. Apakah ada peringatan impor yang tidak terpakai atau kesalahan format penulisan?
 
 ---
 
-Lanjut ke: **02-fetch-dan-loading-state.md** (Slice 1)
+## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
+
+Kerjakan secara mandiri di kelas. Simpan hasilnya di:  
+`tugas/squad-<nomor>/<nama-kamu>/tugas_01d.md`
+
+### Instruksi Pengerjaan
+
+1. Buat berkas baru sesuai path di atas.
+2. Tuliskan identitas diri (Nama, Squad, Tanggal).
+3. Bayangkan produk UMKM membutuhkan satu informasi tambahan: nomor kode barang unik / SKU (*Stock Keeping Unit*), contoh: `"KRP-001"`.
+   - Perbarui definisi `interface Product` di berkas tugasmu dengan menambahkan kolom `sku: string`.
+   - Tunjukkan bagaimana baris JSX di `ProductCard.tsx` untuk menampilkan teks kode SKU tersebut di bawah nama produk (misalnya: `<small className="product-sku">SKU: {product.sku}</small>`).
+4. Jawab 2 pertanyaan pemahaman:
+   - Jika kita tidak sengaja menghapus atribut `key={product.id}` pada saat melakukan `.map()` di `ProductList.tsx`, apakah aplikasi langsung mati total (layar putih) atau tetap tampil dengan peringatan? Di mana peringatan itu bisa dilihat?
+   - Mengapa kita meletakkan fungsi `formatRupiah` di folder `src/utils/` dan bukan menulisnya langsung berulang-ulang di dalam setiap komponen kartu?
+5. Commit hasil kerjamu dan ajukan Pull Request ke repositori squad.
+
+### Contoh Format Hasil (`tugas_01d.md`)
+
+```markdown
+# Tugas Mandiri 01d — Slice 0: List Rendering
+Nama: Muhammad Farhan
+Squad: Squad 4
+Tanggal: 6 November 2026
+
+## 1. Modifikasi Tipe Data Produk
+```ts
+export interface Product {
+  id: number
+  sku: string // Kolom tambahan kode unik barang
+  name: string
+  description: string
+  price: number
+  stock: number
+  status: ProductStatus
+  category_id: number
+  merchant_name: string
+  created_at: string
+}
+```
+
+## 2. Penambahan Tampilan di ProductCard
+```tsx
+<p className="product-sku">
+  <small>Kode SKU: {product.sku}</small>
+</p>
+```
+
+## 3. Jawaban Pertanyaan
+1. Aplikasi tidak langsung mati layar putih, kartu-kartu produk tetap muncul di halaman. Namun, browser console (F12) akan memunculkan pesan peringatan merah (*Warning: Each child in a list should have a unique "key" prop*).
+2. Memisahkan fungsi ke `src/utils/format.ts` menerapkan prinsip *Don't Repeat Yourself (DRY)*. Fungsi tersebut dapat digunakan ulang di halaman lain (seperti halaman detail dan form keranjang) tanpa perlu menduplikasi kode logika yang sama.
+```
+
+---
+
+Lanjut ke: **02a-state-dan-usestate.md** (Minggu 2)

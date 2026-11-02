@@ -1,68 +1,55 @@
 # 1.0c Styling Kartu Produk — CSS di React
 
-## Tujuan sesi ini
+## Tujuan Sesi Ini
 
-Kartu produk yang sudah jalan dari sesi sebelumnya masih **polos** (tanpa styling). Sesi ini menambahkan CSS supaya kartu terlihat layak dan peserta paham cara styling di React.
+Memberikan tampilan visual yang rapi, profesional, dan responsif pada kartu produk Katalog UMKM menggunakan **CSS Classes** murni, serta memahami kapan saat yang tepat menggunakan inline style.
 
-## Bacaan wajib sebelum sesi
+---
 
-**Bab 1.4 — Styling dalam React** (modul React): inline styles, CSS classes, CSS Modules, responsive design.
+## Aktivitas Terbimbing di Kelas (Blok 1, 10-15 Menit)
 
-## Ringkasan konsep (dari bab 1.4)
+Mentor akan memandu demonstrasi singkat:
+- Cara mengimpor berkas CSS ke dalam komponen React.
+- Mengatur tata letak kartu menggunakan CSS Grid responsif (`repeat(auto-fill, minmax(...))`).
+- Perbedaan mendasar antara *CSS Classes* dengan *Inline Styles* di React.
+- Menentukan kelas visual secara kondisional di JSX (misal: teks merah saat stok habis).
 
-Ada beberapa cara styling di React. Di program ini kita mulai dari yang paling sederhana:
+*(Bahan bacaan pendalaman opsional: Modul React Bootcamp Bab 1.4 tentang Styling dalam React).*
 
-### 1. CSS Classes (cara yang kita pakai)
+---
 
-Tulis CSS di file `.css` biasa, pakai `className` di JSX:
+## Ringkasan Konsep Kunci & Analogi
+
+### 1. CSS Classes vs Inline Style
+
+> **Analogi Sehari-hari:**  
+> **CSS Classes** seperti **seragam sekolah**: semua murid yang mengenakan tanda pengenal `.product-card` otomatis rapi dengan warna, jahitan, dan ukuran saku yang sama. Jika ada aturan seragam yang diubah di tata tertib (file `.css`), seluruh murid otomatis rapi bersamaan.  
+> **Inline Style** (`style={{ ... }}`) seperti menempelkan plester warna khusus di lengan satu murid tertentu. Berguna untuk kondisi yang sangat khusus dan dinamis (misalnya progress bar baterai), tapi jika seluruh pakaian diatur dengan plester, kode menjadi sangat sulit dirawat.
+
+### 2. Aturan Inline Style di JSX
+Jika kamu harus menggunakan inline style, ingat dua pasang kurung kurawal `{{ ... }}`:
+1. Kurung luar `{}`: penanda ekspresi JavaScript di JSX.
+2. Kurung dalam `{}`: objek JavaScript berisi pasangan properti dan nilai.
+3. Properti CSS ditulis dalam format **camelCase** (contoh: `backgroundColor`, `fontSize`, `borderRadius`).
 
 ```tsx
-// ProductCard.tsx
-<article className="product-card">...</article>
+// ✅ Benar: objek JS dengan camelCase
+<p style={{ color: '#e53e3e', fontWeight: 'bold' }}>Stok Menipis!</p>
 ```
+
+---
+
+## Langkah demi Langkah: Menata Kartu Katalog
+
+### Langkah 1: Tambahkan Tata Letak Grid dan Gaya Kartu
+
+Buka berkas `src/index.css` dan tambahkan aturan tata letak dasar berikut:
 
 ```css
-/* index.css atau ProductCard.css */
-.product-card {
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 12px;
-}
-```
-
-### 2. Inline Styles (kadang berguna, jangan jadi default)
-
-```tsx
-<p style={{ color: 'green', fontWeight: 'bold' }}>Tersedia</p>
-```
-
-Perhatikan: **double curly braces** — yang luar untuk JSX expression, yang dalam untuk objek JavaScript. Property CSS ditulis **camelCase** (`fontWeight` bukan `font-weight`).
-
-Inline style berguna untuk nilai dinamis (misal warna berdasarkan data), tapi jangan dipakai untuk semua styling — susah di-maintain.
-
-### 3. CSS Modules (opsional, dipakai nanti kalau tribe sepakat)
-
-File CSS dengan nama `*.module.css` di-scope otomatis per komponen — menghindari bentrokan nama class.
-
-```tsx
-import styles from './ProductCard.module.css'
-<article className={styles.card}>...</article>
-```
-
-> **Keputusan tribe:** di Bulan 3 nanti tribe akan memutuskan standar styling (CSS biasa, CSS Modules, atau Tailwind). Untuk sekarang, pakai **CSS biasa** supaya semua fokus ke React dulu.
-
-## Langkah: styling Katalog UMKM
-
-### 1. Tambahkan CSS untuk kartu produk
-
-Di `src/index.css` (atau buat `src/components/ProductCard.css` dan import di `ProductCard.tsx`):
-
-```css
-/* === Layout === */
+/* === Tata Letak Galeri Produk (Grid Otomatis Responsif) === */
 .product-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 16px;
   padding: 16px 0;
 }
@@ -70,31 +57,32 @@ Di `src/index.css` (atau buat `src/components/ProductCard.css` dan import di `Pr
 /* === Kartu Produk === */
 .product-card {
   border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 20px;
+  border-radius: 10px;
+  padding: 18px;
   background: #ffffff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  transition: box-shadow 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .product-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
 }
 
 .product-card h3 {
   margin: 0 0 8px;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: #1a202c;
 }
 
 .product-card p {
-  margin: 4px 0;
+  margin: 6px 0;
   color: #4a5568;
   font-size: 0.9rem;
-  line-height: 1.5;
+  line-height: 1.45;
 }
 
-/* === Badge (status draft) === */
+/* === Indikator Badge Status === */
 .badge {
   display: inline-block;
   padding: 2px 8px;
@@ -102,57 +90,127 @@ Di `src/index.css` (atau buat `src/components/ProductCard.css` dan import di `Pr
   font-size: 0.75rem;
   font-weight: 600;
   background: #edf2f7;
-  color: #718096;
+  color: #4a5568;
 }
 
-/* === Out of stock === */
-.out-of-stock {
+/* === Status Kritis / Habis === */
+.stock-warning {
   color: #e53e3e;
   font-weight: 600;
 }
 ```
 
-### 2. Responsive dasar
+---
 
-CSS Grid dengan `auto-fill` + `minmax` sudah otomatis responsif: di layar kecil kartu satu kolom, di layar besar bisa 2-3 kolom.
+### Langkah 2: Pasang Dynamic Class di `ProductCard.tsx`
 
-Coba resize browser untuk melihat efeknya.
-
-### 3. Pakai class baru di komponen
-
-Update `ProductCard.tsx` untuk memanfaatkan class yang baru:
+Buka `src/components/ProductCard.tsx`. Perhatikan bagian `// TODO:` untuk menerapkan kelas CSS kondisional:
 
 ```tsx
-<p className={isOutOfStock ? 'out-of-stock' : ''}>
-  {isOutOfStock ? 'Stok habis' : `Stok: ${product.stock}`}
-</p>
+// src/components/ProductCard.tsx
+import type { Product } from '../types/product'
+
+interface ProductCardProps {
+  product: Product
+}
+
+function ProductCard({ product }: ProductCardProps) {
+  const isOutOfStock = product.stock === 0
+
+  return (
+    <article className="product-card">
+      <h3>{product.name}</h3>
+      {product.status === 'draft' && <span className="badge">Draft</span>}
+      <p>{product.description}</p>
+      <p>
+        <strong>Rp {product.price.toLocaleString('id-ID')}</strong>
+      </p>
+
+      {/* TODO: Jika isOutOfStock bernilai true, berikan className="stock-warning".
+          Jika stok masih ada, kosongkan class (className="") */}
+      <p className={isOutOfStock ? 'stock-warning' : ''}>
+        {isOutOfStock ? 'Stok habis' : `Stok: ${product.stock}`}
+      </p>
+
+      <p>
+        <small>UMKM: {product.merchant_name}</small>
+      </p>
+    </article>
+  )
+}
+
+export default ProductCard
 ```
-
-## Latihan
-
-1. Tambahkan **hover effect** pada kartu (misalnya: border warna berubah saat mouse di atas). Coba tulis CSS-nya sendiri.
-2. Buat variasi warna badge: `active` = hijau muda, `draft` = abu-abu. Gunakan **conditional className** di JSX.
-3. Coba tulis satu property styling sebagai **inline style** (misal harga berwarna hijau). Bandingkan kode dengan versi CSS class — mana yang lebih mudah dibaca?
-4. Buka di layar HP (atau pakai DevTools responsive mode) — apakah tampilannya masih oke?
-
-## Cek pemahaman
-
-- Kenapa `className` bukan `class`?
-- Kapan sebaiknya pakai inline style vs CSS class?
-- Apa keuntungan CSS Modules dibanding CSS biasa?
-
-## Kesalahan umum
-
-| Gejala | Sebab | Solusi |
-|---|---|---|
-| Styling tidak muncul sama sekali | File CSS tidak di-import | Tambahkan `import './index.css'` di `main.tsx` atau import per komponen |
-| `style="color: red"` di JSX → error | Inline style di JSX harus pakai objek JS | Tulis `style={{ color: 'red' }}` |
-| Class bentrok (nama class sama di file beda) | CSS biasa memang global | Untuk sekarang: beri nama class yang spesifik. Nanti pertimbangkan CSS Modules. |
-
-## Kaitkan ke rujukan
-
-**Bab 1.4** modul React membahas semua cara styling lebih lengkap, termasuk contoh responsive design dan CSS Modules.
 
 ---
 
-Lanjut ke: **01d-tipe-dasar-dan-list-rendering.md** (Slice 0)
+## Analisis Bug & Prediksi (Aktivitas Blok 2)
+
+Diskusikan bersama pasangan pairing:
+
+1. **Temukan Bug:**  
+   Seorang murid menulis baris berikut di dalam JSX:
+   ```tsx
+   <div style="background-color: red; margin-top: 10px;">Pemberitahuan</div>
+   ```
+   Mengapa kode di atas menyebabkan error saat aplikasi dijalankan? Tuliskan perbaikan yang benar!
+2. **Prediksi Tampilan:**  
+   Apa keuntungan dari aturan CSS `grid-template-columns: repeat(auto-fill, minmax(260px, 1fr))` saat halaman dibuka di layar ponsel selebar 360px dibandingkan saat dibuka di layar laptop selebar 1366px?
+
+---
+
+## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
+
+Kerjakan tugas ini secara mandiri di kelas. Simpan hasilnya di:  
+`tugas/squad-<nomor>/<nama-kamu>/tugas_01c.md`
+
+### Instruksi Pengerjaan
+
+1. Buat berkas baru sesuai path di atas.
+2. Tuliskan identitas diri (Nama, Squad, Tanggal).
+3. Buat rancangan class CSS baru bernama `.badge-active` untuk produk yang statusnya aktif:
+   - Warna latar (*background*): hijau muda lembut (contoh `#e6fffa`)
+   - Warna teks: hijau tua tegas (contoh `#234e52`)
+   - Tuliskan potongan CSS-nya.
+4. Tuliskan potongan JSX cara menerapkan class tersebut pada elemen status produk secara kondisional berdasarkan nilai `product.status === 'active'`.
+5. Jawab 2 pertanyaan pemahaman:
+   - Kapan sebaiknya kita menggunakan CSS Classes biasa dan kapan kita boleh menggunakan inline style di React?
+   - Mengapa kita tidak perlu menulis media query rumit (`@media (max-width: 600px)`) hanya untuk membuat daftar kartu produk kita responsif di ponsel?
+6. Buka PR di repository squad untuk direview rekan.
+
+### Contoh Format Hasil (`tugas_01c.md`)
+
+```markdown
+# Tugas Mandiri 01c — Styling Kartu Produk
+Nama: Budi Santoso
+Squad: Squad 1
+Tanggal: 5 November 2026
+
+## 1. Aturan CSS Badge Aktif
+```css
+.badge-active {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #e6fffa;
+  color: #234e52;
+}
+```
+
+## 2. Penerapan di JSX
+```tsx
+<span className={product.status === 'active' ? 'badge-active' : 'badge'}>
+  {product.status === 'active' ? 'Tersedia' : 'Draft'}
+</span>
+```
+
+## 3. Jawaban Pertanyaan
+- CSS Classes sebaiknya menjadi standar utama untuk seluruh tata letak dan komponen yang berulang agar kode bersih dan mudah dirawat. Inline styles hanya digunakan untuk nilai yang dinamis berubah setiap waktu melalui JavaScript (misalnya lebar persentase progress bar).
+- Karena aturan `repeat(auto-fill, minmax(260px, 1fr))` pada CSS Grid sudah otomatis menghitung ruang layar: jika layar < 520px, browser otomatis menampilkan 1 kolom penuh; jika layar melebar, browser otomatis menambah jumlah kolom sesuai kelipatan minimal 260px.
+```
+
+---
+
+Lanjut ke: **01d-tipe-dasar-dan-list-rendering.md**

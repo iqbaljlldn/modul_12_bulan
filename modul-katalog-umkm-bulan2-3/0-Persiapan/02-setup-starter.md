@@ -2,73 +2,104 @@
 
 ## Tujuan
 
-Repo starter jalan di laptopmu: halaman kosong bertulisan "Starter siap" muncul di browser, dan API palsu (`json-server`) juga hidup.
+Repo starter jalan di laptopmu: halaman bertulisan "Starter siap" muncul di browser, dan API palsu (`json-server`) juga hidup dan siap melayani data.
 
-## Yang dibutuhkan
+---
+
+## Yang Dibutuhkan
 
 - **Node.js** versi LTS terbaru (starter diuji dengan Node 22). Cek dengan `node -v`.
-- **Git**, dan akun di layanan hosting repo yang dipakai tribe (GitHub/GitLab/dst — sesuai keputusan mentor).
-- Editor kode (VS Code direkomendasikan, tapi bebas).
+- **Git**, dan akun di GitHub/GitLab (sesuai instruksi mentor).
+- Editor kode (VS Code sangat direkomendasikan).
 
-> Kalau `node -v` menunjukkan versi di bawah 20, install ulang Node versi LTS terbaru sebelum lanjut. Jangan dipaksa jalan di versi lama.
+> [!IMPORTANT]
+> Kalau `node -v` menunjukkan versi di bawah 20, install ulang Node versi LTS terbaru sebelum lanjut. Jangan dipaksa jalan di versi lama karena Vite dan TypeScript modern butuh Node 20+.
 
-## Langkah
+> [!WARNING]
+> **Catatan Penting Versi `json-server` (Terkunci di 0.17.x):**
+> Starter repo kita sengaja mengunci dependensi `"json-server": "0.17.4"`.
+> **Jangan upgrade ke versi 1.x!** Versi 1.x mengubah perilaku query URL (seperti `_limit`, `_sort`, `_order`) dan menghilangkan header pagination `X-Total-Count` yang kita gunakan untuk fitur pencarian, filter, dan pagination di modul ini.
 
-1. **Dapatkan starter repo** dari mentor (fork/clone sesuai instruksi mentor — tiap peserta punya repo sendiri).
+---
 
-2. **Install dependency:**
+## Langkah demi Langkah
 
-   ```bash
-   npm install
-   ```
+### 1. Dapatkan starter repo
+Fork/clone repo starter dari organisasi GitHub kelasmu sesuai arahan mentor (tiap murid punya repo sendiri untuk latihan, lalu berkolaborasi di repo squad).
 
-3. **Jalankan:**
+### 2. Masuk ke folder proyek dan pasang dependensi
 
-   ```bash
-   npm run dev
-   ```
+```bash
+cd katalog-umkm-starter
+npm install
+```
 
-   Ini menjalankan **dua hal sekaligus**: web (Vite) di `http://localhost:5173` dan API palsu (`json-server`) di `http://localhost:3001`.
+### 3. Jalankan server lokal
 
-4. **Buka `http://localhost:5173` di browser.** Kamu harus melihat:
+```bash
+npm run dev
+```
 
-   ```text
-   Katalog UMKM
-   Starter siap. Mulai dari Slice 0 (lihat README).
-   ```
+Skrip ini menjalankan **dua proses sekaligus** secara otomatis:
+1. Web frontend (Vite) di `http://localhost:5173`
+2. API palsu (`json-server` 0.17.x) di `http://localhost:3001`
 
-5. **Cek API palsu juga hidup.** Buka `http://localhost:3001/products` di tab baru — harus muncul data JSON berisi daftar produk.
+### 4. Periksa di browser
+Buka `http://localhost:5173` di browser. Kamu harus melihat:
 
-## Kalau errornya karena file `db.json`
+```text
+Katalog UMKM
+Starter siap. Mulai dari Slice 0 (lihat README).
+```
 
-Data API palsu disimpan di `db.json`, yang otomatis dibuat dari `db.seed.json` saat pertama kali `npm run dev`. Kalau datanya berantakan (habis dicoba-coba), jalankan:
+### 5. Cek API palsu
+Buka tab baru di browser dan akses `http://localhost:3001/products`. Kamu harus melihat data JSON berisi daftar produk UMKM contoh.
+
+---
+
+## Kalau Error karena File `db.json`
+
+Data API palsu disimpan di `db.json`, yang otomatis dibuat dari cetakan awal `db.seed.json` saat pertama kali `npm run dev`.
+
+Kalau nanti datamu berantakan atau terhapus habis dicoba-coba, kembalikan ke kondisi semula dengan menjalankan:
 
 ```bash
 npm run reset-db
 ```
 
-## Kenali struktur foldernya
+---
+
+## Kenali Struktur Folder Starter
 
 ```text
 src/
-├── main.tsx        # titik masuk aplikasi (jangan diubah dulu)
-├── App.tsx         # halaman utama — di sinilah kamu mulai coding Slice 0
-├── config.ts        # alamat API
-├── types/           # tempat tipe data (Product, dll) — masih kosong
-└── components/      # tempat komponen — masih kosong
+├── main.tsx        # Titik masuk aplikasi (entry point)
+├── App.tsx         # Komponen utama — di sinilah kita mulai merangkai UI
+├── config.ts       # Menyimpan alamat API (http://localhost:3001)
+├── types/          # Tempat definisi tipe TypeScript (Product, Category, dll.)
+└── components/     # Tempat komponen React yang kita buat sendiri
 ```
 
-## Cek pemahaman
+---
 
-- Apa bedanya `npm run dev` dengan `npm run dev:web`?
-- Kalau kamu ubah `db.seed.json`, apakah data yang tampil di aplikasi langsung berubah? Kenapa (atau kenapa tidak)?
+## Cek Pemahaman & Diagnostik
 
-## Kesalahan umum
+Jawab pertanyaan ini bersama pasangan pairing di Blok 2:
+1. Apa bedanya `npm run dev` dengan `npm run dev:web`?
+2. Mengapa versi `json-server` harus tetap 0.17.x dan tidak boleh di-upgrade ke versi 1.x?
+3. Kalau kamu mengubah isi `db.seed.json`, apakah data di aplikasi langsung berubah? Mengapa (atau mengapa tidak)?
 
-| Gejala | Sebab biasa | Solusi |
+---
+
+## Kesalahan Umum & Solusi
+
+| Gejala | Sebab Biasa | Solusi |
 |---|---|---|
-| `npm install` error panjang soal `node-gyp` atau versi | Node terlalu lama | Update Node ke versi LTS terbaru |
-| Halaman `localhost:5173` blank / error merah | Biasanya typo saat nanti mengedit `App.tsx` | Baca error di terminal/browser console, cocokkan baris yang disebut |
-| `localhost:3001/products` tidak bisa diakses | `json-server` belum jalan (mungkin cuma jalankan `dev:web`) | Pastikan pakai `npm run dev`, bukan `dev:web` saja |
+| `npm install` error panjang soal `node-gyp` atau engine | Node.js terlalu lama (< 20) | Update Node.js ke versi LTS terbaru (22 LTS direkomendasikan). |
+| Halaman `localhost:5173` blank putih | Ada error kompilasi di `App.tsx` atau `main.tsx` | Buka terminal dan console browser (F12), baca baris file yang menyebabkan error. |
+| `localhost:3001/products` tidak bisa diakses | `json-server` belum hidup | Pastikan menjalankan `npm run dev`, bukan `npm run dev:web` saja. |
+| Query parameter `_sort` / `_limit` tidak bekerja | Sengaja atau tidak sengaja upgrade `json-server` ke versi 1.x | Cek `package.json`, pastikan `"json-server": "0.17.4"`, lalu jalankan `npm install`. |
+
+---
 
 Lanjut ke: **03-alur-git-dan-pr.md**

@@ -1,118 +1,135 @@
 # 1.0a Orientasi React — Sebelum Mulai Coding
 
-## Tujuan sesi ini
+## Tujuan Sesi Ini
 
-Paham **apa** itu React, **kenapa** kita pakai React (bukan vanilla JS seperti di pre-class), dan **bagaimana** starter repo yang akan kita kerjakan selama 3 bulan ke depan disusun.
+Memahami **apa** itu React, **kenapa** kita memilih React (bukan manipulasi DOM biasa seperti di pre-class), dan **bagaimana** repositori starter yang akan kita kerjakan selama beberapa bulan ke depan disusun.
 
-> Sesi ini belum ada kode yang ditulis ke Katalog. Ini sesi baca, eksplorasi, dan tanya-jawab.
+> Sesi ini berfokus pada pembentukan *mental model*, eksplorasi kode starter, dan tanya jawab di kelas. Belum ada kode fitur baru yang ditulis ke aplikasi Katalog.
 
-## Bacaan wajib sebelum sesi
+---
 
-Baca **Bab 1.1 — Pengenalan React & Setup Environment** di modul React bootcamp. Yang paling penting dipahami:
-- Apa itu React dan kenapa dipakai
-- SPA vs MPA
-- Virtual DOM & Reconciliation
-- Struktur folder proyek React (Vite)
+## Aktivitas Terbimbing di Kelas (Blok 1, 10-15 Menit)
 
-Bagian tentang **Create React App** di bab itu boleh di-skip — kita pakai **Vite** di program ini.
+Mentor akan memandu membaca dan mendiskusikan konsep inti ini bersama:
 
-## Ringkasan konsep (dari bab 1.1, diringkas)
+- Apa itu React dan filosofi pembuatannya.
+- Perbedaan SPA (*Single Page Application*) dengan situs web konvensional (*Multi-Page Application*).
+- Cara kerja Virtual DOM dan Reconciliation secara visual sederhana.
+- Alasan pemilihan **Vite** sebagai dev server modern (jauh lebih cepat dan ringan dibanding Create React App).
 
-### Apa itu React?
+*(Bagi yang ingin membaca referensi teoritis lebih mendalam, kamu dapat membaca Bab 1.1 pada Modul Bootcamp React secara mandiri di waktu luang).*
 
-React adalah **library JavaScript** untuk membangun user interface (UI). Bukan framework lengkap — React fokus pada satu hal: merender UI berdasarkan data. Sisanya (routing, state management global, dll.) ditambahkan lewat library lain sesuai kebutuhan.
+---
 
-Kenapa bukan vanilla JS seperti di pre-class?
+## Ringkasan Konsep Kunci & Analogi
 
-| Vanilla JS (pre-class) | React |
+### 1. Apa itu React?
+React adalah pustaka (*library*) JavaScript khusus untuk membangun antarmuka pengguna (*User Interface* / UI). React fokus pada satu tugas utama: **merender tampilan visual berdasarkan data yang ada**.
+
+| Vanilla JavaScript (Pre-Class) | React (Mulai Bulan 2) |
 |---|---|
-| Kamu manipulasi DOM langsung (`document.getElementById(...)`) | React yang mengurus DOM — kamu cukup bilang "datanya begini, tampilkan begitu" |
-| Makin banyak elemen interaktif, makin rumit kodenya | Dipecah jadi **komponen** kecil yang bisa dipakai ulang |
-| Harus manual lacak data mana yang berubah | React otomatis re-render bagian yang berubah (Virtual DOM) |
+| Kamu memanipulasi elemen DOM langsung (`document.getElementById`, `innerHTML`). | React yang mengurus DOM — kamu cukup mendeklarasikan: *"Jika datanya seperti ini, tampilkan bentuk seperti itu"*. |
+| Jika tombol interaktif bertambah banyak, kode HTML dan JS menjadi kusut. | Antarmuka dipecah menjadi **komponen-komponen kecil** yang rapi dan dapat digunakan ulang. |
+| Kamu harus melacak dan memperbarui teks secara manual saat data berubah. | React otomatis merender ulang (*re-render*) bagian tampilan yang berubah. |
 
-### SPA (Single Page Application)
+### 2. Apa itu SPA (Single Page Application)?
 
-Aplikasi React biasanya berbentuk **SPA**: satu file HTML, dan React yang mengatur kontennya secara dinamis tanpa reload halaman penuh. Ini yang membuat aplikasi terasa cepat dan responsif.
+> **Analogi Sehari-hari:**  
+> Bayangkan kamu sedang menggunakan aplikasi smartphone (seperti Instagram atau WhatsApp). Saat kamu berpindah dari tab Beranda ke tab Pesan, layarmu tidak mendadak putih atau memuat ulang dari awal; kontennya langsung berganti dengan mulus di layar yang sama.  
+> Itulah **SPA**: browser hanya memuat satu file HTML di awal, lalu JavaScript yang mengganti isi tampilannya secara dinamis tanpa pernah me-reload halaman penuh.
 
-Keuntungan: navigasi tanpa reload, pengalaman pengguna lebih mulus.
-Konsekuensi: JavaScript harus diunduh di awal (initial load agak lebih lama).
+### 3. Mengapa Virtual DOM Begitu Cepat?
 
-### Virtual DOM
+> **Analogi Sehari-hari:**  
+> Bayangkan seorang arsitek yang merawat gedung megah. Jika salah satu lampu di lantai 3 putus, arsitek tidak akan merobohkan seluruh gedung lalu membangunnya lagi dari nol.  
+> Arsitek melihat miniatur cetak biru (Virtual DOM) di mejanya, membandingkan mana lampu yang mati (proses *diffing*), lalu menyuruh teknisi mengganti **satu bohlam itu saja** pada gedung nyata (DOM asli).
 
-React tidak langsung mengubah DOM di browser. Proses kerjanya:
+---
 
-```text
-State/data berubah
-    ↓
-React buat Virtual DOM baru (di memori)
-    ↓
-Bandingkan dengan Virtual DOM lama (diffing)
-    ↓
-Hanya bagian yang berubah yang diupdate ke DOM asli
-```
+## Mengenal Lingkungan Starter Repo
 
-Kamu **tidak perlu paham detail implementasinya** — cukup paham bahwa React efisien karena tidak mengubah seluruh halaman setiap kali ada perubahan kecil.
+Buka proyek `katalog-umkm-starter` yang sudah kamu siapkan di bab 0.
 
-## Kenali starter repo
+### 1. Menjalankan Server Lokal
 
-Sekarang buka starter repo (`katalog-umkm-starter`) yang sudah kamu fork/clone.
-
-### Jalankan
+Buka terminal di folder proyek dan jalankan:
 
 ```bash
 npm install
 npm run dev
 ```
 
-Buka `localhost:5173` di browser. Kamu harusnya melihat halaman kosong (atau halaman default Vite).
+Buka `http://localhost:5173` di browser. Kamu akan melihat halaman pembuka awal:
+```text
+Katalog UMKM
+Starter siap. Mulai dari Slice 0 (lihat README).
+```
 
-### Struktur folder
+### 2. Memahami Struktur Folder
 
 ```text
 katalog-umkm-starter/
-├── public/                   # Aset statis (favicon, dll.)
-├── src/                      # Kode kita di sini
-│   ├── App.tsx               # Komponen utama
-│   ├── main.tsx              # Entry point (BrowserRouter nanti di sini)
-│   └── index.css             # CSS global
-├── db.seed.json              # Data produk contoh untuk json-server
-├── package.json              # Dependency & scripts
-├── tsconfig.json             # Konfigurasi TypeScript
-├── vite.config.ts            # Konfigurasi Vite
-└── .oxlintrc.json            # Konfigurasi linter
+├── public/                   # Berkas statis (ikon, favicon, gambar aset)
+├── src/                      # Pusat seluruh kode yang akan kita tulis
+│   ├── App.tsx               # Komponen induk tempat merangkai halaman
+│   ├── main.tsx              # Titik masuk utama aplikasi (entry point)
+│   └── index.css             # Berkas gaya tampilan global
+├── db.seed.json              # Data acuan awal produk UMKM
+├── package.json              # Daftar pustaka & skrip proyek (json-server terkunci di 0.17.x)
+├── tsconfig.json             # Pengaturan aturan compiler TypeScript
+└── vite.config.ts            # Konfigurasi bundler Vite
 ```
 
-**File yang paling sering kamu sentuh:** semua yang di `src/`.
+> **Catatan Penting `json-server` (Port 3001):**  
+> Perintah `npm run dev` menjalankan dua hal sekaligus: aplikasi React di port 5173 dan mock API (`json-server`) di port 3001. API palsu ini bertindak seolah-olah backend sungguhan yang membaca `db.seed.json`.
 
-### Kenapa Vite, bukan Create React App?
+---
 
-Bab 1.1 di modul React membahas keduanya. Singkatnya:
-- **Vite** lebih cepat (dev server instan, hot reload cepat)
-- **CRA** sudah jarang direkomendasikan untuk proyek baru
-- Starter kita sudah di-setup Vite — kamu tidak perlu setup sendiri
+## Analisis & Prediksi (Aktivitas Blok 2)
 
-### Apa itu `json-server`?
+Kerjakan bersama pasangan pairing sebelum masuk ke tugas mandiri:
 
-Di starter ada script `npm run dev` yang juga menjalankan `json-server`. Ini **API palsu** — server kecil yang membaca `db.seed.json` dan menyediakan endpoint REST (`GET /products`, `POST /products`, dll.) tanpa perlu menulis backend.
+1. **Prediksi Output Terminal:**  
+   Buka terminal baru, jalankan `curl http://localhost:3001/products` atau buka URL tersebut di tab browser. Apa format teks yang dikembalikan?
+2. **Uji Coba Hot Module Replacement (HMR):**  
+   Buka berkas `src/App.tsx`. Ubah teks `"Katalog UMKM"` menjadi `"Katalog Produk UMKM Nusantara"`. Simpan file (`Ctrl+S`).  
+   *Pertanyaan:* Apakah browser melakukan refresh penuh (perhatikan ikon reload browser) atau teks langsung berganti seketika?
 
-```text
-Browser  →  React app (localhost:5173)  →  fetch()  →  json-server (localhost:3001)
+---
+
+## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
+
+Kerjakan tugas ini secara mandiri di kelas. Simpan jawaban dalam berkas markdown di repositori squad dengan format:  
+`tugas/squad-<nomor>/<nama-kamu>/tugas_01a.md`
+
+### Instruksi Pengerjaan
+
+1. Buat berkas baru sesuai path di atas.
+2. Tuliskan identitas singkat (Nama, Squad, Tanggal).
+3. Jawab 3 pertanyaan pemahaman berikut dengan bahasamu sendiri (maksimal 2-3 kalimat per nomor, jangan menyalin kalimat modul kata-per-kata):
+   - **Pertanyaan 1:** Apa perbedaan mendasar antara SPA (*Single Page Application*) dengan website konvensional (*Multi-Page Application*)? Berikan satu contoh pengalaman pengguna di keduanya.
+   - **Pertanyaan 2:** Mengapa React menggunakan Virtual DOM dan tidak langsung mengutak-atik DOM browser secara langsung setiap kali ada perubahan data?
+   - **Pertanyaan 3:** Di dalam starter, sebutkan berkas mana yang menjadi "pintu masuk utama" (*entry point*) aplikasi, dan jelaskan apa fungsi `json-server` di port 3001.
+4. Lampirkan ringkasan hasil inspeksi dari file `db.seed.json`: sebutkan berapa banyak produk contoh yang tersedia dan sebutkan 4 nama field yang ada di dalamnya.
+5. Commit berkas tugas tersebut ke branch fiturnu dan buka PR di GitHub squad untuk direview rekan.
+
+### Contoh Format Hasil (`tugas_01a.md`)
+
+```markdown
+# Tugas Mandiri 01a — Orientasi React & Starter
+Nama: Ahmad Dahlan
+Squad: Squad 2
+Tanggal: 3 November 2026
+
+## Jawaban Pertanyaan Pemahaman
+1. SPA memuat satu halaman HTML di awal dan mengganti konten lewat JavaScript tanpa refresh, seperti saat berpindah tab di Twitter/X. Website konvensional memuat ulang seluruh halaman dari awal setiap kali kita mengeklik link baru.
+2. React memakai Virtual DOM agar tidak boros tenaga. React membandingkan dulu perubahan data di memori tiruan, lalu hanya mengupdate elemen yang benar-benar berubah di browser asli.
+3. Pintu masuk utama adalah `src/main.tsx`. Sedangkan `json-server` adalah server API tiruan yang melayani data produk di port 3001 seolah-olah ada server backend sungguhan.
+
+## Inspeksi `db.seed.json`
+- Total produk awal: 12 produk.
+- Contoh 4 nama field: `id`, `name`, `price`, `stock`.
 ```
-
-API palsu ini akan kita pakai di Bulan 2-3. Di Bulan 4, diganti backend asli (NestJS + PostgreSQL).
-
-## Latihan (eksplorasi, bukan coding)
-
-1. Buka `db.seed.json`, lihat isinya. Berapa produk yang ada? Field apa saja?
-2. Buka `localhost:3001/products` di browser — bandingkan isinya dengan `db.seed.json`.
-3. Buka `src/App.tsx`, ganti teks di dalamnya, simpan, lihat browser update otomatis (Hot Module Replacement).
-4. Buka `tsconfig.json`, lihat sekilas. Kamu tidak perlu paham semuanya — mentor akan jelaskan seperlunya nanti.
-
-## Cek pemahaman
-
-- Apa bedanya SPA dan MPA? Katalog UMKM kita termasuk yang mana?
-- Apa yang dilakukan Virtual DOM saat ada data berubah?
-- File apa saja yang ada di `src/`? Mana yang menjadi "pintu masuk" aplikasi?
 
 ---
 

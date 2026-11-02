@@ -1,74 +1,102 @@
-# 2.0c Slice 1 — Katalog dari API (Fetch & Loading State)
+# 2.0c Slice 1 — Katalog dari API (Fetch, Loading, & Error State)
 
-## Tujuan slice ini
+## Tujuan Slice Ini
 
-Data produk yang tadinya hardcode, sekarang diambil dari **API palsu** (`json-server`, sudah berjalan di `localhost:3001` sejak `npm run dev`). Ini pertama kalinya aplikasi kita "bicara" dengan server.
+Mengganti data produk yang tadinya statis (hardcode) menjadi data dinamis yang diambil langsung dari **API lokal** (`json-server` di port 3001). Ini adalah momen pertama aplikasi kita berkomunikasi secara nyata dengan jaringan server.
 
-> **Prasyarat:** kamu sudah menyelesaikan `02a` (state & useState) dan `02b` (useEffect & lifecycle). Kalau belum, kerjakan dulu — slice ini pakai kedua konsep itu.
+---
 
-## Bacaan wajib (modul React bootcamp)
+## Aktivitas Terbimbing di Kelas (Blok 1, 10-15 Menit)
 
-- **Bab 2.4** — API Integration & Async Operations (fetch API, loading states, error handling)
-- **Bab 2.3** — Component Lifecycle & useEffect (review kalau belum solid)
+Mentor akan memandu demonstrasi langsung:
+- Menguji endpoint API di browser atau terminal (`http://localhost:3001/products`).
+- Membuka tab **Network** di Developer Tools browser untuk melihat status kode HTTP `200 OK`.
+- Memahami 3 kondisi wajib antarmuka: **Sedang Memuat (*Loading*)**, **Terjadi Kendala (*Error*)**, dan **Data Siap Ditampilkan (*Success*)**.
+- Cara kerja pembungkus fungsi `fetchJson` sederhana.
 
-## Kenapa ini penting untuk produk
+*(Bahan bacaan pendalaman opsional: Modul React Bootcamp Bab 2.4 tentang API Integration & Async Operations).*
 
-Semua aplikasi nyata mengambil data dari server, bukan dari kode. Slice ini melatih pola yang akan dipakai **terus-menerus** sepanjang 12 bulan: `fetch` → tunggu → tampilkan / tangani error.
+---
 
-## Konsep yang dipakai
+## Ringkasan Konsep Kunci & Analogi
 
-- **HTTP**: method `GET`, status code (`200` = sukses, `404` = tidak ada, dst.)
-- **`fetch`** dan **`Promise`**
-- **Generic function**: `fetchJson<T>()`
-- **`useEffect`** untuk mengambil data saat komponen pertama muncul
-- **Loading state** dan **error state**
+### 1. Tiga Kondisi Wajib Antarmuka Jaringan
 
-## Langkah demi langkah
+> **Analogi Sehari-hari:**  
+> Mengambil data dari server mirip seperti memesan makanan di kasir restoran cepat saji:
+> 1. **Fase Loading:** Papan nomor antreanmu berbunyi (pengguna diberi tanda *"Sedang memuat data..."* agar tahu sistem sedang bekerja).
+> 2. **Fase Sukses:** Nampan makanan lezat disajikan di mejamu (daftar kartu produk tampil rapi di layar).
+> 3. **Fase Error:** Jika gas kompor dapur mendadak habis, kasir segera menghampirimu dan menjelaskan kendalanya secara sopan (pesan error informatif, bukan membiarkan pelanggan menunggu selamanya di depan meja kosong!).
 
-### 1. Bikin fungsi generic untuk fetch
-
-Buat `src/api/http.ts`:
+### 2. Mengapa Perlu Memeriksa `response.ok`?
+Fungsi `fetch()` bawaan browser memiliki sifat unik: jika server membalas dengan status error seperti `404 Not Found` atau `500 Internal Server Error`, `fetch` **tidak menganggap itu sebagai error jaringan**. `fetch` hanya melempar error jika koneksi internet benar-benar terputus.  
+Oleh karena itu, kita **wajib** memeriksa secara manual:
 
 ```ts
+if (!response.ok) {
+  throw new Error(`Permintaan gagal dengan kode status ${response.status}`)
+}
+```
+
+---
+
+## Langkah demi Langkah Mengembangkan Slice 1
+
+### Langkah 1: Buat Modul Klien Jaringan (`src/api/http.ts`)
+
+Mari buat fungsi pembantu untuk menangani pemanggilan API secara bersih.
+
+```ts
+// src/api/http.ts
 import { API_URL } from '../config'
 
+// Versi sederhana pembungkus fetch:
 export async function fetchJson<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(`${API_URL}${path}`, init)
 
+  // Cek apakah status HTTP berada di rentang sukses (200-299)
   if (!response.ok) {
-    throw new Error(`Permintaan gagal dengan kode ${response.status}`)
+    throw new Error(`Permintaan gagal dengan kode status ${response.status}`)
   }
 
   return (await response.json()) as T
 }
 ```
 
-**Kenapa generic `<T>`?** Supaya fungsi ini bisa dipakai untuk mengambil produk (`fetchJson<Product[]>(...)`) maupun data lain nanti (kategori, dst.), dengan TypeScript tetap tahu tipe hasilnya — tanpa menulis fungsi fetch terpisah untuk tiap jenis data.
+> **Catatan Pengenalan Generic `<T>`:**  
+> Huruf `<T>` di atas adalah fitur TypeScript bernama *Generic*. Anggap `<T>` seperti kotak kosong fleksibel: jika kita memanggil `fetchJson<Product[]>('/products')`, TypeScript otomatis tahu bahwa hasil fungsi ini adalah array produk. Jika nanti kita memanggil `fetchJson<Category[]>('/categories')`, hasilnya otomatis berupa array kategori.
 
-**Kenapa cek `response.ok`?** `fetch` **tidak** otomatis melempar error kalau server membalas `404` atau `500` — itu tetap dianggap "berhasil terkirim". Kita yang harus cek manual lewat `response.ok` (true kalau status 200-299).
+---
 
-### 2. Bikin fungsi khusus ambil produk
+### Langkah 2: Buat Fungsi Khusus Pengambil Produk (`src/api/products.ts`)
 
-Buat `src/api/products.ts`:
+Buat berkas `src/api/products.ts`:
 
 ```ts
+// src/api/products.ts
 import type { Product } from '../types/product'
 import { fetchJson } from './http'
 
+// Fungsi bersih dan terisolasi untuk mengambil daftar produk
 export function getProducts(): Promise<Product[]> {
   return fetchJson<Product[]>('/products')
 }
 ```
 
-### 3. Hapus data hardcode
+---
 
-Hapus `src/data/products.ts` — sudah tidak dipakai.
+### Langkah 3: Hapus Berkas Data Hardcode
 
-### 4. Pindahkan logika ke halaman tersendiri
+Hapus berkas `src/data/products.ts` karena kita tidak lagi menggunakan data tiruan statis!
 
-Buat `src/pages/ProductsPage.tsx`. Ini komponen yang bertanggung jawab **mengambil data** dan **menampilkan status** (loading/error/hasil):
+---
+
+### Langkah 4: Rangkai Halaman `ProductsPage.tsx`
+
+Buat berkas `src/pages/ProductsPage.tsx`. Perhatikan bagian `// TODO:` dan lengkapi logika penanganan kondisinya:
 
 ```tsx
+// src/pages/ProductsPage.tsx
 import { useEffect, useState } from 'react'
 import { getProducts } from '../api/products'
 import ProductList from '../components/ProductList'
@@ -76,13 +104,13 @@ import type { Product } from '../types/product'
 
 function ProductsPage() {
   const [products, setProducts] = useState<Product[]>([])
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState<boolean>(true)
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
   useEffect(() => {
     let ignore = false
 
-    async function loadProducts() {
+    async function loadData() {
       try {
         const data = await getProducts()
         if (!ignore) {
@@ -90,33 +118,37 @@ function ProductsPage() {
         }
       } catch (error) {
         if (!ignore) {
-          setErrorMessage(error instanceof Error ? error.message : 'Terjadi kesalahan')
+          setErrorMessage(error instanceof Error ? error.message : 'Terjadi kendala jaringan')
         }
       } finally {
+        // TODO 1: Pastikan state loading diubah menjadi false baik sukses maupun gagal
         if (!ignore) {
           setIsLoading(false)
         }
       }
     }
 
-    loadProducts()
+    loadData()
 
     return () => {
       ignore = true
     }
   }, [])
 
+  // TODO 2: Tampilkan pesan teks "Sedang memuat katalog..." jika isLoading bernilai true
   if (isLoading) {
-    return <p>Memuat produk...</p>
+    return <p className="loading-state">Sedang memuat data katalog UMKM...</p>
   }
 
+  // TODO 3: Tampilkan pesan error dengan role="alert" jika errorMessage tidak null
   if (errorMessage !== null) {
-    return <p role="alert">Gagal memuat produk: {errorMessage}</p>
+    return <p role="alert" className="error-state">Gagal memuat produk: {errorMessage}</p>
   }
 
+  // Tampilan ketika data berhasil didapatkan
   return (
     <section>
-      <p>Menampilkan {products.length} produk</p>
+      <p>Menampilkan {products.length} produk dari server</p>
       <ProductList products={products} />
     </section>
   )
@@ -125,21 +157,22 @@ function ProductsPage() {
 export default ProductsPage
 ```
 
-Ini pola yang **akan sering kamu tulis ulang** sepanjang program: `isLoading`, `errorMessage`, dan variabel `ignore` untuk mencegah update state setelah komponen dibongkar (misal karena pindah halaman sebelum fetch selesai). Jangan hafalkan literal, tapi paham **kenapa** tiga bagian ini selalu ada:
+---
 
-1. Sebelum data datang → tampilkan "Memuat...".
-2. Kalau gagal → tampilkan pesan error, jangan halaman kosong/blank.
-3. Kalau berhasil → tampilkan datanya.
+### Langkah 5: Sambungkan ke `App.tsx`
 
-### 5. Sederhanakan `App.tsx`
+Buka `src/App.tsx`:
 
 ```tsx
+// src/App.tsx
 import ProductsPage from './pages/ProductsPage'
 
 function App() {
   return (
-    <main>
-      <h1>Katalog UMKM</h1>
+    <main style={{ maxWidth: '1000px', margin: '0 auto', padding: '24px 16px' }}>
+      <header>
+        <h1>Katalog UMKM Nusantara</h1>
+      </header>
       <ProductsPage />
     </main>
   )
@@ -148,34 +181,68 @@ function App() {
 export default App
 ```
 
-### 6. Cek hasilnya
+---
 
-- Buka `localhost:5173` — sekarang data yang tampil harus sama dengan isi `db.seed.json`, bukan data hardcode lama.
-- Buka DevTools browser → tab **Network** → refresh halaman → cari request ke `products`. Lihat status code-nya (harus `200`).
-- Coba matikan API (`Ctrl+C` di terminal yang menjalankan `json-server`, atau matikan sebentar), refresh halaman — harus muncul pesan error, bukan halaman putih kosong.
+## Analisis Bug & Prediksi (Aktivitas Blok 2)
 
-## Latihan
+Diskusikan bersama rekan pairing:
 
-1. Tambahkan `npm run dev:api:slow` (sudah tersedia di starter) untuk mensimulasikan API lambat (jeda 1,2 detik). Perhatikan tampilan "Memuat..." muncul lebih lama — ini cara mengecek loading state benar-benar berfungsi, bukan cuma kelewat cepat untuk dilihat.
-2. Di DevTools, matikan koneksi internet (tab Network → Offline), refresh halaman, lihat pesan error yang muncul. Apakah pesannya cukup jelas buat user biasa?
-
-## Cek pemahaman
-
-- Kenapa kita butuh variabel `ignore` di dalam `useEffect`? Apa yang bisa terjadi kalau tidak ada?
-- Apa bedanya "request gagal karena network down" dengan "request sukses terkirim tapi server membalas 404"? Bagaimana masing-masing ditangani di kode di atas?
-
-## Kesalahan umum
-
-| Gejala | Sebab | Solusi |
-|---|---|---|
-| Halaman terus menampilkan "Memuat..." | `setIsLoading(false)` tidak terpanggil (biasanya lupa di blok `finally`) | Pastikan `finally` selalu jalan baik sukses maupun gagal |
-| `Uncaught (in promise)` di console | Error dari fetch tidak ditangkap `try/catch` | Cek lagi struktur `try { } catch { } finally { }` |
-| Data tidak update setelah edit `db.seed.json` | `db.json` sudah dibuat sebelumnya dan tidak otomatis sinkron | Jalankan `npm run reset-db` |
-
-## Kaitkan ke rujukan
-
-`useEffect` dan fetch data sudah disinggung juga di pre-class (bagian JavaScript async) dan modul React bootcamp bagian **State Management & Hooks** — kalau bagian `Promise`/`async-await` masih kurang lancar, ini saat yang tepat untuk membuka ulang.
+1. **Eksperimen Server Mati:**  
+   Buka terminal tempat `json-server` berjalan. Hentikan server sebentar (`Ctrl+C`). Kembali ke browser dan refresh halaman `localhost:5173`.  
+   *Pertanyaan:* Apa yang ditampilkan di layar? Apakah aplikasi meledak menjadi layar putih kosong atau menampilkan pesan error ramah?
+2. **Uji Coba Jaringan Lambat (Simulasi Nyata):**  
+   Jalankan server dengan mode lambat menggunakan skrip `npm run dev:api:slow` yang tersedia di starter. Refresh halaman dan perhatikan teks *"Sedang memuat data..."* selama 1,2 detik. Mengapa pengujian ini penting sebelum aplikasi dirilis ke pengguna UMKM?
 
 ---
 
-Lanjut ke: **03-form-tambah-produk.md** (Slice 2)
+## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
+
+Kerjakan secara mandiri di kelas. Simpan hasilnya di:  
+`tugas/squad-<nomor>/<nama-kamu>/tugas_02c.md`
+
+### Instruksi Pengerjaan
+
+1. Buat berkas baru sesuai path di atas.
+2. Tuliskan identitas diri (Nama, Squad, Tanggal).
+3. Buka browser Developer Tools (tekan tombol F12 atau klik kanan > Inspect), buka tab **Network**, lalu refresh halaman katalogmu.
+   - Temukan baris request ke `products`.
+   - Catat: Request URL, Request Method, Status Code, dan Type.
+   - Buka sub-tab **Response** dan tuliskan 1 contoh cuplikan objek produk yang dikembalikan server.
+4. Jawab 2 pertanyaan pemahaman:
+   - Apa yang akan terjadi pada tampilan pengguna jika seorang programmer lupa menulis blok `finally { setIsLoading(false) }` saat panggilan API mengalami error jaringan?
+   - Mengapa kita tidak boleh menganggap bahwa `fetch()` otomatis melempar error saat server memberikan respons HTTP 404 (Not Found)?
+5. Ajukan Pull Request ke repositori squad.
+
+### Contoh Format Hasil (`tugas_02c.md`)
+
+```markdown
+# Tugas Mandiri 02c — Slice 1: Fetch API
+Nama: Fajar Nugraha
+Squad: Squad 2
+Tanggal: 11 November 2026
+
+## 1. Hasil Inspeksi Network Tab
+- Request URL: `http://localhost:3001/products`
+- Request Method: `GET`
+- Status Code: `200 OK`
+- Type: `fetch` / `json`
+
+Contoh potongan data respons:
+```json
+{
+  "id": 1,
+  "name": "Keripik Tempe Renyah 250g",
+  "price": 18000,
+  "stock": 45,
+  "status": "active"
+}
+```
+
+## 2. Jawaban Pertanyaan Pemahaman
+1. Jika lupa menulis `setIsLoading(false)` di blok `finally`, maka saat terjadi error, state `isLoading` akan tetap bernilai `true` selamanya. Akibatnya, pengguna akan terus-menerus melihat tulisan "Sedang memuat..." tanpa pernah tahu bahwa request-nya sebenarnya sudah gagal.
+2. Karena spesifikasi bawaan `fetch()` hanya menolak Promise (*reject*) jika terjadi kegagalan jaringan fisik (misalnya komputer offline atau server down total). Selama server masih bisa menjawab (walaupun jawabannya adalah 404 atau 500), Promise tetap dianggap selesai (*resolved*). Oleh karena itu, kita wajib memeriksa properti `response.ok` secara manual.
+```
+
+---
+
+Lanjut ke: **02d-event-handling-dan-form.md**

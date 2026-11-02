@@ -1,99 +1,73 @@
 # 1.0b JSX & Komponen Bertipe — Menulis ProductCard Pertama
 
-## Tujuan sesi ini
+## Tujuan Sesi Ini
 
-Menulis komponen React pertama untuk Katalog UMKM: `ProductCard` dan `ProductList`. Di sini peserta menggabungkan **JSX** (cara React menulis UI) dengan **TypeScript** (tipe data untuk props).
+Menulis komponen React pertama untuk Katalog UMKM: `ProductCard` dan `ProductList`. Di sini kamu menggabungkan **JSX** (cara React mendeskripsikan tampilan visual) dengan **TypeScript** (tipe data yang menjaga ketepatan props antarkomponen).
 
-## Bacaan wajib sebelum sesi
+---
 
-- **Bab 1.2 — JSX & Rendering Elements** (modul React): JSX syntax, embedding expressions, conditional rendering, list rendering
-- **Bab 1.3 — Components & Props** (modul React): functional component, props, destructuring, default props, children, composition
-- **Bab 4.1 — Pengenalan TypeScript pada React** (modul React): cara pakai TS di komponen React
+## Aktivitas Terbimbing di Kelas (Blok 1, 10-15 Menit)
 
-## Ringkasan konsep
+Mentor akan memandu pembahasan konsep dasar berikut:
+- Mengapa JSX terlihat seperti HTML padahal sebenarnya adalah JavaScript murni.
+- Aturan penulisan atribut di JSX (`className`, `htmlFor`, kurung kurawal `{}`).
+- Menulis *Functional Component* yang menerima argumen data melalui *Props*.
+- Mendefinisikan kontrak tipe props menggunakan `interface` sederhana.
 
-### JSX — HTML di dalam JavaScript
+*(Bahan bacaan pendalaman opsional: Modul React Bootcamp Bab 1.2 tentang JSX dan Bab 1.3 tentang Komponen & Props).*
 
-JSX terlihat seperti HTML, tapi sebenarnya JavaScript. Perbedaan utama dengan HTML biasa:
+---
 
-| HTML | JSX |
-|---|---|
-| `class="..."` | `className="..."` |
-| `for="..."` | `htmlFor="..."` |
-| `style="color: red"` | `style={{ color: 'red' }}` |
-| Atribut lowercase | Atribut camelCase (`onClick`, `tabIndex`) |
+## Ringkasan Konsep Kunci & Analogi
 
-```tsx
-// JSX — ini JavaScript, bukan HTML
-const greeting = <h1>Halo, {name}!</h1>
-```
+### 1. Apa itu Komponen dan Props?
 
-Kurung kurawal `{}` di JSX = "ini ekspresi JavaScript". Bisa isi variabel, operasi matematika, pemanggilan fungsi — tapi **bukan** statement (`if`, `for`).
+> **Analogi Sehari-hari:**  
+> Pikirkan komponen seperti **cetakan kartu identitas (KTP)**. Cetakan ini menentukan letak foto, letak nama, dan bingkai kartu.  
+> **Props** adalah data asli orangnya (Nama: "Siti", Alamat: "Bandung") yang dimasukkan ke cetakan tersebut. Satu cetakan kartu bisa dipakai untuk mencetak ribuan kartu identitas warga yang berbeda-beda tanpa mengubah bingkainya.  
+> Props bersifat **read-only** (hanya dibaca) — cetakan kartu tidak boleh mengubah nama pemilik kartu seenaknya.
 
-### Functional Component
+### 2. Sintaks JSX vs HTML Standar
 
-Komponen di React = **fungsi yang mengembalikan JSX**:
+Karena JSX adalah ekspresi JavaScript, ada beberapa kata kunci HTML yang disesuaikan:
 
-```tsx
-function Greeting() {
-  return <h1>Halo!</h1>
-}
-```
+| HTML Biasa | JSX di React | Alasan |
+|---|---|---|
+| `class="kartu"` | `className="kartu"` | `class` adalah kata kunci bawaan JavaScript (*reserved keyword*). |
+| `for="nama"` | `htmlFor="nama"` | `for` adalah kata kunci bawaan JavaScript (untuk perulangan). |
+| `onclick="klik()"` | `onClick={handleClick}` | Menggunakan camelCase dan langsung mengoper fungsi, bukan teks string. |
+| Teks statis biasa | `{ekspresiJavaScript}` | Kurung kurawal `{}` adalah "jendela" untuk mengeksekusi variabel atau operasi JS. |
 
-Dipakai seperti tag HTML:
+---
 
-```tsx
-<Greeting />
-```
+## Langkah demi Langkah: Menulis Komponen Katalog
 
-### Props — Data dari Luar
+### Langkah 1: Siapkan Tipe Data Produk Sederhana
 
-Props = argumen yang dikirim ke komponen. Di TypeScript, kita **menentukan tipenya**:
+Untuk sesi awal ini, kita cukup menggunakan bentuk tipe data yang jelas dan sederhana di `src/types/product.ts`:
 
-```tsx
-interface GreetingProps {
+```ts
+// src/types/product.ts
+export type ProductStatus = 'active' | 'draft'
+
+export interface Product {
+  id: number
   name: string
+  description: string
+  price: number
+  stock: number
+  status: ProductStatus
+  merchant_name: string
 }
-
-function Greeting({ name }: GreetingProps) {
-  return <h1>Halo, {name}!</h1>
-}
-
-// Dipakai:
-<Greeting name="Budi" />
 ```
 
-Props bersifat **read-only** — komponen tidak boleh mengubah props yang diterimanya.
+> Kita memakai `interface` untuk mendeskripsikan bentuk objek (`Product`), dan `type` untuk union pilihan nilai terbatas (`'active' | 'draft'`).
 
-### Conditional Rendering
+---
 
-Dua pola yang paling sering:
+### Langkah 2: Lengkapi Komponen `ProductCard`
 
-```tsx
-// Tampil atau tidak sama sekali
-{isAdmin && <span>Admin</span>}
-
-// Pilih salah satu dari dua
-{stock > 0 ? `Stok: ${stock}` : 'Stok habis'}
-```
-
-### List Rendering
-
-```tsx
-{items.map((item) => (
-  <li key={item.id}>{item.name}</li>
-))}
-```
-
-**`key` wajib** — React butuh ini untuk melacak mana item yang berubah/ditambah/dihapus.
-
-## Langkah: tulis komponen Katalog
-
-### 1. Definisikan bentuk data `Product`
-
-Ini sudah dibahas detail di modul Slice 0 (`01d-tipe-dasar-dan-list-rendering.md`). Sekarang yang penting adalah: kita punya `interface Product` dengan field seperti `id`, `name`, `price`, `stock`, dll.
-
-### 2. Tulis `ProductCard`
+Buka atau buat berkas `src/components/ProductCard.tsx`. Jangan langsung menyalin! Perhatikan bagian `// TODO:` dan lengkapi logika conditional rendering untuk stok:
 
 ```tsx
 // src/components/ProductCard.tsx
@@ -104,12 +78,29 @@ interface ProductCardProps {
 }
 
 function ProductCard({ product }: ProductCardProps) {
+  // TODO 1: Tentukan apakah produk kehabisan stok (true jika stock === 0)
+  const isOutOfStock = product.stock === 0
+
   return (
     <article className="product-card">
       <h3>{product.name}</h3>
+
+      {/* Tampilkan badge draft HANYA jika status produk bernilai 'draft' */}
+      {product.status === 'draft' && <span className="badge">Draft</span>}
+
       <p>{product.description}</p>
-      <p><strong>Rp {product.price.toLocaleString('id-ID')}</strong></p>
-      <p>{product.stock > 0 ? `Stok: ${product.stock}` : 'Stok habis'}</p>
+      
+      <p>
+        <strong>Rp {product.price.toLocaleString('id-ID')}</strong>
+      </p>
+
+      {/* TODO 2: Gunakan ternary operator: jika isOutOfStock bernilai true,
+          tampilkan teks 'Stok habis', selain itu tampilkan `Stok: ${product.stock}` */}
+      <p>{isOutOfStock ? 'Stok habis' : `Stok: ${product.stock}`}</p>
+
+      <p>
+        <small>UMKM: {product.merchant_name}</small>
+      </p>
     </article>
   )
 }
@@ -117,12 +108,11 @@ function ProductCard({ product }: ProductCardProps) {
 export default ProductCard
 ```
 
-Perhatikan:
-- `ProductCardProps` mendefinisikan **tipe props** — TypeScript akan menegur kalau kita lupa mengirim `product` atau salah tipenya
-- **Props destructuring** (`{ product }`) — lebih ringkas dari `props.product`
-- **Conditional rendering** dengan ternary untuk stok
+---
 
-### 3. Tulis `ProductList`
+### Langkah 3: Membuat Komponen Pembungkus `ProductList`
+
+Buat berkas `src/components/ProductList.tsx`:
 
 ```tsx
 // src/components/ProductList.tsx
@@ -134,13 +124,16 @@ interface ProductListProps {
 }
 
 function ProductList({ products }: ProductListProps) {
+  // 1. Tangani kondisi jika daftar produk kosong (Empty State)
   if (products.length === 0) {
-    return <p>Belum ada produk.</p>
+    return <p className="empty-message">Belum ada produk untuk ditampilkan.</p>
   }
 
+  // 2. Lakukan perulangan list rendering dengan .map()
   return (
     <div className="product-list">
       {products.map((product) => (
+        // ATURAN PENTING: Atribut 'key' wajib ada dan harus unik!
         <ProductCard key={product.id} product={product} />
       ))}
     </div>
@@ -150,28 +143,73 @@ function ProductList({ products }: ProductListProps) {
 export default ProductList
 ```
 
-Perhatikan:
-- **Empty state** ditangani (`products.length === 0`)
-- **`key={product.id}`** wajib untuk list rendering
-- `ProductList` memakai `ProductCard` — ini **component composition** (komponen besar dibangun dari komponen kecil)
+---
 
-## Latihan
+## Analisis Bug & Prediksi (Aktivitas Blok 2)
 
-1. Tambahkan `children` props ke `ProductCard`: buat supaya bisa menerima konten tambahan di antara tag pembuka dan penutupnya (lihat bab 1.3 modul React, bagian Children Props).
-2. Buat komponen `Badge` terpisah yang menerima props `text` dan `color`. Pakai di `ProductCard` untuk menampilkan status (`active`/`draft`).
-3. Coba hapus `: ProductCardProps` dari parameter fungsi — apa yang terjadi? Apakah TypeScript masih menegur kalau kamu kirim props yang salah?
+Diskusikan bersama pasangan pairing:
 
-## Cek pemahaman
+1. **Temukan Bug:**  
+   Perhatikan potongan JSX berikut:
+   ```tsx
+   <div class="card">
+     <h1>{product.name}</h1>
+     <p style="color: red">Diskon!</p>
+   </div>
+   ```
+   Sebutkan dua kesalahan sintaks JSX pada kode di atas dan perbaiki agar valid di React!
+2. **Prediksi Output TypeScript:**  
+   Jika di berkas pemanggil kamu menulis `<ProductCard product={{ id: 1, name: 'Kopi' }} />`, pesan error apa yang akan diberikan compiler TypeScript?
 
-- Apa bedanya `className` di JSX dan `class` di HTML? Kenapa?
-- Kenapa `key` harus unik dalam list? Apa yang bisa terjadi kalau kita pakai index array sebagai key?
-- Apa bedanya `interface` dan `type` di TypeScript? (Jawaban singkat: untuk kasus kita, boleh ditukar — kita pakai `interface` untuk bentuk objek dan `type` untuk union, sebagai konvensi tim.)
+---
 
-## Kaitkan ke rujukan
+## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
 
-- **Bab 1.2** modul React: JSX syntax lengkap, termasuk komentar di JSX, inline style, embedding expressions
-- **Bab 1.3** modul React: semua tentang komponen, props, composition
-- **Bab 4.1** modul React: cara pakai TypeScript di React secara lebih lengkap
+Kerjakan secara mandiri di kelas. Simpan hasilnya di:  
+`tugas/squad-<nomor>/<nama-kamu>/tugas_01b.md`
+
+### Instruksi Pengerjaan
+
+1. Buat berkas baru sesuai path di atas.
+2. Buat komponen baru bernama `ProductBadge.tsx` sederhana di dalam pikiranmu atau catatan kode. Komponen ini menerima dua props bertipe:
+   - `text`: bertipe `string`
+   - `isDanger`: bertipe `boolean` (opsional, nilai bawaan `false`)
+3. Tuliskan kode komponen `ProductBadge` tersebut di dokumen markdown tugas.
+4. Jawab 2 pertanyaan singkat:
+   - Mengapa kita wajib menyertakan atribut `key={product.id}` saat menggunakan `.map()` di React? Apa risikonya jika kita menggunakan indeks array (`key={index}`)?
+   - Apa yang dimaksud dengan sifat props yang *read-only*? Mengapa komponen `ProductCard` dilarang mengubah langsung `product.price = 5000` di dalam bodinya?
+5. Commit berkas jawaban dan buat PR ke repository squad.
+
+### Contoh Format Hasil (`tugas_01b.md`)
+
+```markdown
+# Tugas Mandiri 01b — JSX & Komponen Bertipe
+Nama: Siti Aisyah
+Squad: Squad 3
+Tanggal: 4 November 2026
+
+## Kode Komponen ProductBadge
+```tsx
+interface ProductBadgeProps {
+  text: string
+  isDanger?: boolean
+}
+
+function ProductBadge({ text, isDanger = false }: ProductBadgeProps) {
+  return (
+    <span className={`badge ${isDanger ? 'badge-danger' : 'badge-default'}`}>
+      {text}
+    </span>
+  )
+}
+
+export default ProductBadge
+```
+
+## Jawaban Pertanyaan
+1. Atribut `key` adalah pengenal unik bagi React untuk melacak item mana yang ditambah, dihapus, atau diubah urutannya. Jika menggunakan indeks array (`key={index}`), saat data diurutkan ulang atau disaring, React bisa keliru merender state elemen dan menyebabkan bug tampilan.
+2. Sifat *read-only* berarti komponen anak hanya bertugas menampilkan data yang dikirimkan induknya tanpa hak mengubah sumber aslinya. Jika komponen anak mengubah nilai props langsung, alur data menjadi tidak terduga dan merusak prinsip alur data satu arah (*one-way data flow*).
+```
 
 ---
 

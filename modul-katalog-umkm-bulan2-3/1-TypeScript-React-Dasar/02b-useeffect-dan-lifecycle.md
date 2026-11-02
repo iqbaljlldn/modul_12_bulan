@@ -1,123 +1,202 @@
-# 2.0b useEffect & Lifecycle — Side Effects di Komponen
+# 2.0b useEffect & Lifecycle — Menangani Side Effects
 
-## Tujuan sesi ini
+## Tujuan Sesi Ini
 
-Paham **kapan** dan **kenapa** pakai `useEffect`, apa itu "side effect", dan bagaimana dependency array mengontrol kapan efek dijalankan. Ini persiapan sebelum fetch data dari API di slice berikutnya.
+Memahami **kapan** dan **kenapa** kita menggunakan hook `useEffect`, apa yang dimaksud dengan efek samping (*side effect*), bagaimana *dependency array* mengontrol jadwal eksekusi efek, dan cara mencegah kebocoran memori dengan fungsi pembersih (*cleanup function*).
 
-## Bacaan wajib sebelum sesi
+---
 
-**Bab 2.3 — Component Lifecycle & useEffect Hook** (modul React): lifecycle phases, useEffect, cleanup function, dependency array.
+## Aktivitas Terbimbing di Kelas (Blok 1, 10-15 Menit)
 
-## Ringkasan konsep (dari bab 2.3)
+Mentor akan memandu demonstrasi konsep inti:
+- Mengapa panggilan data asinkron (*fetch*) tidak boleh diletakkan langsung di badan utama (*body*) fungsi komponen.
+- Siklus hidup komponen: saat dipasang pertama kali (*mount*), saat diperbarui (*update*), dan saat dilepas (*unmount*).
+- 3 variasi perilaku *dependency array*: tanpa array, array kosong `[]`, dan array berisi variabel `[id]`.
+- Mencegah bahaya *memory leak* dan *race condition* menggunakan pola bendera pembersih `ignore = true`.
 
-### Apa itu Side Effect?
+*(Bahan bacaan pendalaman opsional: Modul React Bootcamp Bab 2.3 tentang Component Lifecycle & useEffect).*
 
-**Side effect** = sesuatu yang terjadi "di luar" proses render komponen. Contoh:
-- Mengambil data dari server (fetch)
-- Mengubah judul halaman (`document.title`)
-- Menjalankan timer (`setTimeout`, `setInterval`)
-- Menambahkan event listener
+---
 
-Semua ini **tidak boleh** langsung ditulis di body fungsi komponen — harus dibungkus `useEffect`.
+## Ringkasan Konsep Kunci & Analogi
 
-### Kenapa?
+### 1. Apa itu Side Effect?
 
-Fungsi komponen bisa dijalankan **berkali-kali** oleh React (setiap re-render). Kalau `fetch` ditulis langsung di body fungsi tanpa `useEffect`, data akan diambil ulang setiap kali komponen re-render — boros dan bisa menyebabkan loop tak terbatas.
+> **Analogi Sehari-hari:**  
+> Tugas utama fungsi komponen React hanyalah satu: **meracik tampilan visual (JSX) berdasarkan props dan state**.  
+> Bayangkan seorang koki restoran yang tugas utamanya menata makanan di atas piring.  
+> Jika di tengah-tengah menata piring koki tersebut tiba-tiba meninggalkan dapur untuk pergi ke pasar menagih barang (mengambil data dari server) atau mengecat dinding restoran (mengubah `document.title`), restorannya akan kacau!  
+> Semua pekerjaan di luar peracikan piring ini disebut **Side Effect**. Pekerjaan ini harus diserahkan kepada pengingat khusus: hook **`useEffect`**.
 
-### useEffect — Pola Dasar
+### 2. Memahami Dependency Array
 
-```tsx
-import { useEffect } from 'react'
+Tabel jadwal kerja `useEffect`:
 
-function MyComponent() {
-  useEffect(() => {
-    // Kode side effect di sini
-    console.log('Komponen sudah tampil!')
-  }, []) // ← dependency array
+| Dependency Array | Kapan Efek Dijalankan? | Contoh Penggunaan Nyata |
+|---|---|---|
+| **`[]` (Array kosong)** | **Hanya 1 kali** tepat setelah komponen pertama kali tampil di layar (*mount*). | Mengambil daftar produk awal dari API. |
+| **`[id]` (Berisi variabel)** | Saat pertama kali tampil **DAN setiap kali nilai `id` berubah**. | Mengambil data detail produk baru saat user mengklik produk lain. |
+| **Tidak ada array sama sekali** | **Setiap kali** komponen re-render (bisa ratusan kali per detik!). | ⚠️ **Hampir selalu merupakan bug!** Sangat berbahaya karena bisa memicu *infinite loop*. |
 
-  return <p>Halo</p>
-}
-```
+### 3. Mengapa Butuh Cleanup Function?
 
-### Dependency Array — Kapan Efek Dijalankan?
+> **Analogi Cleanup:**  
+> Saat tamu meninggalkan meja restoran (*unmount*), pelayan harus membersihkan meja: mematikan lilin, menghentikan musik meja, dan mencabut pesanan yang belum sempat dimasak.  
+> Fungsi pembersih (*cleanup function*) yang di-`return` oleh `useEffect` bertugas menghentikan timer (`clearInterval`) atau mengabaikan balasan data server yang terlambat datang.
 
-| Dependency array | Kapan efek jalan |
-|---|---|
-| `[]` (array kosong) | **Sekali** setelah render pertama (mount) |
-| `[id]` | Setelah render pertama **dan** setiap `id` berubah |
-| `[a, b]` | Setelah render pertama **dan** setiap `a` atau `b` berubah |
-| Tidak ada (dihilangkan) | **Setiap** render — **biasanya salah**, jangan lakukan |
+---
 
-### Cleanup Function — Bersih-bersih
+## Pola Baku Pengambilan Data (Preview Slice 1)
 
-`useEffect` bisa mengembalikan fungsi yang dipanggil saat:
-- Komponen **dibongkar** (unmount)
-- Sebelum efek **dijalankan ulang** (kalau dependency berubah)
+Perhatikan kerangka baku di bawah ini. Tiga bagian ini (`try`, `catch`, `finally`, dan bendera `ignore`) adalah pola yang akan kamu pakai terus:
 
 ```tsx
 useEffect(() => {
-  const timer = setInterval(() => {
-    console.log('tick')
-  }, 1000)
-
-  // Cleanup: hentikan timer saat komponen dibongkar
-  return () => {
-    clearInterval(timer)
-  }
-}, [])
-```
-
-### Pola Fetch Data (preview — detail di Slice 1)
-
-```tsx
-useEffect(() => {
-  let ignore = false  // ← mencegah update state setelah unmount
+  // 1. Siapkan penanda apakah komponen masih aktif di layar
+  let ignore = false
 
   async function loadData() {
-    const response = await fetch('/api/products')
-    const data = await response.json()
-    if (!ignore) {
-      setProducts(data)
+    try {
+      const response = await fetch('http://localhost:3001/products')
+      const data = await response.json()
+
+      // 2. Hanya perbarui state jika user BELUM berpindah halaman
+      if (!ignore) {
+        setProducts(data)
+      }
+    } catch (error) {
+      if (!ignore) {
+        setErrorMessage('Gagal memuat data dari server')
+      }
+    } finally {
+      if (!ignore) {
+        setIsLoading(false)
+      }
     }
   }
 
   loadData()
 
+  // 3. Fungsi pembersih: dijalankan jika komponen dilepas dari layar
   return () => {
-    ignore = true  // ← cleanup
+    ignore = true
   }
-}, [])
+}, []) // Array kosong: hanya jalankan sekali saat mount
 ```
 
-**Kenapa `ignore`?** Bayangkan user membuka halaman, lalu langsung pindah halaman lain sebelum fetch selesai. Tanpa `ignore`, React akan mencoba `setProducts` pada komponen yang sudah dibongkar — membuang resource dan bisa menyebabkan warning.
+---
 
-## Latihan (sebelum masuk ke slice)
+## Latihan Terbimbing: Timer Sederhana
 
-1. **Log lifecycle:** buat komponen yang `console.log('mount')` saat pertama tampil dan `console.log('unmount')` saat dihapus. Pakai cleanup function.
+Perhatikan komponen di bawah. Lengkapi bagian `// TODO:` agar timer berhenti saat komponen ditutup:
 
-2. **Timer:** buat komponen yang menampilkan detik yang berjalan (0, 1, 2, ...). Pakai `setInterval` di `useEffect` dan pastikan timer berhenti saat komponen di-unmount.
+```tsx
+// src/components/SimpleTimer.tsx
+import { useEffect, useState } from 'react'
 
-3. **Document title:** buat komponen `Counter` yang mengubah `document.title` menjadi `"Hitungan: X"` setiap kali `count` berubah. Pakai `[count]` di dependency array.
+function SimpleTimer() {
+  const [seconds, setSeconds] = useState<number>(0)
 
-4. **Dependency array experiment:** di latihan 3, coba ganti `[count]` jadi `[]`. Apa yang terjadi pada title saat tombol diklik? Kenapa?
+  useEffect(() => {
+    // Jalankan penambah detik setiap 1000 milidetik (1 detik)
+    const timerId = setInterval(() => {
+      setSeconds((prev) => prev + 1)
+    }, 1000)
 
-## Cek pemahaman
+    // TODO: Kembalikan fungsi pembersih (cleanup) untuk menghentikan timer
+    return () => {
+      clearInterval(timerId)
+    }
+  }, [])
 
-- Apa yang terjadi kalau dependency array dihilangkan (bukan `[]`, tapi benar-benar tidak ada)?
-- Kapan cleanup function dipanggil?
-- Kenapa fetch data harus di `useEffect`, bukan langsung di body fungsi komponen?
+  return <p>Waktu sesi belajar berjalan: {seconds} detik</p>
+}
 
-## Kesalahan umum
+export default SimpleTimer
+```
 
-| Gejala | Sebab | Solusi |
-|---|---|---|
-| Fetch jalan terus-menerus (infinite loop) | Dependency array salah atau tidak ada | Pastikan ada `[]` atau dependency yang tepat |
-| Warning "Can't perform state update on unmounted component" | Tidak ada cleanup / variabel `ignore` | Tambahkan cleanup function |
-| Effect tidak jalan ulang saat data berubah | Lupa memasukkan variabel ke dependency array | Tambahkan variabel yang relevan ke `[...]` |
+---
 
-## Kaitkan ke rujukan
+## Analisis Bug & Prediksi (Aktivitas Blok 2)
 
-**Bab 2.3** modul React membahas lifecycle lebih mendalam, termasuk analogi dengan class component lifecycle methods. **Bab 2.4** (API Integration) — akan dibahas di sesi berikutnya (Slice 1).
+Diskusikan bersama rekan pairing:
+
+1. **Prediksi Bencana Infinite Loop:**  
+   Perhatikan potongan kode ini:
+   ```tsx
+   function BadComponent() {
+     const [count, setCount] = useState(0)
+
+     useEffect(() => {
+       setCount(count + 1)
+     }) // Lupa tidak memberi dependency array!
+
+     return <h1>Angka: {count}</h1>
+   }
+   ```
+   *Pertanyaan:* Jelaskan urutan bencana yang terjadi di browser saat kode ini dijalankan! Mengapa browser bisa hang atau freeze?
+2. **Kuis Dependency:**  
+   Jika di dalam `useEffect` kamu menggunakan variabel `productId`, apa yang wajib kamu cantumkan di dalam tanda kurung siku `[...]`?
+
+---
+
+## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
+
+Kerjakan secara mandiri di kelas. Simpan hasilnya di:  
+`tugas/squad-<nomor>/<nama-kamu>/tugas_02b.md`
+
+### Instruksi Pengerjaan
+
+1. Buat berkas baru sesuai path di atas.
+2. Tuliskan identitas diri (Nama, Squad, Tanggal).
+3. Buat sebuah rancangan komponen React bernama `DocumentTitleUpdater.tsx`:
+   - Komponen memiliki state `productCount` bertipe number (nilai awal `0`).
+   - Komponen memiliki tombol untuk menambah `productCount` sebanyak 1.
+   - Gunakan `useEffect` untuk memperbarui judul tab browser (`document.title`) menjadi:  
+     `"Ada X Produk - Katalog UMKM"`.
+   - Pastikan kamu menentukan *dependency array* yang tepat agar judul tab browser sinkron setiap kali `productCount` berubah.
+   - Tuliskan kode lengkap komponen tersebut di dalam dokumen tugas.
+4. Jawab 2 pertanyaan singkat:
+   - Apa perbedaan perilaku jika `useEffect` diberikan dependency array `[]` dibandingkan jika dependency array-nya sengaja dikosongkan/dihilangkan sama sekali?
+   - Mengapa variabel `let ignore = false` di dalam `useEffect` sangat penting saat kita mengambil data dengan `fetch`? Apa bahayanya jika tidak ada variabel tersebut?
+5. Ajukan Pull Request ke repositori squad.
+
+### Contoh Format Hasil (`tugas_02b.md`)
+
+```markdown
+# Tugas Mandiri 02b — useEffect & Lifecycle
+Nama: Dewi Lestari
+Squad: Squad 6
+Tanggal: 10 November 2026
+
+## 1. Kode Komponen DocumentTitleUpdater
+```tsx
+import { useEffect, useState } from 'react'
+
+function DocumentTitleUpdater() {
+  const [productCount, setProductCount] = useState<number>(0)
+
+  useEffect(() => {
+    document.title = `Ada ${productCount} Produk - Katalog UMKM`
+  }, [productCount]) // Berjalan saat pertama kali mount dan setiap productCount berubah
+
+  return (
+    <div>
+      <p>Jumlah Produk: {productCount}</p>
+      <button type="button" onClick={() => setProductCount((c) => c + 1)}>
+        Tambah Produk
+      </button>
+    </div>
+  )
+}
+
+export default DocumentTitleUpdater
+```
+
+## 2. Jawaban Pertanyaan Pemahaman
+1. Jika diberi `[]`, efek hanya dieksekusi 1 kali setelah render perdana. Jika dihilangkan sama sekali, efek akan dieksekusi terus-menerus setiap kali terjadi re-render komponen apa pun, yang dapat menyebabkan pemborosan daya komputasi atau siklus loop tak berujung.
+2. Variabel `ignore` melindungi aplikasi dari kondisi balapan (*race condition*) dan pembaruan state pada komponen yang sudah tidak aktif (*unmounted*). Jika pengguna terburu-buru berpindah halaman sebelum server selesai membalas, fungsi pembersih akan mengubah `ignore = true`, sehingga data yang terlambat datang tidak akan dipaksakan masuk ke state komponen yang sudah tiada.
+```
 
 ---
 

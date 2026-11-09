@@ -2,7 +2,7 @@
 
 **Fokus Minggu Ini:** Mengonversi alur masalah UMKM ke dalam logika terstruktur yang dapat dipahami sistem: dekomposisi langkah operasional, penulisan pseudocode bahasa Indonesia baku, visualisasi alur dengan Flowchart (pemesanan via WhatsApp & kelola produk), pemodelan relasi data (ERD dasar dengan entitas penghubung `ItemPesanan`), serta menjaga memori otot ngoding lewat 1 latihan kode JavaScript sederhana.
 
-**Ritme:** 5 Sesi Materi & Workshop (Senin–Jumat) + 1 Sesi Review Mingguan (Sabtu). Alokasi per sesi: ±90-120 menit.
+**Ritme:** 4 Sesi Materi & Workshop (`02a-02b` s/d `02e`, Selasa–Jumat) + 1 Sesi Sprint Review Gabungan Minggu 1 & 2 (`02f`, Sabtu). Materi `02a` dan `02b` digabung pada hari Selasa agar jadwal mingguan kembali terkunci dengan evaluasi di hari Sabtu. Alokasi per sesi: ±90-120 menit.
 
 ---
 
@@ -10,28 +10,26 @@
 
 | Sesi | Hari | File Modul | Poin Mini-Lesson Mentor (20-30 Menit) | Output Sesi / Workshop Tim |
 |---|---|---|---|---|
-| 1 | Senin | `02a-dekomposisi-dan-pengenalan-pola.md` | Membedah proses bisnis UMKM menjadi 2 alur kunci (Pemesanan WhatsApp & Restok/Kelola Produk, 6-8 langkah); mencari pola logika berulang. | **Peta Dekomposisi & Pola Logika (2 Alur)** |
-| 2 | Selasa | `02b-abstraksi-dan-algoritma.md` | Abstraksi data (buang noise); struktur pseudocode baku (`JIKA ... MAKA ... LAINNYA ... AKHIR-JIKA`); dry run table. Jembatan kode JS fungsi diskon/ongkir. | **Dokumen Pseudocode Logika Bisnis** |
-| 3 | Rabu | `02c-flowchart.md` | Simbol baku industri (Terminator, Proses, Decision, Data I/O); Flowchart 1: Tambah Produk, Flowchart 2: Pemesanan via WhatsApp (bukan checkout COD/transfer). | **Minimal 2 Flowchart Fitur Platform UMKM** |
-| 4 | Kamis | `02d-erd-dasar.md` | Model data ERD: Entitas, Atribut, PK, Relasi 1:N dan N:N; Entitas penghubung `ItemPesanan`; penjelasan data Pembeli (tanpa login); Status alur WA. | **Draft ERD Platform Katalog UMKM** |
-| 5 | Jumat | `02e-latihan-terpadu-ct.md` | Menghubungkan 1 fitur pilihan: Dekomposisi → Pseudocode → 1 Flowchart → Potongan ERD (3-5 atribut). Penjelasan atomic transaction pada flash sale. | **Portofolio Terpadu 1 Fitur Pilihan** |
-| 6 | Sabtu | `02f-review-dan-evaluasi-minggu2.md` | Sprint Review 2: Presentasi tiap squad (5m pitch + 3m Q&A); Ujian "Bug Hunt" melacak diagram cacat; Retrospektif tim rolling. | **Checklist Kapabilitas Minggu 2 & Refleksi** |
+| 1 | Selasa | `02a-02b-empat-pilar-ct-dan-pseudocode.md` | 4 Pilar CT terpadu: Dekomposisi alur WA (6-8 langkah), Pola validasi berulang, Abstraksi data inti, & Pseudocode baku (`JIKA ... MAKA ... LAINNYA ... AKHIR-JIKA`) + Dry Run Table. | **Dokumen Terpadu 4 Pilar CT & Pseudocode Diskon/Ongkir** |
+| 2 | Rabu | `02c-flowchart.md` | Simbol baku industri (Terminator, Proses, Decision, Data I/O); Flowchart 1: Tambah Produk, Flowchart 2: Pemesanan via WhatsApp (bukan checkout COD/transfer). | **Minimal 2 Flowchart Fitur Platform UMKM** |
+| 3 | Kamis | `02d-erd-dasar.md` | Model data ERD: Entitas, Atribut, PK, Relasi 1:N dan N:N; Entitas penghubung `ItemPesanan`; penjelasan data Pembeli (tanpa login); Status alur WA. | **Draft ERD Platform Katalog UMKM** |
+| 4 | Jumat | `02e-latihan-terpadu-ct.md` | Menghubungkan 1 fitur pilihan: Dekomposisi → Pseudocode → 1 Flowchart → Potongan ERD (3-5 atribut). Penjelasan atomic transaction pada flash sale. | **Portofolio Terpadu 1 Fitur Pilihan** |
+| 5 | Sabtu | `02f-review-dan-evaluasi-minggu2.md` | Sprint Review Gabungan (M1 & M2): Presentasi tiap squad (5m pitch + 3m Q&A termasuk bukti prompt R-C-I-C-O); Ujian "Bug Hunt" melacak diagram cacat; Retrospektif tim rolling. | **Checklist Kapabilitas Minggu 1 & 2 + Refleksi** |
 
 ---
 
 ## 2. Beban Tugas Mandiri Minggu 2 (Individual)
 
-Setiap murid mengerjakan tugas mandiri individual dan menyimpannya di folder masing-masing dalam repo squad (`tugas_<kode-sesi>.md`). Total estimasi waktu di luar kelas: **135 menit (±2,25 jam)**, terukur dan tidak membebani.
+Setiap murid mengerjakan tugas mandiri individual dan menyimpannya di folder masing-masing dalam repo squad (`tugas_<kode-sesi>.md`). Total estimasi waktu di luar kelas: **115 menit (±1,9 jam)**, terukur dan tidak membebani.
 
 | Sesi | Kode File | Nama Tugas Mandiri | Estimasi Waktu |
 |---|---|---|---|
-| 02a | `tugas_02a.md` | Dekomposisi 1 Proses Warung Sekitar (6-8 langkah) | 20 menit |
-| 02b | `tugas_02b.md` | **Jembatan Kode 1:** Terjemahkan Pseudocode ke Fungsi JavaScript Sederhana + Dry Run Table | 25 menit |
-| 02c | `tugas_02c.md` | Flowchart Sederhana Validasi Form Tambah Produk | 25 menit |
+| 02a-02b | `tugas_02b.md` | **Jembatan Kode 1:** Terjemahkan Pseudocode Diskon/Ongkir ke Fungsi JavaScript Sederhana + Dry Run Table | 25 menit |
+| 02c | `tugas_02c.md` | Flowchart Sederhana Validasi Nomor WhatsApp | 25 menit |
 | 02d | `tugas_02d.md` | Menentukan Entitas, Atribut, & Relasi Fitur Ulasan Ringkas | 25 menit |
 | 02e | `tugas_02e.md` | Uji Konsistensi Mandiri: Menghubungkan Variabel Pseudocode dengan Kolom ERD | 25 menit |
 | 02f | `tugas_02f.md` | Refleksi Pribadi Sprint 2 (3-5 Kalimat) | 15 menit |
-| **Total** | | | **135 menit (2 jam 15 menit)** |
+| **Total** | | | **115 menit (1 jam 55 menit)** |
 
 ---
 

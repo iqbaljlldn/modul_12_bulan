@@ -2,7 +2,7 @@
 
 **Fokus Minggu Ini:** Membangun pemahaman mendasar tentang kapabilitas dan batasan Artificial Intelligence (Generative AI), etika penggunaan di lingkungan belajar, teknik prompting terstruktur menggunakan kerangka R-C-I-C-O, dan bagaimana memanfaatkan AI sebagai mitra sparring berpikir dan belajar mandiri tanpa kehilangan kemandirian bernalar.
 
-**Ritme:** 5 Sesi Materi & Workshop (Senin–Jumat) + 1 Sesi Review Mingguan (Sabtu). Alokasi per sesi: ±90-120 menit.
+**Ritme:** 5 Sesi Materi & Workshop (`01a` s/d `01e`, Rabu–Senin). Karena kelas dimulai pada hari Rabu, sesi evaluasi khusus Minggu 1 (`01f`) ditiadakan dan digabung ke dalam **Sprint Review Sabtu Minggu 2 (`02f`)** agar siklus mingguan kembali terkunci di hari Sabtu. Alokasi per sesi: ±90-120 menit.
 
 ---
 
@@ -10,18 +10,17 @@
 
 | Sesi | Hari | File Modul | Poin Mini-Lesson Mentor (20-30 Menit) | Output Sesi / Workshop Tim |
 |---|---|---|---|---|
-| 1 | Senin | `01a-pengenalan-ai-dan-etika.md` | Non-teknis: cara kerja LLM memprediksi kata berikutnya, batas kapabilitas (halusinasi, bias), etika belajar & anti-plagiarisme. | **Piagam Etika AI Tribe** (kesepakatan bersama) |
-| 2 | Selasa | `01b-ct-dan-problem-solving-dengan-ai.md` | Pengenalan ringan Computational Thinking; AI sebagai sparring partner berpikir, bukan pemikir utama. Pengingat: sentuhan kode mulai Minggu 2. | **Lembar Dekomposisi Awal** (komparasi AI vs manual) |
-| 3 | Rabu | `01c-prompt-engineering-dasar.md` | Anatomi prompt profesional R-C-I-C-O: Role, Context (Latar Belakang), Instruction (Instruksi), Constraint (Batasan), Output (Format Hasil). Few-shot sederhana. | **Cheat Sheet Prompt Engineering** per squad |
-| 4 | Kamis | `01d-ai-untuk-aktivitas-harian.md` | AI untuk aktivitas operasional UMKM: copywriting, deskripsi produk, SOP layanan. Data fiktif ditandai sebagai asumsi. Sosialisasi rencana riset UMKM nyata. | **Draf Solusi Operasional UMKM (Asumsi)** |
-| 5 | Jumat | `01e-ai-untuk-belajar-mandiri.md` | AI sebagai tutor Socratic & Active Recall (bukan mesin pembuat kunci jawaban instan). | **Log Dialog Belajar Socratic** per individu |
-| 6 | Sabtu | `01f-review-dan-evaluasi-minggu1.md` | Sprint Review 1: Presentasi tiap squad (5m pitch + 3m Q&A), tantangan prompt debugging live, dan retrospektif tim. | **Checklist Kapabilitas Minggu 1 & Refleksi** |
+| 1 | Rabu | `01a-pengenalan-ai-dan-etika.md` | Non-teknis: cara kerja LLM memprediksi kata berikutnya, batas kapabilitas (halusinasi, bias), etika belajar & anti-plagiarisme. | **Piagam Etika AI Tribe** (kesepakatan bersama) |
+| 2 | Kamis | `01b-problem-solving-dan-berpikir-terstruktur-dengan-ai.md` | Pengenalan ringan Computational Thinking; AI sebagai sparring partner berpikir, bukan pemikir utama. Pengingat: sentuhan kode mulai Minggu 2. | **Lembar Dekomposisi Awal** (komparasi AI vs manual) |
+| 3 | Jumat | `01c-prompt-engineering-dasar.md` | Anatomi prompt profesional R-C-I-C-O: Role, Context (Latar Belakang), Instruction (Instruksi), Constraint (Batasan), Output (Format Hasil). Few-shot sederhana. | **Cheat Sheet Prompt Engineering** per squad |
+| 4 | Sabtu | `01d-ai-untuk-aktivitas-harian.md` | AI untuk aktivitas operasional UMKM: copywriting, deskripsi produk, SOP layanan. Data fiktif ditandai sebagai asumsi. Sosialisasi rencana riset UMKM nyata. | **Draf Solusi Operasional UMKM (Asumsi)** |
+| 5 | Senin | `01e-ai-untuk-belajar-mandiri.md` | AI sebagai tutor Socratic & Active Recall (bukan mesin pembuat kunci jawaban instan). | **Log Dialog Belajar Socratic** per individu |
 
 ---
 
 ## 2. Beban Tugas Mandiri Minggu 1 (Individual)
 
-Setiap murid mengerjakan tugas mandiri setelah kelas dan menyimpannya di repositori squad dengan nama `tugas_<kode-sesi>.md`. Total estimasi waktu di luar kelas: **135 menit (±2,25 jam)** sepanjang minggu (aman di bawah batas 2,5 jam).
+Setiap murid mengerjakan tugas mandiri setelah kelas dan menyimpannya di repositori squad dengan nama `tugas_<kode-sesi>.md`. Total estimasi waktu di luar kelas: **120 menit (2 jam)** sepanjang 5 sesi.
 
 | Sesi | Kode File | Nama Tugas Mandiri | Estimasi Waktu |
 |---|---|---|---|
@@ -30,8 +29,7 @@ Setiap murid mengerjakan tugas mandiri setelah kelas dan menyimpannya di reposit
 | 01c | `tugas_01c.md` | Menyusun 1 Prompt Formula R-C-I-C-O untuk Toko Sekitar | 25 menit |
 | 01d | `tugas_01d.md` | Membuat 1 Deskripsi Produk UMKM Sekitar dengan AI + Kurasi Manual | 25 menit |
 | 01e | `tugas_01e.md` | Log Sesi Dialog Socratic Mandiri (3 Putaran Tanya Jawab) | 30 menit |
-| 01f | `tugas_01f.md` | Refleksi Pribadi Sprint 1 (3-5 Kalimat) | 15 menit |
-| **Total** | | | **135 menit (2 jam 15 menit)** |
+| **Total** | | | **120 menit (2 jam)** |
 
 ---
 
@@ -43,17 +41,16 @@ Setiap murid mengerjakan tugas mandiri setelah kelas dan menyimpannya di reposit
 
 ---
 
-## 4. Checklist Kapabilitas Sprint Review 1 (Sabtu)
+## 4. Evaluasi Kapabilitas Minggu 1 (Asinkron & Terintegrasi ke `02f`)
 
-Evaluasi dilakukan menggunakan checklist kapabilitas dengan 3 pilihan status: **Siap**, **Hampir Siap**, atau **Perlu Pendampingan**. Tidak ada angka nilai atau skor berbobot.
+Karena sesi Selasa langsung masuk ke Computational Thinking (`02a-02b`), pengecekan kapabilitas Minggu 1 dilakukan melalui **pemeriksaan asinkron artefak repo squad** oleh mentor dan dikonfirmasi saat **Sprint Review Gabungan di hari Sabtu (`02f`)** dengan 3 pilihan status: **Siap**, **Hampir Siap**, atau **Perlu Pendampingan**.
 
 | # | Indikator Kapabilitas | Bukti Observasi | Status (Siap / Hampir Siap / Perlu Pendampingan) | Catatan Masukan Mentor |
 |---|---|---|---|---|
 | 1 | **Etika & Integritas AI** | Mampu menjelaskan kapan AI boleh dan dilarang dipakai, serta bertanggung jawab penuh atas hasil karya tim. | | |
 | 2 | **Prompting Terstruktur (R-C-I-C-O)** | Menyusun prompt lengkap dengan membedakan Context (latar belakang) dan Constraint (batasan ketat). | | |
 | 3 | **Validasi & Deteksi Halusinasi** | Mampu menunjukkan bukti kurasi manual, menandai data asumsi, dan tidak menelan mentah-mentah saran AI. | | |
-| 4 | **Dinamika Squad & Presentasi** | Ketiga anggota squad berbicara dalam batas waktu presentasi 5 menit (+3 menit Q&A), saling melengkapi saat ditanya. | | |
-| 5 | **Kelengkapan Tugas Mandiri** | Mengumpulkan draf tugas individual `tugas_01a.md` sampai `tugas_01f.md` tepat waktu. | | |
+| 4 | **Kelengkapan Tugas Mandiri** | Mengumpulkan draf tugas individual `tugas_01a.md` sampai `tugas_01e.md` tepat waktu. | | |
 
 ---
 

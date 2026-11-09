@@ -1,21 +1,21 @@
-# 02f. Review Mingguan: Sprint Review 2 & Bug Hunt
+# 02f. Review Mingguan: Sprint Review Gabungan (Minggu 1 & 2) & Bug Hunt
 
-**Minggu 2: Computational Thinking & Algoritma | Sesi 6 (Sabtu)**  
+**Minggu 2: Computational Thinking & Algoritma | Sesi Evaluasi (Sabtu)**  
 **Target Waktu:** 120 Menit  
-**Output Sesi:** Checklist Kapabilitas Minggu 2, Flowchart & ERD Tervalidasi, Catatan Retrospektif
+**Output Sesi:** Checklist Kapabilitas Minggu 1 & 2, Flowchart & ERD Tervalidasi, Catatan Retrospektif
 
 ---
 
 ## 1. Format Sesi Hari Sabtu
 
-Hari ini seluruh squad akan menguji ketajaman logika sistem mereka di hadapan mentor dan rekan tribe. Sesi dibagi menjadi 3 babak terstruktur:
+Hari Sabtu adalah momen akuntabilitas untuk mengunci kembali ritme mingguan Tribe (Senin–Sabtu). Seluruh squad akan mempresentasikan portofolio logika sistem mereka (sekaligus membuktikan penerapan AI Literacy dari Minggu 1) di hadapan mentor dan rekan tribe. Sesi dibagi menjadi 3 babak terstruktur:
 
 ```text
 ┌─────────────────────────────────────────────────────────────┐
 │                 AGENDA SPRINT REVIEW SABTU                  │
 ├─────────────────┬───────────────────────────────────────────┤
-│ 1. Showcase     │ Presentasi Portofolio Logika & Diagram    │
-│    (50 Menit)   │ (6 squad x 8 menit: 5m presentasi + 3m QA)│
+│ 1. Showcase     │ Presentasi Portofolio Logika, Diagram, &  │
+│    (50 Menit)   │ Bukti Sparring AI (6 squad x 8 menit)     │
 ├─────────────────┼───────────────────────────────────────────┤
 │ 2. Uji Praktik  │ Bug Hunt: Menemukan bug logika pada       │
 │    (35 Menit)   │ Flowchart & ERD yang cacat                │
@@ -27,13 +27,14 @@ Hari ini seluruh squad akan menguji ketajaman logika sistem mereka di hadapan me
 
 ---
 
-## 2. Bagian 1: Showcase Portofolio Logika (50 Menit)
+## 2. Bagian 1: Showcase Portofolio Logika & AI Sparring (50 Menit)
 
-Setiap squad mendemokan hasil kerja Minggu 2 (5 menit presentasi + 3 menit sesi kritik/tanya jawab):
-1. **Dekomposisi & Pseudocode:** Tunjukkan bagaimana proses bisnis warung dipilah secara runtut tanpa instruksi ambigu.
-2. **Presentasi Flowchart:** Tunjukkan alur pemesanan via WhatsApp dan alur penanganan kondisi stok habis.
-3. **Presentasi ERD:** Tunjukkan struktur entitas, primary key, relasi 1:N, serta fungsi entitas penghubung `ItemPesanan`.
-4. **Tantangan Tracing Mentor:** Mentor akan menunjuk satu kondisi ekstrem secara acak (misal: *"Jika input jumlah pesanan dimasukkan angka minus -3 atau 0, panah diagrammu lari ke mana?"*). Presenter menunjukkan jalurnya dalam hitungan detik.
+Setiap squad mendemokan hasil kerja mereka (5 menit presentasi + 3 menit sesi kritik/tanya jawab):
+1. **Dekomposisi & Pseudocode (`02a-02b`):** Tunjukkan bagaimana proses bisnis warung dan perhitungan diskon/ongkir dipilah secara runtut tanpa instruksi ambigu.
+2. **Presentasi Flowchart (`02c`):** Tunjukkan alur pemesanan via WhatsApp dan alur penanganan kondisi stok habis.
+3. **Presentasi ERD (`02d`):** Tunjukkan struktur entitas, primary key, relasi 1:N, serta fungsi entitas penghubung `ItemPesanan`.
+4. **Bukti AI Sparring & Prompt R-C-I-C-O (Integrasi Minggu 1):** Tunjukkan 1 contoh prompt terbaik berformat R-C-I-C-O yang dipakai squad saat menguji celah logika/diagram bersama AI, serta bagian mana dari saran AI yang dikurasi atau ditolak manual oleh tim.
+5. **Tantangan Tracing Mentor:** Mentor akan menunjuk satu kondisi ekstrem secara acak (misal: *"Jika input jumlah pesanan dimasukkan angka minus -3 atau 0, panah diagrammu lari ke mana?"*). Presenter menunjukkan jalurnya dalam hitungan detik.
 
 ---
 
@@ -116,17 +117,18 @@ Nama: [Nama Kamu]
 
 ---
 
-## 7. Checklist Kapabilitas Minggu 2
+## 7. Checklist Kapabilitas Gabungan (Minggu 1 & Minggu 2)
 
 Mentor memeriksa ketercapaian kapabilitas dengan 3 status: **Siap**, **Hampir Siap**, atau **Perlu Pendampingan**.
 
 | Indikator Kapabilitas | Bukti Evaluasi | Status | Catatan Feedback Mentor |
 |---|---|---|---|
-| **Dekomposisi & Pseudocode** | Langkah runtut, menggunakan kata kunci baku, bebas dari makna ganda | [ ] Siap<br>[ ] Hampir Siap<br>[ ] Perlu Pendampingan | |
-| **Kebenaran Flowchart** | Simbol standar, percabangan jelas (Ya/Tidak), alur pemesanan WA lengkap tanpa panah buntu | [ ] Siap<br>[ ] Hampir Siap<br>[ ] Perlu Pendampingan | |
-| **Model Data ERD Dasar** | Entitas dan atribut terpisah benar, relasi 1:N dan N:N (ItemPesanan) masuk akal | [ ] Siap<br>[ ] Hampir Siap<br>[ ] Perlu Pendampingan | |
-| **Jembatan Kode JavaScript** | Mampu menerjemahkan pseudocode ke fungsi JS sederhana dan mencocokkan dry run table | [ ] Siap<br>[ ] Hampir Siap<br>[ ] Perlu Pendampingan | |
-| **Analisis Bug Hunt** | Menemukan minimal 3 dari 4 celah kesalahan pada diagram uji Sabtu | [ ] Siap<br>[ ] Hampir Siap<br>[ ] Perlu Pendampingan | |
+| **AI Literacy & Prompt R-C-I-C-O (M1)** | Menggunakan formula R-C-I-C-O, melakukan kurasi manual atas halusinasi AI, dan menuntaskan artefak Minggu 1 | [ ] Siap<br>[ ] Hampir Siap<br>[ ] Perlu Pendampingan | |
+| **Dekomposisi & Pseudocode (M2)** | Langkah runtut, menggunakan kata kunci baku, bebas dari makna ganda | [ ] Siap<br>[ ] Hampir Siap<br>[ ] Perlu Pendampingan | |
+| **Kebenaran Flowchart (M2)** | Simbol standar, percabangan jelas (Ya/Tidak), alur pemesanan WA lengkap tanpa panah buntu | [ ] Siap<br>[ ] Hampir Siap<br>[ ] Perlu Pendampingan | |
+| **Model Data ERD Dasar (M2)** | Entitas dan atribut terpisah benar, relasi 1:N dan N:N (`ItemPesanan`) masuk akal | [ ] Siap<br>[ ] Hampir Siap<br>[ ] Perlu Pendampingan | |
+| **Jembatan Kode JavaScript (M2)** | Mampu menerjemahkan pseudocode ke fungsi JS sederhana (`tugas_02b.md`) dan mencocokkan dry run table | [ ] Siap<br>[ ] Hampir Siap<br>[ ] Perlu Pendampingan | |
+| **Analisis Bug Hunt (M2)** | Menemukan minimal 3 dari 4 celah kesalahan pada diagram uji Sabtu | [ ] Siap<br>[ ] Hampir Siap<br>[ ] Perlu Pendampingan | |
 
 > *Catatan Mentor:* Murid berstatus **Perlu Pendampingan** akan mendapatkan sesi klinik penelusuran diagram (*tracing clinic*) selama 15 menit bersama mentor atau rekan pairing sebelum memasuki materi UX Minggu 3.
 

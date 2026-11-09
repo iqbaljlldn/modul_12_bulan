@@ -43,19 +43,17 @@ Evaluasi dilakukan melalui **Checklist Kapabilitas** (status: *Siap*, *Hampir Si
 │   ├── 01-tentang-bulan-pertama.md
 │   └── 02-cara-kerja-squad.md
 │
-├── 1-AI-Literacy/                            # Minggu 1 (6 sesi)
+├── 1-AI-Literacy/                            # Minggu 1 (5 sesi: Rabu–Senin, evaluasi digabung ke M2)
 │   ├── PANDUAN-MENTOR.md
 │   ├── 01a-pengenalan-ai-dan-etika.md
-│   ├── 01b-ct-dan-problem-solving-dengan-ai.md
+│   ├── 01b-problem-solving-dan-berpikir-terstruktur-dengan-ai.md
 │   ├── 01c-prompt-engineering-dasar.md
 │   ├── 01d-ai-untuk-aktivitas-harian.md
-│   ├── 01e-ai-untuk-belajar-mandiri.md
-│   └── 01f-review-dan-evaluasi-minggu1.md
+│   └── 01e-ai-untuk-belajar-mandiri.md
 │
-├── 2-Computational-Thinking/                 # Minggu 2 (6 sesi)
+├── 2-Computational-Thinking/                 # Minggu 2 (5 sesi: Selasa–Sabtu, 02a & 02b digabung)
 │   ├── PANDUAN-MENTOR.md
-│   ├── 02a-dekomposisi-dan-pengenalan-pola.md
-│   ├── 02b-abstraksi-dan-algoritma.md
+│   ├── 02a-02b-empat-pilar-ct-dan-pseudocode.md
 │   ├── 02c-flowchart.md
 │   ├── 02d-erd-dasar.md
 │   ├── 02e-latihan-terpadu-ct.md
@@ -86,8 +84,8 @@ Evaluasi dilakukan melalui **Checklist Kapabilitas** (status: *Siap*, *Hampir Si
 
 | Minggu | Artefak Tim (Squad) | Sentuhan Kode & Praktik Nyata | Tugas Mandiri (Individual) |
 |---|---|---|---|
-| **1: AI Literacy** | Piagam Etika AI Tribe, Cheat Sheet Prompt Engineering, Draf Solusi UMKM (Asumsi) | Pengingat jembatan kode Minggu 2 | Refleksi kasus etika, sparring dekomposisi AI, prompt R-C-I-C-O, kurasi konten, Log Socratic 01e, refleksi Sprint 1 |
-| **2: Computational Thinking** | Peta dekomposisi (2 proses), pseudocode diskon/ongkir, 2 Flowchart (Pemesanan WA & Tambah Produk), Draf ERD (ItemPesanan & data pembeli) | **Jembatan Kode 1:** Fungsi JS hitung diskon/ongkir + dry run table | Latihan dekomposisi warung, fungsi JS logika bisnis, flowchart validasi, draf relasi ERD, uji konsistensi diagram, refleksi Sprint 2 |
+| **1: AI Literacy** | Piagam Etika AI Tribe, Cheat Sheet Prompt Engineering, Draf Solusi UMKM (Asumsi) | Pengingat jembatan kode Minggu 2 | Refleksi kasus etika, sparring dekomposisi AI, prompt R-C-I-C-O, kurasi konten, Log Socratic `01e` |
+| **2: Computational Thinking** | Dokumen 4 Pilar CT & Pseudocode Diskon/Ongkir (`02a-02b`), 2 Flowchart (Pemesanan WA & Tambah Produk), Draf ERD (`ItemPesanan` & data pembeli) | **Jembatan Kode 1:** Fungsi JS hitung diskon/ongkir + dry run table (`tugas_02b.md`) | Fungsi JS logika bisnis (`02b`), flowchart validasi (`02c`), draf relasi ERD (`02d`), uji konsistensi diagram (`02e`), refleksi Sprint (`02f`) |
 | **3: Desain UX & Bisnis** | Laporan UX Review, Wireframe 3 Halaman, Value Proposition Canvas, Catatan Wawancara 1 UMKM Nyata, Persona & MoSCoW, Backlog Slice 0 | **Jembatan Kode 2:** Halaman HTML/CSS statis hitam-putih dari wireframe | Observasi UX harian, halaman HTML/CSS kartu produk, catatan wawancara UMKM, mini persona nyata, penulisan user story & AC, refleksi Sprint 3 |
 | **4: Pitching & Showcase** | User flow tervalidasi alur WA, Pitch Deck 7 Slide berbasis riset nyata, Repositori GitHub terorganisir | **Jembatan Kode 3:** Commit & PR kode latihan JS dan HTML/CSS ke repositori | Naskah hook 30 detik, audit skenario gagal alur WA, review slide mandiri, refleksi gladi resik, verifikasi branch Git, refleksi akbar Bulan 1 |
 

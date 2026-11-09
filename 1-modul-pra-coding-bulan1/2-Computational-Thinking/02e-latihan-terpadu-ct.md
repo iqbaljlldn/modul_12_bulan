@@ -8,11 +8,10 @@
 
 ## 1. Mengapa Ini Penting?
 
-Sejauh minggu ini, kamu telah mempelajari potongan kemampuan secara terpisah:
-- Senin: Memecah masalah (Dekomposisi) dan mencari kesamaan (Pola).
-- Selasa: Menyaring data penting (Abstraksi) dan menulis langkah logis (Pseudocode).
-- Rabu: Menggambar visual percabangan alur (Flowchart).
-- Kamis: Menata tempat penyimpanan dan relasi informasi (ERD).
+Sejauh minggu ini, kamu telah mempelajari potongan kemampuan secara bertahap:
+- Selasa (`02a & 02b`): Memecah masalah (Dekomposisi), mencari kesamaan (Pola), menyaring data inti (Abstraksi), dan menulis langkah logis (Pseudocode).
+- Rabu (`02c`): Menggambar visual percabangan alur (Flowchart).
+- Kamis (`02d`): Menata tempat penyimpanan dan relasi informasi (ERD).
 
 Hari ini adalah momen pembuktian kemampuan sejati seorang insinyur sistem: **mengintegrasikan seluruh potongan tersebut menjadi satu arsitektur solusi yang selaras pada satu fitur terpilih.**
 

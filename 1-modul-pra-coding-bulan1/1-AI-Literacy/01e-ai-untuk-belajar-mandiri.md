@@ -1,6 +1,6 @@
 # 01e. AI untuk Belajar Mandiri: Menjadi Pembelajar Otonom
 
-**Minggu 1: AI Literacy | Sesi 5 (Jumat)**  
+**Minggu 1: AI Literacy | Sesi 5 (Senin)**  
 **Target Waktu:** 90 - 120 Menit  
 **Output Sesi:** Praktik Berpasangan (Pairing) Dialog Socratic & Active Recall
 
@@ -117,4 +117,8 @@ Constraint adalah pagar pembatas perintah. Tanpa batasan tegas, AI akan memilih 
 
 ---
 
-Lanjut ke: **[01f-review-dan-evaluasi-minggu1.md](01f-review-dan-evaluasi-minggu1.md)**
+> [!NOTE]
+> **Penyesuaian Ritme Evaluasi:**  
+> Artefak dan tugas mandiri Minggu 1 (`01a` s/d `01e`) diperiksa secara asinkron oleh mentor di repositori squad, dan evaluasinya digabungkan langsung ke dalam **Sprint Review Hari Sabtu (Sesi `02f`)** agar ritme mingguan kembali selaras pada siklus Senin–Sabtu. Besok (Selasa), kita langsung memasuki materi inti **Computational Thinking & Algoritma**!
+
+Lanjut ke: **[02a-02b-empat-pilar-ct-dan-pseudocode.md](../2-Computational-Thinking/02a-02b-empat-pilar-ct-dan-pseudocode.md)**

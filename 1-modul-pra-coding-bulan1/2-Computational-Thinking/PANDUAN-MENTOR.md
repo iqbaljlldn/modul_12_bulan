@@ -20,7 +20,7 @@
 
 ## 2. Beban Tugas Mandiri Minggu 2 (Individual)
 
-Setiap murid mengerjakan tugas mandiri individual dan menyimpannya di folder masing-masing dalam repo squad (`tugas_<kode-sesi>.md`). Total estimasi waktu di luar kelas: **115 menit (±1,9 jam)**, terukur dan tidak membebani.
+Setiap murid mengerjakan tugas mandiri individual pada hari Selasa–Jumat dan menyimpannya di folder masing-masing dalam repo squad (`tugas_<kode-sesi>.md`). **Hari Sabtu (`02f`) bebas tugas mandiri** agar akhir pekan bersih dari beban PR. Total estimasi waktu di luar kelas: **100 menit (1 jam 40 menit)**.
 
 | Sesi | Kode File | Nama Tugas Mandiri | Estimasi Waktu |
 |---|---|---|---|
@@ -28,8 +28,8 @@ Setiap murid mengerjakan tugas mandiri individual dan menyimpannya di folder mas
 | 02c | `tugas_02c.md` | Flowchart Sederhana Validasi Nomor WhatsApp | 25 menit |
 | 02d | `tugas_02d.md` | Menentukan Entitas, Atribut, & Relasi Fitur Ulasan Ringkas | 25 menit |
 | 02e | `tugas_02e.md` | Detektif Audit Blueprint Cacat: Menemukan 3 Mismatch antara Pseudocode, Flowchart, & ERD | 25 menit |
-| 02f | `tugas_02f.md` | Refleksi Pribadi Sprint 2 (3-5 Kalimat) | 15 menit |
-| **Total** | | | **115 menit (1 jam 55 menit)** |
+| 02f | *(Tidak ada)* | *Sabtu bebas PR — seluruh evaluasi & retrospektif tuntas di kelas* | 0 menit |
+| **Total** | | | **100 menit (1 jam 40 menit)** |
 
 ---
 
@@ -118,3 +118,58 @@ erDiagram
         int harga_satuan
     }
 ```
+
+---
+
+## 7. Soal & Kunci Jawaban "Live Bug Hunt" (Khusus Ditampilkan Mentor di Sesi `02f`)
+
+Soal di bawah ini **tidak ditampilkan di file modul siswa (`02f`)** agar menjadi tantangan *live* yang otentik saat hari Sabtu. Tampilkan diagram berikut di layar proyektor dan beri waktu **15 menit** bagi tiap squad untuk menemukan **4 kesalahan fatal**:
+
+### Soal yang Ditampilkan di Proyektor: "Blueprint Sistem Checkout Toko Kue yang Cacat"
+
+**A. Flowchart Alur Pemesanan:**
+```mermaid
+flowchart TD
+    A([Mulai]) --> B[/Pembeli Pilih Kue & Input jumlah_beli/]
+    B --> C{Apakah stok_kue >= jumlah_beli?}
+    C -- Ya --> D{Apakah kode_promo valid?}
+    D --> E[Potong Diskon 20% & Kurangi stok_kue]
+    E --> F[/Kirim Pesan ke WhatsApp Toko/]
+    F --> G([Selesai])
+```
+
+**B. Draft ERD Toko Kue:**
+```mermaid
+erDiagram
+    PESANAN ||--o{ KUE : "membeli"
+
+    KUE {
+        string id_kue PK
+        string nama_kue
+        string nama_kategori
+        string nama_pembeli_terakhir
+        int harga
+        int sisa_stok
+    }
+
+    PESANAN {
+        string id_pesanan PK
+        string nama_pembeli
+        int total_bayar
+    }
+```
+
+### Pertanyaan untuk Squad:
+1. Temukan **2 kesalahan logika alur** pada Flowchart di atas!
+2. Temukan **2 kesalahan arsitektur data / ketidaksinkronan** pada ERD di atas!
+3. Tuliskan cara memperbaikinya!
+
+### Kunci Telaah Mentor (4 Kesalahan Fatal):
+1. **Bug 1 — Cabang Decision Buntu di Flowchart:**  
+   Pada belah ketupat `{Apakah stok_kue >= jumlah_beli?}`, **tidak ada panah keluar untuk kondisi `Tidak`** (jika stok habis). Selain itu, pada belah ketupat `{Apakah kode_promo valid?}`, garis keluarnya tidak memiliki label `Ya/Tidak` (bagaimana jika pembeli tidak memakai promo atau promonya tidak valid?).
+2. **Bug 2 — Mismatch Logika vs ERD (Variabel Siluman & Beda Nama):**  
+   Flowchart memeriksa `{Apakah kode_promo valid?}`, tetapi di ERD sama sekali **tidak ada entitas/atribut promo**. Selain itu, Flowchart menggunakan nama variabel `stok_kue`, sedangkan di ERD tertulis `sisa_stok`.
+3. **Bug 3 — Tabel `KUE` Mencampur Data Kategori & Riwayat Pembeli (*Redundancy*):**  
+   Atribut `nama_kategori` seharusnya dipisah ke entitas `KATEGORI` (`id_kategori FK`), dan `nama_pembeli_terakhir` tidak boleh disimpan di tabel master `KUE` karena setiap kali ada pembeli baru, data pembeli sebelumnya akan tertimpa.
+4. **Bug 4 — Relasi `PESANAN` ke `KUE` Langsung `1:N` Tanpa Entitas Penghubung (`ITEM_PESANAN`):**  
+   Satu pesanan bisa membeli banyak jenis kue, dan satu jenis kue bisa dibeli di banyak pesanan (`N:N`). Wajib ada entitas penghubung `ITEM_PESANAN` yang menyimpan `id_pesanan FK`, `id_kue FK`, `jumlah_beli`, dan `harga_satuan`.

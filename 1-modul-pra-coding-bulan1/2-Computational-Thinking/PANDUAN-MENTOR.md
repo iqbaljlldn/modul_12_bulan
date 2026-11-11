@@ -13,7 +13,7 @@
 | 1 | Selasa | `02a-02b-empat-pilar-ct-dan-pseudocode.md` | 4 Pilar CT terpadu: Dekomposisi alur WA (6-8 langkah), Pola validasi berulang, Abstraksi data inti, & Pseudocode baku (`JIKA ... MAKA ... LAINNYA ... AKHIR-JIKA`) + Dry Run Table. | **Dokumen Terpadu 4 Pilar CT & Pseudocode Diskon/Ongkir** |
 | 2 | Rabu | `02c-flowchart.md` | Simbol baku industri (Terminator, Proses, Decision, Data I/O); Flowchart 1: Tambah Produk, Flowchart 2: Pemesanan via WhatsApp (bukan checkout COD/transfer). | **Minimal 2 Flowchart Fitur Platform UMKM** |
 | 3 | Kamis | `02d-erd-dasar.md` | Model data ERD: Entitas, Atribut, PK, Relasi 1:N dan N:N; Entitas penghubung `ItemPesanan`; penjelasan data Pembeli (tanpa login); Status alur WA. | **Draft ERD Platform Katalog UMKM** |
-| 4 | Jumat | `02e-latihan-terpadu-ct.md` | Menghubungkan 1 fitur pilihan: Dekomposisi → Pseudocode → 1 Flowchart → Potongan ERD (3-5 atribut). Penjelasan atomic transaction pada flash sale. | **Portofolio Terpadu 1 Fitur Pilihan** |
+| 4 | Jumat | `02e-latihan-terpadu-ct.md` | 3 Aturan Sinkronisasi (Pseudocode ↔ Flowchart ↔ ERD); contoh utuh blueprint fitur *Ubah Harga & Status Produk*; workshop merakit 1 fitur baru (Konfirmasi Pesanan WA atau Filter/Search Katalog) + Tabel Audit Konsistensi. | **Blueprint Terpadu 1 Fitur Baru + Tabel Audit** |
 | 5 | Sabtu | `02f-review-dan-evaluasi-minggu2.md` | Sprint Review Gabungan (M1 & M2): Presentasi tiap squad (5m pitch + 3m Q&A termasuk bukti prompt R-C-I-C-O); Ujian "Bug Hunt" melacak diagram cacat; Retrospektif tim rolling. | **Checklist Kapabilitas Minggu 1 & 2 + Refleksi** |
 
 ---
@@ -27,7 +27,7 @@ Setiap murid mengerjakan tugas mandiri individual dan menyimpannya di folder mas
 | 02a-02b | `tugas_02b.md` | **Jembatan Kode 1:** Terjemahkan Pseudocode Diskon/Ongkir ke Fungsi JavaScript Sederhana + Dry Run Table | 25 menit |
 | 02c | `tugas_02c.md` | Flowchart Sederhana Validasi Nomor WhatsApp | 25 menit |
 | 02d | `tugas_02d.md` | Menentukan Entitas, Atribut, & Relasi Fitur Ulasan Ringkas | 25 menit |
-| 02e | `tugas_02e.md` | Uji Konsistensi Mandiri: Menghubungkan Variabel Pseudocode dengan Kolom ERD | 25 menit |
+| 02e | `tugas_02e.md` | Detektif Audit Blueprint Cacat: Menemukan 3 Mismatch antara Pseudocode, Flowchart, & ERD | 25 menit |
 | 02f | `tugas_02f.md` | Refleksi Pribadi Sprint 2 (3-5 Kalimat) | 15 menit |
 | **Total** | | | **115 menit (1 jam 55 menit)** |
 

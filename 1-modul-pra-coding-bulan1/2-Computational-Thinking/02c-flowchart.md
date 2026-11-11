@@ -1,6 +1,6 @@
 # 02c. Flowchart: Visualisasi Alur Sistem & Keputusan
 
-**Minggu 2: Computational Thinking & Algoritma | Sesi 3 (Rabu)**  
+**Minggu 2: Computational Thinking & Algoritma | Sesi 2 (Rabu)**  
 **Target Waktu:** 90 - 120 Menit  
 **Output Sesi:** Minimal 2 Flowchart Fitur Platform UMKM per Squad (Format Mermaid / Gambar)
 

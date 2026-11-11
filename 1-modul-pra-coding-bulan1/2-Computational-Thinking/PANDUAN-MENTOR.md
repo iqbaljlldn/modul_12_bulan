@@ -62,3 +62,59 @@ Jika seorang murid mendapat status *Perlu Pendampingan* pada Minggu 2:
 1. **Latihan Tracing Menggunakan Jari (15 Menit):** Cetak atau tampilkan satu diagram flowchart sederhana. Minta murid menggerakkan jari telunjuknya menelusuri alur langkah demi langkah untuk satu kasus input konkret. Hal ini langsung memperjelas konsep percabangan logika.
 2. **Klinik ERD Benda Nyata:** Ambil secarik kertas kwitansi belanja warung. Bimbing murid melingkari mana yang merupakan Toko, mana Pesanan, mana Barang, dan mana rincian per baris barang (`ItemPesanan`).
 3. **Pendampingan Kode JS:** Bantu murid mengecek kembali penulisan tanda kurung kurawal `{}` dan sintaks `if / else` pada tugas 02b agar tidak trauma dengan error syntax.
+
+---
+
+## 6. Kunci Jawaban / Acuan Mentor: ERD Katalog UMKM (Sesi `02d`)
+
+Di modul siswa (`02d-erd-dasar.md`), contoh Mermaid yang ditampilkan menggunakan kasus *Perpustakaan Sekolah* agar peserta tidak sekadar melakukan *copy-paste* saat Workshop. Berikut adalah **Kunci Jawaban ERD Platform Katalog UMKM** yang menjadi acuan mentor saat memeriksa hasil kerja squad di Sesi `02d`:
+
+```mermaid
+erDiagram
+    MERCHANT ||--o{ PRODUK : "memiliki dan menjual"
+    KATEGORI ||--o{ PRODUK : "mengelompokkan"
+    PESANAN ||--|{ ITEM_PESANAN : "memiliki rincian"
+    PRODUK ||--o{ ITEM_PESANAN : "dipesan dalam"
+
+    MERCHANT {
+        string id_merchant PK
+        string nama_pemilik
+        string nama_toko
+        string nomor_whatsapp
+        string alamat_toko
+    }
+
+    KATEGORI {
+        string id_kategori PK
+        string nama_kategori
+    }
+
+    PRODUK {
+        string id_produk PK
+        string id_merchant FK
+        string id_kategori FK
+        string nama_produk
+        string deskripsi
+        int harga
+        int stok
+        string foto_url
+        string status_produk "aktif | draft"
+    }
+
+    PESANAN {
+        string id_pesanan PK
+        string nama_pembeli
+        string nomor_wa_pembeli
+        int total_harga
+        string status_pesanan
+        string waktu_pesanan
+    }
+
+    ITEM_PESANAN {
+        string id_item PK
+        string id_pesanan FK
+        string id_produk FK
+        int jumlah
+        int harga_satuan
+    }
+```

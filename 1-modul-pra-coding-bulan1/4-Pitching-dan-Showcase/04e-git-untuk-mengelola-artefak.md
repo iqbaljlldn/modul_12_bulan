@@ -23,16 +23,12 @@ Yang paling penting: hari ini kamu mengunggah **seluruh artefak tim, tugas mandi
 
 ## 2. Alur Kerja Kolaborasi Git: Branch & Pull Request
 
-```text
-       (main branch - cabang utama stabil)
-───●────────────────────────────────────────●─── (Hasil Dimerge)
-    \                                      ▲
-     \ git checkout -b fitur/...          │ Pull Request (Review Tim)
-      ▼                                    │
-       ●─────────────●─────────────────────●
-       (commit 1)    (commit 2: latihan kode)
-       (branch kerja milik anggota tim)
-```
+![Diagram Alur Kerja Git Branch dan Pull Request](./assets/04e-git-branch-pr.jpg)
+
+Urutan alur di atas:
+1. Mulai dari cabang stabil (`main`), buat cabang kerja baru dengan `git checkout -b fitur/...`.
+2. Simpan kemajuan tugasmu secara bertahap lewat `commit` di cabang kerja tersebut.
+3. Ajukan **Pull Request (PR)** agar tim me-review hasil kerjamu sebelum digabungkan (*merge*) kembali ke `main`.
 
 1. **Jangan bekerja langsung di `main`:** Cabang `main` adalah etalase resmi yang harus selalu bersih dan rapi.
 2. **Bekerja di branch masing-masing:** Setiap anggota membuat branch fitur sendiri saat menambahkan artefak atau latihan kode.

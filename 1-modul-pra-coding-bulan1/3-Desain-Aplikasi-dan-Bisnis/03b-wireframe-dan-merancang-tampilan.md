@@ -20,22 +20,12 @@ Wireframe sengaja dibuat **tanpa warna-warni, tanpa foto asli, dan tanpa dekoras
 
 Saat membuat wireframe di kertas atau aplikasi gambar, gunakan simbol konvensi standar berikut:
 
-```text
-┌──────────────────────────────────────────────┐
-│  [Logo Toko]       [Cari Produk...]    (🔍)  │ ◄── Header & Pencarian
-├──────────────────────────────────────────────┤
-│  [ Semua ]  [ Makanan ]  [ Minuman ]         │ ◄── Kategori (Pills/Tabs)
-├──────────────────────────────────────────────┤
-│  ┌───────────────┐     ┌───────────────┐     │
-│  │ ┌───────────┐ │     │ ┌───────────┐ │     │
-│  │ │     X     │ │     │ │     X     │ │     │ ◄── Kotak Tanda 'X' =
-│  │ └───────────┘ │     │ └───────────┘ │     │     Placeholder Foto Produk
-│  │ Keripik Tempe │     │ Sambal Botol  │     │ ◄── Garis Teks = Nama & Info
-│  │ Rp 15.000     │     │ Rp 25.000     │     │
-│  │ [ Pesan WA ]  │     │ [ Pesan WA ]  │     │ ◄── Kotak Berisi Label = Tombol
-│  └───────────────┘     └───────────────┘     │
-└──────────────────────────────────────────────┘
-```
+![Anatomi dan Simbol Wireframe Mobile-First Katalog UMKM](./assets/03b-anatomi-wireframe.jpg)
+
+Aturan membaca wireframe di atas:
+- **Kotak dengan silang `X`:** Placeholder foto produk atau banner (belum diisi gambar asli).
+- **Teks polos tanpa warna mencolok:** Mewakili judul, harga, dan deskripsi singkat.
+- **Kotak tebal berisi teks:** Mewakili tombol aksi (*Call to Action* / CTA) seperti `[ Pesan WA ]`.
 
 ### Konvensi Baku Gambar:
 - **Kotak bersilang X:** Area gambar / foto produk.

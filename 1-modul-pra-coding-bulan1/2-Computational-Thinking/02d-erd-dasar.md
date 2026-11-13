@@ -34,17 +34,10 @@ Keterampilan memecah tabel agar rapi, bebas duplikat, dan saling terhubung denga
 
 ## 2. Tiga Konsep Fundamental ERD
 
-```text
-┌─────────────────┐             ┌─────────────────┐
-│     ENTITAS     │             │     ATRIBUT     │
-│  (Tabel / Objek)│─────────────│ (Kolom / Ciri)  │
-└─────────────────┘             └─────────────────┘
-         │
-         │ (Dihubungkan lewat Kunci PK & FK)
-         ▼
-┌─────────────────┐
-│     RELASI      │ (1:1, 1:N, N:N)
-└─────────────────┘
+```mermaid
+flowchart LR
+    E["<b>ENTITAS</b><br/>(Tabel / Objek)"] --- A["<b>ATRIBUT</b><br/>(Kolom / Ciri)"]
+    E -->|"Dihubungkan lewat Kunci PK & FK"| R["<b>RELASI</b><br/>(1:1, 1:N, N:N)"]
 ```
 
 ### 1. Entitas (*Entity*) dan Atribut (*Attribute*)
@@ -108,11 +101,10 @@ Pembeli bernama **Budi** memesan 2 macam barang sekaligus dalam satu kali pesana
 ### Solusi Baku: Buat Entitas Penghubung (*Junction Entity*)
 Setiap kali kamu bertemu relasi **N:N**, pecah relasi tersebut dengan menyelipkan **1 tabel perantara (Entitas Penghubung)** di tengahnya:
 
-```text
-┌─────────────┐          1 : N          ┌──────────────────┐          N : 1          ┌─────────────┐
-│   PESANAN   │ ──────────────────────► │   ITEM_PESANAN   │ ◄────────────────────── │   PRODUK    │
-│ (Kepala Nota)│                        │ (Baris Rincian)  │                         │(Master Brg) │
-└─────────────┘                         └──────────────────┘                         └─────────────┘
+```mermaid
+flowchart LR
+    P["<b>PESANAN</b><br/>(Kepala Nota)"] -->|"1 : N"| IP["<b>ITEM_PESANAN</b><br/>(Baris Rincian)"]
+    PR["<b>PRODUK</b><br/>(Master Barang)"] -->|"1 : N"| IP
 ```
 
 Lihat bagaimana struk belanja Budi disimpan dengan rapi di kedua tabel tersebut:

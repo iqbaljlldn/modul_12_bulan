@@ -45,20 +45,11 @@ Perhatikan format di atas: `JIKA ... MAKA ... LAINNYA ... AKHIR-JIKA`. Format in
 
 Bagaimana cara terbaik memadukan daya nalar kita dengan kemampuan AI?
 
-```text
-┌──────────────────────┐                     ┌──────────────────────┐
-│     OTAK KITA        │                     │      AI ASISTEN      │
-├──────────────────────┤                     ├──────────────────────┤
-│ 1. Buat draf awal    │ ─── Kirim draf ───► │ 2. Beri sudut        │
-│    secara manual     │                     │    pandang lain      │
-│                      │ ◄── Cek masukan ─── │                      │
-│ 3. Seleksi poin yang │                     │ 4. Cari celah &      │
-│    masuk akal        │ ── Minta uji ─────► │    kondisi tak       │
-│                      │                     │    terduga (edge)    │
-│ 5. Ambil keputusan   │ ◄── Evaluasi ────── │                      │
-│    akhir sendiri     │                     │                      │
-└──────────────────────┘                     └──────────────────────┘
-```
+![Alur Kerja AI sebagai Sparring Partner](./assets/01b-ai-sparring-partner.jpg)
+
+1. **Otak Kita:** Buat draf awal secara manual, lalu kirim ke AI untuk mendapat sudut pandang lain.
+2. **Seleksi & Uji:** Pilih masukan yang masuk akal, lalu minta AI menguji celah & kondisi tak terduga (*edge case*).
+3. **Keputusan Akhir:** Tetap di tangan kita sendiri setelah mengevaluasi hasil uji AI.
 
 - **Pola Keliru:** Membuka AI dan langsung bertanya: *"Pecahkan masalah stok warung makan!"* (Hasilnya akan klise, umum, dan kamu tidak belajar apa-apa).
 - **Pola Tepat:** Tulis ide langkahmu di kertas terlebih dahulu, lalu jadikan AI teman debat:

@@ -30,28 +30,13 @@ Kunci sukses produk software adalah **fokus tajam pada satu profil pengguna nyat
 
 ### Contoh Format Persona (Ilustrasi Panduan):
 
-```text
-┌────────────────────────────────────────────────────────┐
-│ PROFIL: Ibu Sri Mulyani (48 Tahun) [ILUSTRASI CONTOH]  │
-│ Usaha : Sambal Pecel Madiun "Berkah Ibu"               │
-│ Lokasi: Sidoarjo, Jawa Timur                           │
-├────────────────────────────────────────────────────────┤
-│ Perilaku Teknologi:                                    │
-│ - Menggunakan smartphone Android kelas pemula (RAM 3GB)│
-│ - Sangat lancar memakai WhatsApp & Facebook            │
-│ - Ragu mengklik menu berbahasa Inggris                 │
-│ - Mengetik layar HP dengan satu jari telunjuk          │
-├────────────────────────────────────────────────────────┤
-│ Masalah Terbesar (Pains):                              │
-│ - Tiap pagi harus membalas puluhan chat yang sama:     │
-│   "Masih ada sambal pedas sedang nggak bu? Harganya?"  │
-│ - Sering salah catat pesanan karena chat tertimbun     │
-├────────────────────────────────────────────────────────┤
-│ Harapan Utama (Gains):                                 │
-│ - Punya satu link simpel yang bisa ditaruh di info WA  │
-│ - Pembeli langsung lihat daftar menu & stok yang ada   │
-└────────────────────────────────────────────────────────┘
-```
+![Ilustrasi Contoh User Persona Ibu Sri Mulyani](./assets/03d-persona-bu-sri.jpg)
+
+Rincian lengkap *User Persona* di atas:
+- **Profil:** Ibu Sri Mulyani (48 Tahun) — Sambal Pecel Madiun *"Berkah Ibu"*, Sidoarjo `[ILUSTRASI CONTOH]`
+- **Perilaku Teknologi:** Pakai HP Android kelas pemula (RAM 3GB), lancar WhatsApp & Facebook, ragu klik menu berbahasa Inggris, mengetik layar HP dengan satu jari telunjuk.
+- **Masalah Terbesar (*Pains*):** Tiap pagi harus membalas puluhan chat yang sama (*"Masih ada sambal pedas sedang nggak Bu? Harganya?"*) dan sering salah catat pesanan karena chat tertimbun.
+- **Harapan Utama (*Gains*):** Punya satu link simpel yang bisa dipasang di bio/info WA sehingga pembeli bisa langsung lihat daftar menu & stok tersedia.
 
 Saat merancang fitur, kamu tidak lagi bertanya: *"Keren nggak ya kalau ditambah fitur X?"*  
 Melainkan: *"Apakah pedagang nyata yang kami wawancarai bisa memakai fitur ini dengan mudah?"*

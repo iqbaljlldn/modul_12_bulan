@@ -22,30 +22,15 @@ Hari ini kita akan menguasai 5 simbol standar flowchart dan menggambarkan alur s
 
 Bayangkan simbol flowchart seperti rambu lalu lintas: bentuknya memberi tahu tindakan apa yang sedang berlangsung di jalan logika sistem.
 
-```text
-┌─────────────────┐
-│     ( Mulai )   │  1. TERMINATOR (Kapsul / Oval)
-└─────────────────┘     Menandai titik AWAL (Mulai) dan AKHIR (Selesai). Wajib ada!
+![Lima Simbol Baku Flowchart](./assets/02c-simbol-flowchart.jpg)
 
-┌─────────────────┐
-│ [ Proses/Aksi ] │  2. PROSES (Persegi Panjang)
-└─────────────────┘     Operasi internal mesin atau kalkulasi data.
-                        Contoh: "Hitung total harga", "Kurangi stok 1".
-
-      /\
-     /  \            3. DECISION / KEPUTUSAN (Belah Ketupat / Diamond)
-    < ?  >              Pertanyaan pengujian kondisi logika. 
-     \  /               Wajib memiliki minimal dua panah keluar bertuliskan "Ya" dan "Tidak".
-      \/                Contoh: "Apakah stok > 0?", "Nama produk diisi?".
-
-   /─────────/
-  /  Input  /        4. DATA / INPUT-OUTPUT (Jajar Genjang)
- /─────────/            Menerima masukan dari pengguna atau menampilkan informasi ke layar.
-                        Contoh: "Pengguna memilih produk", "Tampilkan pesan error".
-
-     ───────►        5. PANAH ALUR (Flowline)
-                        Menunjukkan arah jalannya instruksi. Tidak boleh panah tanpa ujung!
-```
+| No | Simbol | Nama Resmi | Fungsi & Contoh |
+|----|--------|------------|-----------------|
+| 1 | Oval / Kapsul | **Terminator** | Menandai titik **Mulai** dan **Selesai**. Wajib ada di setiap alur. |
+| 2 | Persegi Panjang | **Proses** | Operasi internal mesin/kalkulasi data (misal: *"Hitung total harga"*, *"Kurangi stok 1"*). |
+| 3 | Belah Ketupat | **Decision / Keputusan** | Percabangan logika `Ya` / `Tidak` (misal: *"Apakah stok > 0?"*, *"Nama produk diisi?"*). |
+| 4 | Jajar Genjang | **Data / Input-Output** | Masukan dari user atau tampilan ke layar (misal: *"Pilih produk"*, *"Tampilkan pesan error"*). |
+| 5 | Panah Alur | **Flowline** | Arah jalannya instruksi dari satu simbol ke simbol berikutnya. Tidak boleh buntu! |
 
 > [!NOTE]
 > **Istilah Tambahan (Opsional):**  

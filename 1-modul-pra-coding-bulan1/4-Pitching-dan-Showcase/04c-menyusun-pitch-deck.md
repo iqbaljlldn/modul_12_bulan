@@ -21,19 +21,15 @@ Hari ini, setiap squad akan merakit seluruh artefak yang telah diproduksi selama
 
 ## 2. Struktur Standar 7 Slide Pitch Deck
 
-```text
-┌────────────────────────────────────────────────────────┐
-│             STRUKTUR 7 SLIDE PITCH DECK                │
-├────────────────────────────────────────────────────────┤
-│ Slide 1: Cover Produk, Nama Platform, & Anggota Squad  │
-│ Slide 2: Masalah Nyata & Persona Riset Lapangan        │
-│ Slide 3: Nilai Solusi (Value Proposition Statement)    │
-│ Slide 4: Bukti Desain Antarmuka (Wireframe 3 Halaman)  │
-│ Slide 5: Bukti Alur Logika (Flowchart Pemesanan WA)    │
-│ Slide 6: Bukti Struktur Data (ERD Model Data)          │
-│ Slide 7: Rencana Eksekusi Bulan 2 & Penutup            │
-└────────────────────────────────────────────────────────┘
-```
+| Slide | Fokus Konten Pitch Deck |
+|---|---|
+| **Slide 1** | **Cover:** Nama produk/platform, tagline singkat, & daftar anggota squad |
+| **Slide 2** | **Masalah Nyata:** Cerita singkat & *persona* hasil riset UMKM |
+| **Slide 3** | **Nilai Solusi:** *Value Proposition Statement* yang menjawab masalah |
+| **Slide 4** | **Bukti Desain Antarmuka:** Wireframe 3 halaman utama katalog |
+| **Slide 5** | **Bukti Alur Logika:** *Flowchart* pemesanan hingga ke WhatsApp |
+| **Slide 6** | **Bukti Struktur Data:** Diagram ERD model data produk & pesanan |
+| **Slide 7** | **Roadmap & Penutup:** Rencana eksekusi awal Bulan 2 & ajakan diskusi |
 
 ### Rincian Konten Tiap Slide:
 

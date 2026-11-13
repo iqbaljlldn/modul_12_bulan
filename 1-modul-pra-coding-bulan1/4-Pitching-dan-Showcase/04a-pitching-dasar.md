@@ -20,29 +20,14 @@ Hari ini kita akan membedah formula presentasi produk berstandar industri startu
 
 Sebuah presentasi pitch yang efektif selalu mengikuti alur emosional dan logika berikut:
 
-```text
-┌────────────────────────────────────────────────────────┐
-│               5 BABAK STRUKTUR PITCHING                │
-├────────────────────────────────────────────────────────┤
-│ 1. The Hook & The Problem (Masalah Nyata yang Pedih)  │
-│    Ceritakan satu sosok manusia nyata (persona riset)  │
-│                                                        │
-│ 2. The Solution (Solusi Unik Katalog Kita)            │
-│    Tunjukkan konsep platform kita sebagai pemecah      │
-│    masalah yang praktis                                │
-│                                                        │
-│ 3. The Proof / Demo (Bukti Nyata: Wireframe & Alur)   │
-│    Bukan sekadar kata-kata manis; tunjukkan artefak    │
-│    desain dan diagram alur nyata                       │
-│                                                        │
-│ 4. The Impact & Value (Manfaat bagi Pengguna)         │
-│    Bagaimana hidup pedagang dan pembeli jadi lebih     │
-│    mudah dan bebas dari salah catat                    │
-│                                                        │
-│ 5. Roadmap & Call to Action (Langkah Berikutnya)      │
-│    Apa yang akan dibangun tim di Bulan 2 ke depan?     │
-└────────────────────────────────────────────────────────┘
-```
+![Lima Babak Struktur Pitching Produk Standar Startup](./assets/04a-struktur-pitching.jpg)
+
+Rincian tiap babak dalam presentasi:
+1. **The Hook & The Problem:** Ceritakan satu sosok manusia nyata (*persona* hasil riset UMKM) yang mengalami masalah pedih.
+2. **The Solution:** Tunjukkan konsep katalog UMKM + pemesanan WA kita sebagai pemecah masalah yang praktis.
+3. **The Proof / Demo:** Bukan sekadar kata-kata; tunjukkan artefak desain (*wireframe*, *flowchart*, dan ERD nyata).
+4. **The Impact & Value:** Jelaskan bagaimana hidup pedagang dan pembeli jadi lebih mudah dan bebas salah catat.
+5. **Roadmap & Call to Action:** Paparkan apa yang akan langsung dieksekusi tim saat masuk ke Bulan 2 (fase *coding*).
 
 ### Formula Menghidupkan Cerita (*The Persona Hook*):
 ❌ **Jangan Mulai Seperti Ini:**  

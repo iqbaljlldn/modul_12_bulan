@@ -36,6 +36,8 @@ Hari ini kita mulai merancang **"pengalaman pakainya" (User Experience / UX)** a
 > Sendok makan berbahan emas berkilau dengan ukiran bunga indah adalah **UI yang cantik**.  
 > Tetapi jika gagangnya terlalu berat ke belakang dan cekungannya sangat ceper sehingga kuah sup selalu tumpah saat disendok, sendok itu memiliki **UX yang sangat buruk**.
 
+![Analogi Sendok Makan UI Cantik vs UX Buruk dan Baik](./assets/03a-ui-vs-ux-sendok.jpg)
+
 ---
 
 ## 3. Empat Prinsip Emas UX untuk Aplikasi UMKM
@@ -68,27 +70,13 @@ Sistem harus selalu memberi tahu pengguna apa yang sedang terjadi melalui umpan 
 
 Perhatikan perbedaan desain layar HP yang **mengabaikan UX** vs yang **mematuhi 4 Prinsip Emas UX**:
 
-```text
-   ❌ VERSI UX BURUK (Bikin Frustrasi)        ✅ VERSI UX BAIK (Ramah UMKM)
-┌─────────────────────────────────────┐    ┌─────────────────────────────────────┐
-│ [Pesan]  <- Tombol kecil di pojok   │    │ ← Kembali   Detail Produk           │
-│             atas (susah dijangkau)  │    ├─────────────────────────────────────┤
-│                                     │    │  ┌───────────────────────────────┐  │
-│  [Foto Kecil]  Keripik... (terpotong)│    │  │       FOTO PRODUK BESAR       │  │
-│                Rp15000              │    │  └───────────────────────────────┘  │
-│                                     │    │  Keripik Pisang Cokelat Lumer       │
-│  Error 500: Failed to load stok!    │    │  Rp 15.000  •  Stok Tersedia: 12    │
-│  <- Bahasa teknis membingungkan     │    │                                     │
-│                                     │    │  Jumlah: [ - ]  1  [ + ]            │
-│  Nama: [_________________________]  │    │  Nama:   [ Budi Santoso________ ]   │
-│  (Isian hilang semua kalau salah)   │    │  No. WA: [ 0812..._____________ ]   │
-│                                     │    │  ⚠ Masukkan minimal 10 angka        │
-│                                     │    │                                     │
-│                                     │    │ ┌─────────────────────────────────┐ │
-│                                     │    │ │   💬 PESAN VIA WHATSAPP SEKARANG│ │
-│                                     │    │ └─────────────────────────────────┘ │
-└─────────────────────────────────────┘    └─────────────────────────────────────┘
-```
+![Perbandingan Halaman Detail Produk UX Buruk vs UX Baik](./assets/03a-ux-buruk-vs-baik.jpg)
+
+| Aspek Desain | ❌ Versi UX Buruk (Bikin Frustrasi) | ✅ Versi UX Baik (Ramah UMKM) |
+|---|---|---|
+| **Posisi Tombol Utama** | Tombol `[Pesan]` kecil di pojok atas, susah dijangkau jempol. | Tombol hijau lebar `💬 PESAN VIA WHATSAPP SEKARANG` tepat di zona jempol bawah layar. |
+| **Kejelasan Info Produk** | Foto kecil, nama terpotong (`Keripik...`), format harga membingungkan. | Foto besar jernih, judul lengkap, harga `Rp 15.000`, serta info stok yang jelas. |
+| **Pesan Error & Bantuan** | Menampilkan kode teknis (`Error 500: Failed to load stok!`). | Validasi langsung di kolom input (misal: `⚠ Masukkan minimal 10 angka`) tanpa menghapus isian lain. |
 
 > [!NOTE]
 > **Istilah Tambahan / Referensi Desain (Opsional):**  

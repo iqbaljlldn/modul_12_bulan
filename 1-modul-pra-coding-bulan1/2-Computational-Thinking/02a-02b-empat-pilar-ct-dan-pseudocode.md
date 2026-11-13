@@ -27,14 +27,15 @@ Dekomposisi adalah seni memecah satu proses besar menjadi beberapa sub-proses, l
 
 ### Studi Kasus: Proses "Pemesanan Produk via WhatsApp"
 
-```text
-                       PROSES PEMESANAN KATALOG UMKM
-                     ┌───────────────┴───────────────┐
-                     ▼                               ▼
-             1. EKSPLORASI PRODUK            2. PEMESANAN VIA WHATSAPP
-        ┌────────────┴────────────┐             ┌────────────┴────────────┐
-        ▼                         ▼             ▼                         ▼
-   1.1 Buka Link Toko        1.2 Filter Kategori 2.1 Cek Stok Barang   2.2 Buka Chat WA
+```mermaid
+flowchart TD
+    Root["PROSES PEMESANAN KATALOG UMKM"]
+    Root --> S1["1. EKSPLORASI PRODUK"]
+    Root --> S2["2. PEMESANAN VIA WHATSAPP"]
+    S1 --> S1a["1.1 Buka Link Toko"]
+    S1 --> S1b["1.2 Filter Kategori"]
+    S2 --> S2a["2.1 Cek Stok Barang"]
+    S2 --> S2b["2.2 Buka Chat WA"]
 ```
 
 Jika kamu melihat struktur di atas, membangun *"fitur filter kategori produk"* atau *"cek stok barang"* jauh lebih mudah dibayangkan dan dirancang daripada memikirkan *"seluruh sistem belanja"* sekaligus.

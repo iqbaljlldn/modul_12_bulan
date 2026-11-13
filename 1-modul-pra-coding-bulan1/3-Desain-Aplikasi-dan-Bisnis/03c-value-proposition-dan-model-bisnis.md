@@ -20,20 +20,12 @@ Hari ini kita akan membedah sisi bisnis dari Platform UMKM: **Kenapa pedagang ma
 
 Alat bantu yang kita pakai adalah peta kecocokan solusi: mempertemukan **Penderitaan Pengguna** dengan **Fitur Aplikasi**:
 
-```text
-┌─────────────────────────────────┐       ┌─────────────────────────────────┐
-│       KUNCI (Aplikasi Kita)     │       │     GEMBOK (Kondisi Pengguna)   │
-├─────────────────────────────────┤       ├─────────────────────────────────┤
-│ [Pereda Masalah / Pain Relief]  │ ◄───► │ [Pains / Beban & Penderitaan]   │
-│ Fitur yang menghapus kerepotan  │       │ Hambatan harian, rasa frustrasi │
-│                                 │       │                                 │
-│ [Pemberi Nilai / Gain Creator]  │ ◄───► │ [Gains / Keinginan & Harapan]   │
-│ Nilai tambah yang bikin senang  │       │ Cita-cita jualan, rasa praktis  │
-│                                 │       │                                 │
-│ [Fitur Konkret / Services]      │ ◄───► │ [Customer Jobs / Aktivitas]     │
-│ Fitur nyata yang kita bangun    │       │ Hal rutin yang dikerjakan user  │
-└─────────────────────────────────┘       └─────────────────────────────────┘
-```
+![Value Proposition Canvas dengan Analogi Kunci dan Gembok](./assets/03c-value-proposition-canvas.jpg)
+
+Cara mencocokkan **Kunci** (Aplikasi Kita) dengan **Gembok** (Kondisi Pengguna):
+1. **Pereda Masalah (*Pain Relievers*) ↔ Beban Masalah (*Pains*):** Fitur konkret yang langsung menghapus kerepotan harian pengguna.
+2. **Pemberi Nilai (*Gain Creators*) ↔ Harapan (*Gains*):** Nilai tambah yang membuat jualan/belanja terasa jauh lebih praktis.
+3. **Fitur Produk (*Products & Services*) ↔ Aktivitas Rutin (*Customer Jobs*):** Fitur nyata yang benar-benar digunakan dalam alur kerja pengguna sehari-hari.
 
 > [!NOTE]
 > **Istilah Tambahan (Opsional):**  

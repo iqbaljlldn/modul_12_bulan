@@ -23,11 +23,11 @@ Hari ini kita akan memanfaatkan AI untuk melakukan audit uji ketahanan (*stress-
 
 Jika flowchart berfokus pada **logika mesin** (*"Apakah stok > 0?"*), maka **User Flow** berfokus pada **layar dan tindakan yang dilalui manusia**:
 
-```text
-┌─────────────────┐       ┌─────────────────┐       ┌─────────────────┐       ┌─────────────────┐
-│  Halaman Depan  │ ──►   │ Filter Kategori │ ──►   │  Halaman Detail │ ──►   │ Klik Pesan WA   │
-│ (Melihat Menu)  │       │ (Pilih Gorengan)│       │ (Cek Harga/Stok)│       │ (Buka Chat WA)  │
-└─────────────────┘       └─────────────────┘       └─────────────────┘       └─────────────────┘
+```mermaid
+flowchart LR
+    A["Halaman Depan<br/>(Melihat Menu)"] --> B["Filter Kategori<br/>(Pilih Gorengan)"]
+    B --> C["Halaman Detail<br/>(Cek Harga & Stok)"]
+    C --> D["Klik Pesan WA<br/>(Buka Chat WA)"]
 ```
 
 ---

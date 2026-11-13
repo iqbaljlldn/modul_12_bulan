@@ -27,18 +27,12 @@ Bikin database 1 bulan → Bikin server 1 bulan → Bikin tampilan 1 bulan → P
 Kita menggunakan metode **Potongan Vertikal (*Vertical Slicing / Walking Skeleton*)**:
 Bayangkan memotong kue lapis dari lapisan atas (cokelat), tengah (krim), sampai lapisan dasar (bolu). Dengan satu irisan tegak lurus, kita bisa langsung mencicipi rasa kuenya secara utuh sejak hari pertama!
 
-```text
-                  IRISAN KUE LAPIS (VERTICAL SLICE)
-┌────────────────────────────────────────────────────────┐
-│ UI (Tampilan Kartu Produk di Layar Browser)            │ ◄── Lapisan Atas (User)
-├────────────────────────────────────────────────────────┤
-│ Logika Komponen (Filter Kategori & State)              │ ◄── Lapisan Tengah
-├────────────────────────────────────────────────────────┤
-│ Data (Data Produk Mock / API Sederhana)                │ ◄── Lapisan Bawah (Data)
-└────────────────────────────────────────────────────────┘
-  ▲
-  │ Satu irisan kecil yang langsung bisa diklik & didemokan!
-```
+![Ilustrasi Konsep Vertical Slice Analogi Kue Lapis](./assets/03e-vertical-slice-kue-lapis.jpg)
+
+Satu irisan vertikal penuh (*Vertical Slice*) mencakup ketiganya sekaligus agar langsung bisa diklik dan didemokan:
+1. **Lapisan Atas (UI):** Tampilan kartu produk di layar browser.
+2. **Lapisan Tengah (Logika Komponen):** Filter kategori & pengelolaan *state*.
+3. **Lapisan Bawah (Data):** Data produk (*mock data* atau API sederhana).
 
 > [!NOTE]
 > **Istilah Tambahan (Opsional):**  

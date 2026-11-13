@@ -2,7 +2,7 @@
 
 **Fokus Minggu Ini:** Mengembangkan empati produk ganda: empati terhadap pengguna melalui prinsip User Experience (UX dasar) dan kerangka antarmuka (Wireframing mobile-first), serta empati terhadap model bisnis UMKM melalui wawancara langsung 1 UMKM nyata per squad, Value Proposition Canvas, perumusan persona, dan penerjemahan desain ke rencana backlog (Slice 0).
 
-**Ritme:** 5 Sesi Materi & Workshop (Senin–Jumat) + 1 Sesi Review Mingguan (Sabtu). Alokasi per sesi: ±90-120 menit.
+**Ritme:** 5 Sesi Materi & Workshop (Senin–Jumat) + 1 Sesi Review Mingguan (Sabtu). Alokasi sesi kelas: ±90-120 menit; hasil workshop squad & tugas mandiri di-*push* ke repositori squad dan dipresentasikan saat *Daily Standup* keesokan paginya.
 
 ---
 
@@ -10,7 +10,7 @@
 
 | Sesi | Hari | File Modul | Poin Mini-Lesson Mentor (20-30 Menit) | Output Sesi / Workshop Tim |
 |---|---|---|---|---|
-| 1 | Senin | `03a-prinsip-ux-dasar.md` | UI vs UX; Prinsip Kebiasaan Pengguna (analogi Jakob's Law) & Prinsip Tombol Jangkauan Jempol (analogi Fitts's Law); Umpan balik status sistem. | **Laporan "UX Review" Aplikasi Nyata** |
+| 1 | Senin | `03a-prinsip-ux-dasar.md` | UI vs UX; Prinsip Kebiasaan Pengguna (Jakob's Law), Tombol Jangkauan Jempol (Fitts's Law), Status Sistem & Error Prevention; perbandingan layar HP UX Buruk vs Baik. | **Tabel Audit UX Aplikasi Nyata + 3 Aturan UX Wajib** |
 | 2 | Selasa | `03b-wireframe-dan-merancang-tampilan.md` | Wireframe (cetak biru hitam-putih, bukan estetika warna); Desain mobile-first; 3 Halaman Inti (Katalog, Detail, Dashboard). Jembatan kode HTML/CSS statis. | **Wireframe 3 Halaman Inti Platform UMKM** |
 | 3 | Rabu | `03c-value-proposition-dan-model-bisnis.md` | Mencocokkan masalah pengguna dengan solusi aplikasi; Pasar dua sisi (Merchant & Buyer); Panduan Wawancara 1 UMKM Nyata (5-6 pertanyaan terarah). | **Value Proposition Canvas & Rencana Wawancara** |
 | 4 | Kamis | `03d-sudut-pandang-pelanggan-umkm.md` | Persona pengguna wajib berbasis temuan wawancara UMKM nyata (Bu Sri sebagai ilustrasi modul); Prioritas fitur metode MoSCoW disederhanakan. | **Persona Nyata & Daftar Fitur Prioritas** |

@@ -2,7 +2,8 @@
 
 **Minggu 3: Desain Aplikasi & Bisnis | Sesi 2 (Selasa)**  
 **Target Waktu:** 90 - 120 Menit  
-**Output Sesi:** Wireframe 3 Halaman Utama Platform Katalog UMKM + Alur Interaksi *(di-push ke repo squad untuk dipresentasikan saat Daily Standup besok pagi)*
+**Tools:** Figma (akun gratis pribadi) + Figma AI bawaan  
+**Output Sesi:** Wireframe 3 Halaman Utama Platform Katalog UMKM di Figma + Alur Interaksi *(link Figma & ekspor gambar di-push ke repo squad untuk dipresentasikan saat Daily Standup besok pagi)*
 
 ---
 
@@ -22,7 +23,7 @@ Wireframe sengaja dibuat **hitam-putih (grayscale), tanpa warna-warni brand, tan
 
 ## 2. Anatomi & Simbol Menggambar Wireframe
 
-Saat membuat wireframe di kertas atau aplikasi gambar (*Excalidraw* / *Figma*), gunakan simbol konvensi standar berikut:
+Mulai sesi ini kita merancang wireframe langsung di **Figma**, tool desain antarmuka yang dipakai tim produk profesional. Apa pun tool-nya, simbol konvensi standarnya sama:
 
 ![Anatomi dan Simbol Wireframe Mobile-First Katalog UMKM](./assets/03b-anatomi-wireframe.jpg)
 
@@ -32,6 +33,20 @@ Saat membuat wireframe di kertas atau aplikasi gambar (*Excalidraw* / *Figma*), 
 | **Teks polos / garis horizontal** | Judul produk, harga, atau blok teks deskripsi singkat. |
 | **Kotak berbingkai tebal / blok gelap** | Tombol aksi utama (*Call to Action* / CTA) seperti `[ Pesan WA ]`. |
 | **Garis panah antar layar** | Alur perpindahan halaman ketika sebuah tombol disentuh atau diklik. |
+
+### Perkenalan Singkat Figma (Siapkan Sebelum Workshop)
+
+| Kebutuhan | Cara di Figma |
+|---|---|
+| **Layar ponsel** | Buat *Frame* ukuran ponsel (pilih preset *Phone* di panel kanan, mis. 390 × 844). Satu frame = satu halaman. |
+| **Kotak foto `X`** | Gambar persegi (`R`), lalu tarik dua garis diagonal (`L`) membentuk silang. |
+| **Teks & tombol** | Teks (`T`) dan persegi berisi teks. Tombol CTA diberi isi hitam. |
+| **Alur antar halaman** | Tab *Prototype*: tarik penghubung dari tombol ke frame tujuan. |
+
+> [!NOTE]
+> Nama menu dan tombol di Figma bisa berubah mengikuti pembaruan. Kalau tampilannya beda dari tabel di atas, cari fitur yang fungsinya sama atau tanya mentor/AI.
+
+**Aturan wajib wireframe di Figma:** hanya hitam, putih, dan abu-abu. Jangan pakai warna brand, foto asli, atau ikon dekoratif.
 
 ---
 
@@ -58,26 +73,48 @@ Mulai Bulan 2, produk pertama yang akan kalian bangun dengan React adalah **Mini
 
 ## 4. Workshop Praktik Squad (60 Menit)
 
+### Persiapan (5 Menit)
+Satu anggota squad membuat **1 file Figma squad** (akun gratis pribadi), lalu mengundang anggota lain sebagai editor. Beri nama file `Wireframe Katalog UMKM - [Nama Squad]`. Satu file cukup, dengan 3 frame (Halaman 1, 2, 3).
+
 ### Langkah Pengerjaan Tim:
-1. **Langkah 1 — Terapkan Aturan `03a` & Sketsa Kertas Mobile-First (30 Menit):**  
-   Buka kembali **3 Aturan UX Wajib** yang disepakati squad pada Sesi `03a`. Gambarkan sketsa 3 halaman di atas pada kertas HVS dalam rasio layar ponsel tegak (`9:16`).  
-   *Pastikan juga kalian menggambar kondisi khusus (edge case)*, seperti tampilan kartu saat **Stok = 0** dan pesan error form berbahasa Indonesia yang ramah.
-2. **Langkah 2 — Uji Alur Jari / *Paper Prototyping* (15 Menit):**  
-   Minta satu anggota squad berpura-pura menjadi pembeli awam. Sentuhkan ibu jari ke tombol di kertas Halaman 1, lalu balik kertas ke Halaman 2.  
+1. **Langkah 1 — Gambar Manual di Figma, Tanpa AI (30 Menit):**  
+   Buka kembali **3 Aturan UX Wajib** dari Sesi `03a`. Bagi tugas: tiap anggota menggambar satu halaman (atau satu bagian halaman) dalam frame ponsel tegak. Gambar manual dengan kotak `X`, teks, dan tombol hitam.  
+   *Wajib gambar kondisi khusus:* kartu **Stok = 0** dan pesan error form berbahasa Indonesia yang ramah.  
+   > *Kenapa tanpa AI dulu?* Wireframe melatih kalian berpikir tentang struktur. Kalau AI sudah menggambarkan semuanya, kalian tidak tahu kenapa tata letaknya begitu.
+2. **Langkah 2 — Hubungkan Alur di Tab Prototype (10 Menit):**  
+   Sambungkan tombol ke frame tujuan (Halaman 1 → Halaman 2, dst.). Jalankan mode *Present* di ponselmu atau browser, lalu minta satu anggota berpura-pura jadi pembeli awam.  
    - Apakah tombol utama mudah dijangkau satu jempol?  
-   - Gambarkan **garis panah alur** yang menghubungkan tombol mana menuju layar mana.
-3. **Langkah 3 — Dokumentasi Rapi ke Repo Squad (15 Menit):**  
-   Foto sketsa kertas dengan pencahayaan jelas (atau salin ulang ke *Excalidraw* / *Figma* hitam-putih), lalu simpan file gambar beserta catatan alur ke folder `minggu-3/wireframe/` di repositori squad.
+   - Ada tombol yang buntu atau tidak membawa ke mana-mana?
+3. **Langkah 3 — Figma AI sebagai Pengkritik & Pemberi Variasi (15 Menit):**  
+   Pakai fitur AI bawaan Figma untuk dua hal:
+   - **Kritik:** minta masukan terhadap tata letak, misalnya dengan prompt di bawah.
+   - **Variasi:** minta alternatif tata letak Halaman 1, lalu bandingkan dengan buatan kalian.
+
+   > **Template prompt kritik:**  
+   > *"Ini wireframe halaman katalog untuk UMKM yang pembelinya awam teknologi dan memakai ponsel satu tangan. Nilai terhadap 4 prinsip UX: kebiasaan pengguna, jangkauan jempol tombol utama, visibilitas status sistem, dan pencegahan kesalahan. Beri 3 kelemahan paling serius dan saran perbaikannya."*
+
+   **Aturan main:**
+   - AI hanya memberi saran. **Squad yang memutuskan** saran mana yang dipakai.
+   - Kalau AI menghasilkan desain berwarna atau penuh dekorasi, sederhanakan kembali jadi hitam-putih.
+   - Kredit AI di akun gratis terbatas (ada kuota bulanan dan harian, cek di akunmu). Pakai seperlunya dan jangan dihabiskan dalam satu sesi.
+   - Kalau kuota habis atau fitur AI tidak tersedia di akunmu, pakai asisten AI lain atau lanjut dengan kritik antaranggota squad.
+4. **Langkah 4 — Finalisasi & Push ke Repo Squad (±15 Menit):**  
+   Perbaiki wireframe berdasarkan hasil uji dan kritik AI. Ekspor tiap halaman sebagai PNG, simpan di folder `minggu-3/wireframe/` repo squad, lalu tulis link Figma beserta catatannya di `wireframe-squad.md`. Pastikan link Figma bisa dibuka oleh anggota lain (setelan *Anyone with the link can view*).
+
+> [!TIP]
+> **Cadangan:** Kalau ada anggota yang tidak bisa mengakses Figma (akun bermasalah atau tidak ada koneksi), sketsa di kertas HVS rasio `9:16` lalu foto tetap diterima untuk bagian halaman tersebut.
 
 ---
 
 ## 5. Output Sesi
 
-*Push* dokumen `wireframe-squad.md` beserta file gambar sketsa/ekspor ke repositori squad (siap dipresentasikan saat **Daily Standup besok pagi**) berisi:
-1. Gambar **Wireframe Halaman 1** (Katalog Utama — termasuk contoh kartu *Stok Habis*).
-2. Gambar **Wireframe Halaman 2** (Detail Produk + Form Pemesanan WA).
-3. Gambar **Wireframe Halaman 3** (Dashboard Kelola Produk Merchant).
-4. Penjelasan singkat **alur interaksi** (tombol mana menuju halaman mana) dan **bukti penerapan 3 Aturan UX Wajib** dari Sesi `03a`.
+*Push* dokumen `wireframe-squad.md` beserta ekspor gambar ke repositori squad (siap dipresentasikan saat **Daily Standup besok pagi**) berisi:
+1. **Link file Figma squad** (akses *view* terbuka).
+2. Ekspor **Wireframe Halaman 1** (Katalog Utama, termasuk contoh kartu *Stok Habis*).
+3. Ekspor **Wireframe Halaman 2** (Detail Produk + Form Pemesanan WA).
+4. Ekspor **Wireframe Halaman 3** (Dashboard Kelola Produk Merchant).
+5. Penjelasan singkat **alur interaksi** (tombol mana menuju halaman mana) dan **bukti penerapan 3 Aturan UX Wajib** dari Sesi `03a`.
+6. **Catatan Figma AI:** 1 saran AI yang kalian pakai, 1 saran yang kalian tolak, beserta alasannya.
 
 ---
 
@@ -183,6 +220,8 @@ Mengubah wireframe menjadi HTML/CSS hitam-putih membantu saya melihat struktur k
 1. Mengapa desainer dilarang memasukkan warna-warni estetik dan foto asli pada tahap pembuatan wireframe?
 2. Mengapa pendekatan *Mobile-First* wajib diterapkan sejak awal saat merancang wireframe aplikasi UMKM lokal?
 3. Bagaimana cara menandai produk yang stoknya `0` di wireframe Halaman 1 dan Halaman 2 agar selaras dengan prinsip pencegahan kesalahan (*Error Prevention*) dari Sesi `03a`?
+4. Mengapa kita menggambar wireframe secara manual dulu sebelum meminta bantuan Figma AI? Apa risikonya kalau urutannya dibalik?
+5. Ceritakan satu saran Figma AI yang kamu tolak dan alasanmu menolaknya!
 
 ---
 

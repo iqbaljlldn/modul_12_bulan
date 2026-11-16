@@ -12,8 +12,8 @@
 |---|---|---|---|---|
 | 1 | Senin | `03a-prinsip-ux-dasar.md` | UI vs UX; Prinsip Kebiasaan Pengguna (Jakob's Law), Tombol Jangkauan Jempol (Fitts's Law), Status Sistem & Error Prevention; perbandingan layar HP UX Buruk vs Baik. | **Tabel Audit UX Aplikasi Nyata + 3 Aturan UX Wajib** |
 | 2 | Selasa | `03b-wireframe-dan-merancang-tampilan.md` | Wireframe (cetak biru hitam-putih, bukan estetika warna); Desain mobile-first; 3 Halaman Inti (Katalog, Detail, Dashboard). Jembatan kode HTML/CSS statis. | **Wireframe 3 Halaman Inti Platform UMKM** |
-| 3 | Rabu | `03c-value-proposition-dan-model-bisnis.md` | Mencocokkan masalah pengguna dengan solusi aplikasi; Pasar dua sisi (Merchant & Buyer); Panduan Wawancara 1 UMKM Nyata (5-6 pertanyaan terarah). | **Value Proposition Canvas & Rencana Wawancara** |
-| 4 | Kamis | `03d-sudut-pandang-pelanggan-umkm.md` | Persona pengguna wajib berbasis temuan wawancara UMKM nyata (Bu Sri sebagai ilustrasi modul); Prioritas fitur metode MoSCoW disederhanakan. | **Persona Nyata & Daftar Fitur Prioritas** |
+| 3 | Rabu | `03c-value-proposition-dan-model-bisnis.md` | Mencocokkan masalah pengguna dengan solusi aplikasi; Pasar dua sisi (Merchant & Buyer); Teknik & etika wawancara; Panduan Wawancara 1 UMKM Nyata (5 pertanyaan terarah, tanpa menggiring). | **Value Proposition Canvas & Catatan Wawancara Squad (`catatan-wawancara-squad.md`)** |
+| 4 | Kamis | `03d-sudut-pandang-pelanggan-umkm.md` | Persona pengguna wajib berbasis `catatan-wawancara-squad.md` (Bu Sri sebagai ilustrasi modul); Prioritas fitur metode MoSCoW + Uji Cepat; AI sebagai pengkritik. | **Persona Nyata & Daftar Fitur Prioritas** |
 | 5 | Jumat | `03e-dari-desain-ke-rencana-fitur.md` | Konsep Vertical Slicing kue lapis; Menulis User Story & Syarat Selesai (Acceptance Criteria); Rincian mendalam Slice 0, rangkuman Slice 1 & 2. | **Draf Backlog Fitur Platform UMKM (Slice 0-2)** |
 | 6 | Sabtu | `03f-review-dan-evaluasi-minggu3.md` | Sprint Review 3: Presentasi squad (5m pitch + 3m Q&A); Simulasi Uji Kegunaan Silang (*Cross-Usability Walkthrough*); Retrospektif tim. | **Checklist Kapabilitas Minggu 3 & Refleksi** |
 
@@ -27,8 +27,8 @@ Setiap murid mengerjakan tugas mandiri individual dan menyimpannya di folder mas
 |---|---|---|---|
 | 03a | `tugas_03a.md` | Observasi 1 Hambatan UX di Kehidupan Nyata Sekitar | 20 menit |
 | 03b | `tugas_03b.md` | **Jembatan Kode 2:** Halaman HTML & CSS Statis Hitam-Putih untuk 1 Kartu Produk | 25 menit |
-| 03c | `tugas_03c.md` | **Riset Pengguna Nyata:** Catatan Wawancara 1 Pelaku UMKM (3 temuan + 1 kutipan asli) | 30 menit |
-| 03d | `tugas_03d.md` | Menyusun Mini Persona Pengguna Nyata Berdasarkan Temuan Wawancara | 25 menit |
+| 03c | `tugas_03c.md` | **Jurnal Belajar Wawancara:** refleksi pribadi atas pertanyaan yang berhasil/gagal dan hal yang akan diperbaiki | 30 menit |
+| 03d | `tugas_03d.md` | Analisis 1 Penderitaan Pedagang Nyata → Usulan Fitur "Wajib Ada" & Desain Sederhana | 25 menit |
 | 03e | `tugas_03e.md` | Menulis 1 User Story + 2 Kriteria Penerimaan (*Acceptance Criteria*) Fitur Sederhana | 25 menit |
 | 03f | `tugas_03f.md` | Refleksi Pribadi Sprint 3 (3-5 Kalimat) | 15 menit |
 | **Total** | | | **140 menit (2 jam 20 menit)** |

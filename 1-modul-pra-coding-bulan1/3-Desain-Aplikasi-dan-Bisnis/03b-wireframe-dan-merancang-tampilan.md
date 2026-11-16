@@ -140,73 +140,12 @@ Nama: [Nama Kamu]
 
 ## 1. Kode HTML & CSS:
 ```html
-<style>
-  .daftar-produk {
-    display: flex;
-    gap: 12px;
-    font-family: sans-serif;
-  }
-  .card-produk {
-    width: 200px;
-    border: 2px solid #000;
-    padding: 12px;
-    background-color: #fff;
-  }
-  .placeholder-img {
-    height: 120px;
-    background-color: #eee;
-    border: 1px dashed #666;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: #666;
-    margin-bottom: 8px;
-  }
-  .nama-produk {
-    font-size: 16px;
-    margin: 4px 0;
-  }
-  .harga-produk {
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 12px;
-  }
-  .btn-wa {
-    width: 100%;
-    padding: 10px;
-    background-color: #000;
-    color: #fff;
-    border: 2px solid #000;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  .btn-habis {
-    width: 100%;
-    padding: 10px;
-    background-color: #e5e5e5;
-    color: #666;
-    border: 2px dashed #999;
-    font-weight: bold;
-    cursor: not-allowed;
-  }
-</style>
-
-<div class="daftar-produk">
-  <div class="card-produk">
-    <div class="placeholder-img">[ FOTO X ]</div>
-    <h3 class="nama-produk">Keripik Balado</h3>
-    <p class="harga-produk">Rp 15.000 • Stok: 12</p>
-    <button class="btn-wa">Pesan via WhatsApp</button>
-  </div>
-
-  <div class="card-produk">
-    <div class="placeholder-img">[ FOTO X ]</div>
-    <h3 class="nama-produk">Sambal Roa</h3>
-    <p class="harga-produk">Rp 25.000 • Stok: 0</p>
-    <button class="btn-habis" disabled>Stok Habis</button>
-  </div>
-</div>
+<html>
+  <head>
+  </head>
+  <body>
+  </body>
+</html>
 ```
 
 ## 2. Refleksi Singkat:

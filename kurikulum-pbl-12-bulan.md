@@ -11,7 +11,7 @@
 
 | | |
 |---|---|
-| **Peserta** | 18 lulusan SMA/SMK, sudah belajar HTML, CSS, Git & JavaScript dasar selama 2 bulan (99% belum pernah ngoding sebelumnya) |
+| **Peserta** | 12 lulusan SMA/SMK, sudah belajar HTML, CSS, Git & JavaScript dasar selama 2 bulan pre-program (99% belum pernah ngoding proyek nyata sebelumnya) |
 | **Durasi** | 12 bulan |
 | **Tech stack** | React, TypeScript, NestJS, PostgreSQL, Git, Figma |
 | **Tools kolaborasi** | simanajemen.my.id (board tugas, timeline, backlog) |
@@ -35,7 +35,7 @@
 
 ## 2. Learner Profile
 
-- 18 lulusan SMA/SMK, latar belakang beragam; sudah melewati pre-class 2 bulan (HTML 14 bab, CSS 21, CLI/Git/GitHub 10, JavaScript 21 bab termasuk async & Web API) plus modul React bootcamp, tapi hampir semuanya belum pernah ngoding proyek nyata.
+- 12 lulusan SMA/SMK, latar belakang beragam; sudah melewati pre-class 2 bulan (HTML 14 bab, CSS 21, CLI/Git/GitHub 10, JavaScript 21 bab termasuk async & Web API) plus modul React bootcamp, tapi hampir semuanya belum pernah ngoding proyek nyata.
 - **Kemampuan awal tidak seragam.** Kurikulum ini tidak mengasumsikan semua peserta sama cepat. Konsekuensi desainnya:
   - Pairing & squad rolling di awal supaya peer-learning merata.
   - Tiap topik punya **jalur inti** (wajib semua) dan **jalur tambahan** (stretch untuk yang lebih cepat / dukungan ekstra untuk yang butuh).
@@ -245,16 +245,19 @@ Setelah menyelesaikan program, peserta diharapkan mampu (dengan pendampingan min
 | **UMKM (merchant)** | Daftar, kelola produk, terima & kelola order, lihat performa jualan |
 | **Buyer** | Cari & filter produk, keranjang, checkout sederhana |
 
-**Roadmap fitur (indikatif, bukan kontrak per bulan):**
+**Roadmap fitur (indikatif berbasis MoSCoW, bukan kontrak per bulan):**
 
-| Epic | Isi | Kira-kira |
-|---|---|---|
-| Autentikasi & dasar dashboard | Register/login UMKM & buyer, role, dashboard shell | Bulan 6 |
-| Manajemen produk | CRUD produk, upload gambar, kategori | Bulan 7 |
-| Pencarian & filter | Kategori, lokasi/wilayah, harga | Bulan 8 |
-| Keranjang & checkout | Keranjang, checkout sederhana, riwayat order | Bulan 9 |
-| Dashboard UMKM | Statistik jualan, manajemen stok | Bulan 10 |
-| Opsional (kalau kapasitas & kualitas memungkinkan) | Rating/review, notifikasi, pencarian lebih pintar | Bulan 10 |
+| Epic / Fitur | Prioritas | Isi | Kira-kira |
+|---|---|---|---|
+| **Katalog Produk & Pencarian** | **Must-Have** | Listing produk, kategori, lokasi/wilayah, harga, detail produk | Bulan 7–8 |
+| **Autentikasi & Dashboard Penjual** | **Must-Have** | Register/login UMKM & buyer, role, dashboard penjual (CRUD produk, upload gambar, statistik, manajemen stok) | Bulan 6, 7, 10 |
+| **Keranjang & Checkout Sederhana** | **Must-Have** | Keranjang, checkout sederhana, riwayat order, transaksi stok | Bulan 9 |
+| **Built-in WhatsApp (WAHA)** | **Could-Have** | Integrasi WAHA (WhatsApp HTTP API) di server/backend untuk notifikasi order & jalur pesan otomatis *(setelah inti backend siap)* | Bulan 10 |
+| **Automation Chatbot** | **Could-Have** | Pembeli chat ke bot → auto-respon, catat info pelanggan (nama, alamat, tujuan) untuk ekspedisi, & update stok aman lewat konfirmasi + DB transaction | Bulan 10 |
+| **Integrasi Ekspedisi Third-Party** | **Could-Have** | Cek ongkir & resi via pola *Shipping Adapter* + *Mock Provider* (J&T / agregator seperti Biteship/RajaOngkir sesuai akses sandbox) | Bulan 10–11 |
+| Fitur pelengkap lain (jika kapasitas ada) | **Could-Have** | Rating/review, notifikasi lanjutan, pencarian lebih pintar | Bulan 10–11 |
+
+> **Catatan Scope Bulan 2–4 vs Bulan 5+:** Fitur **Must-Have** menjadi fokus latihan fondasi di Bulan 2–4 (*Mini Katalog UMKM* tanpa WAHA/chatbot/ekspedisi). Ketiga fitur **Could-Have** (WAHA, Chatbot, Ekspedisi) baru masuk ke backlog dan dikerjakan setelah pondasi backend NestJS + PostgreSQL (Bulan 4) dan inti Must-Have beres.
 
 **Di luar scope** (kecuali tribe sepakat dan kapasitas ada): payment gateway sungguhan, aplikasi mobile native, pemisahan jadi layanan-layanan terpisah (microservices).
 
@@ -268,14 +271,14 @@ Diterapkan dari hari pertama, bukan cuma pas project besar.
 
 | | Tribe | Squad | Chapter |
 |---|---|---|---|
-| **Isi** | Seluruh 18 peserta | Tim kecil 3 orang (6 squad) | Lintas squad, minat/keahlian sama |
+| **Isi** | Seluruh 12 peserta | Tim kecil 4 orang (3 squad) | Lintas squad, minat/keahlian sama |
 | **Tujuan** | Satu produk bersama | Menyelesaikan slice/fitur end-to-end | Menaikkan capability teknis anggotanya |
 | **Ritme** | Showcase tiap 2 minggu | Update harian/async, pairing, code review, sprint | 1 sesi/minggu, 30-60 menit |
 | **Output** | Produk & keputusan tribe (standar, tools) | Fitur yang jalan, PR | Konvensi, catatan bersama, kemampuan anggota |
 
 ### Squad
 - **Bulan 1-4 (fondasi):** rolling/gonta-ganti tiap 1-2 minggu supaya semua saling kenal & saling ajarin. Mulai Bulan 3, pairing juga mempertimbangkan siapa yang lebih kuat di area tertentu biar saling mengisi.
-- **Mulai Bulan 5:** direstruktur jadi **6 squad cross-functional @ 3 orang**, lebih stabil (gak rolling lagi). Komposisi ideal: tiap squad punya kombinasi minat backend, frontend, dan design/QA. Tetap **semua ngoding lintas layer** — spesialisasi bukan silo, siapa pun bisa (dan perlu) menyelesaikan slice end-to-end.
+- **Mulai Bulan 5:** direstruktur jadi **3 squad cross-functional @ 4 orang**, lebih stabil (gak rolling lagi). Komposisi ideal: tiap squad punya kombinasi minat backend, frontend, dan design/QA. Tetap **semua ngoding lintas layer** — spesialisasi bukan silo, siapa pun bisa (dan perlu) menyelesaikan slice end-to-end.
 - **Sekitar Bulan 8:** rotasi peran/chapter singkat dipertimbangkan (misal yang biasa di frontend mencoba QA sebentar) supaya gak cuma jago di satu bidang.
 
 ### Chapter
@@ -382,7 +385,7 @@ Format tiap bulan: **Tujuan → Fokus capability → Rencana mingguan → Aktivi
 
 **Fokus capability:** Computational Thinking & Algoritma (Core), AI Literacy (Core), Desain Produk & Bisnis (Core), Pitching (Core), pairing & teamwork (Core), ERD (Intro), Git (Intro — untuk kolaborasi dokumen/artefak), task breakdown (Intro), product thinking (Intro).
 
-**Squad:** 6 squad rolling @3 orang, ganti tiap 1-2 minggu. Meskipun belum ngoding, peserta sudah bekerja dalam tim kecil sejak hari pertama — membiasakan kolaborasi, pembagian peran, dan komunikasi.
+**Squad:** 3 squad rolling @4 orang, ganti tiap 1-2 minggu. Meskipun belum ngoding, peserta sudah bekerja dalam tim kecil sejak hari pertama — membiasakan kolaborasi, pembagian peran, dan komunikasi.
 
 ### Minggu 1 — AI Literacy: Pengenalan, Etika, dan AI sebagai Teman Belajar
 
@@ -530,7 +533,7 @@ Tiap slice di atas memakai Learning Loop (Bagian 3.2) dan Slice Checklist (Bagia
 
 **Fokus capability:** TypeScript (Core), React (Core), Git & PR workflow (Core), pairing (Core), debugging (Core), HTTP dari sisi client (Intro), code review (Intro), task breakdown (Intro).
 
-**Squad:** 6 squad rolling @3 orang, ganti tiap 1-2 minggu; pairing driver/navigator bergantian. Repo tetap milik masing-masing orang.
+**Squad:** 3 squad rolling @4 orang, ganti tiap 1-2 minggu; pairing driver/navigator bergantian. Repo tetap milik masing-masing orang.
 
 Sejak hari pertama coding, praktik teknis memakai versi mini dari engineering workflow:
 
@@ -717,7 +720,7 @@ Tiap slice mengikuti Learning Loop (Bagian 3.2) dan Slice Checklist (Bagian 3.3)
 
 **Fokus capability:** product thinking & requirement (Core), design & UX (Core), arsitektur & API contract (Core), dokumentasi (Core), dan latihan bekerja dalam satu repo bersama; deployment (Intro).
 
-**Squad** direstruktur jadi **6 squad cross-functional @ 3 orang** (kombinasi backend, frontend, design/QA), mulai lebih stabil. Chapter tetap jalan lintas squad: Backend, Frontend, Design, QA & DevOps.
+**Squad** direstruktur jadi **3 squad cross-functional @ 4 orang** (kombinasi backend, frontend, design/QA), mulai lebih stabil. Chapter tetap jalan lintas squad: Backend, Frontend, Design, QA & DevOps.
 
 **Penerapan bekal Bulan 1:** Desain Aplikasi & Desain Bisnis yang dikenalkan di Bulan 1 sekarang **diterapkan penuh** di Minggu 1-2 (riset & desain) — bukan materi baru, tinggal dipraktikkan skala produk asli. Wireframe, value proposition canvas, persona dari Bulan 1 jadi starting point. Pitching direinforce di Minggu 4 sebelum demo Sprint 0, dan jadi standar tiap showcase besar berikutnya (M10, M12).
 
@@ -725,11 +728,11 @@ Tiap slice mengikuti Learning Loop (Bagian 3.2) dan Slice Checklist (Bagian 3.3)
 |---|---|---|
 | 1 | **Riset** — wawancara/survei ke UMKM asli, analisis kompetitor, susun problem statement & user persona (dikerjain lintas squad, digabung jadi satu requirement tribe). Persona UMKM dari Bulan 1 di-update dengan data riset asli. | Pembentukan squad baru. Mentor + Chapter Backend & QA/DevOps menyiapkan **starter repo** (struktur folder, database via container/lokal, template `.env`). |
 | 2 | **Desain** — wireframe → hi-fi mockup (Figma), design system dasar (warna, komponen, tipografi). Wireframe dari Bulan 1 jadi starting point. | Anggota yang berminat backend/frontend menyisihkan ±30-40% waktu buat *technical spike* & setup di repo asli, supaya gak menunggu desain selesai. |
-| 3 | **Arsitektur** — database schema (berdasarkan ERD yang sudah di-iterasi sejak Bulan 1), API contract, struktur folder & coding convention (biar konsisten antar squad). | Mulai **Sprint 0**: tiap squad ambil satu slice kecil di repo produk asli (lihat di bawah). |
-| 4 | Setup tools di simanajemen.my.id (board tugas, timeline), breakdown backlog jadi sprint 2 mingguan (Epic → Feature → Story/Task), sprint planning pertama. | Sprint 0 selesai & **didemokan** (pakai teknik pitching dari Bulan 1); disambung sprint planning untuk Sprint 1 (Bulan 6). |
+| 3 | **Arsitektur** — database schema (berdasarkan ERD yang sudah di-iterasi sejak Bulan 1; siapkan kolom opsional seperti `weight_gram` di produk & `shipping_address`/`courier_code`/`tracking_number`/`order_source` di order untuk mendukung fitur *Could-Have* nanti), API contract, struktur folder & coding convention (biar konsisten antar squad). | Mulai **Sprint 0**: tiap squad ambil satu-dua slice kecil di repo produk asli (lihat di bawah). |
+| 4 | Setup tools di simanajemen.my.id (board tugas, timeline), breakdown backlog jadi sprint 2 mingguan (Epic → Feature → Story/Task — pisahkan jelas mana **Must-Have** [Katalog, Dashboard Penjual, Order] dan mana **Could-Have** [WAHA, Chatbot, Ekspedisi]), sprint planning pertama. | Sprint 0 selesai & **didemokan** (pakai teknik pitching dari Bulan 1); disambung sprint planning untuk Sprint 1 (Bulan 6). |
 
 ### Sprint 0 — Slice Pertama di Repo Produk Asli
-Tujuannya bukan fitur besar, tapi membuktikan bahwa 6 squad bisa bekerja bareng di satu repo dengan standar yang sama. Contoh pembagian (satu slice per squad, semuanya memakai schema & API contract asli):
+Tujuannya bukan fitur besar, tapi membuktikan bahwa 3 squad bisa bekerja bareng di satu repo dengan standar yang sama. Contoh pembagian (2 slice per squad atau bertahap, semuanya memakai schema & API contract asli):
 
 1. Health check endpoint + halaman status (bukti FE ↔ BE tersambung di repo asli)
 2. List kategori produk (seed data → API → UI)
@@ -768,11 +771,11 @@ Epic → Feature → User Story / Task → Sprint → Vertical Slice → Review
 
 | Bulan | Target Fitur (Epic) |
 |---|---|
-| 6 | Autentikasi (register/login UMKM & buyer) + setup dasar dashboard UMKM |
-| 7 | Manajemen produk (CRUD produk, upload gambar) |
-| 8 | Pencarian & filter produk (kategori, lokasi/wilayah, harga) |
-| 9 | Keranjang & checkout sederhana |
-| 10 | Dashboard UMKM (statistik jualan, manajemen stok) |
+| 6 | **Must-Have:** Autentikasi (register/login UMKM & buyer) + setup dasar dashboard penjual |
+| 7 | **Must-Have:** Manajemen produk (CRUD produk, upload gambar, kategori) |
+| 8 | **Must-Have:** Pencarian & filter produk (kategori, lokasi/wilayah, harga) |
+| 9 | **Must-Have:** Keranjang, checkout sederhana, & transaksi order |
+| 10 | **Must-Have + Could-Have:** Dashboard penjual (statistik jualan, manajemen stok) + fitur lanjutan hasil riset Bulan 1 (*Built-in WhatsApp WAHA*, *Automation Chatbot* [respon, catat info pelanggan ekspedisi, update stok], & *Integrasi Ekspedisi Third-Party* bila Must-Have beres) |
 
 Ini contoh roadmap, **bukan deadline absolut**. Kalau sebuah epic belum selesai, scope-nya dipotong per slice (mana yang *must*, mana yang *nice to have*) dan sisanya digeser — lihat aturan "kalau telat" di Bagian 10.
 
@@ -820,7 +823,7 @@ Dengan begitu setiap sprint adalah sekaligus **delivery unit + learning unit**.
 | **7.1 Product CRUD** | UMKM bisa **membuat, melihat, mengedit, dan menghapus** produknya | REST API, DTO validation, PostgreSQL, relasi merchant → product, otorisasi (UMKM hanya bisa ubah produk sendiri), pagination server-side, form React | Task breakdown per slice, PR, code review, pairing driver/navigator, demo, retro |
 | **7.2 Gambar & Kategori** | Produk punya gambar & kategori; halaman detail produk | File upload, validasi tipe/ukuran file, penyimpanan file (sederhana untuk MVP), tampilan gambar & optimasi ukuran dasar | Handling perubahan requirement di tengah sprint, sesi tanya-jawab dengan product owner |
 
-**Contoh pembagian slice Sprint 7.1 antar 6 squad** (kalau slice lebih sedikit dari squad, pecah per aktor/halaman, hindari dua squad mengerjakan slice yang sama): A: Create Product · B: List Product (halaman UMKM) · C: Edit Product · D: Delete + konfirmasi UI · E: Kategori (master data) · F: Listing & detail produk untuk buyer. Ketergantungan ditangani lewat seed data + API contract dari Bulan 5.
+**Contoh pembagian slice Sprint 7.1 antar 3 squad** (pecah per aktor/halaman secara adil dan hindari dua squad mengerjakan file/slice yang sama): Squad 1: Create & Edit Product + Kategori · Squad 2: List Product (halaman UMKM) & Delete + konfirmasi UI · Squad 3: Listing & detail produk untuk buyer. Ketergantungan ditangani lewat seed data + API contract dari Bulan 5.
 
 **Contoh alur Chapter → Squad (capability accelerator):**
 
@@ -870,16 +873,16 @@ Chapter: Diskusi common mistakes dari PR yang masuk
 
 ---
 
-## Bulan 10 — Dashboard UMKM & Konsolidasi
+## Bulan 10 — Dashboard Penjual, Konsolidasi, & Fitur Could-Have
 
-**Epic:** Dashboard UMKM (statistik & stok). **Mode mentor:** advisor; squad menjalankan planning sendiri.
+**Epic:** Dashboard penjual (statistik & stok) + fitur lanjutan (*Could-Have* hasil riset Bulan 1: WAHA, Chatbot Automation, & Ekspedisi). **Mode mentor:** advisor; squad menjalankan planning sendiri.
 
 | Sprint | A. Product | B. Engineering | C. Team |
 |---|---|---|---|
-| **10.1 Statistik Jualan** | UMKM melihat ringkasan jualan (total, per produk, per periode) | Query agregasi (`GROUP BY`, filter tanggal), grafik sederhana di React (satu library, dipilih tribe) | Squad memimpin sprint planning sendiri; product owner dirotasi ke peserta |
-| **10.2 Manajemen Stok & Konsolidasi** | UMKM mengelola stok, ada indikator stok menipis | Update stok konsisten dengan order, rapikan tech debt, perbaiki hasil review yang tertunda | Feature-complete review: cek scope MVP vs yang selesai; putuskan go/no-go fitur opsional |
+| **10.1 Statistik Jualan & Stok *(Must-Have)*** | Penjual melihat ringkasan jualan (total, per produk, per periode), mengelola stok, dan melihat indikator stok menipis | Query agregasi (`GROUP BY`, filter tanggal), grafik sederhana di React (satu library, dipilih tribe), konsistensi stok dengan order, rapikan tech debt | Squad memimpin sprint planning sendiri; product owner dirotasi ke peserta |
+| **10.2 Fitur Lanjutan *(Could-Have — Opsional Terurut)*** | **Prioritas 1:** Built-in WhatsApp (**WAHA**) untuk notifikasi pesanan otomatis & balas pesan.<br>**Prioritas 2:** **Automation Chatbot** (pembeli → chat bot: respon tanya-jawab, catat info pelanggan untuk ekspedisi, konfirmasi order & update stok).<br>**Prioritas 3:** **Integrasi Ekspedisi Third-Party** (J&T / agregator ongkir & resi). | Webhook WAHA (pakai nomor testing sandbox, bukan nomor utama pedagang), flow chatbot terstruktur dengan **konfirmasi wajib sebelum DB Transaction update stok** (anti-*race condition*), dan pola **Shipping Adapter + Mock Provider** (pakai sandbox agregator bila API resmi kurir butuh legalitas usaha PT/CV) | Feature-complete review: pastikan **Must-Have** 100% beres dulu; eksekusi *Could-Have* sesuai prioritas & kapasitas |
 
-**Checkpoint keluar Bulan 10 ("Feature Complete"):** semua fitur *must* MVP jalan end-to-end di staging; daftar bug/tech debt terdata; keputusan fitur opsional (rating/review, notifikasi, pencarian lebih pintar) diambil: dikerjakan di Bulan 11 hanya kalau kapasitas & kualitas memungkinkan.
+**Checkpoint keluar Bulan 10 ("Feature Complete"):** semua fitur **Must-Have** MVP (Katalog + Dashboard Penjual + Order) jalan end-to-end di staging; daftar bug/tech debt terdata; fitur **Could-Have** (WAHA, Chatbot, Adapter Ekspedisi, atau fitur opsional lain) yang belum masuk/tuntas hanya dilanjutkan di Bulan 11 sebelum *feature freeze* kalau kapasitas & kualitas benar-benar memungkinkan.
 
 **Bukti belajar (Fase 3 keseluruhan):** riwayat PR & review selama 5 bulan, demo tiap sprint, kemampuan menjelaskan keputusan desain/arsitektur pada slice sendiri, peer feedback, catatan retro.
 
@@ -910,7 +913,7 @@ Build → Test → Deploy → Observe → Fix → Improve → Release → Demo
 | 3 | **CI/CD & Deployment** | Environments (local / staging / production), konfigurasi & secret per environment, container dasar, pipeline CI (lint, test, build) di setiap PR. Deploy otomatis ke staging, deploy ke production (server sederhana/PaaS — dipilih tribe & mentor sesuai biaya), domain/HTTPS dasar, kesadaran rollback. |
 | 4 | **Observe, incident & dokumentasi** | Logging, monitoring (uptime/health check, error log), kesadaran backup (backup & **uji restore**). **Incident simulation ("game day"):** mentor sengaja mengganggu staging (env var salah, DB mati, deploy bermasalah), squad mendeteksi, mendiagnosis, memperbaiki, lalu menulis mini postmortem tanpa menyalahkan orang. Dokumentasi teknis (README, arsitektur, API docs, runbook cara deploy/rollback), user manual. |
 
-- **Fitur opsional** (rating/review, notifikasi, pencarian lebih pintar): hanya jika backlog Bulan 6-10 selesai dan kualitas oke; dikerjakan sebagai slice kecil dengan test sejak awal dan tidak melewati feature freeze.
+- **Fitur Could-Have / Opsional** (WAHA & Chatbot Automation, Adapter Ekspedisi, rating/review, notifikasi, pencarian lebih pintar): hanya jika backlog *Must-Have* Bulan 6-10 selesai dan kualitas oke; dikerjakan sebagai slice kecil dengan test sejak awal dan tidak melewati feature freeze.
 - **Tanggung jawab operasional ringan:** tiap minggu ada satu squad yang bertugas memantau health check & log, supaya peserta merasakan tanggung jawab operasional dasar.
 - **Tidak dipakai:** Kubernetes, orkestrasi kompleks, microservices.
 - **Chapter:** QA & DevOps memimpin (pola test, bug triage, CI/CD); Backend (logging, konfigurasi produksi, testing); Frontend (build produksi, performa muat, testing & E2E); Design (usability review, aksesibilitas dasar, materi user manual).
@@ -970,7 +973,7 @@ Planning → 2 minggu kerja → Demo (Tribe Showcase) → Retro
 | Retro | Akhir sprint | Belajar dari cara kerja sendiri |
 | Peer feedback | Akhir fase / tiap ±2 sprint | Feedback antar sesama, bukan hanya dari mentor |
 
-**Sengaja tidak ditambahkan:** refinement meeting terpisah, PI planning, scrum of scrums, dan ceremony lain yang tujuannya belum jelas untuk konteks 18 peserta pemula.
+**Sengaja tidak ditambahkan:** refinement meeting terpisah, PI planning, scrum of scrums, dan ceremony lain yang tujuannya belum jelas untuk konteks 12 peserta pemula.
 
 ### 10.4 Git Workflow (versi sederhana)
 
@@ -1097,7 +1100,7 @@ Mentor bukan pusat semua keputusan. Perannya bergeser dari pengajar → coach �
 | **Tribe** (mentor memfasilitasi) | Standar & tools (styling, ORM, konvensi, format API contract), prioritas produk |
 | **Mentor** (guardrail) | Keamanan, biaya infrastruktur, scope yang membahayakan timeline/kualitas, kondisi pembelajaran (apakah peserta terlalu tertekan) |
 
-> Kalau mentornya hanya 1-2 orang untuk 18 peserta, prioritaskan: (1) pairing & Chapter lead dari peserta yang lebih kuat, (2) review PR yang bertujuan mengajar, (3) mengurangi ceremony dibanding menambahnya.
+> Kalau mentornya hanya 1-2 orang untuk 12 peserta, prioritaskan: (1) pairing & Chapter lead dari peserta yang lebih kuat, (2) review PR yang bertujuan mengajar, (3) mengurangi ceremony dibanding menambahnya.
 
 ---
 
@@ -1118,6 +1121,7 @@ Mentor bukan pusat semua keputusan. Perannya bergeser dari pengajar → coach �
 | CI (pada platform repo yang dipakai) | Lint/build/test di PR | Bulan 8 (dasar), Bulan 11 (penuh) |
 | Framework test (unit, integration, E2E) | Testing | Bulan 11 |
 | Container, hosting sederhana, monitoring uptime | Deployment & observasi | Staging Bulan 8, production Bulan 11 |
+| WAHA (WhatsApp HTTP API) & API Ekspedisi / Agregator *(sandbox/mock)* | Built-in WhatsApp, chatbot order/ekspedisi, & cek ongkir/resi | Bulan 10 (opsional *Could-Have*, pasca-*Must-Have* beres) |
 
 Tool baru hanya masuk kalau lolos filter Bagian 3.4.
 

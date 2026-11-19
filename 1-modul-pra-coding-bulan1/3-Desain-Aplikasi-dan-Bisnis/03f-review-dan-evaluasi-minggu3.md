@@ -15,10 +15,10 @@ Hari ini bukan sekadar presentasi slide di depan kelas, melainkan **Simulasi Uji
 │                 AGENDA SPRINT REVIEW SABTU                  │
 ├─────────────────┬───────────────────────────────────────────┤
 │ 1. Showcase     │ Presentasi Desain & Value Proposition     │
-│    (50 Menit)   │ (6 squad x 8 menit: 5m presentasi + 3m QA)│
+│    (40 Menit)   │ (3 squad x 12 menit: 7m presentasi + 5m QA│
 ├─────────────────┼───────────────────────────────────────────┤
 │ 2. Uji Praktik  │ Cross-Usability Walkthrough               │
-│    (35 Menit)   │ (Squad saling menguji sketsa wireframe)   │
+│    (45 Menit)   │ (3 squad saling menguji prototype Figma)  │
 ├─────────────────┼───────────────────────────────────────────┤
 │ 3. Retrospektif │ Refleksi tim & persiapan menuju Showcase  │
 │    (35 Menit)   │ Final Pitch Day di Minggu 4               │
@@ -27,25 +27,25 @@ Hari ini bukan sekadar presentasi slide di depan kelas, melainkan **Simulasi Uji
 
 ---
 
-## 2. Bagian 1: Showcase Desain & Bisnis (50 Menit)
+## 2. Bagian 1: Showcase Desain & Bisnis (40 Menit)
 
-Setiap squad mendemokan hasil kerja Minggu 3 (5 menit presentasi + 3 menit sesi kritik/tanya jawab):
+Setiap squad mendemokan hasil kerja Minggu 3 (7 menit presentasi + 5 menit sesi kritik/tanya jawab, seluruh **4 anggota wajib berbicara**):
 1. **Persona & Value Proposition:** Siapa pedagang UMKM nyata yang kalian wawancarai? Apa penderitaan (*pains*) terbesar mereka yang berhasil dijawab oleh katalog web?
 2. **Wireframe 3 Halaman:** Tunjukkan alur dari Katalog Utama → Detail Produk → Dashboard Kelola Produk Merchant.
 3. **Kesiapan Slicing:** Tunjukkan rincian Slice 0 lengkap dengan User Story dan Syarat Selesai (*Acceptance Criteria*)-nya.
 
 ---
 
-## 3. Bagian 2: Tantangan Praktik Silang — Usability Walkthrough (35 Menit)
+## 3. Bagian 2: Tantangan Praktik Silang — Usability Walkthrough (45 Menit)
 
-Setiap squad dipasangkan dengan squad rekan:
-- **Squad 1 menguji rancangan Squad 2 (dan sebaliknya)**
-- **Squad 3 menguji rancangan Squad 4 (dan sebaliknya)**
-- **Squad 5 menguji rancangan Squad 6 (dan sebaliknya)**
+Ketiga squad melakukan uji silang berotasi:
+- **Squad 1 menguji rancangan Squad 2**
+- **Squad 2 menguji rancangan Squad 3**
+- **Squad 3 menguji rancangan Squad 1**
 
 ### Aturan Main Pengujian:
 Salah satu anggota dari squad penguji berperan sebagai **"Ibu Pedagang Warung yang Baru Belajar HP"**. Squad pembuat desain memberikan satu tugas skenario konkret:
-> *"Ibu ingin memajang keripik pedas baru seharga Rp 12.000 dengan stok 10 bungkus. Coba lakukan di lembar sketsa wireframe ini!"*
+> *"Ibu ingin memajang keripik pedas baru seharga Rp 12.000 dengan stok 10 bungkus. Coba lakukan langsung di prototype Figma ini!"*
 
 ### Hal yang Diamati & Dinilai:
 - Apakah tester berhasil menemukan tombol yang tepat tanpa diberi tahu secara lisan oleh pembuat desain?

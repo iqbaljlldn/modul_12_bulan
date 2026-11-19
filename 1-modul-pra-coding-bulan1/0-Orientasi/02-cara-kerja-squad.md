@@ -8,7 +8,7 @@ Oleh karena itu, sejak hari pertama Bulan 1, kamu dimasukkan ke dalam sistem **S
 
 ## 1. Pembagian Squad Rolling
 
-- **Ukuran Tim:** 6 Squad per tribe, masing-masing beranggotakan 3 orang (total 18 murid).
+- **Ukuran Tim:** 3 Squad per tribe, masing-masing beranggotakan 4 orang (total 12 murid).
 - **Sistem Rolling:** Setiap 1-2 minggu, komposisi squad akan diacak ulang oleh mentor.
 - **Tujuan Rolling:** Agar kamu belajar beradaptasi dengan berbagai tipe kepribadian dan cara berkomunikasi, tidak hanya bergantung pada satu teman akrab saja.
 
@@ -20,6 +20,7 @@ Agar tidak ada anggota yang hanya pasif atau mendominasi, setiap pengerjaan tuga
 | **Driver / Notulis** | Mengetik / menggambar artefak utama tim (papan tulis, Miro, Figma, atau dokumen Markdown). |
 | **Navigator / Fasilitator** | Memandu arah diskusi, mengecek kesesuaian dengan kriteria soal, dan menjaga waktu (*time-keeper*). |
 | **Spokesperson / Presenter** | Menyampaikan hasil kerja squad saat giliran presentasi atau sesi review di depan mentor dan tribe. |
+| **QA / Reviewer** | Mengecek ulang kelengkapan syarat tugas, mencari celah (*edge case*), dan memvalidasi kualitas draf tim maupun saran AI. |
 
 Setiap sesi workshop atau hari baru, peran ini wajib dirotasi.
 

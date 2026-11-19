@@ -1,17 +1,17 @@
 # 0.4 Format Minta Bantuan
 
-Di tim software, minta bantuan itu **skill**, bukan tanda lemah. Yang bikin beda: cara memintanya.
+Di tim software, minta bantuan itu **skill**, bukan tanda lemah. Yang bikin beda: cara memintanya agar rekan atau mentor bisa langsung membantumu dalam hitungan detik.
 
-## Format
+## Format 4 Poin
 
 ```text
 Aku mau ...       (apa yang ingin dicapai)
 Sudah coba ...    (apa yang sudah dicoba)
-Hasilnya ...      (apa yang terjadi — termasuk pesan error lengkap, bukan "error aja")
-Dugaanku ...      (menurutmu kira-kira kenapa, meski salah tebak tidak masalah)
+Hasilnya ...      (apa yang terjadi — sertakan pesan error lengkap, bukan "error aja")
+Dugaanku ...      (menurutmu kira-kira kenapa, meski tebakan salah tidak masalah)
 ```
 
-**Contoh buruk:** "eh kok error ya, tolong dong"
+**Contoh buruk:** *"eh kok error ya, tolong dong"*
 
 **Contoh baik:**
 ```text
@@ -21,35 +21,35 @@ Hasilnya: muncul error "Cannot read properties of undefined (reading 'name')" di
 Dugaanku: mungkin product-nya belum ada isinya pas komponen pertama kali render?
 ```
 
-Yang kedua bisa langsung dibantu dalam hitungan detik. Yang pertama butuh tanya balik dulu.
+Yang kedua bisa langsung dibantu seketika. Yang pertama memaksa penolong bertanya balik berkali-kali.
 
 ## Urutan minta bantuan
 
-Kalau macet lebih dari **±20 menit**:
+Kalau kamu macet lebih dari **15–20 menit** pada error yang sama:
 
-```text
-1. Coba sendiri dulu (baca error pelan-pelan, cek dokumentasi)
-2. Tanya pasangan (kalau sedang pairing)
-3. Tanya squad
-4. Tanya Chapter (kalau sudah terbentuk, mulai Bulan 3)
-5. Tanya mentor
+```mermaid
+flowchart LR
+    S1["1. Coba & baca error sendiri"] --> S2["2. Tanya pasangan pairing"]
+    S2 --> S3["3. Tanya rekan satu squad"]
+    S3 --> S4["4. Tanya squad lain / mentor"]
 ```
 
-Jangan lompat langsung ke mentor sebelum coba langkah 1-2 — bukan soal aturan kaku, tapi karena proses mencoba sendiri itu sendiri adalah belajar.
+*(Catatan: Mulai Bulan 4 nanti, akan ada **Chapter** lintas squad sebagai jalur bantuan teknis tambahan sebelum ke mentor.)*
 
-## Debug clinic
+Jangan langsung memanggil mentor sebelum melewati langkah 1–3 — bukan soal aturan kaku, tetapi karena proses membaca error dan berdiskusi dengan pasangan adalah bagian inti dari belajar *debugging*.
 
-Kalau macetnya soal bug/error (bukan konsep), coba pola ini dulu sebelum minta bantuan:
+## Langkah Debug Clinic (Sebelum Memanggil Bantuan)
 
-1. Baca pesan error **kata per kata** (jangan langsung scroll ke Stack Overflow).
-2. Cari baris kode yang disebut di error.
-3. `console.log()` nilai yang dicurigai, tepat sebelum baris error.
-4. Kalau masih bingung — sekarang baru minta bantuan, dengan format di atas + apa yang sudah kamu temukan dari 3 langkah tadi.
+Kalau macetnya soal bug atau error di kode:
+1. Baca pesan error di terminal atau Console browser **kata per kata** (jangan langsung panik).
+2. Buka **nama file dan nomor baris** yang disebut oleh pesan error.
+3. Gunakan `console.log(...)` pada variabel yang dicurigai tepat sebelum baris error tersebut.
+4. Kalau masih buntu — barulah minta bantuan menggunakan **Format 4 Poin** di atas beserta hasil temuanmu dari langkah 1–3.
 
 ## Cek pemahaman
 
-- Kalau kamu error dan minta bantuan tanpa menyertakan pesan error lengkap, apa yang biasanya terjadi?
+- Kalau kamu mengalami error dan meminta bantuan tanpa menyertakan pesan error lengkap maupun langkah yang sudah dicoba, kendala apa yang terjadi?
 
 ---
 
-**Kamu sudah siap.** Lanjut ke folder `1-TypeScript-React-Dasar/01-tipe-dasar-dan-komponen.md`.
+**Kamu sudah siap!** Lanjut ke Bulan 2: **[01a-orientasi-react.md](../1-TypeScript-React-Dasar/01a-orientasi-react.md)**

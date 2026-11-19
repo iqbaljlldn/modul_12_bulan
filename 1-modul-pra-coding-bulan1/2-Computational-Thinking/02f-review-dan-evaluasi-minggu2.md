@@ -18,10 +18,10 @@ Hari Sabtu adalah momen akuntabilitas untuk mengunci kembali ritme mingguan Trib
 │                 AGENDA SPRINT REVIEW SABTU                  │
 ├─────────────────┬───────────────────────────────────────────┤
 │ 1. Showcase     │ Presentasi Blueprint, ERD, & AI Sparring  │
-│    (50 Menit)   │ (6 squad x 8 menit: 5m presentasi + 3m QA)│
+│    (45 Menit)   │ (3 squad x 12 menit: 7m presentasi + 5m QA│
 ├─────────────────┼───────────────────────────────────────────┤
 │ 2. Uji Praktik  │ Live Bug Hunt: Membedah Blueprint &       │
-│    (35 Menit)   │ Diagram Cacat yang ditampilkan Mentor     │
+│    (40 Menit)   │ Diagram Cacat yang ditampilkan Mentor     │
 ├─────────────────┼───────────────────────────────────────────┤
 │ 3. Retrospektif │ Refleksi tim (Mad/Sad/Glad) & pengumuman  │
 │    (35 Menit)   │ rolling squad baru untuk Minggu 3 & 4     │
@@ -30,16 +30,17 @@ Hari Sabtu adalah momen akuntabilitas untuk mengunci kembali ritme mingguan Trib
 
 ---
 
-## 2. Bagian 1: Showcase Portofolio Squad (50 Menit)
+## 2. Bagian 1: Showcase Portofolio Squad (45 Menit)
 
-Setiap squad memiliki waktu **5 menit presentasi + 3 menit sesi kritik/tanya jawab**. Agar waktu 5 menit efektif dan seluruh anggota berbicara secara adil, bagi peran presentasi kepada 3 anggota squad dengan fokus pada karya puncak minggu ini:
+Setiap squad memiliki waktu **7 menit presentasi + 5 menit sesi kritik/tanya jawab**. Agar waktu 7 menit efektif dan seluruh anggota berbicara secara adil, bagi peran presentasi kepada **4 anggota squad** dengan fokus pada karya puncak minggu ini:
 
 | Peran Presenter | Durasi | Materi yang Didemokan |
 |---|---|---|
 | **Presenter 1**<br>*(Data Architect)* | **1,5 Menit** | **ERD Katalog UMKM (`02d`):** Tunjukkan struktur 5 entitas, penempatan `PK` & `FK`, serta bukti tabel simulasi baris data nyata antara `PESANAN` dan `ITEM_PESANAN`. |
-| **Presenter 2**<br>*(Logic Architect)* | **2 Menit** | **Blueprint Fitur Terpadu (`02e`):** Tunjukkan fitur baru yang dipilih squad (Opsi A / Opsi B), alur Pseudocode & Flowchart-nya, serta **Tabel Audit Konsistensi** yang membuktikan tidak ada variabel siluman. |
-| **Presenter 3**<br>*(AI & Code Bridge)* | **1,5 Menit** | **Bukti AI Sparring (M1) & Jembatan Kode JS (`02b`):** Tunjukkan 1 contoh prompt terbaik berformat **R-C-I-C-O** yang dipakai squad saat menguji celah logika bersama AI (mana saran AI yang diterima/ditolak), serta hasil uji fungsi JS `hitungTotalBayar`. |
-| **Sesi Q&A & Live Tracing** | **3 Menit** | **Uji Lacak Mentor:** Mentor akan menunjuk 1 skenario ekstrem secara acak pada Flowchart/ERD kalian (misal: *"Jika stok di database tiba-tiba 0 saat tombol ditekan, panah diagrammu lari ke mana dan atribut tabel mana yang berubah?"*). Squad harus menunjukkan jalurnya secara tepat. |
+| **Presenter 2**<br>*(Logic Architect)* | **2 Menit** | **Blueprint Fitur Terpadu (`02e`):** Tunjukkan fitur baru yang dipilih squad (Opsi A / Opsi B) beserta alur Pseudocode & Flowchart-nya. |
+| **Presenter 3**<br>*(QA & Traceability)* | **1,5 Menit** | **Tabel Audit Konsistensi (`02e`):** Tunjukkan bukti tidak ada variabel siluman di antara Pseudocode, Flowchart, & ERD serta 1 uji kasus *edge case*. |
+| **Presenter 4**<br>*(AI & Code Bridge)* | **2 Menit** | **Bukti AI Sparring (M1) & Jembatan Kode JS (`02b`):** Tunjukkan 1 contoh prompt terbaik berformat **R-C-I-C-O** yang dipakai squad (mana saran AI yang diterima/ditolak), serta hasil uji fungsi JS `hitungTotalBayar`. |
+| **Sesi Q&A & Live Tracing** | **5 Menit** | **Uji Lacak Mentor:** Mentor akan menunjuk 1 skenario ekstrem secara acak pada Flowchart/ERD kalian (misal: *"Jika stok di database tiba-tiba 0 saat tombol ditekan, panah diagrammu lari ke mana dan atribut tabel mana yang berubah?"*). Squad harus menunjukkan jalurnya secara tepat. |
 
 ---
 

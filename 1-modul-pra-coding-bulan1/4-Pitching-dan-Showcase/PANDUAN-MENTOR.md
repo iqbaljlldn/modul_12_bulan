@@ -64,4 +64,4 @@ Evaluasi Bulan 1 menggunakan **Checklist 8 Kapabilitas Inti** (status: **Siap**,
 Bagi murid yang masih memiliki status *Perlu Pendampingan* pada 1–2 checkpoint di akhir Showcase:
 1. **Clinic Day (Senin Pagi Sebelum Sesi React):** Mentor menggelar sesi klinik santai selama 45 menit untuk menuntaskan materi yang belum tuntas (misal: merapikan branch Git atau meninjau ulang alur logika if-else).
 2. **Pairing Buddy di Bulan 2:** Pasangkan murid tersebut dengan rekan squad yang memiliki pemahaman logika lebih kuat agar saling mendukung saat mulai menulis komponen React.
-3. **Tujuan Utama:** Seluruh 18 murid melangkah bersama ke Bulan 2 dengan rasa percaya diri dan tanpa ada yang tertinggal di belakang.
+3. **Tujuan Utama:** Seluruh 12 murid melangkah bersama ke Bulan 2 dengan rasa percaya diri dan tanpa ada yang tertinggal di belakang.

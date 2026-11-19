@@ -8,12 +8,12 @@ Setiap bab dirancang per topik spesifik (`.md`) dengan pendekatan **Product-Driv
 
 ## Model Belajar & Ritme Harian
 
-Program berlangsung dalam setting bootcamp residensial 24/7 dengan jadwal belajar terstruktur (Senin - Jumat):
+Program berlangsung dalam jadwal belajar terstruktur (Senin - Sabtu):
 - **Blok 1 (08.00 - 10.00 / 120 menit):** Standup harian (10-15m), guided reading / mini-lesson (maks 25m), dan coding terbimbing bersama mentor.
 - **Blok 2 (10.30 - 11.20 / 50 menit):** Pairing (driver/navigator rolling) dan debug clinic. Tanpa penambahan materi baru.
 - **Blok 3 (13.00 - 14.20 / 80 menit):** Tugas mandiri individual (20-30m) dikerjakan di kelas dengan mentor siaga, dilanjutkan PR code review dan lightning demo singkat.
 - **Malam:** Bebas tugas wajib. Hanya bacaan santai atau eksplorasi opsional.
-- **Sabtu:** Sprint Review (demo live tiap squad) dan Sprint Retrospektif (Mad/Sad/Glad atau I Like/I Wish/What If).
+- **Sabtu:** Sprint Review (demo live tiap squad — 3 squad @ 12-15 menit) dan Sprint Retrospektif (Mad/Sad/Glad atau I Like/I Wish/What If).
 
 Model evaluasi menggunakan **Checklist Kapabilitas** (*Siap / Hampir Siap / Perlu Pendampingan*) tanpa sistem penilaian angka akademik.
 
@@ -21,9 +21,13 @@ Model evaluasi menggunakan **Checklist Kapabilitas** (*Siap / Hampir Siap / Perl
 
 ## Prasyarat Murid
 
-1. **Bulan 1 — Fondasi Pra-Coding** (`modul-pra-coding-bulan1`): Computational Thinking (Dekomposisi, Algoritma, Flowchart, ERD), AI Literacy, Wireframe & UX, Value Proposition Canvas, dan kolaborasi Git.
-2. **Pre-class Programming**: HTML, CSS, Git workflow dasar, dan JavaScript modern (ES6+, array methods, async/await, fetch).
+1. **Bulan 1 — Fondasi Pra-Coding** (`1-modul-pra-coding-bulan1`): Computational Thinking (Dekomposisi, Algoritma, Flowchart, ERD), AI Literacy, Wireframe Figma & UX, Value Proposition Canvas, dan kolaborasi Git.
+2. **Pre-program 2 Bulan**: HTML, CSS, Git workflow dasar, dan JavaScript modern (ES6+, array methods, async/await, fetch).
 3. **Modul Bootcamp React**: Digunakan sebagai bahan rujukan pengayaan terstruktur di kelas, bukan prasyarat hafalan sebelum masuk sesi.
+
+> [!NOTE]
+> **Fokus Scope Bulan 2–3 (Mini Katalog UMKM):**  
+> Di Bulan 2–3, kita fokus melatih fondasi React & TypeScript dengan membangun inti **Katalog & Kelola Produk** (*Must-Have* dengan `json-server`). Fitur lanjutan dari hasil riset Bulan 1 (*Could-Have* seperti Built-in WhatsApp WAHA, Chatbot Automation, dan Integrasi Ekspedisi) baru masuk ke backlog produk asli setelah fondasi backend NestJS & PostgreSQL selesai di Bulan 4+.
 
 ---
 
@@ -75,8 +79,7 @@ modul-katalog-umkm/
     ├── 04a-desain-responsif-dan-layout-mobile.md # Mobile-First Layout HP UMKM
     ├── 04b-konsolidasi-dan-kontrak-api.md      # SLICE 8: docs/kontrak-api.md & Decision Log
     ├── 04c-code-audit-dan-persiapan-showcase.md # Audit oxlint, build, Showcase v2
-    ├── LATIHAN-TAMBAHAN.md
-    └── PANDUAN-MENTOR.md
+    └── LATIHAN-TAMBAHAN.md
 ```
 
 ---
@@ -84,7 +87,7 @@ modul-katalog-umkm/
 ## Catatan Teknis Tooling Kunci
 
 - **`json-server` (0.17.x):** Dependensi ini sengaja dikunci pada versi 0.17.4 dan **tidak boleh di-upgrade ke versi 1.x**. Versi 1.x memodifikasi perilaku parameter URL (`_limit`, `_sort`, `_order`) dan menghilangkan header pagination `X-Total-Count` yang menjadi acuan kontrak belajar kita.
-- **Node.js:** Versi yang direkomendasikan adalah Node.js 22 LTS (minimal Node 20+).
+- **Node.js:** Versi yang direkomendasikan adalah **Node.js 22 LTS** (minimal `^20.19.0` atau `>=22.12.0` sesuai kebutuhan Vite 8 di starter repo).
 - **Linter & Type Checking:** Menggunakan `oxlint` untuk audit kecepatan tinggi dan `tsc -b` untuk pengecekan tipe statis yang ketat.
 
 ---

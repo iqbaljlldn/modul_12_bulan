@@ -21,13 +21,14 @@ Hari ini adalah sesi **Gladi Resik (*Dress Rehearsal*)**: menyimulasikan situasi
 
 ## 2. Strategi Pembagian Giliran Bicara (Total 7 Menit)
 
-Setiap anggota squad wajib berbicara dan mendapat bagian evaluasi. Untuk squad beranggotakan 3 orang, gunakan pembagian waktu standar berikut *(jika jumlah anggota berbeda, sesuaikan porsi tiap peran agar seluruh anggota tetap berbicara dan totalnya pas maksimal 7 menit)*:
+Setiap anggota squad wajib berbicara dan mendapat bagian evaluasi. Untuk squad beranggotakan **4 orang**, gunakan pembagian waktu standar berikut:
 
 | Peran Pembicara | Target Durasi | Tugas & Cakupan Slide |
 |---|---|---|
-| **Pembicara 1:** *The Storyteller* | **2 menit** | Membuka dengan hook cerita nyata (`04a`), membawa Persona & kutipan riset (Slide 1–2), serta Value Proposition (Slide 3). |
-| **Pembicara 2:** *The Product Architect* | **2,5 menit** | Membedah Wireframe Figma & keputusan UX (Slide 4), serta Flowchart & User Flow pemesanan WA (Slide 5). |
-| **Pembicara 3:** *The Data Engineer & Closer* | **2,5 menit** | Membedah model data ERD (Slide 6), memaparkan Roadmap Bulan 2 (Slide 7), dan menutup presentasi ke sesi tanya jawab. |
+| **Pembicara 1:** *The Storyteller* | **1,5 menit** | Membuka dengan hook cerita nyata (`04a`), membawa Persona & kutipan riset (Slide 1–2). |
+| **Pembicara 2:** *The Product Designer* | **2 menit** | Memaparkan Value Proposition (Slide 3), lalu membedah Wireframe Figma & keputusan UX (Slide 4). |
+| **Pembicara 3:** *The System Architect* | **2 menit** | Membedah Flowchart & User Flow pemesanan WA (Slide 5), serta model data ERD (Slide 6). |
+| **Pembicara 4:** *The Closer* | **1,5 menit** | Memaparkan Roadmap eksekusi Slice Bulan 2 (Slide 7) dan menutup presentasi ke sesi tanya jawab. |
 
 ### Tips Kalimat Transisi Mulus (*Handover Phrase*):
 - *"Untuk menjelaskan bagaimana ide ini kami wujudkan ke dalam rancangan layar Figma dan alur sistemnya, rekan saya [Nama] akan membedahnya..."*
@@ -55,19 +56,22 @@ Saat memberi masukan kepada squad lain, hindari komentar hampa seperti *"Bagus k
 
 ## 4. Workshop Praktik Gladi Resik (60 Menit)
 
-Pasangkan 2 squad untuk saling melakukan gladi resik (misal Squad 1 & Squad 2):
+Ketiga squad tampil bergantian di hadapan dua squad lain serta mentor (masing-masing putaran ±15 menit: **7 menit tampil + 8 menit umpan balik**):
 
-### Putaran 1 (25 Menit):
-1. Squad 1 tampil presentasi lengkap dengan slide di depan Squad 2 (gunakan stopwatch **7 menit ketat**!).
-2. Squad 2 dan mentor mencatat waktu per pembicara serta poin evaluasi.
-3. Sesi umpan balik 10 menit menggunakan format *I Like, I Wish, What If*.
+### Putaran 1 — Squad 1 Tampil (15 Menit):
+1. Squad 1 presentasi lengkap dengan slide (stopwatch **7 menit ketat**!).
+2. Squad 2, Squad 3, dan mentor mencatat durasi tiap pembicara lalu memberi umpan balik format *I Like, I Wish, What If*.
 
-### Putaran 2 (25 Menit):
-1. Giliran Squad 2 tampil presentasi 7 menit di depan Squad 1.
-2. Squad 1 memberi umpan balik 10 menit dengan format yang sama.
+### Putaran 2 — Squad 2 Tampil (15 Menit):
+1. Giliran Squad 2 presentasi 7 menit ketat.
+2. Squad 1, Squad 3, dan mentor memberi umpan balik *I Like, I Wish, What If*.
 
-### Putaran 3 (10 Menit Refleksi Internal):
-Tiap squad mencatat **2–3 perbaikan prioritas** pada slide maupun pembagian waktu yang langsung diselesaikan sebelum Showcase Akbar hari Sabtu.
+### Putaran 3 — Squad 3 Tampil (15 Menit):
+1. Giliran Squad 3 presentasi 7 menit ketat.
+2. Squad 1, Squad 2, dan mentor memberi umpan balik *I Like, I Wish, What If*.
+
+### Putaran 4 — Refleksi Internal (15 Menit):
+Tiap squad mencatat **2–3 perbaikan prioritas** pada slide maupun pembagian waktu untuk diselesaikan sebelum Showcase Akbar hari Sabtu.
 
 ---
 
@@ -99,16 +103,16 @@ Tiap squad mencatat **2–3 perbaikan prioritas** pada slide maupun pembagian wa
 > [ILUSTRASI CONTOH — isi sesuai catatan penampilanmu sendiri]
 
 Nama: [Nama Kamu]
-Peran: Pembicara 2 (Slide 4 Wireframe Figma & Slide 5 Flowchart)
+Peran: Pembicara 2 (Slide 3 Value Proposition & Slide 4 Wireframe Figma)
 
 ## 1. Catatan Waktu Bicara Saya:
-Waktu riil saya: 3 menit 10 detik (melebihi target 2,5 menit). Akibatnya Pembicara 3 terburu-buru membawakan slide ERD.
+Waktu riil saya: 2 menit 45 detik (melebihi target 2 menit). Akibatnya Pembicara 4 terburu-buru membawakan Roadmap di Slide 7.
 
 ## 2. Masukan dari Squad Penilai:
 Teman dari squad sebelah memberi masukan: "Penjelasan wireframe terlalu detail menyebutkan semua tombol, cukup sorot tombol WhatsApp dan penanda stok habis."
 
 ## 3. Rencana Perbaikan Sabtu:
-Saya akan memangkas penjelasan di Slide 4 dan langsung menyorot 2 keputusan UX utama agar durasi saya pas 2 menit 15 detik dan Pembicara 3 punya waktu cukup untuk menjelaskan ERD.
+Saya akan memangkas penjelasan di Slide 4 dan langsung menyorot 2 keputusan UX utama agar durasi saya pas 1 menit 50 detik dan Pembicara 4 punya waktu cukup untuk menutup dengan tenang.
 ```
 
 ---

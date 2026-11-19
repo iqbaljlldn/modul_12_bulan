@@ -77,7 +77,11 @@ Hari ini, setiap squad merakit seluruh artefak yang telah diproduksi selama 3 mi
 
 Gunakan Google Slides, Canva, atau Figma Slides sesuai pilihan squad:
 1. **Langkah 1 — Bagi Tugas Slide (10 Menit):**
-   - Pembagian adil antar anggota squad (misal untuk 3 orang: Anggota 1 menyiapkan Slide 1–3, Anggota 2 menyiapkan Slide 4–5, Anggota 3 menyiapkan Slide 6–7).
+   - Pembagian adil antar **4 anggota squad**:
+     - Anggota 1: Slide 1–2 (Cover, Masalah Nyata & Persona Riset).
+     - Anggota 2: Slide 3–4 (Value Proposition & Ekspor Wireframe Figma).
+     - Anggota 3: Slide 5–6 (Flowchart/User Flow & Model Data ERD).
+     - Anggota 4: Slide 7 & Harmonisasi Gaya (Roadmap Slice Bulan 2, konsistensi font ≥ 24pt & visual seluruh slide).
 2. **Langkah 2 — Rakit Slide dari Artefak Repo (35 Menit):**
    Ambil kutipan wawancara asli (`03c`), persona (`03d`), ekspor PNG Figma (`03b`), diagram Mermaid (`02c`/`02d`/`04b`), dan cuplikan backlog (`03e`) lalu tata secara bersih.
 3. **Langkah 3 — Harmonisasi Gaya (15 Menit):**

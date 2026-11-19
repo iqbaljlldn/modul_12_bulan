@@ -27,10 +27,10 @@ Hari ini, di hadapan seluruh rekan tribe, para mentor, dan tamu undangan, setiap
 | Waktu (Relatif) | Agenda Acara | Keterangan |
 |---|---|---|
 | **00:00 – 00:15** | **Pembukaan & Pengarahan** | Sambutan Lead Mentor & penjelasan aturan panggung. |
-| **00:15 – 01:30** | **Sesi Pitching 6 Squad** | Maksimal 12 menit/squad (**7 menit pitch** + **3–5 menit tanya jawab panelis**). |
-| **01:30 – 01:50** | **Istirahat & Sidang Mentor** | Penilaian *Checklist 8 Kapabilitas* & verifikasi repo GitHub tiap squad. |
-| **01:50 – 02:15** | **Apresiasi & Umpan Balik Panelis** | Pengumuman *Tribe Awards* & pesan penguatan mentor. |
-| **02:15 – 02:45** | **Refleksi Akbar & Sneak Peek Bulan 2** | Refleksi pribadi di kelas (15 menit) + cuplikan materi React Bulan 2! |
+| **00:15 – 01:00** | **Sesi Pitching 3 Squad** | Maksimal 15 menit/squad (**7 menit pitch** + **5–7 menit tanya jawab panelis**). |
+| **01:00 – 01:20** | **Istirahat & Sidang Mentor** | Penilaian *Checklist 8 Kapabilitas* & verifikasi repo GitHub tiap squad. |
+| **01:20 – 01:45** | **Apresiasi & Umpan Balik Panelis** | Pengumuman *Tribe Awards* & pesan penguatan mentor. |
+| **01:45 – 02:15** | **Refleksi Akbar & Sneak Peek Bulan 2** | Refleksi pribadi di kelas (15 menit) + cuplikan materi React Bulan 2! |
 
 ---
 
@@ -83,7 +83,7 @@ Sebelum sesi Showcase ditutup, luangkan waktu 15 menit di ruangan untuk menulisk
 
 ## 7. Output Sesi (Diselesaikan di Kelas)
 
-1. Lembar Checklist 8 Kapabilitas untuk seluruh 18 murid.
+1. Lembar Checklist 8 Kapabilitas untuk seluruh 12 murid.
 2. Repositori GitHub final masing-masing squad yang telah diverifikasi oleh mentor.
 3. Refleksi Akbar Bulan 1 yang dituntaskan langsung di dalam kelas *(tidak ada PR tambahan setelah kelas berakhir)*.
 

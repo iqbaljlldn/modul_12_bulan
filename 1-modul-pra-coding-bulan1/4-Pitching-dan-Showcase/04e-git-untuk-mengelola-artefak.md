@@ -77,7 +77,8 @@ katalog-umkm-pra-coding/
 └── tugas-mandiri/                     # Folder catatan belajar pribadi masing-masing siswa
     ├── [nama-murid-1]/                # Catatan pribadi siswa (tugas_01a.md s/d tugas_04e.md)
     ├── [nama-murid-2]/
-    └── [nama-murid-3]/
+    ├── [nama-murid-3]/
+    └── [nama-murid-4]/
 ```
 
 *(Catatan: `tugas-mandiri/` adalah folder catatan pribadi masing-masing anggota di repositori, bukan artefak produk utama tim.)*
@@ -116,10 +117,11 @@ Setelah push berhasil:
 ## 5. Workshop Praktik Squad (60 Menit)
 
 1. **Langkah 1 — Audit & Bagi Folder per Anggota (10 Menit):**
-   Periksa repo squad kalian: dokumen mana yang belum rapi atau masih di folder acak? Bagi folder:
-   - Anggota 1: Merapikan & mengunggah folder `1-ai-literacy/` dan `2-computational-thinking/` (termasuk `latihan-kode-diskon.js`).
-   - Anggota 2: Merapikan & mengunggah folder `3-desain-dan-bisnis/` (termasuk `wireframe/`, `catatan-wawancara-squad.md`, dan `wireframe-statis.html`).
-   - Anggota 3: Merapikan & mengunggah folder `4-pitching/` (`user-flow-tervalidasi.md`, `catatan-gladi-resik.md`, `pitch-deck-final.pdf`/link).
+   Periksa repo squad kalian: dokumen mana yang belum rapi atau masih di folder acak? Bagi 4 folder untuk **4 anggota squad**:
+   - Anggota 1: Merapikan & mengunggah folder `1-ai-literacy/`.
+   - Anggota 2: Merapikan & mengunggah folder `2-computational-thinking/` (termasuk `latihan-kode-diskon.js`).
+   - Anggota 3: Merapikan & mengunggah folder `3-desain-dan-bisnis/` (termasuk `wireframe/`, `catatan-wawancara-squad.md`, dan `wireframe-statis.html`).
+   - Anggota 4: Merapikan & mengunggah folder `4-pitching/` (`hook-pembuka-squad.md`, `user-flow-tervalidasi.md`, `catatan-gladi-resik.md`, `pitch-deck-final.pdf`/link).
    - Masing-masing anggota juga memastikan folder catatan pribadinya di `tugas-mandiri/[nama]/` sudah rapi.
 2. **Langkah 2 — Eksekusi Branch & PR Paralel (35 Menit):**  
    Setiap anggota bekerja di branch masing-masing (di folder yang berbeda agar tidak bentrok!), push ke GitHub, dan buat *Pull Request*. Anggota lain mereview sebelum di-*merge* ke `main`.

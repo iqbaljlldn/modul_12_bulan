@@ -27,7 +27,7 @@ Total: **6 sesi/minggu**, **24 sesi/bulan**.
 
 ## 3. Sistem Squad
 
-Peserta (18 orang) dibagi ke dalam **6 squad rolling @3 orang**, dirotasi setiap 1–2 minggu. Meskipun belum ngoding penuh, peserta dibiasakan bekerja dalam format tim pengembang perangkat lunak sejak hari pertama: ada rotasi peran (Driver/Notulis, Navigator/Fasilitator, Spokesperson/Presenter), standup harian, dan peer review.
+Peserta (12 orang) dibagi ke dalam **3 squad rolling @4 orang**, dirotasi setiap 1–2 minggu. Meskipun belum ngoding penuh, peserta dibiasakan bekerja dalam format tim pengembang perangkat lunak sejak hari pertama: ada rotasi peran (Driver/Notulis, Navigator/Fasilitator, Spokesperson/Presenter, QA/Reviewer), standup harian, dan peer review.
 
 Evaluasi dilakukan melalui **Checklist Kapabilitas** (status: *Siap*, *Hampir Siap*, atau *Perlu Pendampingan*) bersama catatan feedback mentor, tanpa sistem nilai angka atau vonis kelulusan yang menghukum.
 

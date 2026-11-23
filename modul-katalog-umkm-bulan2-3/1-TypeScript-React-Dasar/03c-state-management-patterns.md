@@ -8,7 +8,7 @@ Merapikan pemahaman arsitektur data aplikasi Katalog: **di mana sebuah state seh
 
 ---
 
-## Aktivitas Terbimbing di Kelas (Blok 1, 10-15 Menit)
+## Aktivitas Terbimbing di Kelas (Blok 1 — Mini-Lesson ±25 Menit + Diskusi Arsitektur)
 
 Mentor akan memandu diskusi diagram di papan tulis:
 - Konsep *Lifting State Up*: mengangkat state saat dua atau lebih komponen bersaudara (*siblings*) membutuhkan data yang sama.
@@ -34,16 +34,12 @@ Mentor akan memandu diskusi diagram di papan tulis:
 
 React mengadopsi prinsip air terjun:
 
-```text
-       [ProductsPage] (Memegang State: products)
-          │        ▲
-(props: products)  │ (callback: onSave, onDelete)
-          ▼        │
-      [ProductList]
-          │        ▲
- (props: product)  │ (callback: onSave, onDelete)
-          ▼        │
-      [ProductCard] (Memegang State Lokal: isEditing)
+```mermaid
+flowchart TB
+    P["<b>ProductsPage</b><br/>(Pemegang State: products)"] -->|"props: products"| L["<b>ProductList</b>"]
+    L -->|"props: product"| C["<b>ProductCard</b><br/>(State Lokal: isEditing)"]
+    C -.->|"callback: onSave, onDelete"| L
+    L -.->|"callback: onSave, onDelete"| P
 ```
 
 1. **Turun ke Bawah (Top-Down):** Data produk hanya mengalir dari atas ke bawah melalui **props**.
@@ -86,56 +82,41 @@ Diskusikan bersama rekan pairing:
 
 ## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
 
-Kerjakan secara mandiri di kelas. Simpan hasilnya di:  
-`tugas/squad-<nomor>/<nama-kamu>/tugas_03c.md`
+Kerjakan secara mandiri di kelas. Simpan hasilnya di repo proyekmu pada:  
+`tugas/tugas_03c.md` *(atau sesuai struktur folder arahan mentor)*
 
 ### Instruksi Pengerjaan
 
 1. Buat berkas baru sesuai path di atas.
 2. Tuliskan identitas diri (Nama, Squad, Tanggal).
-3. Buat sebuah diagram alur data berbasis teks atau tabel analitis untuk fitur penambahan produk di aplikasi Katalog UMKM:
+3. Buat sebuah diagram alur data berbasis teks atau Mermaid untuk fitur penambahan produk di aplikasi Katalog UMKM:
    - Komponen apa yang menyimpan state formulir penambahan produk?
    - Komponen apa yang memegang state daftar produk utama?
    - Bagaimana data berpindah dari formulir saat tombol "Simpan Produk" diklik hingga kartu baru berhasil muncul di layar?
 4. Jawab 2 pertanyaan pemahaman:
    - Apa yang dimaksud dengan istilah *Lifting State Up*? Kapan seorang frontend engineer tahu bahwa sebuah state harus diangkat ke atas?
    - Jelaskan konsep alur data satu arah (*one-way data flow*) di React! Apa keuntungan konsep ini dibanding sistem di mana komponen anak bisa bebas mengubah state komponen induk secara langsung?
-5. Ajukan Pull Request ke repositori squad.
+5. Ajukan Pull Request di GitHub untuk direview rekan squad.
 
 ### Contoh Format Hasil (`tugas_03c.md`)
 
-```markdown
+````markdown
 # Tugas Mandiri 03c — State Management & Alur Data
 Nama: Dina Mariana
-Squad: Squad 6
+Squad: Squad 1
 Tanggal: 18 November 2026
 
-## 1. Diagram Alur Data Tambah Produk
-```text
-1. Pengguna mengetik nama & harga di formulir
-   └── Disimpan di State Lokal: `values` di [ProductForm]
-
-2. Pengguna mengeklik tombol "Simpan Produk"
-   └── [ProductForm] memicu `handleSubmit()`
-   └── Mengubah teks menjadi number via `toInput(values)`
-   └── Memanggil fungsi callback prop: `onSubmit(input)`
-
-3. Sinyal dan data naik ke Komponen Induk [ProductsPage]
-   └── [ProductsPage] menjalankan `handleCreateProduct(input)`
-   └── Mengirim request HTTP POST ke server via `createProduct(input)`
-   └── Server merespons dengan data produk baru yang memiliki `id`
-   └── [ProductsPage] memperbarui state: `setProducts((prev) => [...prev, newProduct])`
-
-4. Data baru mengalir turun kembali (Re-render)
-   └── [ProductsPage] mengirim array produk baru ke [ProductList] via props
-   └── [ProductList] merender kartu baru via [ProductCard]
-```
+## 1. Alur Data Tambah Produk
+1. **Ketik di Formulir (`ProductForm`):** Nilai teks disimpan sementara di state lokal `values`.
+2. **Klik "Simpan Produk":** `ProductForm` menjalankan `handleSubmit()`, mengubah angka via `toInput(values)`, lalu memanggil callback prop `onSubmit(input)`.
+3. **Naik ke Induk (`ProductsPage`):** `handleCreateProduct(input)` mengirim HTTP `POST` ke server (`createProduct`) dan memperbarui state `products` dengan `[...prev, newProduct]`.
+4. **Mengalir Turun (`ProductList` → `ProductCard`):** State `products` terbaru dikirim ulang lewat props dan dirender menjadi kartu baru di layar.
 
 ## 2. Jawaban Pertanyaan Pemahaman
 1. *Lifting State Up* adalah tindakan memindahkan kepemilikan sebuah state dari komponen anak ke komponen induk terdekat yang menaungi mereka. Kita tahu sebuah state harus diangkat jika ada dua atau lebih komponen bersaudara (*siblings*) yang membutuhkan akses baca atau tulis pada data yang sama.
 2. Alur data satu arah berarti data hanya mengalir ke satu arah: dari atas ke bawah melalui props, sementara peristiwa perubahan dilaporkan ke atas melalui fungsi callback. Keuntungannya adalah jalannya aplikasi menjadi sangat mudah diprediksi dan didebug. Jika ada data yang salah tampil, kita tahu pasti siapa pemilik sah data tersebut dan di mana lokasi state-nya berubah.
-```
+````
 
 ---
 
-Lanjut ke: **04a-react-router-dasar.md** (Minggu 4)
+Lanjut ke: **[04a-react-router-dasar.md](04a-react-router-dasar.md)** *(Minggu 4)*

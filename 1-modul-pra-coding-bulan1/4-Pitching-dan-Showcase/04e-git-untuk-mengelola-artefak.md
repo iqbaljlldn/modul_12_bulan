@@ -69,7 +69,7 @@ katalog-umkm-pra-coding/
 │   └── wireframe-statis.html          # JEMBATAN KODE: Kartu HTML/CSS Minggu 3 (03b)
 │
 ├── 4-pitching/
-│   ├── hook-pembuka-squad.md          # Naskah pembuka 30 detik (04a)
+│   ├── script-pitch-squad.md          # Script pitch deck full 5 babak (04a)
 │   ├── user-flow-tervalidasi.md       # Diagram User Flow tervalidasi AI (04b)
 │   ├── catatan-gladi-resik.md         # Evaluasi waktu & masukan I Like/Wish/What If (04d)
 │   └── pitch-deck-final.pdf           # File PDF atau link slide 7 halaman (04c)
@@ -121,7 +121,7 @@ Setelah push berhasil:
    - Anggota 1: Merapikan & mengunggah folder `1-ai-literacy/`.
    - Anggota 2: Merapikan & mengunggah folder `2-computational-thinking/` (termasuk `latihan-kode-diskon.js`).
    - Anggota 3: Merapikan & mengunggah folder `3-desain-dan-bisnis/` (termasuk `wireframe/`, `catatan-wawancara-squad.md`, dan `wireframe-statis.html`).
-   - Anggota 4: Merapikan & mengunggah folder `4-pitching/` (`hook-pembuka-squad.md`, `user-flow-tervalidasi.md`, `catatan-gladi-resik.md`, `pitch-deck-final.pdf`/link).
+   - Anggota 4: Merapikan & mengunggah folder `4-pitching/` (`script-pitch-squad.md`, `user-flow-tervalidasi.md`, `catatan-gladi-resik.md`, `pitch-deck-final.pdf`/link).
    - Masing-masing anggota juga memastikan folder catatan pribadinya di `tugas-mandiri/[nama]/` sudah rapi.
 2. **Langkah 2 — Eksekusi Branch & PR Paralel (35 Menit):**  
    Setiap anggota bekerja di branch masing-masing (di folder yang berbeda agar tidak bentrok!), push ke GitHub, dan buat *Pull Request*. Anggota lain mereview sebelum di-*merge* ke `main`.

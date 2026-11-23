@@ -1,6 +1,6 @@
 # 0.3 Alur Git & Pull Request
 
-Kamu sudah mempraktikkan alur branch dan PR untuk dokumen desain pada Bulan 1 (`04e`). Di sini kita terapkan alur kerja tim yang sama untuk **kode React & TypeScript**: **update `main` → branch → coding & commit → Pull Request (PR) → cek manual lint/build → review → merge**.
+Kamu sudah mempraktikkan alur branch dan PR untuk dokumen desain pada Bulan 1 (`04e`). Di sini kita terapkan alur kerja tim yang sama untuk **kode React & TypeScript**: **update `main` → branch → coding & commit → cek manual lint/build → Pull Request (PR) → review → merge**.
 
 ## Kenapa tidak langsung push ke `main`
 
@@ -20,7 +20,7 @@ flowchart LR
 Langkah perintah di terminal:
 1. `git checkout main && git pull origin main` *(pastikan berangkat dari `main` terbaru)*
 2. `git checkout -b feat/nama-slice` *(buat branch baru)*
-3. Kerjakan potongan fitur kecil, lalu `npm run lint` dan `npm run build`
+3. Kerjakan potongan fitur kecil, lalu jalankan `npm run lint` dan `npm run build`
 4. `git add . && git commit -m "feat: pesan singkat & jelas"`
 5. `git push -u origin feat/nama-slice`
 6. Buka **Pull Request** ke `main` di **GitHub**
@@ -34,16 +34,16 @@ Langkah perintah di terminal:
 
 ## Penamaan branch & pesan commit
 
-Ikuti konvensi yang tertulis di `CONTRIBUTING.md` starter repo:
+Gunakan konvensi penamaan yang rapi dan seragam di seluruh tribe:
 - **Nama branch:** `feat/slice-0-katalog-tampil`, `fix/harga-negatif`, `docs/readme-cara-jalan`
 - **Awalan pesan commit:**
   - `feat:` untuk fitur atau slice baru (contoh: `feat: tampilkan daftar produk slice 0`)
   - `fix:` untuk perbaikan bug (contoh: `fix: cegah input harga bernilai negatif`)
   - `docs:` untuk catatan atau dokumentasi (contoh: `docs: tambah catatan tugas 01a`)
 
-## Isi Pull Request
+## Isi Pull Request (Template Wajib 3 Pertanyaan)
 
-Starter repo sudah punya template otomatis (`.github/pull_request_template.md`). Isi ketiga pertanyaannya dengan jujur:
+Saat membuat PR di GitHub (atau membuat `.github/pull_request_template.md` di repo proyekmu), biasakan mengisi 3 hal ini secara jujur:
 1. **Apa yang dibuat?**
 2. **Cara mencobanya?**
 3. **Bagian mana yang masih bikin bingung / minta perhatian reviewer?**
@@ -52,7 +52,7 @@ Pertanyaan ketiga **bukan tanda kamu gagal** — justru bagian paling berguna ag
 
 ## Checklist review wajib (Pembuat PR & Reviewer)
 
-Karena starter repo **belum memakai CI otomatis di GitHub**, pengecekan kualitas dilakukan secara **manual di terminal** sebelum PR di-merge:
+Karena proyek latihanmu **belum memakai CI otomatis di GitHub**, pengecekan kualitas dilakukan secara **manual di terminal** sebelum PR di-merge:
 - [ ] Kode bisa dijalankan di browser sesuai *"Cara mencobanya"* di deskripsi PR
 - [ ] `npm run build` dan `npm run lint` lolos **tanpa error** di terminal lokal
 - [ ] Nama variabel (`camelCase`), tipe/komponen (`PascalCase`), dan field API (`snake_case`) konsisten

@@ -6,11 +6,11 @@ Memahami perbedaan metode HTTP dalam standar REST API (**GET, POST, PUT, PATCH, 
 
 ---
 
-## Aktivitas Terbimbing di Kelas (Blok 1, 10-15 Menit)
+## Aktivitas Terbimbing di Kelas (Blok 1 — Mini-Lesson ±25 Menit + Coding Terbimbing)
 
 Mentor akan memandu demonstrasi konsep:
 - Perbedaan krusial antara **PATCH** (mengubah sebagian kolom saja) vs **PUT** (menimpa seluruh objek).
-- Mengapa operasi **DELETE** umumnya mengembalikan status **204 No Content** (berhasil tanpa isi) dan bagaimana menanganinya agar tidak memicu error parsing JSON.
+- Perbedaan respons **DELETE**: `json-server 0.17.4` membalas `200 OK` berisi `{}`, sedangkan banyak server produksi (seperti NestJS di Bulan 4) membalas **`204 No Content`** tanpa isi body sama sekali—dan cara menanganinya agar tidak memicu error parsing JSON.
 - Mengenal struktur kelas (*class*) TypeScript sederhana melalui `ApiError`.
 - Menulis fungsi klien jaringan `updateProduct` dan `deleteProduct` di `src/api/products.ts`.
 
@@ -48,6 +48,7 @@ export interface UpdateProductInput {
   price?: number
   stock?: number
   status?: ProductStatus
+  category_id?: number
   merchant_name?: string
 }
 ```
@@ -158,22 +159,21 @@ export function deleteProduct(id: number): Promise<void> {
 
 Diskusikan bersama rekan pairing:
 
-1. **Prediksi Error 204:**  
-   Jika di `fetchJson` kita lupa mengecek `if (response.status === 204)` dan langsung memanggil `await response.json()`, apa pesan error yang akan muncul di console browser saat pengguna menghapus produk?  
-   *(Petunjuk: `json-server` tidak mengembalikan body teks apa pun pada status 204).*
+1. **Prediksi Error 204 (Persiapan Backend Bulan 4):**  
+   `json-server 0.17.4` masih mengembalikan `200 OK` berisi `{}` saat `DELETE`. Namun saat diganti backend NestJS di Bulan 4, server produksi lazim mengembalikan `204 No Content` tanpa isi teks apa pun. Jika di `fetchJson` kita lupa mengecek `if (response.status === 204)` dan langsung memanggil `await response.json()`, error apa yang akan terjadi?
 2. **Kuis Status Code:**  
    Sebutkan kode status HTTP untuk:
    - Berhasil mengambil data: `...`
    - Berhasil membuat data baru: `...`
-   - Berhasil menghapus tanpa mengembalikan data: `...`
+   - Berhasil menghapus tanpa mengembalikan body data: `...`
    - Barang yang dicari tidak ada di database: `...`
 
 ---
 
 ## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
 
-Kerjakan secara mandiri di kelas. Simpan hasilnya di:  
-`tugas/squad-<nomor>/<nama-kamu>/tugas_03a.md`
+Kerjakan secara mandiri di kelas. Simpan hasilnya di repo proyekmu pada:  
+`tugas/tugas_03a.md` *(atau sesuai struktur folder arahan mentor)*
 
 ### Instruksi Pengerjaan
 
@@ -189,11 +189,11 @@ Kerjakan secara mandiri di kelas. Simpan hasilnya di:
 4. Jawab 2 pertanyaan pemahaman:
    - Mengapa kita menggunakan metode `PATCH` dan bukan `PUT` saat memperbarui harga atau stok produk UMKM di aplikasi kita?
    - Mengapa kita membuat class `ApiError` yang menyimpan properti `status: number` alih-alih cukup memakai `new Error("Gagal")` biasa?
-5. Ajukan Pull Request ke repositori squad.
+5. Ajukan Pull Request di GitHub untuk direview rekan squad.
 
 ### Contoh Format Hasil (`tugas_03a.md`)
 
-```markdown
+````markdown
 # Tugas Mandiri 03a — HTTP Methods & API Patterns
 Nama: Ilham Maulana
 Squad: Squad 1
@@ -207,22 +207,22 @@ Respon Server:
 ```json
 {
   "id": 1,
-  "name": "Keripik Tempe Renyah 250g",
-  "description": "Keripik tempe kedelai lokal tanpa bahan pengawet.",
+  "name": "Keripik Tempe Original",
+  "description": "Keripik tempe renyah tanpa pengawet, kemasan 250 gram.",
   "price": 22000,
-  "stock": 45,
+  "stock": 120,
   "status": "active",
   "category_id": 1,
-  "merchant_name": "Dapur Bu Sri",
-  "created_at": "2026-01-15T08:00:00Z"
+  "merchant_name": "Dapur Bu Sari",
+  "created_at": "2026-01-12T08:00:00Z"
 }
 ```
 
 ## 2. Jawaban Pertanyaan Pemahaman
 1. `PATCH` hanya memperbarui kolom yang kita kirimkan (dalam contoh ini: kolom harga saja), sedangkan kolom lain yang tidak dikirimkan tetap utuh tersimpan di database. Jika kita memakai `PUT`, kita diwajibkan mengirim seluruh data objek lengkap; jika ada satu kolom terlewat, database bisa mengosongkan kolom tersebut.
 2. `ApiError` menyimpan angka kode status HTTP (seperti 404 atau 500). Dengan informasi kode status ini, blok `catch` di komponen React kita dapat membuat keputusan cerdas: jika `error.status === 404`, kita bisa menampilkan teks "Produk tidak ditemukan", bukan sekadar pesan error generik yang membingungkan pengguna.
-```
+````
 
 ---
 
-Lanjut ke: **03b-edit-hapus-dan-error.md** (Slice 3)
+Lanjut ke: **[03b-edit-hapus-dan-error.md](03b-edit-hapus-dan-error.md)** *(Slice 3)*

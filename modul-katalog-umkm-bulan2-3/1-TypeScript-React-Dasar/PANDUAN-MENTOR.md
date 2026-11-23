@@ -1,6 +1,6 @@
 # Panduan Mentor — 1. TypeScript & React Dasar (Bulan 2)
 
-**Peserta:** 18 orang, dibagi menjadi 6 squad rolling (masing-masing 3 orang).  
+**Peserta:** 12 orang, dibagi menjadi 3 squad rolling (masing-masing 4 orang).  
 **Durasi:** 4 minggu (20 hari belajar efektif + 4 Sabtu Sprint Review).  
 **Rasio Waktu:** 30% konsep/mini-lesson : 70% praktik langsung dan coding terbimbing.
 
@@ -16,13 +16,13 @@ Jadwal harian residensial berdurasi 250 menit dibagi menjadi 3 blok terstruktur:
 | *Istirahat* | 10.00 - 10.30 | 30 menit | Istirahat penyegaran, camilan, dan rileksasi mata. |
 | **Blok 2** | 10.30 - 11.20 | 50 menit | **Pairing & Debug Clinic (Tanpa Materi Baru):** Murid berpasangan (driver mengetik, navigator menyimak, tukar peran tiap 25m). Mentor berkeliling membantu murid yang mengalami error TypeScript/Vite/Git. Fokus menuntaskan rintangan teknis. |
 | *Istirahat* | 11.20 - 13.00 | 100 menit | Istirahat siang, makan, ibadah, dan rehat. |
-| **Blok 3** | 13.00 - 14.20 | 80 menit | **Tugas Mandiri (20-30m):** Dikerjakan individual di kelas dalam folder repo squad (`tugas_<kode>.md`), mentor siaga menjawab pertanyaan.<br>**PR Code Review & Lightning Demo (50m):** Murid membuka PR di repo squad, melakukan review silang antar rekan, dan 1-2 squad mendemokan hasil kodenya. |
-| **Malam** | Fleksibel | Bebas | **Tidak ada tugas wajib.** Bootcamp residensial menjaga ritme istirahat murid. Hanya bahan bacaan pengantar santai atau latihan stretch opsional bagi yang berminat. |
+| **Blok 3** | 13.00 - 14.20 | 80 menit | **Tugas Mandiri (20-30m):** Dikerjakan individual di kelas dalam folder repo proyek (`tugas/tugas_<kode>.md`), mentor siaga menjawab pertanyaan.<br>**PR Code Review & Lightning Demo (50m):** Murid membuka PR di repo GitHub-nya, rekan squad melakukan review silang, dan 1-2 squad mendemokan hasil kodenya. |
+| **Malam** | Fleksibel | Bebas | **Tidak ada tugas wajib.** Menjaga ritme istirahat murid. Hanya bahan bacaan pengantar santai atau latihan stretch opsional bagi yang berminat. |
 
 ### Sabtu: Sprint Review & Retrospektif Mingguan
 
-- **Sprint Review (09.00 - 10.30):** Demo live tiap squad (6 squad @10-12 menit). Murid mendemokan fitur slice yang berjalan di browser, tab Network saat memanggil API, dan menjelaskan potongan kodenya.
-- **Sprint Retrospektif (10.45 - 12.00):** Evaluasi ritme kerja tim menggunakan papan **Mad / Sad / Glad** atau **I Like / I Wish / What If**. Mentor memfasilitasi tanpa menghakimi, menyepakati perbaikan kerja sama untuk minggu berikutnya.
+- **Sprint Review (09.00 - 10.00):** Demo live tiap squad (3 squad @12-15 menit). Murid mendemokan fitur slice yang berjalan di browser, tab Network saat memanggil API, dan menjelaskan potongan kodenya.
+- **Sprint Retrospektif (10.15 - 11.30):** Evaluasi ritme kerja tim menggunakan papan **Mad / Sad / Glad** atau **I Like / I Wish / What If**. Mentor memfasilitasi tanpa menghakimi, menyepakati perbaikan kerja sama untuk minggu berikutnya. *(Sabtu bebas PR setelah kelas selesai.)*
 
 ---
 
@@ -49,18 +49,18 @@ Minggu 2: State, Lifecycle, Fetch & Form (Slice 1-2)
 
 Minggu 3: CRUD Lengkap & Pola Data (Slice 3 Dipecah 2 Hari)
   Hari 11: 03a HTTP Methods & API Patterns (DELETE, PATCH, status codes, tiket tilang ApiError)
-  Hari 12: 03b Bagian 1: Slice 3 - Hapus Produk, 204 No Content, & Penanganan Error
+  Hari 12: 03b Bagian 1: Slice 3 - Hapus Produk, Dialog Konfirmasi, & Penanganan Error
   Hari 13: 03b Bagian 2: Slice 3 - Edit Produk Inline (ProductEditForm, isEditing lokal, Partial)
   Hari 14: 03c State Management Patterns (Lifting state ke parent, papan kulkas, alur data searah)
-  Hari 15: Konsolidasi Slice 3, Debug Clinic, & PR Review CRUD Lengkap
+  Hari 15: Konsolidasi Slice 3, Debug Clinic, & PR Review CRUD Lengkap (tanpa file materi baru)
   Sabtu:  Sprint Review 3 & Retrospektif (Target: Slice 3 CRUD selesai & teruji)
 
 Minggu 4: Routing, Konsolidasi & Showcase Akhir Bulan 2 (Slice 4)
   Hari 16: 04a React Router Dasar (Switchboard resepsionis, BrowserRouter, Link vs a, useParams)
-  Hari 17: 04b Slice 4: Halaman Detail Produk & Navigasi Antar Halaman
-  Hari 18: 04b Lanjutan: Penanganan Detail 404 & Loading State Halaman
+  Hari 17: 04b Bagian 1: Slice 4 - Halaman Detail Produk & Navigasi Antar Halaman
+  Hari 18: 04b Bagian 2: Penanganan Detail 404, Reset State saat :id Berubah, & Loading Halaman
   Hari 19: 04c Konsolidasi, Refactor, & Code Audit (Oxlint, hapus kode mati, konsistensi nama)
-  Hari 20: Gladi Resik & Persiapan Showcase Akhir Bulan 2
+  Hari 20: Gladi Resik, Finalisasi PR, & Persiapan Showcase Akhir Bulan 2 (tanpa file materi baru)
   Sabtu:  Sprint Review 4 / Showcase Akhir Bulan 2 & Evaluasi Capaian
 ```
 
@@ -84,36 +84,35 @@ Minggu 4: Routing, Konsolidasi & Showcase Akhir Bulan 2 (Slice 4)
    - *`<Link>` vs `<a>`:* Tombol lift di dalam gedung vs keluar pintu pagar lalu masuk lagi dari depan.
 
 3. **Cegah Copy-Paste Tanpa Paham:**
-   - Bagian modul sengaja menyediakan kerangka kode bertanda `// TODO:` yang harus dilengkapi murid.
+   - Pada contoh kode inti (*guided coding*), baris kunci ditandai `// TODO:` agar mudah disorot saat live-coding di kelas; latihan menalar tanpa contekan berada di **Blok 2 (Analisis Bug & Prediksi)** dan **Blok 3 (Tugas Mandiri)**.
    - Mentor wajib memverifikasi bahwa murid memahami baris yang mereka tulis lewat pertanyaan prediksi output atau tebak bug.
 
 4. **Kunci Versi Tooling:**
-   - Pastikan starter repo mengunci `"json-server": "0.17.4"`.
-   - Versi 1.x memecah fungsionalitas `_limit`, `_sort`, `_order`, dan header `X-Total-Count`.
+   - Pastikan proyek `katalog-umkm` murid mengunci `"json-server": "0.17.4"` (bukan versi 1.x yang mengubah `_limit`, `_sort`, `_order`, dan menghilangkan `X-Total-Count`).
 
 ---
 
 ## 4. Tabel Tugas Mandiri per Sesi
 
-Semua tugas dikerjakan individual pada **Blok 3** (20-30 menit) di kelas, disimpan di `tugas/squad-<no>/<nama-murid>/tugas_<kode>.md`:
+Semua tugas dikerjakan individual pada **Blok 3** (estimasi 20-30 menit) di kelas, disimpan di `tugas/tugas_<kode>.md` di repo proyek masing-masing (dan direview lewat PR oleh rekan squad):
 
 | Sesi | Kode Tugas | Judul Tugas Mandiri | Estimasi |
 |---|---|---|---|
-| **01a** | `tugas_01a.md` | Analisis Struktur Starter & Eksplorasi SPA | 20 menit |
-| **01b** | `tugas_01b.md` | Pembuatan Komponen Bertipe Tambahan `ProductBadge` | 25 menit |
-| **01c** | `tugas_01c.md` | Styling Status Kartu & Indikator Stok Kritis | 25 menit |
-| **01d** | `tugas_01d.md` | Ekstensi Tipe `Product` & Pemetaan List Bersyarat | 25 menit |
-| **02a** | `tugas_02a.md` | Logika Immutability Array & Counter Sederhana | 25 menit |
-| **02b** | `tugas_02b.md` | Sinkronisasi Document Title & Cleanup Timer | 25 menit |
-| **02c** | `tugas_02c.md` | Penanganan Error Network & Variabel Ignore Fetch | 30 menit |
-| **02d** | `tugas_02d.md` | Form Multi-Input dengan Satu Handler Dinamis | 25 menit |
-| **02e** | `tugas_02e.md` | Form Input Produk Baru dengan Validasi Tipe Data | 30 menit |
-| **03a** | `tugas_03a.md` | Analisis Status Code & Fungsi API Client PATCH/DELETE | 20 menit |
-| **03b** | `tugas_03b.md` | Isolasi State Edit Inline & Proteksi Hapus Data | 30 menit |
-| **03c** | `tugas_03c.md` | Pemetaan Diagram Alur Data & Lifting State | 25 menit |
-| **04a** | `tugas_04a.md` | Pembuatan Rute Statis & Navigasi SPA dengan Link | 25 menit |
-| **04b** | `tugas_04b.md` | Penanganan Khusus Status 404 pada Halaman Detail | 25 menit |
-| **04c** | `tugas_04c.md` | Audit Linter oxlint & Refactoring Kode Bersih | 30 menit |
+| **01a** | `tugas_01a.md` | Analisis Struktur Proyek & Eksplorasi SPA | 20-30 menit |
+| **01b** | `tugas_01b.md` | Pembuatan Komponen Bertipe Tambahan `ProductBadge` | 20-30 menit |
+| **01c** | `tugas_01c.md` | Styling Status Kartu & Indikator Stok Kritis | 20-30 menit |
+| **01d** | `tugas_01d.md` | Ekstensi Tipe `Product` & Pemetaan List Bersyarat | 20-30 menit |
+| **02a** | `tugas_02a.md` | Logika Immutability Array & Counter Sederhana | 20-30 menit |
+| **02b** | `tugas_02b.md` | Sinkronisasi Document Title & Cleanup Timer | 20-30 menit |
+| **02c** | `tugas_02c.md` | Penanganan Error Network & Variabel Ignore Fetch | 20-30 menit |
+| **02d** | `tugas_02d.md` | Form Multi-Input dengan Satu Handler Dinamis | 20-30 menit |
+| **02e** | `tugas_02e.md` | Form Input Produk Baru dengan Validasi Tipe Data | 20-30 menit |
+| **03a** | `tugas_03a.md` | Analisis Status Code & Fungsi API Client PATCH/DELETE | 20-30 menit |
+| **03b** | `tugas_03b.md` | Isolasi State Edit Inline & Proteksi Hapus Data *(Hari 1: uji hapus & `.filter()`; Hari 2: tulis `tugas_03b.md`)* | 20-30 menit |
+| **03c** | `tugas_03c.md` | Pemetaan Diagram Alur Data & Lifting State | 20-30 menit |
+| **04a** | `tugas_04a.md` | Pembuatan Rute Statis & Navigasi SPA dengan Link | 20-30 menit |
+| **04b** | `tugas_04b.md` | Penanganan Khusus Status 404 pada Halaman Detail *(Hari 1: uji rute `/products/:id`; Hari 2: tulis `tugas_04b.md`)* | 20-30 menit |
+| **04c** | `tugas_04c.md` | Audit Linter oxlint & Refactoring Kode Bersih | 20-30 menit |
 
 ---
 

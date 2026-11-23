@@ -6,7 +6,7 @@ Memahami cara kerja **routing** pada aplikasi React SPA (*Single Page Applicatio
 
 ---
 
-## Aktivitas Terbimbing di Kelas (Blok 1, 10-15 Menit)
+## Aktivitas Terbimbing di Kelas (Blok 1 — Mini-Lesson ±25 Menit + Coding Terbimbing)
 
 Mentor akan memandu demonstrasi konsep:
 - Mengapa aplikasi SPA tetap membutuhkan URL yang bisa disalin (*copy-paste link*) dan tombol kembali (*back/forward*) browser yang berfungsi.
@@ -134,8 +134,8 @@ Diskusikan bersama rekan pairing:
 
 ## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
 
-Kerjakan secara mandiri di kelas. Simpan hasilnya di:  
-`tugas/squad-<nomor>/<nama-kamu>/tugas_04a.md`
+Kerjakan secara mandiri di kelas. Simpan hasilnya di repo proyekmu pada:  
+`tugas/tugas_04a.md` *(atau sesuai struktur folder arahan mentor)*
 
 ### Instruksi Pengerjaan
 
@@ -150,11 +150,11 @@ Kerjakan secara mandiri di kelas. Simpan hasilnya di:
 4. Jawab 2 pertanyaan pemahaman:
    - Mengapa kita tidak boleh menggunakan tag HTML biasa `<a href="...">` untuk navigasi antar halaman di dalam aplikasi React SPA?
    - Mengapa nilai parameter yang dihasilkan oleh `useParams()` selalu bertipe `string` (atau `undefined`), meskipun di URL kita mengetikkan angka seperti `/products/15`?
-5. Ajukan Pull Request ke repositori squad.
+5. Ajukan Pull Request di GitHub untuk direview rekan squad.
 
 ### Contoh Format Hasil (`tugas_04a.md`)
 
-```markdown
+````markdown
 # Tugas Mandiri 04a — React Router Dasar
 Nama: Lukman Hakim
 Squad: Squad 2
@@ -187,8 +187,8 @@ Pendaftaran rute di `App.tsx`:
 ## 2. Jawaban Pertanyaan Pemahaman
 1. Tag `<a href>` memicu perilaku bawaan browser untuk melakukan refresh halaman secara penuh (*full page reload*). Hal ini merusak pengalaman mulus aplikasi SPA, membuang state yang tersimpan di memori JavaScript, dan memaksa browser mengunduh ulang seluruh file aset. Komponen `<Link>` menggunakan HTML5 History API di balik layar untuk mengubah URL tanpa memuat ulang halaman.
 2. Karena seluruh isi alamat URL di bilah peramban (*address bar*) pada dasarnya adalah barisan teks karakter (string). Komputer tidak bisa menebak apakah angka "15" di URL dimaksudkan sebagai nomor identitas atau teks biasa, sehingga React Router selalu mengembalikannya dalam bentuk tipe `string`. Jika kita membutuhkan nilai angka untuk kalkulasi atau query API, kita wajib mengonversinya secara sadar menggunakan `Number(id)`.
-```
+````
 
 ---
 
-Lanjut ke: **04b-routing-dan-detail.md** (Slice 4)
+Lanjut ke: **[04b-routing-dan-detail.md](04b-routing-dan-detail.md)** *(Slice 4)*

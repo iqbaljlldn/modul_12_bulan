@@ -2,7 +2,7 @@
 
 **Minggu 4: Pitching & Showcase | Sesi 1 (Senin)**  
 **Target Waktu:** 90 - 120 Menit  
-**Output Sesi:** Naskah Pembuka (*The Hook*) 30 Detik + Umpan Balik Pasangan *(di-push ke repo squad untuk dipresentasikan saat Daily Standup besok pagi)*
+**Output Sesi:** Script Pitch Deck Full 5 Babak per Squad (`script-pitch-squad.md`) *(di-push ke repo squad untuk dipresentasikan saat Daily Standup besok pagi)*
 
 ---
 
@@ -12,24 +12,24 @@ Banyak engineer berbakat memiliki ide brilian dan kode yang canggih, namun gagal
 
 Jika kamu hanya bisa berbicara dengan komputer lewat kode, nilaimu sebagai profesional akan terbatas. Namun jika kamu bisa menjembatani antara **masalah manusia nyata** dan **solusi teknologi** melalui komunikasi yang lugas, kamu akan menjadi software engineer yang sangat dihargai.
 
-Hari ini kita membedah formula presentasi produk berstandar startup teknologi.
+Hari ini kita membedah formula presentasi produk berstandar startup teknologi—dan langsung merakit **naskah bicara (*script*) lengkap 5 babak** milik squad kalian sebagai tulang punggung Pitch Deck minggu ini.
 
 ---
 
-## 2. Struktur Anatomi Pitching yang Kuat
+## 2. Struktur Anatomi Pitching yang Kuat (5 Babak)
 
 Sebuah presentasi pitch yang efektif selalu mengikuti alur emosional dan logika berikut:
 
 ![Lima Babak Struktur Pitching Produk Standar Startup](./assets/04a-struktur-pitching.jpg)
 
-Rincian tiap babak dalam presentasi:
-1. **The Hook & The Problem:** Ceritakan satu sosok manusia nyata (*persona* hasil riset wawancara UMKM squad) yang mengalami masalah pedih.
-2. **The Solution:** Tunjukkan konsep katalog UMKM + pemesanan WA kita sebagai pemecah masalah yang praktis.
-3. **The Proof / Demo:** Bukan sekadar kata-kata; tunjukkan artefak desain (*wireframe* Figma, *flowchart*, dan ERD nyata).
-4. **The Impact & Value:** Jelaskan bagaimana hidup pedagang dan pembeli jadi lebih mudah dan bebas salah catat.
-5. **Roadmap & Call to Action:** Paparkan apa yang akan langsung dieksekusi tim saat masuk ke Bulan 2 (fase *coding*).
+Rincian tiap babak dalam presentasi (total target **7 menit** saat Showcase nanti):
+1. **Babak 1 — The Hook & The Problem (~1,5 menit):** Ceritakan satu sosok manusia nyata (*persona* hasil riset wawancara UMKM squad) yang mengalami masalah pedih.
+2. **Babak 2 — The Solution (~1 menit):** Tunjukkan konsep Katalog UMKM & *Value Proposition* tim sebagai pemecah masalah yang praktis.
+3. **Babak 3 — The Proof / Demo (~2,5 menit):** Bukan sekadar kata-kata; tunjukkan artefak desain nyata (*wireframe* Figma, *flowchart*, dan ERD) dengan bahasa manusia.
+4. **Babak 4 — The Impact & Value (~1 menit):** Jelaskan perubahan nyata yang dirasakan pedagang dan pembeli (bebas salah catat, stok terpantau, pesan lebih cepat).
+5. **Babak 5 — Roadmap & Call to Action (~1 menit):** Paparkan rencana eksekusi **Must-Have** (`Slice 0–4` di Bulan 2) serta visi fase lanjutan (*Could-Have*), lalu tutup dengan ajakan diskusi/tanya jawab.
 
-### Formula Menghidupkan Cerita (*The Persona Hook*):
+### Formula Menghidupkan Cerita Pembuka (*The Persona Hook*):
 ❌ **Jangan Mulai Seperti Ini:**  
 > *"Selamat pagi teman-teman, hari ini kami dari Squad 3 ingin mempresentasikan web aplikasi katalog UMKM berbasis React..."* (Membosankan, perhatian penonton langsung buyar).
 
@@ -50,68 +50,72 @@ Rincian tiap babak dalam presentasi:
 
 ---
 
-## 4. Workshop Praktik Pairing: Latihan Hook 30 Detik (60 Menit)
+## 4. Workshop Praktik Squad: Menyusun Script Pitch Full 5 Babak (60 Menit)
 
-Latihan hari ini dilakukan secara **berpasangan (pairing)** di dalam squad.
+Di sesi ini, seluruh **4 anggota squad** berkolaborasi menyusun **1 naskah bicara utuh 5 babak** (`script-pitch-squad.md`) yang nantinya menjadi panduan lisan saat menampilkan Pitch Deck 7 Slide (`04c`) dalam durasi **7 menit**.
 
-1. **Persiapan Mandiri (10 Menit):**  
-   Buka kembali `catatan-wawancara-squad.md` (`03c`) dan `persona-dan-prioritas-fitur.md` (`03d`). Tuliskan 3–4 kalimat pembuka (*Hook*) berdurasi **30 detik pertama** berdasarkan pedagang nyata yang diwawancarai squad-mu (gunakan nama/samaran sesuai izin narasumber).
-2. **Putaran 1 (15 Menit):**  
-   Peserta A membawakan kalimat pembuka secara live di depan Peserta B (gunakan timer HP). Peserta B mencatat:
-   - Apakah masalah pedagang terdengar jelas dan menyentuh?
-   - Apakah intonasi bicaranya tegas dan tidak berbisik-bisik?
-   - Apakah durasinya pas di kisaran 25–35 detik?
-3. **Putaran 2 (15 Menit):**  
-   Tukar peran: Peserta B melakukan pitch pembuka, Peserta A memberi feedback.
-4. **Iterasi & Putaran Final (20 Menit):**  
-   Ulangi sekali lagi dengan menerapkan masukan dari rekan pasangan, lalu pilih versi terbaik untuk draf pembuka squad.
+### Langkah Pengerjaan Tim:
+1. **Langkah 1 — Kumpulkan Bahan Artefak & Bagi Peran Menulis (10 Menit):**  
+   Buka kembali artefak Minggu 2–3 kalian (`catatan-wawancara-squad.md`, `value-proposition-squad.md`, `persona-dan-prioritas-fitur.md`, `wireframe-squad.md`, Flowchart & ERD, serta `rencana-fitur-backlog.md`).  
+   Bagi peran penulisan draf antar 4 anggota (misal: Anggota 1 fokus Babak 1, Anggota 2 fokus Babak 2 & 4, Anggota 3 fokus Babak 3 bagian Wireframe/Flowchart, Anggota 4 fokus Babak 3 bagian ERD & Babak 5).
+2. **Langkah 2 — Tulis Naskah Utuh 5 Babak (30 Menit):**  
+   Susun naskah percakapan yang alami saat diucapkan lisan (**jangan kaku seperti makalah**, pakai bahasa manusia tanpa jargon berlebihan) mengikuti template di bagian Output Sesi. Sertakan **kalimat transisi (*handover*)** antar pembicara.
+3. **Langkah 3 — Simulasi Baca Keras & Pangkas Jargon (20 Menit):**  
+   Bacakan seluruh naskah 5 babak secara bergantian menggunakan stopwatch HP:
+   - Apakah total waktu baca nyaman di kisaran **6–7 menit** *(sekitar 750–900 kata total)*?
+   - Tandai kata-kata yang membuat lidah tersendat atau terlalu teknis, lalu perhalus langsung di tempat.
 
 ---
 
 ## 5. Output Sesi
 
-*Push* dokumen `hook-pembuka-squad.md` ke repositori squad (siap dipresentasikan saat **Daily Standup besok pagi**) berisi naskah pembuka (*The Hook*) berdurasi 30 detik yang paling kuat sebagai bahan Slide 1–2 tim.
+*Push* dokumen **`script-pitch-squad.md`** ke repositori squad (siap dibawakan ringkasannya saat **Daily Standup besok pagi**) mengikuti struktur berikut:
+
+````markdown
+# Script Pitch Deck 5 Babak — [Nama Squad]
+**Nama Platform:** [Nama Produk UMKM Squad]  
+**Target Durasi Total:** ~7 Menit
+
+## Babak 1 — The Hook & The Problem (~1,5 Menit)
+- **Pembicara:** [Nama Anggota 1]
+- **Naskah Lisan:**  
+  "[Mulai dengan cerita tokoh nyata dari wawancara `03c` + kutipan keluhan aslinya + masalah inti...]"
+- **Transisi:** "Untuk menjawab kerepotan [Nama Narasumber] tersebut, rekan saya [Nama] akan memaparkan solusinya..."
+
+## Babak 2 — The Solution (~1 Menit)
+- **Pembicara:** [Nama Anggota 2]
+- **Naskah Lisan:**  
+  "[Jelaskan konsep solusi + 1 kalimat Value Proposition Statement dari `03c` dengan bahasa sederhana...]"
+
+## Babak 3 — The Proof / Demo Artefak (~2,5 Menit)
+- **Pembicara:** [Nama Anggota 2 / 3]
+- **Naskah Wireframe & UX (`03b`):** "[Sorot keputusan UX utama di Figma, misal tombol WA di zona jempol & kartu stok habis...]"
+- **Naskah Flowchart (`02c`) & ERD (`02d`):** "[Jelaskan alur pemesanan & bagaimana struktur data menjaga pesanan tidak tertukar, tanpa jargon teknis...]"
+
+## Babak 4 — The Impact & Value (~1 Menit)
+- **Pembicara:** [Nama Anggota 3 / 4]
+- **Naskah Lisan:**  
+  "[Gambarkan perubahan nyata sebelum vs sesudah memakai katalog bagi pedagang dan pembeli...]"
+
+## Babak 5 — Roadmap & Call to Action (~1 Menit)
+- **Pembicara:** [Nama Anggota 4]
+- **Naskah Lisan:**  
+  "[Paparkan rencana coding Bulan 2 (Must-Have: Slice 0–4 dari `03e`), bedakan dengan visi fitur lanjutan (Could-Have), lalu tutup dengan kalimat ajakan tanya jawab...]"
+
+## Catatan Uji Baca (Stopwatch)
+- Total durasi baca tim: [__ menit __ detik]
+- Kalimat yang sudah diperhalus: [...]
+````
+
+*(Sesi ini tidak memiliki tugas mandiri individual — seluruh fokus hari ini dituntaskan pada script 5 babak bersama squad.)*
 
 ---
 
-## 6. Tugas Mandiri (Individual)
+## 6. Cek Pemahaman Diri
 
-- **Sifat:** Pribadi. Ini **catatan latihan untuk dirimu sendiri** agar artikulasi bicaramu semakin matang (bukan menjadi bahan wajib dokumen tim).
-- **Target Waktu:** 20 menit
-- **Nama File:** Simpan di folder pribadimu dalam repo squad dengan nama `tugas_04a.md` *(di-push untuk dibahas saat Daily Standup besok pagi)*
-
-### Instruksi:
-1. Sempurnakan naskah pembuka 30 detik versimu sendiri menjadi teks yang alami saat diucapkan lisan.
-2. Rekam dirimu berbicara menggunakan perekam suara HP (*voice note*) dengan stopwatch.
-3. Catat di file `tugas_04a.md`:
-   - Naskah pembuka finalmu.
-   - Durasi waktu riil yang kamu capai (apakah pas di 25–35 detik?).
-   - 1 kata atau kalimat yang sempat membuat lidahmu terpeleset saat berlatih, serta cara memperhalusnya.
-
-### Contoh Hasil yang Diharapkan:
-```markdown
-# Tugas Mandiri 04a — Naskah Pembuka Pitching
-> [ILUSTRASI CONTOH — gunakan tokoh hasil wawancara nyata squad-mu]
-
-Nama: [Nama Kamu]
-
-## 1. Naskah Pembuka (The Hook):
-"Bayangkan kamu sedang menggoreng tempe panas, lalu HP-mu bergetar sepuluh kali berturut-turut karena pelanggan bertanya: 'Bu, masih ada lontong sayur nggak?'. Inilah kenyataan harian Ibu Marni, pedagang sarapan yang kami wawancarai langsung. Hari ini, kami hadir membawa solusi: sebuah katalog web yang langsung menunjukkan stok tersisa kepada pembeli dan meneruskan pesanan otomatis ke WhatsApp."
-
-## 2. Catatan Latihan Waktu:
-- Durasi Latihan 1: 38 detik (terlalu lambat).
-- Durasi Latihan 2: 29 detik (pas dan bertenaga!).
-
-## 3. Titik Evaluasi Lidah:
-Saya sempat tersendat saat mengucapkan kata 'menunjukkan sisa stok secara live'. Saya ubah menjadi 'menunjukkan stok tersisa secara langsung' agar lebih lancar diucapkan.
-```
-
----
-
-## 7. Cek Pemahaman Diri
-
-1. Mengapa mengawali presentasi dengan cerita satu sosok manusia nyata jauh lebih memikat penonton daripada langsung memaparkan fitur aplikasi?
+1. Mengapa mengawali presentasi dengan cerita satu sosok manusia nyata jauh lebih memikat penonton daripada langsung memaparkan daftar fitur aplikasi?
 2. Jika kamu ingin menyebut angka statistik UMKM di Indonesia saat pitching, apa yang wajib kamu lakukan sebelum naik panggung?
+3. Mengapa kita menyusun *script* bicara 5 babak lebih dulu dengan bahasa lisan sebelum mulai mendesain slide?
 
 ---
 

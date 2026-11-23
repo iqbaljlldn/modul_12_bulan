@@ -2,7 +2,7 @@
 
 > **Catatan Struktur Sesi (Dipecah 2 Hari Belajar):**  
 > Unit Slice 3 ini dirancang untuk diselesaikan dalam **2 hari belajar** agar pemahaman murid mendalam dan tidak terburu-buru:  
-> - **Hari 1 (Bagian 1):** Fitur Hapus Produk, Penanganan Status 204 No Content, Dialog Konfirmasi, dan Update Array via `.filter()`.  
+> - **Hari 1 (Bagian 1):** Fitur Hapus Produk, Dialog Konfirmasi, Penanganan Error, dan Update Array via `.filter()`.  
 > - **Hari 2 (Bagian 2):** Fitur Edit Produk Inline, State Lokal `isEditing`, Komponen Formulir `ProductEditForm`, dan Update Array via `.map()`.
 
 ---
@@ -13,7 +13,7 @@ Menyelesaikan siklus **CRUD (Create, Read, Update, Delete)** secara utuh: penggu
 
 ---
 
-## Aktivitas Terbimbing di Kelas (Blok 1, 10-15 Menit)
+## Aktivitas Terbimbing di Kelas (Blok 1 — Mini-Lesson ±25 Menit/Hari + Coding Terbimbing)
 
 Mentor akan memandu demonstrasi konsep:
 - **Hari 1:** Mengirimkan `DELETE` request dan memperbarui daftar state `products` menggunakan fungsi filter immutability.
@@ -53,12 +53,11 @@ setProducts((current) =>
 
 ### Langkah 1: Tambahkan Handler Hapus di `ProductsPage.tsx`
 
-Buka `src/pages/ProductsPage.tsx`. Tambahkan fungsi pemanggil API hapus dan teruskan ke komponen `ProductList`:
+Buka `src/pages/ProductsPage.tsx`. Tambahkan `deleteProduct`, buat `handleDeleteProduct`, dan kirimkan `onDelete` ke `<ProductList>`:
 
 ```tsx
 // src/pages/ProductsPage.tsx
-import { createProduct, deleteProduct, getProducts, updateProduct } from '../api/products'
-import type { UpdateProductInput } from '../api/products'
+import { createProduct, deleteProduct, getProducts } from '../api/products'
 
 // ...di dalam fungsi komponen ProductsPage:
 
@@ -72,27 +71,28 @@ async function handleDeleteProduct(id: number) {
     alert(error instanceof Error ? error.message : 'Gagal menghapus produk')
   }
 }
+
+// ...pada bagian JSX kembalian, teruskan onDelete ke ProductList:
+<ProductList products={products} onDelete={handleDeleteProduct} />
 ```
 
 ---
 
-### Langkah 2: Teruskan Handler Lewat `ProductList.tsx`
+### Langkah 2: Teruskan `onDelete` di `ProductList.tsx` dan `ProductCard.tsx`
 
-Buka `src/components/ProductList.tsx`:
+1. Buka `src/components/ProductList.tsx` untuk meneruskan `onDelete` (catatan: prop `onSave` baru kita tambahkan di **Hari 2** agar TypeScript tidak menegur variabel yang belum terpakai):
 
 ```tsx
 // src/components/ProductList.tsx
 import type { Product } from '../types/product'
-import type { UpdateProductInput } from '../api/products'
 import ProductCard from './ProductCard'
 
 interface ProductListProps {
   products: Product[]
   onDelete: (id: number) => Promise<void>
-  onSave: (id: number, input: UpdateProductInput) => Promise<void>
 }
 
-function ProductList({ products, onDelete, onSave }: ProductListProps) {
+function ProductList({ products, onDelete }: ProductListProps) {
   if (products.length === 0) {
     return <p className="empty-message">Belum ada produk untuk ditampilkan.</p>
   }
@@ -104,7 +104,6 @@ function ProductList({ products, onDelete, onSave }: ProductListProps) {
           key={product.id}
           product={product}
           onDelete={onDelete}
-          onSave={onSave}
         />
       ))}
     </div>
@@ -113,6 +112,31 @@ function ProductList({ products, onDelete, onSave }: ProductListProps) {
 
 export default ProductList
 ```
+
+2. Tambahkan tombol **Hapus** + `window.confirm(...)` di `src/components/ProductCard.tsx`:
+
+```tsx
+// Di ProductCardProps (Hari 1):
+interface ProductCardProps {
+  product: Product
+  onDelete: (id: number) => Promise<void>
+}
+
+// Di dalam fungsi ProductCard:
+async function handleDeleteClick() {
+  const isConfirmed = window.confirm(`Apakah Anda yakin ingin menghapus "${product.name}"?`)
+  if (isConfirmed) {
+    await onDelete(product.id)
+  }
+}
+
+// Lalu di JSX kartu:
+<button type="button" onClick={handleDeleteClick}>
+  Hapus
+</button>
+```
+
+> **Checkpoint Akhir Hari 1:** Jalankan `npm run build` dan coba klik **Hapus → Batal** serta **Hapus → OK** di browser. *(Setelah berhasil, kalau datamu berkurang, pulihkan kapan saja lewat `npm run reset-db`).*
 
 ---
 
@@ -292,12 +316,17 @@ export default ProductCard
 
 ---
 
-### Langkah 5: Sambungkan `handleSaveProduct` di `ProductsPage.tsx`
+### Langkah 5: Perbarui `ProductList.tsx` & Sambungkan `handleSaveProduct` di `ProductsPage.tsx`
 
-Buka `src/pages/ProductsPage.tsx` dan lengkapi fungsi simpan:
+1. Tambahkan prop `onSave: (id: number, input: UpdateProductInput) => Promise<void>` di `src/components/ProductList.tsx` dan teruskan `onSave={onSave}` ke `<ProductCard />`.
+2. Buka `src/pages/ProductsPage.tsx`, tambahkan import `updateProduct` dan `type UpdateProductInput`, lalu lengkapi fungsi simpan:
 
 ```tsx
 // src/pages/ProductsPage.tsx
+import { createProduct, deleteProduct, getProducts, updateProduct } from '../api/products'
+import type { UpdateProductInput } from '../api/products'
+
+// ...tambahkan di dalam ProductsPage:
 async function handleSaveProduct(id: number, input: UpdateProductInput) {
   // 1. Kirim perubahan PATCH ke server
   const updatedProduct = await updateProduct(id, input)
@@ -330,10 +359,12 @@ Diskusikan bersama rekan pairing:
 
 ---
 
-## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
+## Tugas Mandiri (Blok 3 Hari 2, Estimasi 20-30 Menit)
 
-Kerjakan secara mandiri di kelas. Simpan hasilnya di:  
-`tugas/squad-<nomor>/<nama-kamu>/tugas_03b.md`
+*(Catatan: Pada Blok 3 Hari 1, fokusmu adalah menguji fitur Hapus Produk + `npm run build` dan merapikan PR Hari 1. Setelah Hari 2 selesai, kerjakan catatan tugas ini.)*
+
+Simpan hasilnya di repo proyekmu pada:  
+`tugas/tugas_03b.md` *(atau sesuai struktur folder arahan mentor)*
 
 ### Instruksi Pengerjaan
 
@@ -342,19 +373,19 @@ Kerjakan secara mandiri di kelas. Simpan hasilnya di:
 3. Lakukan aksi nyata pada aplikasi di browsermu:
    - Pilih salah satu produk UMKM, klik tombol "Edit".
    - Ubah harga menjadi `32000` dan stok menjadi `8`.
-   - Klik "Simpan". Periksa tab Network browser: catat Request Method (`PATCH`) dan URL tujuannya (contoh: `http://localhost:3001/products/3`).
+   - Klik "Simpan". Periksa tab Network browser: catat Request Method (`PATCH`) dan URL tujuannya (contoh: `http://localhost:3001/products/2`).
    - Buka `db.json` di VS Code dan pastikan nilainya sudah benar-benar berganti permanen.
 4. Jawab 2 pertanyaan pemahaman:
    - Mengapa kita menggunakan metode JavaScript `.filter()` untuk operasi hapus data dan `.map()` untuk operasi edit data di state React?
    - Mengapa meletakkan state `isEditing` di dalam `ProductCard.tsx` menjamin isolasi antarmuka yang bersih antar produk?
-5. Ajukan Pull Request ke repositori squad.
+5. Ajukan Pull Request di GitHub untuk direview rekan squad.
 
 ### Contoh Format Hasil (`tugas_03b.md`)
 
-```markdown
+````markdown
 # Tugas Mandiri 03b — Slice 3: Edit & Hapus Produk
 Nama: Wahyu Hidayat
-Squad: Squad 5
+Squad: Squad 3
 Tanggal: 17 November 2026
 
 ## 1. Verifikasi Aksi PATCH di Network Tab
@@ -374,8 +405,8 @@ Hasil terverifikasi di `db.json` pada produk ID 2: harga berubah menjadi 32000 d
 ## 2. Jawaban Pertanyaan Pemahaman
 1. Metode `.filter()` menghasilkan array baru yang hanya meloloskan item yang lolos kriteria (semua produk kecuali yang id-nya cocok dengan yang dihapus). Sedangkan `.map()` menghasilkan array baru berukuran sama dengan menyisipkan satu objek produk hasil edit pada id yang cocok. Kedua metode ini menjaga prinsip *immutability* karena tidak memutasi array asli.
 2. Karena setiap instance komponen `ProductCard` memiliki memori state independen masing-masing. Dengan meletakkan `isEditing` di level kartu, mengaktifkan mode edit pada kartu A tidak akan memengaruhi nilai state kartu B, C, atau D.
-```
+````
 
 ---
 
-Lanjut ke: **03c-state-management-patterns.md**
+Lanjut ke: **[03c-state-management-patterns.md](03c-state-management-patterns.md)**

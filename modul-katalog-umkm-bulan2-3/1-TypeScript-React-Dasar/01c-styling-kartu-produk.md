@@ -6,7 +6,7 @@ Memberikan tampilan visual yang rapi, profesional, dan responsif pada kartu prod
 
 ---
 
-## Aktivitas Terbimbing di Kelas (Blok 1, 10-15 Menit)
+## Aktivitas Terbimbing di Kelas (Blok 1 — Mini-Lesson ±25 Menit + Coding Terbimbing)
 
 Mentor akan memandu demonstrasi singkat:
 - Cara mengimpor berkas CSS ke dalam komponen React.
@@ -161,8 +161,8 @@ Diskusikan bersama pasangan pairing:
 
 ## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
 
-Kerjakan tugas ini secara mandiri di kelas. Simpan hasilnya di:  
-`tugas/squad-<nomor>/<nama-kamu>/tugas_01c.md`
+Kerjakan tugas ini secara mandiri di kelas. Simpan hasilnya di repo proyekmu pada:  
+`tugas/tugas_01c.md` *(atau sesuai struktur folder arahan mentor)*
 
 ### Instruksi Pengerjaan
 
@@ -176,11 +176,11 @@ Kerjakan tugas ini secara mandiri di kelas. Simpan hasilnya di:
 5. Jawab 2 pertanyaan pemahaman:
    - Kapan sebaiknya kita menggunakan CSS Classes biasa dan kapan kita boleh menggunakan inline style di React?
    - Mengapa kita tidak perlu menulis media query rumit (`@media (max-width: 600px)`) hanya untuk membuat daftar kartu produk kita responsif di ponsel?
-6. Buka PR di repository squad untuk direview rekan.
+6. Buka PR di GitHub untuk direview rekan squad.
 
 ### Contoh Format Hasil (`tugas_01c.md`)
 
-```markdown
+````markdown
 # Tugas Mandiri 01c — Styling Kartu Produk
 Nama: Budi Santoso
 Squad: Squad 1
@@ -209,8 +209,8 @@ Tanggal: 5 November 2026
 ## 3. Jawaban Pertanyaan
 - CSS Classes sebaiknya menjadi standar utama untuk seluruh tata letak dan komponen yang berulang agar kode bersih dan mudah dirawat. Inline styles hanya digunakan untuk nilai yang dinamis berubah setiap waktu melalui JavaScript (misalnya lebar persentase progress bar).
 - Karena aturan `repeat(auto-fill, minmax(260px, 1fr))` pada CSS Grid sudah otomatis menghitung ruang layar: jika layar < 520px, browser otomatis menampilkan 1 kolom penuh; jika layar melebar, browser otomatis menambah jumlah kolom sesuai kelipatan minimal 260px.
-```
+````
 
 ---
 
-Lanjut ke: **01d-tipe-dasar-dan-list-rendering.md**
+Lanjut ke: **[01d-tipe-dasar-dan-list-rendering.md](01d-tipe-dasar-dan-list-rendering.md)**

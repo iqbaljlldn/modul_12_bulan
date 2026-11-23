@@ -6,7 +6,7 @@ Menyelesaikan **Slice 4**: ketika nama produk diklik pada kartu katalog, penggun
 
 ---
 
-## Aktivitas Terbimbing di Kelas (Blok 1, 10-15 Menit)
+## Aktivitas Terbimbing di Kelas (Blok 1 — Mini-Lesson ±25 Menit/Hari + Coding Terbimbing)
 
 Mentor akan memandu demonstrasi konsep:
 - Menambahkan rute dinamis dengan parameter `:id` di `src/App.tsx`.
@@ -53,13 +53,13 @@ export function getProduct(id: number): Promise<Product> {
 
 ---
 
-### Langkah 2: Daftarkan Rute di `src/App.tsx`
+### Langkah 2: Daftarkan Rute Detail & Catch-All 404 di `src/App.tsx`
 
-Buka `src/App.tsx` dan pasang komponen `ProductDetailPage`:
+Buka `src/App.tsx`, pertahankan rute `/about` dari sesi sebelumnya, lalu tambahkan rute dinamis `/products/:id` dan rute `*` untuk URL nyasar:
 
 ```tsx
 // src/App.tsx
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
 import ProductsPage from './pages/ProductsPage'
 import ProductDetailPage from './pages/ProductDetailPage'
 
@@ -68,12 +68,17 @@ function App() {
     <main style={{ maxWidth: '1000px', margin: '0 auto', padding: '24px 16px' }}>
       <header style={{ marginBottom: '24px' }}>
         <h1>Katalog UMKM Nusantara</h1>
+        <nav style={{ display: 'flex', gap: '16px' }}>
+          <Link to="/">Daftar Produk</Link>
+        </nav>
       </header>
 
       <Routes>
         <Route path="/" element={<ProductsPage />} />
         {/* Rute dinamis berparameter :id */}
         <Route path="/products/:id" element={<ProductDetailPage />} />
+        {/* Tangkap semua URL yang tidak dikenal */}
+        <Route path="*" element={<p>Halaman tidak ditemukan. <Link to="/">Kembali ke Katalog</Link></p>} />
       </Routes>
     </main>
   )
@@ -109,11 +114,15 @@ function ProductDetailPage() {
     let ignore = false
 
     async function loadProductDetail() {
+      // Reset loading & error setiap kali id berubah (misal setelah kena 404 lalu pindah produk)
+      setIsLoading(true)
+      setErrorMessage(null)
+
       try {
-        // Konversikan string id dari URL ke number untuk API
+        // Konversikan string id dari URL ke number dan pastikan bilangan bulat positif
         const productId = Number(id)
-        
-        if (Number.isNaN(productId)) {
+
+        if (!Number.isInteger(productId) || productId <= 0) {
           throw new Error('ID produk pada URL tidak valid')
         }
 
@@ -239,10 +248,9 @@ Diskusikan bersama rekan pairing:
 
 ---
 
-## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
+## Tugas Mandiri (Blok 3 Hari 2, Estimasi 20-30 Menit)
 
-Kerjakan secara mandiri di kelas. Simpan hasilnya di:  
-`tugas/squad-<nomor>/<nama-kamu>/tugas_04b.md`
+*(Catatan: Pada Hari 1 di Blok 3, uji dulu alur klik kartu → `/products/:id`; pada Hari 2 setelah penanganan 404 & reset state tuntas, simpan catatan ini di `tugas/tugas_04b.md` di repo proyekmu.)*
 
 ### Instruksi Pengerjaan
 
@@ -254,12 +262,12 @@ Kerjakan secara mandiri di kelas. Simpan hasilnya di:
    - Buka tab Network pada saat mengakses `/products/999`, catat status HTTP yang diberikan oleh `json-server` (`404 Not Found`).
 4. Jawab 2 pertanyaan pemahaman:
    - Mengapa kita memeriksa `if (error instanceof ApiError && error.status === 404)` secara spesifik di `ProductDetailPage.tsx`? Apa bahayanya jika kita hanya menampilkan `error.message` mentah kepada pembeli umum?
-   - Mengapa kita wajib menyertakan `[id]` di dalam dependency array `useEffect` pada `ProductDetailPage.tsx`?
-5. Ajukan Pull Request ke repositori squad.
+   - Mengapa kita wajib menyertakan `[id]` di dalam dependency array `useEffect` dan me-reset `setErrorMessage(null)` setiap kali `id` berubah pada `ProductDetailPage.tsx`?
+5. Ajukan Pull Request di GitHub untuk direview rekan squad.
 
 ### Contoh Format Hasil (`tugas_04b.md`)
 
-```markdown
+````markdown
 # Tugas Mandiri 04b — Slice 4: Halaman Detail Produk
 Nama: Bagas Wicaksono
 Squad: Squad 3
@@ -267,8 +275,8 @@ Tanggal: 20 November 2026
 
 ## 1. Hasil Pengujian Halaman Detail
 - Pengujian ID Valid (`/products/1`):
-  - Nama: Keripik Tempe Renyah 250g
-  - Harga: Rp 18.000 (Stok: 45)
+  - Nama: Keripik Tempe Original
+  - Harga: Rp 18.000 (Stok: 120)
 - Pengujian ID Tidak Ada (`/products/999`):
   - Pesan Tampilan: `Produk tidak ditemukan`
   - Tombol Kembali: Berfungsi kembali ke URL `/`
@@ -276,9 +284,9 @@ Tanggal: 20 November 2026
 
 ## 2. Jawaban Pertanyaan Pemahaman
 1. Pesan error teknis bawaan seperti "Permintaan gagal dengan kode status 404" terdengar menyeramkan dan membingungkan bagi pembeli UMKM biasa yang tidak mengerti istilah pemrograman. Dengan mendeteksi `error.status === 404`, kita bisa mengubah pesan teknis tersebut menjadi kalimat bahasa Indonesia yang ramah dan menenangkan ("Produk tidak ditemukan") disertai tautan kembali yang jelas.
-2. Karena jika pengguna bernavigasi antar produk langsung dari halaman detail (misalnya melalui daftar produk serupa), React tidak akan membongkar komponen dari DOM. Memasukkan `[id]` memastikan bahwa setiap kali nomor ID di URL berganti, `useEffect` langsung dipicu kembali untuk mengambil data produk yang baru dari server.
-```
+2. Karena jika pengguna bernavigasi antar produk langsung dari halaman detail, React memakai ulang komponen yang sama. Memasukkan `[id]` memastikan `useEffect` dipicu ulang, dan me-reset `setErrorMessage(null)` memastikan pesan error 404 lama tidak menempel saat pengguna pindah ke produk yang valid.
+````
 
 ---
 
-Lanjut ke: **04c-konsolidasi-dan-refactor.md**
+Lanjut ke: **[04c-konsolidasi-dan-refactor.md](04c-konsolidasi-dan-refactor.md)**

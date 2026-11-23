@@ -6,7 +6,7 @@ Menambahkan formulir interaktif di aplikasi agar pemilik UMKM dapat **menambahka
 
 ---
 
-## Aktivitas Terbimbing di Kelas (Blok 1, 10-15 Menit)
+## Aktivitas Terbimbing di Kelas (Blok 1 — Mini-Lesson ±25 Menit + Coding Terbimbing)
 
 Mentor akan memandu demonstrasi konsep:
 - Memahami metode **HTTP POST** untuk membuat data baru di server.
@@ -269,12 +269,12 @@ return (
 
 Diskusikan bersama rekan pairing:
 
-1. **Prediksi Bug Nilai NaN:**  
-   Jika di fungsi `toInput` seorang murid lupa menulis fungsi `Number(...)` dan hanya menulis:
+1. **Prediksi Jebakan Tipe Data (`as any`):**  
+   Jika di fungsi `toInput` seorang murid lupa menulis fungsi `Number(...)` dan malah memaksa dengan:
    ```ts
    price: values.price as any
    ```
-   Lalu di `ProductCard.tsx` harga diformat dengan `formatRupiah(product.price)`. Mengapa tampilan di browser bisa memunculkan tulisan aneh atau melempar error saat data dirender?
+   Apa akibat buruk yang tetap lolos ke database `db.json` (misalnya ketika backend di Bulan 4 nanti melakukan kalkulasi atau validasi angka), serta apa yang tampil di layar jika suatu saat inputnya bukan angka valid? *(Ingat: hindari `as any` di TypeScript!)*
 2. **Uji Perlindungan Tombol:**  
    Buka form di browser. Buka tab Network di Inspect Element. Klik tombol "Simpan Produk". Perhatikan apakah tombol langsung berubah teks menjadi *"Menyimpan ke Server..."* dan tidak bisa diklik ulang selama request berlangsung.
 
@@ -282,8 +282,8 @@ Diskusikan bersama rekan pairing:
 
 ## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
 
-Kerjakan secara mandiri di kelas. Simpan hasilnya di:  
-`tugas/squad-<nomor>/<nama-kamu>/tugas_02e.md`
+Kerjakan secara mandiri di kelas. Simpan hasilnya di repo proyekmu pada:  
+`tugas/tugas_02e.md` *(atau sesuai struktur folder arahan mentor)*
 
 ### Instruksi Pengerjaan
 
@@ -296,14 +296,14 @@ Kerjakan secara mandiri di kelas. Simpan hasilnya di:
 4. Jawab 2 pertanyaan pemahaman:
    - Mengapa kita menambahkan produk baru ke state `products` menggunakan sintaks spread `[...currentProducts, newProduct]` dan bukan melakukan fetch ulang seluruh daftar produk dari server?
    - Mengapa atribut `disabled={isSubmitting}` pada tombol submit sangat penting untuk kenyamanan dan keamanan transaksi pengguna?
-5. Ajukan Pull Request ke repositori squad.
+5. Ajukan Pull Request di GitHub untuk direview rekan squad.
 
 ### Contoh Format Hasil (`tugas_02e.md`)
 
-```markdown
+````markdown
 # Tugas Mandiri 02e — Slice 2: Form Tambah Produk
 Nama: Hendra Wijaya
-Squad: Squad 4
+Squad: Squad 2
 Tanggal: 13 November 2026
 
 ## 1. Verifikasi Data Baru di `db.json`
@@ -320,15 +320,15 @@ Data tersimpan di `db.json`:
   "category_id": 1,
   "merchant_name": "Camilan Berkah",
   "created_at": "2026-11-13T07:15:22.123Z",
-  "id": 13
+  "id": 7
 }
 ```
 
 ## 2. Jawaban Pertanyaan Pemahaman
 1. Menggunakan sintaks spread memperbarui state di memori browser secara langsung tanpa memicu request jaringan tambahan. Ini membuat aplikasi terasa sangat cepat dan responsif bagi pengguna, sekaligus menghemat penggunaan kuota dan bandwidth server.
 2. Atribut `disabled={isSubmitting}` mencegah pengguna yang tidak sabaran mengeklik tombol submit berkali-kali secara cepat. Tanpa proteksi ini, aplikasi bisa mengirimkan 2 atau 3 request POST secara bersamaan yang menyebabkan produk yang sama tersimpan ganda (*duplicate entry*) di database.
-```
+````
 
 ---
 
-Lanjut ke: **03a-http-methods-dan-api-patterns.md** (Minggu 3)
+Lanjut ke: **[03a-http-methods-dan-api-patterns.md](03a-http-methods-dan-api-patterns.md)** *(Minggu 3)*

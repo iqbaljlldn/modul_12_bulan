@@ -39,7 +39,7 @@ modul-katalog-umkm/
 ├── 0-Persiapan/                      # Orientasi sebelum Slice 0
 │   ├── PANDUAN-MENTOR.md             # Ritme harian, setup env, kunci json-server 0.17.x
 │   ├── 01-tentang-modul-ini.md       # Konsep slice & alur product-driven
-│   ├── 02-setup-starter.md           # Setup repo starter, Node 22, dev server
+│   ├── 02-setup-starter.md           # Rakit proyek Vite, Node 26, json-server, oxlint
 │   ├── 03-alur-git-dan-pr.md         # Alur branch, commit, PR, review, merge
 │   └── 04-format-minta-bantuan.md    # Format 4 poin minta bantuan saat stuck
 │
@@ -87,7 +87,7 @@ modul-katalog-umkm/
 ## Catatan Teknis Tooling Kunci
 
 - **`json-server` (0.17.x):** Dependensi ini sengaja dikunci pada versi 0.17.4 dan **tidak boleh di-upgrade ke versi 1.x**. Versi 1.x memodifikasi perilaku parameter URL (`_limit`, `_sort`, `_order`) dan menghilangkan header pagination `X-Total-Count` yang menjadi acuan kontrak belajar kita.
-- **Node.js:** Versi yang direkomendasikan adalah **Node.js 22 LTS** (minimal `^20.19.0` atau `>=22.12.0` sesuai kebutuhan Vite 8 di starter repo).
+- **Node.js:** Versi yang direkomendasikan adalah **Node.js 26** (Vite 8 mensyaratkan minimal `^20.19.0` atau `>=22.12.0`).
 - **Linter & Type Checking:** Menggunakan `oxlint` untuk audit kecepatan tinggi dan `tsc -b` untuk pengecekan tipe statis yang ketat.
 
 ---

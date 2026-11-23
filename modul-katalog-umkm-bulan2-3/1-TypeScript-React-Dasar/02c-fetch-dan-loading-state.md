@@ -6,7 +6,7 @@ Mengganti data produk yang tadinya statis (hardcode) menjadi data dinamis yang d
 
 ---
 
-## Aktivitas Terbimbing di Kelas (Blok 1, 10-15 Menit)
+## Aktivitas Terbimbing di Kelas (Blok 1 — Mini-Lesson ±25 Menit + Coding Terbimbing)
 
 Mentor akan memandu demonstrasi langsung:
 - Menguji endpoint API di browser atau terminal (`http://localhost:3001/products`).
@@ -191,14 +191,14 @@ Diskusikan bersama rekan pairing:
    Buka terminal tempat `json-server` berjalan. Hentikan server sebentar (`Ctrl+C`). Kembali ke browser dan refresh halaman `localhost:5173`.  
    *Pertanyaan:* Apa yang ditampilkan di layar? Apakah aplikasi meledak menjadi layar putih kosong atau menampilkan pesan error ramah?
 2. **Uji Coba Jaringan Lambat (Simulasi Nyata):**  
-   Jalankan server dengan mode lambat menggunakan skrip `npm run dev:api:slow` yang tersedia di starter. Refresh halaman dan perhatikan teks *"Sedang memuat data..."* selama 1,2 detik. Mengapa pengujian ini penting sebelum aplikasi dirilis ke pengguna UMKM?
+   Buka browser Developer Tools (`F12`) → tab **Network** → ubah dropdown throttling dari *No throttling* menjadi **Slow 3G**. Refresh halaman dan amati teks *"Sedang memuat data katalog UMKM..."* yang tampil selama data belum tiba *(setelah selesai mencoba, kembalikan ke **No throttling**)*. Mengapa pengujian kondisi lambat ini penting sebelum aplikasi dirilis ke pengguna UMKM?
 
 ---
 
 ## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
 
-Kerjakan secara mandiri di kelas. Simpan hasilnya di:  
-`tugas/squad-<nomor>/<nama-kamu>/tugas_02c.md`
+Kerjakan secara mandiri di kelas. Simpan hasilnya di repo proyekmu pada:  
+`tugas/tugas_02c.md` *(atau sesuai struktur folder arahan mentor)*
 
 ### Instruksi Pengerjaan
 
@@ -211,11 +211,11 @@ Kerjakan secara mandiri di kelas. Simpan hasilnya di:
 4. Jawab 2 pertanyaan pemahaman:
    - Apa yang akan terjadi pada tampilan pengguna jika seorang programmer lupa menulis blok `finally { setIsLoading(false) }` saat panggilan API mengalami error jaringan?
    - Mengapa kita tidak boleh menganggap bahwa `fetch()` otomatis melempar error saat server memberikan respons HTTP 404 (Not Found)?
-5. Ajukan Pull Request ke repositori squad.
+5. Ajukan Pull Request di GitHub untuk direview rekan squad.
 
 ### Contoh Format Hasil (`tugas_02c.md`)
 
-```markdown
+````markdown
 # Tugas Mandiri 02c — Slice 1: Fetch API
 Nama: Fajar Nugraha
 Squad: Squad 2
@@ -231,9 +231,9 @@ Contoh potongan data respons:
 ```json
 {
   "id": 1,
-  "name": "Keripik Tempe Renyah 250g",
+  "name": "Keripik Tempe Original",
   "price": 18000,
-  "stock": 45,
+  "stock": 120,
   "status": "active"
 }
 ```
@@ -241,8 +241,8 @@ Contoh potongan data respons:
 ## 2. Jawaban Pertanyaan Pemahaman
 1. Jika lupa menulis `setIsLoading(false)` di blok `finally`, maka saat terjadi error, state `isLoading` akan tetap bernilai `true` selamanya. Akibatnya, pengguna akan terus-menerus melihat tulisan "Sedang memuat..." tanpa pernah tahu bahwa request-nya sebenarnya sudah gagal.
 2. Karena spesifikasi bawaan `fetch()` hanya menolak Promise (*reject*) jika terjadi kegagalan jaringan fisik (misalnya komputer offline atau server down total). Selama server masih bisa menjawab (walaupun jawabannya adalah 404 atau 500), Promise tetap dianggap selesai (*resolved*). Oleh karena itu, kita wajib memeriksa properti `response.ok` secara manual.
-```
+````
 
 ---
 
-Lanjut ke: **02d-event-handling-dan-form.md**
+Lanjut ke: **[02d-event-handling-dan-form.md](02d-event-handling-dan-form.md)**

@@ -6,7 +6,7 @@ Memahami **kapan** dan **kenapa** kita menggunakan hook `useEffect`, apa yang di
 
 ---
 
-## Aktivitas Terbimbing di Kelas (Blok 1, 10-15 Menit)
+## Aktivitas Terbimbing di Kelas (Blok 1 — Mini-Lesson ±25 Menit + Coding Terbimbing)
 
 Mentor akan memandu demonstrasi konsep inti:
 - Mengapa panggilan data asinkron (*fetch*) tidak boleh diletakkan langsung di badan utama (*body*) fungsi komponen.
@@ -142,8 +142,8 @@ Diskusikan bersama rekan pairing:
 
 ## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
 
-Kerjakan secara mandiri di kelas. Simpan hasilnya di:  
-`tugas/squad-<nomor>/<nama-kamu>/tugas_02b.md`
+Kerjakan secara mandiri di kelas. Simpan hasilnya di repo proyekmu pada:  
+`tugas/tugas_02b.md` *(atau sesuai struktur folder arahan mentor)*
 
 ### Instruksi Pengerjaan
 
@@ -159,14 +159,14 @@ Kerjakan secara mandiri di kelas. Simpan hasilnya di:
 4. Jawab 2 pertanyaan singkat:
    - Apa perbedaan perilaku jika `useEffect` diberikan dependency array `[]` dibandingkan jika dependency array-nya sengaja dikosongkan/dihilangkan sama sekali?
    - Mengapa variabel `let ignore = false` di dalam `useEffect` sangat penting saat kita mengambil data dengan `fetch`? Apa bahayanya jika tidak ada variabel tersebut?
-5. Ajukan Pull Request ke repositori squad.
+5. Ajukan Pull Request di GitHub untuk direview rekan squad.
 
 ### Contoh Format Hasil (`tugas_02b.md`)
 
-```markdown
+````markdown
 # Tugas Mandiri 02b — useEffect & Lifecycle
 Nama: Dewi Lestari
-Squad: Squad 6
+Squad: Squad 1
 Tanggal: 10 November 2026
 
 ## 1. Kode Komponen DocumentTitleUpdater
@@ -196,8 +196,8 @@ export default DocumentTitleUpdater
 ## 2. Jawaban Pertanyaan Pemahaman
 1. Jika diberi `[]`, efek hanya dieksekusi 1 kali setelah render perdana. Jika dihilangkan sama sekali, efek akan dieksekusi terus-menerus setiap kali terjadi re-render komponen apa pun, yang dapat menyebabkan pemborosan daya komputasi atau siklus loop tak berujung.
 2. Variabel `ignore` melindungi aplikasi dari kondisi balapan (*race condition*) dan pembaruan state pada komponen yang sudah tidak aktif (*unmounted*). Jika pengguna terburu-buru berpindah halaman sebelum server selesai membalas, fungsi pembersih akan mengubah `ignore = true`, sehingga data yang terlambat datang tidak akan dipaksakan masuk ke state komponen yang sudah tiada.
-```
+````
 
 ---
 
-Lanjut ke: **02c-fetch-dan-loading-state.md** (Slice 1)
+Lanjut ke: **[02c-fetch-dan-loading-state.md](02c-fetch-dan-loading-state.md)** *(Slice 1)*

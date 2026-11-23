@@ -6,7 +6,7 @@ Memahami **kapan** dan **kenapa** kita menggunakan state (bukan variabel biasa a
 
 ---
 
-## Aktivitas Terbimbing di Kelas (Blok 1, 10-15 Menit)
+## Aktivitas Terbimbing di Kelas (Blok 1 — Mini-Lesson ±25 Menit + Coding Terbimbing)
 
 Mentor akan memandu pembahasan konsep inti:
 - Mengapa variabel JavaScript biasa (`let total = 0`) selalu ter-reset setiap kali fungsi komponen dijalankan ulang oleh React.
@@ -142,8 +142,8 @@ Diskusikan bersama rekan pairing:
 
 ## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
 
-Kerjakan secara mandiri di kelas. Simpan hasilnya di:  
-`tugas/squad-<nomor>/<nama-kamu>/tugas_02a.md`
+Kerjakan secara mandiri di kelas. Simpan hasilnya di repo proyekmu pada:  
+`tugas/tugas_02a.md` *(atau sesuai struktur folder arahan mentor)*
 
 ### Instruksi Pengerjaan
 
@@ -158,14 +158,14 @@ Kerjakan secara mandiri di kelas. Simpan hasilnya di:
 4. Jawab 2 pertanyaan singkat:
    - Apa yang sebenarnya terjadi di balik layar saat fungsi `setter` (seperti `setIsOpen`) dipanggil oleh React?
    - Mengapa kita dilarang keras mengubah state array secara langsung menggunakan metode `.push()`?
-5. Ajukan Pull Request ke repository squad untuk diperiksa rekan.
+5. Ajukan Pull Request di GitHub untuk diperiksa rekan squad.
 
 ### Contoh Format Hasil (`tugas_02a.md`)
 
-```markdown
+````markdown
 # Tugas Mandiri 02a — State & useState
 Nama: Rian Pratama
-Squad: Squad 5
+Squad: Squad 3
 Tanggal: 9 November 2026
 
 ## 1. Kode Komponen StockToggle
@@ -196,8 +196,8 @@ export default StockToggle
 ## 2. Jawaban Pertanyaan Pemahaman
 1. Saat fungsi setter dipanggil, React menjadwalkan pembaharuan nilai state di memorinya. Kemudian React memanggil ulang (*re-render*) fungsi komponen tersebut dengan nilai state yang baru, menghitung perbedaannya via Virtual DOM, dan memperbarui elemen DOM browser yang relevan.
 2. Karena React mendeteksi perubahan state dengan membandingkan alamat referensi memori (*reference equality check*). Jika kita melakukan `.push()`, alamat memori array tetap sama persis, sehingga React mengira tidak ada perubahan apa pun dan tidak melakukan re-render ke layar.
-```
+````
 
 ---
 
-Lanjut ke: **02b-useeffect-dan-lifecycle.md**
+Lanjut ke: **[02b-useeffect-dan-lifecycle.md](02b-useeffect-dan-lifecycle.md)**

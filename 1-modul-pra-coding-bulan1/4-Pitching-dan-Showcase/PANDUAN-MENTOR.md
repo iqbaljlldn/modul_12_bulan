@@ -10,7 +10,7 @@
 
 | Sesi | Hari | File Modul | Poin Mini-Lesson Mentor (20-30 Menit) | Output Sesi / Workshop Tim |
 |---|---|---|---|---|
-| 1 | Senin | `04a-pitching-dasar.md` | Struktur narasi pitch: Problem → Solusi → Bukti/Demo → Dampak → Roadmap; Formula Persona Hook (tanpa jargon teknis); Mengatasi demam panggung. | **Naskah Hook Pembuka 30 Detik Squad (`hook-pembuka-squad.md`)** |
+| 1 | Senin | `04a-pitching-dasar.md` | Struktur narasi pitch 5 babak: Problem → Solusi → Bukti/Demo → Dampak → Roadmap; Formula Persona Hook (tanpa jargon teknis); Mengatasi demam panggung. | **Script Pitch Deck Full 5 Babak (`script-pitch-squad.md`)** |
 | 2 | Selasa | `04b-ai-untuk-merancang-alur-aplikasi.md` | User Flow perjalanan pengguna vs Flowchart sistem; Scope Alur B (tanpa login); Audit titik buntu via AI + kendali batas scope MVP. | **User Flow Pemesanan WA Tervalidasi (`user-flow-tervalidasi.md`)** |
 | 3 | Rabu | `04c-menyusun-pitch-deck.md` | Format baku 7 slide visual berbasis bukti; Kutipan wajib dari `catatan-wawancara-squad.md`; Ekspor wireframe Figma; Menghindari slide penuh teks. | **Draf Pitch Deck 7 Slide Tim** |
 | 4 | Kamis | `04d-gladi-resik-dan-peer-feedback.md` | Simulasi panggung tepat 7 menit; Pembagian giliran bicara & *stage rescue*; Kerangka umpan balik *I Like, I Wish, What If*. | **Catatan Gladi Resik Squad (`catatan-gladi-resik.md`)** |
@@ -21,16 +21,15 @@
 
 ## 2. Beban Tugas Mandiri Minggu 4 (Individual)
 
-Setiap murid mengerjakan catatan latihan mandiri pada hari Senin–Jumat dan menyimpannya di folder pribadi masing-masing dalam repo squad (`tugas-mandiri/[nama]/tugas_<kode-sesi>.md`). **Tugas mandiri bersifat catatan pribadi murid (bukan artefak utama tim), dan hari Sabtu (`04f`) bebas tugas mandiri.** Total estimasi waktu Senin–Jumat: **110 menit (±1,8 jam)**.
+Setiap murid mengerjakan catatan latihan mandiri pada hari Selasa–Jumat dan menyimpannya di folder pribadi masing-masing dalam repo squad (`tugas-mandiri/[nama]/tugas_<kode-sesi>.md`). **Tugas mandiri bersifat catatan pribadi murid (bukan artefak utama tim); hari Senin (`04a`) dan hari Sabtu (`04f`) bebas tugas mandiri.** Total estimasi waktu: **90 menit (1,5 jam)**.
 
 | Sesi | Kode File | Nama Tugas Mandiri | Estimasi Waktu |
 |---|---|---|---|
-| 04a | `tugas_04a.md` | Naskah Pembuka (*The Hook*) 30 Detik + Latihan Stopwatch | 20 menit |
 | 04b | `tugas_04b.md` | Mengidentifikasi 1 Skenario Gagal pada Alur WhatsApp & Solusinya | 20 menit |
 | 04c | `tugas_04c.md` | Audit Mandiri Slide Bagian Bicara Masing-Masing | 25 menit |
 | 04d | `tugas_04d.md` | Catatan Evaluasi Diri Pasca-Gladi Resik (Waktu & Perbaikan) | 20 menit |
 | 04e | `tugas_04e.md` | **Jembatan Kode 3:** Verifikasi Commit & Pull Request Kode Latihan di GitHub Tim | 25 menit |
-| **Total** | | *(Hari Sabtu 04f bebas PR — refleksi dilakukan di kelas)* | **110 menit (1 jam 50 menit)** |
+| **Total** | | *(Senin 04a & Sabtu 04f bebas PR)* | **90 menit (1 jam 30 menit)** |
 
 ---
 

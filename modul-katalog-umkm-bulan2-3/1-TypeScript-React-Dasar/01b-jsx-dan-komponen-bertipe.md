@@ -6,7 +6,7 @@ Menulis komponen React pertama untuk Katalog UMKM: `ProductCard` dan `ProductLis
 
 ---
 
-## Aktivitas Terbimbing di Kelas (Blok 1, 10-15 Menit)
+## Aktivitas Terbimbing di Kelas (Blok 1 — Mini-Lesson ±25 Menit + Coding Terbimbing)
 
 Mentor akan memandu pembahasan konsep dasar berikut:
 - Mengapa JSX terlihat seperti HTML padahal sebenarnya adalah JavaScript murni.
@@ -165,24 +165,24 @@ Diskusikan bersama pasangan pairing:
 
 ## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
 
-Kerjakan secara mandiri di kelas. Simpan hasilnya di:  
-`tugas/squad-<nomor>/<nama-kamu>/tugas_01b.md`
+Kerjakan secara mandiri di kelas. Simpan hasilnya di repo proyekmu pada:  
+`tugas/tugas_01b.md` *(atau sesuai struktur folder arahan mentor)*
 
 ### Instruksi Pengerjaan
 
 1. Buat berkas baru sesuai path di atas.
-2. Buat komponen baru bernama `ProductBadge.tsx` sederhana di dalam pikiranmu atau catatan kode. Komponen ini menerima dua props bertipe:
+2. Buat komponen baru bernama `ProductBadge.tsx` sederhana (boleh tulis & uji langsung di proyek atau rancang rapi di catatan kode). Komponen ini menerima dua props bertipe:
    - `text`: bertipe `string`
    - `isDanger`: bertipe `boolean` (opsional, nilai bawaan `false`)
 3. Tuliskan kode komponen `ProductBadge` tersebut di dokumen markdown tugas.
 4. Jawab 2 pertanyaan singkat:
    - Mengapa kita wajib menyertakan atribut `key={product.id}` saat menggunakan `.map()` di React? Apa risikonya jika kita menggunakan indeks array (`key={index}`)?
    - Apa yang dimaksud dengan sifat props yang *read-only*? Mengapa komponen `ProductCard` dilarang mengubah langsung `product.price = 5000` di dalam bodinya?
-5. Commit berkas jawaban dan buat PR ke repository squad.
+5. Commit berkas jawaban di branch fiturmu dan buka PR di GitHub untuk direview rekan squad.
 
 ### Contoh Format Hasil (`tugas_01b.md`)
 
-```markdown
+````markdown
 # Tugas Mandiri 01b — JSX & Komponen Bertipe
 Nama: Siti Aisyah
 Squad: Squad 3
@@ -209,8 +209,8 @@ export default ProductBadge
 ## Jawaban Pertanyaan
 1. Atribut `key` adalah pengenal unik bagi React untuk melacak item mana yang ditambah, dihapus, atau diubah urutannya. Jika menggunakan indeks array (`key={index}`), saat data diurutkan ulang atau disaring, React bisa keliru merender state elemen dan menyebabkan bug tampilan.
 2. Sifat *read-only* berarti komponen anak hanya bertugas menampilkan data yang dikirimkan induknya tanpa hak mengubah sumber aslinya. Jika komponen anak mengubah nilai props langsung, alur data menjadi tidak terduga dan merusak prinsip alur data satu arah (*one-way data flow*).
-```
+````
 
 ---
 
-Lanjut ke: **01c-styling-kartu-produk.md**
+Lanjut ke: **[01c-styling-kartu-produk.md](01c-styling-kartu-produk.md)**

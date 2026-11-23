@@ -6,7 +6,7 @@ Memahami cara menangani interaksi pengguna (mengetik, mengklik, mengirim formuli
 
 ---
 
-## Aktivitas Terbimbing di Kelas (Blok 1, 10-15 Menit)
+## Aktivitas Terbimbing di Kelas (Blok 1 — Mini-Lesson ±25 Menit + Coding Terbimbing)
 
 Mentor akan memandu demonstrasi singkat:
 - Perbedaan penanganan event HTML klasik (`onclick="fn()"`) dengan React SyntheticEvent (`onClick={fn}`).
@@ -141,8 +141,8 @@ Diskusikan bersama rekan pairing:
 
 ## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
 
-Kerjakan secara mandiri di kelas. Simpan hasilnya di:  
-`tugas/squad-<nomor>/<nama-kamu>/tugas_02d.md`
+Kerjakan secara mandiri di kelas. Simpan hasilnya di repo proyekmu pada:  
+`tugas/tugas_02d.md` *(atau sesuai struktur folder arahan mentor)*
 
 ### Instruksi Pengerjaan
 
@@ -156,11 +156,11 @@ Kerjakan secara mandiri di kelas. Simpan hasilnya di:
 4. Jawab 2 pertanyaan pemahaman:
    - Apa yang dimaksud dengan istilah *Controlled Component* di React? Sebutkan dua atribut penting yang membuat sebuah input menjadi controlled!
    - Jelaskan bagaimana sintaks `[name]: value` pada JavaScript mempermudah kita saat membuat form dengan puluhan kolom input!
-5. Ajukan Pull Request ke repositori squad.
+5. Ajukan Pull Request di GitHub untuk direview rekan squad.
 
 ### Contoh Format Hasil (`tugas_02d.md`)
 
-```markdown
+````markdown
 # Tugas Mandiri 02d — Event Handling & Form
 Nama: Anisa Rahma
 Squad: Squad 3
@@ -230,8 +230,8 @@ export default CustomerFeedbackForm
 ## 2. Jawaban Pertanyaan Pemahaman
 1. *Controlled Component* adalah elemen formulir HTML yang nilainya dikendalikan dan disimpan langsung di dalam state React, bukan dibiarkan dikelola sendiri oleh memori DOM browser. Dua atribut kunci penentunya adalah `value` (yang disambungkan ke variabel state) dan `onChange` (yang memanggil fungsi setter state saat ada input baru).
 2. Sintaks `[name]: value` memanfaatkan fitur *computed property name*. Dengan memberikan atribut `name` pada tiap elemen input yang nilainya sama persis dengan nama properti di objek state, kita cukup menulis satu fungsi `handleChange` universal untuk menangani semua input berapapun jumlahnya.
-```
+````
 
 ---
 
-Lanjut ke: **02e-form-tambah-produk.md** (Slice 2)
+Lanjut ke: **[02e-form-tambah-produk.md](02e-form-tambah-produk.md)** *(Slice 2)*

@@ -6,7 +6,7 @@ Menampilkan daftar produk UMKM di halaman web dalam bentuk kartu-kartu rapi. Pad
 
 ---
 
-## Aktivitas Terbimbing di Kelas (Blok 1, 10-15 Menit)
+## Aktivitas Terbimbing di Kelas (Blok 1 — Mini-Lesson ±25 Menit + Coding Terbimbing)
 
 Mentor akan memandu pembahasan:
 - Cara merancang `interface` TypeScript untuk data produk UMKM.
@@ -72,36 +72,36 @@ import type { Product } from '../types/product'
 export const products: Product[] = [
   {
     id: 1,
-    name: 'Keripik Tempe Renyah 250g',
-    description: 'Keripik tempe kedelai lokal tanpa bahan pengawet.',
+    name: 'Keripik Tempe Original',
+    description: 'Keripik tempe renyah tanpa pengawet, kemasan 250 gram.',
     price: 18000,
-    stock: 45,
+    stock: 120,
     status: 'active',
     category_id: 1,
-    merchant_name: 'Dapur Bu Sri',
-    created_at: '2026-01-15T08:00:00Z',
+    merchant_name: 'Dapur Bu Sari',
+    created_at: '2026-01-12T08:00:00Z',
   },
   {
-    id: 2,
-    name: 'Sambal Roa Khas Manado 150g',
-    description: 'Sambal ikan roa asap pedas gurih aroma khas.',
-    price: 35000,
+    id: 5,
+    name: 'Kerudung Segi Empat Motif',
+    description: 'Kerudung voal segi empat, motif bunga.',
+    price: 65000,
     stock: 0, // Stok habis untuk menguji tampilan conditional rendering
     status: 'active',
-    category_id: 1,
-    merchant_name: 'Warung Bu Ani',
-    created_at: '2026-01-16T09:30:00Z',
+    category_id: 3,
+    merchant_name: 'Butik Kirana',
+    created_at: '2026-02-25T09:00:00Z',
   },
   {
     id: 3,
-    name: 'Kopi Bubuk Robusta Dampit 200g',
-    description: 'Biji kopi pilihan roasted medium dark khas Malang.',
-    price: 28000,
-    stock: 20,
+    name: 'Brownies Kukus Cokelat',
+    description: 'Brownies kukus lembut, satu loyang isi 8 potong.',
+    price: 35000,
+    stock: 25,
     status: 'draft',
-    category_id: 2,
-    merchant_name: 'Kopi Sejahtera',
-    created_at: '2026-01-17T11:00:00Z',
+    category_id: 1,
+    merchant_name: 'Kue Mbak Rina',
+    created_at: '2026-01-20T10:00:00Z',
   },
 ]
 ```
@@ -216,8 +216,8 @@ Diskusikan bersama pasangan pairing:
 
 ## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
 
-Kerjakan secara mandiri di kelas. Simpan hasilnya di:  
-`tugas/squad-<nomor>/<nama-kamu>/tugas_01d.md`
+Kerjakan secara mandiri di kelas. Simpan hasilnya di repo proyekmu pada:  
+`tugas/tugas_01d.md` *(atau sesuai struktur folder arahan mentor)*
 
 ### Instruksi Pengerjaan
 
@@ -229,14 +229,14 @@ Kerjakan secara mandiri di kelas. Simpan hasilnya di:
 4. Jawab 2 pertanyaan pemahaman:
    - Jika kita tidak sengaja menghapus atribut `key={product.id}` pada saat melakukan `.map()` di `ProductList.tsx`, apakah aplikasi langsung mati total (layar putih) atau tetap tampil dengan peringatan? Di mana peringatan itu bisa dilihat?
    - Mengapa kita meletakkan fungsi `formatRupiah` di folder `src/utils/` dan bukan menulisnya langsung berulang-ulang di dalam setiap komponen kartu?
-5. Commit hasil kerjamu dan ajukan Pull Request ke repositori squad.
+5. Commit hasil kerjamu dan ajukan Pull Request di GitHub untuk direview rekan squad.
 
 ### Contoh Format Hasil (`tugas_01d.md`)
 
-```markdown
+````markdown
 # Tugas Mandiri 01d — Slice 0: List Rendering
 Nama: Muhammad Farhan
-Squad: Squad 4
+Squad: Squad 2
 Tanggal: 6 November 2026
 
 ## 1. Modifikasi Tipe Data Produk
@@ -265,8 +265,8 @@ export interface Product {
 ## 3. Jawaban Pertanyaan
 1. Aplikasi tidak langsung mati layar putih, kartu-kartu produk tetap muncul di halaman. Namun, browser console (F12) akan memunculkan pesan peringatan merah (*Warning: Each child in a list should have a unique "key" prop*).
 2. Memisahkan fungsi ke `src/utils/format.ts` menerapkan prinsip *Don't Repeat Yourself (DRY)*. Fungsi tersebut dapat digunakan ulang di halaman lain (seperti halaman detail dan form keranjang) tanpa perlu menduplikasi kode logika yang sama.
-```
+````
 
 ---
 
-Lanjut ke: **02a-state-dan-usestate.md** (Minggu 2)
+Lanjut ke: **[02a-state-dan-usestate.md](02a-state-dan-usestate.md)** *(Minggu 2)*

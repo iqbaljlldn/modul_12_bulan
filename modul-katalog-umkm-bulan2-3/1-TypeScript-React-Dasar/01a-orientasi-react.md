@@ -2,13 +2,13 @@
 
 ## Tujuan Sesi Ini
 
-Memahami **apa** itu React, **kenapa** kita memilih React (bukan manipulasi DOM biasa seperti di pre-class), dan **bagaimana** repositori starter yang akan kita kerjakan selama beberapa bulan ke depan disusun.
+Memahami **apa** itu React, **kenapa** kita memilih React (bukan manipulasi DOM biasa seperti di pre-program), dan **bagaimana** struktur proyek `katalog-umkm` yang baru kamu rakit di Bab 0 disusun.
 
-> Sesi ini berfokus pada pembentukan *mental model*, eksplorasi kode starter, dan tanya jawab di kelas. Belum ada kode fitur baru yang ditulis ke aplikasi Katalog.
+> Sesi ini berfokus pada pembentukan *mental model*, eksplorasi proyek awal, dan tanya jawab di kelas. Belum ada kode fitur baru yang ditulis ke aplikasi Katalog.
 
 ---
 
-## Aktivitas Terbimbing di Kelas (Blok 1, 10-15 Menit)
+## Aktivitas Terbimbing di Kelas (Blok 1 — Mini-Lesson ±25 Menit + Eksplorasi)
 
 Mentor akan memandu membaca dan mendiskusikan konsep inti ini bersama:
 
@@ -46,42 +46,40 @@ React adalah pustaka (*library*) JavaScript khusus untuk membangun antarmuka pen
 
 ---
 
-## Mengenal Lingkungan Starter Repo
+## Mengenal Lingkungan Proyek `katalog-umkm`
 
-Buka proyek `katalog-umkm-starter` yang sudah kamu siapkan di bab 0.
+Buka proyek `katalog-umkm` yang sudah kamu rakit pada sesi [02-setup-starter.md](../0-Persiapan/02-setup-starter.md).
 
 ### 1. Menjalankan Server Lokal
 
 Buka terminal di folder proyek dan jalankan:
 
 ```bash
-npm install
 npm run dev
 ```
 
-Buka `http://localhost:5173` di browser. Kamu akan melihat halaman pembuka awal:
-```text
-Katalog UMKM
-Starter siap. Mulai dari Slice 0 (lihat README).
-```
+Buka `http://localhost:5173` di browser untuk memastikan server Vite berjalan, dan `http://localhost:3001/products` untuk melihat data JSON dari `json-server`.
 
 ### 2. Memahami Struktur Folder
 
 ```text
-katalog-umkm-starter/
+katalog-umkm/
 ├── public/                   # Berkas statis (ikon, favicon, gambar aset)
 ├── src/                      # Pusat seluruh kode yang akan kita tulis
 │   ├── App.tsx               # Komponen induk tempat merangkai halaman
+│   ├── config.ts             # Alamat API (VITE_API_URL / http://localhost:3001)
 │   ├── main.tsx              # Titik masuk utama aplikasi (entry point)
 │   └── index.css             # Berkas gaya tampilan global
-├── db.seed.json              # Data acuan awal produk UMKM
-├── package.json              # Daftar pustaka & skrip proyek (json-server terkunci di 0.17.x)
+├── db.seed.json              # Data acuan awal (4 kategori, 6 produk UMKM)
+├── db.json                   # Database aktif json-server (di-ignore Git)
+├── .oxlintrc.json            # Aturan pengecekan cepat linter React & TypeScript
+├── package.json              # Daftar pustaka & skrip proyek (json-server dikunci di 0.17.4)
 ├── tsconfig.json             # Pengaturan aturan compiler TypeScript
 └── vite.config.ts            # Konfigurasi bundler Vite
 ```
 
 > **Catatan Penting `json-server` (Port 3001):**  
-> Perintah `npm run dev` menjalankan dua hal sekaligus: aplikasi React di port 5173 dan mock API (`json-server`) di port 3001. API palsu ini bertindak seolah-olah backend sungguhan yang membaca `db.seed.json`.
+> Perintah `npm run dev` menjalankan dua hal sekaligus: aplikasi React di port 5173 dan mock API (`json-server`) di port 3001. API palsu ini membaca dan menulis ke file **`db.json`** (yang disalin dari cetakan `db.seed.json` lewat `npm run reset-db`).
 
 ---
 
@@ -99,8 +97,8 @@ Kerjakan bersama pasangan pairing sebelum masuk ke tugas mandiri:
 
 ## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
 
-Kerjakan tugas ini secara mandiri di kelas. Simpan jawaban dalam berkas markdown di repositori squad dengan format:  
-`tugas/squad-<nomor>/<nama-kamu>/tugas_01a.md`
+Kerjakan tugas ini secara mandiri di kelas sebagai catatan belajar pribadi. Simpan jawaban di repositori proyekmu pada path:  
+`tugas/tugas_01a.md` *(atau sesuai struktur folder arahan mentor)*.
 
 ### Instruksi Pengerjaan
 
@@ -109,14 +107,14 @@ Kerjakan tugas ini secara mandiri di kelas. Simpan jawaban dalam berkas markdown
 3. Jawab 3 pertanyaan pemahaman berikut dengan bahasamu sendiri (maksimal 2-3 kalimat per nomor, jangan menyalin kalimat modul kata-per-kata):
    - **Pertanyaan 1:** Apa perbedaan mendasar antara SPA (*Single Page Application*) dengan website konvensional (*Multi-Page Application*)? Berikan satu contoh pengalaman pengguna di keduanya.
    - **Pertanyaan 2:** Mengapa React menggunakan Virtual DOM dan tidak langsung mengutak-atik DOM browser secara langsung setiap kali ada perubahan data?
-   - **Pertanyaan 3:** Di dalam starter, sebutkan berkas mana yang menjadi "pintu masuk utama" (*entry point*) aplikasi, dan jelaskan apa fungsi `json-server` di port 3001.
+   - **Pertanyaan 3:** Di proyek `katalog-umkm`, sebutkan berkas mana yang menjadi "pintu masuk utama" (*entry point*) aplikasi, dan jelaskan apa fungsi `json-server` di port 3001.
 4. Lampirkan ringkasan hasil inspeksi dari file `db.seed.json`: sebutkan berapa banyak produk contoh yang tersedia dan sebutkan 4 nama field yang ada di dalamnya.
-5. Commit berkas tugas tersebut ke branch fiturnu dan buka PR di GitHub squad untuk direview rekan.
+5. Commit berkas tugas tersebut ke branch baru dan buka PR di GitHub agar rekan satu squad bisa meninjau.
 
 ### Contoh Format Hasil (`tugas_01a.md`)
 
-```markdown
-# Tugas Mandiri 01a — Orientasi React & Starter
+````markdown
+# Tugas Mandiri 01a — Orientasi React & Pondasi Proyek
 Nama: Ahmad Dahlan
 Squad: Squad 2
 Tanggal: 3 November 2026
@@ -124,13 +122,13 @@ Tanggal: 3 November 2026
 ## Jawaban Pertanyaan Pemahaman
 1. SPA memuat satu halaman HTML di awal dan mengganti konten lewat JavaScript tanpa refresh, seperti saat berpindah tab di Twitter/X. Website konvensional memuat ulang seluruh halaman dari awal setiap kali kita mengeklik link baru.
 2. React memakai Virtual DOM agar tidak boros tenaga. React membandingkan dulu perubahan data di memori tiruan, lalu hanya mengupdate elemen yang benar-benar berubah di browser asli.
-3. Pintu masuk utama adalah `src/main.tsx`. Sedangkan `json-server` adalah server API tiruan yang melayani data produk di port 3001 seolah-olah ada server backend sungguhan.
+3. Pintu masuk utama adalah `src/main.tsx`. Sedangkan `json-server` adalah server API tiruan yang melayani data produk di port 3001 dari `db.json` seolah-olah ada server backend sungguhan.
 
 ## Inspeksi `db.seed.json`
-- Total produk awal: 12 produk.
+- Total produk awal: 6 produk (4 kategori).
 - Contoh 4 nama field: `id`, `name`, `price`, `stock`.
-```
+````
 
 ---
 
-Lanjut ke: **01b-jsx-dan-komponen-bertipe.md**
+Lanjut ke: **[01b-jsx-dan-komponen-bertipe.md](01b-jsx-dan-komponen-bertipe.md)**

@@ -8,7 +8,7 @@ Membersihkan seluruh basis kode Mini Katalog UMKM v1 (Slice 0-4), memastikan tid
 
 ---
 
-## Aktivitas Terbimbing di Kelas (Blok 1, 10-15 Menit)
+## Aktivitas Terbimbing di Kelas (Blok 1 — Mini-Lesson ±25 Menit + Audit Kode)
 
 Mentor akan memandu checklist audit kualitas kode bersama di proyektor:
 1. Menjalankan linter cepat `npm run lint` dan membedah arti pesan peringatan yang sering muncul.
@@ -79,7 +79,7 @@ npm run build
 
 ## Panduan Showcase Akhir Bulan 2 (Sabtu)
 
-Pada sesi Sprint Review hari Sabtu, tiap squad akan mendemokan Mini Katalog UMKM v1 di depan seluruh tribe (durasi 10-12 menit per squad):
+Pada sesi Sprint Review hari Sabtu, ketiga squad akan mendemokan Mini Katalog UMKM v1 di depan seluruh tribe (durasi 12-15 menit per squad):
 
 1. **Live Demo Fitur (5 menit):** Tunjukkan alur lengkap: tambah produk UMKM baru → ubah harganya secara inline → klik nama barang untuk melihat detailnya → hapus produk contoh.
 2. **Sorotan Kode Kebanggaan (3 menit):** Tunjukkan 1 bagian kode yang paling kalian pahami dan banggakan (misalnya penanganan `ApiError` 404 atau isolasi state `isEditing`).
@@ -90,8 +90,8 @@ Pada sesi Sprint Review hari Sabtu, tiap squad akan mendemokan Mini Katalog UMKM
 
 ## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
 
-Kerjakan secara mandiri di kelas. Simpan hasilnya di:  
-`tugas/squad-<nomor>/<nama-kamu>/tugas_04c.md`
+Kerjakan secara mandiri di kelas. Simpan hasilnya di repo proyekmu pada:  
+`tugas/tugas_04c.md` *(atau sesuai struktur folder arahan mentor)*
 
 ### Instruksi Pengerjaan
 
@@ -101,11 +101,11 @@ Kerjakan secara mandiri di kelas. Simpan hasilnya di:
 4. Tuliskan refleksi pribadi singkat (3-5 kalimat) menjawab pertanyaan:
    - Dari seluruh materi Bulan 2 (JSX, Props, State, useEffect, Fetch API, Form Controlled, PATCH/DELETE, dan React Router), konsep mana yang awalnya terasa paling sulit tetapi sekarang sudah kamu pahami?
    - Mengapa proses refactoring dan membersihkan kode mati (*dead code*) sebelum showcase sangat penting bagi reputasi sebuah tim pengembang software?
-5. Ajukan Pull Request ke repositori squad untuk dimerge sebelum hari Sabtu.
+5. Ajukan Pull Request di GitHub untuk direview rekan squad sebelum sesi Gladi Resik & Showcase Sabtu.
 
 ### Contoh Format Hasil (`tugas_04c.md`)
 
-```markdown
+````markdown
 # Tugas Mandiri 04c — Konsolidasi & Code Audit
 Nama: Rahmat Hidayatullah
 Squad: Squad 1
@@ -117,7 +117,7 @@ $ npm run lint
 oxlint: 0 errors, 0 warnings found.
 
 $ npm run build
-vite v6.x.x building for production...
+vite v8.x.x building for production...
 ✓ 34 modules transformed.
 dist/index.html                   0.48 kB │ gzip: 0.31 kB
 dist/assets/index-D1a2B3c.css     2.15 kB │ gzip: 0.85 kB
@@ -128,9 +128,9 @@ dist/assets/index-X9y8Z7w.js    158.42 kB │ gzip: 51.20 kB
 ## 2. Refleksi Pribadi Akhir Bulan 2
 - Konsep yang awalnya paling membingungkan bagi saya adalah `useEffect` dan dependency array `[id]`. Awalnya saya tidak mengerti mengapa fetch data tidak boleh ditaruh langsung di badan fungsi dan mengapa halaman detail sempat tidak mau mengupdate data saat URL berganti. Setelah dibantu mentor dengan analogi pelayan restoran dan praktik langsung kasus 404, sekarang saya paham betul bagaimana React mengontrol siklus hidup komponennya.
 - Membersihkan kode mati dan merapikan impor sangat penting karena kode yang berantakan akan menyulitkan rekan satu squad yang harus membaca atau melanjutkan fitur kita di Bulan 3. Kode yang lolos lint dan build membuktikan bahwa tim kita bekerja secara profesional, teliti, dan bertanggung jawab terhadap kualitas produk yang diserahkan ke pengguna.
-```
+````
 
 ---
 
 Selamat! **Mini Katalog UMKM v1 tuntas diselesaikan dengan standar software engineering yang solid!** 🎉  
-Setelah sesi Sprint Review dan Retrospektif hari Sabtu, kita siap melangkah ke **Bulan 3: React Lanjutan (Slice 5 - 8)** di folder `2-React-Lanjutan/`.
+Setelah sesi Sprint Review dan Retrospektif hari Sabtu, kita siap melangkah ke **Bulan 3: React Lanjutan (Slice 5 - 8)** → **[01a-styling-tailwind-dan-komponen-ui.md](../2-React-Lanjutan/01a-styling-tailwind-dan-komponen-ui.md)**

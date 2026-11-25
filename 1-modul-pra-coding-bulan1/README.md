@@ -68,14 +68,18 @@ Evaluasi dilakukan melalui **Checklist Kapabilitas** (status: *Siap*, *Hampir Si
 │   ├── 03e-dari-desain-ke-rencana-fitur.md
 │   └── 03f-review-dan-evaluasi-minggu3.md
 │
-└── 4-Pitching-dan-Showcase/                  # Minggu 4 (6 sesi)
-    ├── PANDUAN-MENTOR.md
-    ├── 04a-pitching-dasar.md
-    ├── 04b-ai-untuk-merancang-alur-aplikasi.md
-    ├── 04c-menyusun-pitch-deck.md
-    ├── 04d-gladi-resik-dan-peer-feedback.md
-    ├── 04e-git-untuk-mengelola-artefak.md
-    └── 04f-showcase-pitch-day.md
+├── 4-Pitching-dan-Showcase/                  # Minggu 4 (6 sesi)
+│   ├── PANDUAN-MENTOR.md
+│   ├── 04a-pitching-dasar.md
+│   ├── 04b-ai-untuk-merancang-alur-aplikasi.md
+│   ├── 04c-menyusun-pitch-deck.md
+│   ├── 04d-gladi-resik-dan-peer-feedback.md
+│   ├── 04e-git-untuk-mengelola-artefak.md
+│   └── 04f-showcase-pitch-day.md
+│
+└── 5-Ujian-Bulanan-Hackathon/                # Ujian Bulanan 1 (3 hari build + 2 hari pitching)
+    ├── 01-panduan-hackathon-landing-page.md  # Panduan hackathon landing page produk fiktif (individual)
+    └── PENILAIAN-JURI-DAN-MENTOR.md          # Rubrik & lembar penilaian khusus juri/mentor
 ```
 
 ---
@@ -88,6 +92,7 @@ Evaluasi dilakukan melalui **Checklist Kapabilitas** (status: *Siap*, *Hampir Si
 | **2: Computational Thinking** | Dokumen 4 Pilar CT & Pseudocode Diskon/Ongkir (`02a-02b`), 2 Flowchart (Pemesanan WA & Tambah Produk), Draf ERD (`ItemPesanan` & data pembeli), Blueprint Fitur Terpadu (`02e`) | **Jembatan Kode 1:** Fungsi JS hitung diskon/ongkir + dry run table (`tugas_02b.md`) | Fungsi JS logika bisnis (`02b`), flowchart validasi (`02c`), draf relasi ERD (`02d`), audit blueprint cacat (`02e`) |
 | **3: Desain UX & Bisnis** | Laporan UX Review, Wireframe 3 Halaman, Value Proposition Canvas, Catatan Wawancara 1 UMKM Nyata, Persona & MoSCoW, Backlog Slice 0 | **Jembatan Kode 2:** Halaman HTML/CSS statis hitam-putih dari wireframe | Observasi UX harian, halaman HTML/CSS kartu produk, jurnal belajar wawancara, analisis kebutuhan persona, penulisan user story & AC, refleksi Sprint 3 |
 | **4: Pitching & Showcase** | Script Pitch 5 Babak, User flow tervalidasi alur WA, Pitch Deck 7 Slide berbasis riset nyata, Repositori GitHub terorganisir | **Jembatan Kode 3:** Commit & PR kode latihan JS dan HTML/CSS ke repositori | Audit skenario gagal alur WA, review slide mandiri, refleksi gladi resik, verifikasi branch Git *(Senin 04a & Sabtu 04f bebas PR)* |
+| **Ujian Bulanan 1 (Hackathon)** | *(Penilaian individual)* | **Landing Page Produk Fiktif:** HTML/CSS (+ JS ringan opsional), mobile-first `375px`, commit bertahap di GitHub, & live pitch 5 babak | 1 landing page produk fiktif + presentasi live demo & Bedah Kode 60 Detik *(3 hari build + 2 hari pitching)* |
 
 ---
 

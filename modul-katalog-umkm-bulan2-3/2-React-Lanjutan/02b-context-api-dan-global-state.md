@@ -175,20 +175,27 @@ function TombolContoh() {
 
 ---
 
-## Latihan Mandiri (30 Menit)
+## Latihan Terbimbing & Pairing (Blok 2, 30 Menit)
 
+Kerjakan berpasangan (driver/navigator):
 1. **Uji Error Boundary:**
    Coba panggil `useToast()` di komponen sementara di luar `<ToastProvider>`. Amati pesan error di console browser yang memberitahu bahwa Provider belum dipasang.
 2. **Eksperimen Durasi:**
-   Ubah durasi timeout di `ToastProvider` dari 3000ms menjadi 1500ms. Perhatikan perubahan kecepatan hilangnya notifikasi di layar.
+   Ubah durasi timeout di `ToastProvider` dari 3000ms menjadi 1500ms. Perhatikan perubahan kecepatan hilangnya notifikasi di layar, lalu kembalikan ke 3000ms.
 
 ---
 
-## Cek Pemahaman
+## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
 
-1. Mengapa `ToastContext` diinisialisasi dengan nilai `null` di `createContext<ToastContextValue | null>(null)`?
-2. Mengapa pemisahan 3 file (`Context`, `Provider`, `Hook`) lebih disukai daripada menaruh semuanya di satu file `Toast.tsx`?
-3. Sebutkan satu contoh kasus penggunaan Context API selain sistem notifikasi (toast)!
+Kerjakan individual di kelas dan simpan hasilnya di repositori proyekmu pada:  
+`tugas/tugas_02b.md`
+
+1. Tuliskan identitas diri (Nama, Squad, Tanggal).
+2. Jelaskan jawaban 3 pertanyaan berikut dengan bahasamu sendiri:
+   - Mengapa `ToastContext` diinisialisasi dengan nilai `null` di `createContext<ToastContextValue | null>(null)`?
+   - Mengapa pemisahan 3 file (`ToastContext.ts`, `ToastProvider.tsx`, `useToast.ts`) lebih disukai dibanding menaruh semuanya di satu file `Toast.tsx`? *(Kaitkan dengan aturan `oxlint` / Vite Fast Refresh!)*
+   - Sebutkan satu contoh kasus penggunaan Context API di aplikasi UMKM selain sistem notifikasi (toast)!
+3. Commit dan buka PR di repositori pribadimu untuk direview rekan squad.
 
 ---
 

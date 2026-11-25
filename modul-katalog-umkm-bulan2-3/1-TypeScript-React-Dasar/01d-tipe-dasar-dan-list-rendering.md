@@ -269,4 +269,17 @@ export interface Product {
 
 ---
 
+## Misi Squad Mingguan (Persiapan Sprint Review 1 — Sabtu)
+
+Walaupun setiap anggota membangun di **repositori pribadi (`katalog-umkm`)** masing-masing, squad tetap bekerja sebagai satu tim untuk Sprint Review Sabtu (durasi **12-15 menit per squad**):
+
+1. **Saling Review PR (Wajib sebelum merge):** Pastikan keempat anggota squad sudah membuka PR Slice 0 di repo masing-masing dan mendapat minimal 1 review/approval dari rekan satu squad.
+2. **Simulasi & Cek Kelayakan Demo:** Di Blok 3 Hari 5, pastikan aplikasi di laptop *setiap* anggota squad bisa berjalan mulus (`npm run dev`, `npm run lint`, dan `npm run build` lolos 0 error) — mentor bisa mengundi repo siapa saja untuk tampil di proyektor hari Sabtu.
+3. **Pembagian Peran Demo Squad:**
+   - **Driver Demo (1-2 orang):** Menjalankan aplikasi di browser dan menunjukkan daftar kartu produk + badge `Draft`/`Stok Habis`.
+   - **Code Explorer (1 orang):** Memperlihatkan `interface Product` dan fungsi `.map()` dengan `key` unik di VS Code.
+   - **Bug Storyteller (1 orang):** Menceritakan 1 error/bug TypeScript atau JSX paling menarik yang ditemui squad minggu ini dan cara menyelesaikannya.
+
+---
+
 Lanjut ke: **[02a-state-dan-usestate.md](02a-state-dan-usestate.md)** *(Minggu 2)*

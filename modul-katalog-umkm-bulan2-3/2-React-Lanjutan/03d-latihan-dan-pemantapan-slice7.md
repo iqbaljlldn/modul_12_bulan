@@ -1,11 +1,11 @@
 # 2.3d Latihan & Pemantapan Slice 7
 
 > **Tujuan sesi:** Memperdalam pemahaman arsitektur state di URL, penanganan kondisi tepi (*edge cases*) pencarian kosong, dan tombol reset filter.  
-> **Format:** Praktik mandiri / pair programming (45-60 menit) + peer review.
+> **Format:** Blok 2 (Pairing & Eksperimen) → Blok 3 (Tugas Mandiri + PR Review Squad).
 
 ---
 
-## Latihan 1: Tampilan Status Kosong (*Empty State*) & Reset Filter
+## Latihan 1: Tampilan Status Kosong (*Empty State*) & Reset Filter (Blok 2)
 
 Saat ini, jika pengguna mencari kata kunci yang tidak ada hasilnya (misalnya `"zzzzzzz"`), daftar produk kosong tanpa ada pesan ramah.
 
@@ -31,7 +31,7 @@ Saat ini, jika pengguna mencari kata kunci yang tidak ada hasilnya (misalnya `"z
 
 ---
 
-## Latihan 2: Pengujian Navigasi Riwayat Browser (Back & Forward)
+## Latihan 2: Pengujian Navigasi Riwayat Browser (Back & Forward — Blok 2)
 
 Karena state kita sekarang tersimpan di URL via `useSearchParams`, tombol panah **Back** (Kembali) dan **Forward** (Maju) di pojok kiri atas browser seharusnya berfungsi seperti saat kita menjelajahi website biasa.
 
@@ -48,18 +48,36 @@ Jika semua bekerja mulus, kamu baru saja merasakan kekuatan arsitektur URL-as-St
 
 ---
 
-## Checklist Code Review Slice 7
+## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
 
-Sebelum mengajukan PR ke branch tim:
+Kerjakan individual di kelas dan simpan hasilnya di repositori proyekmu pada:  
+`tugas/tugas_03d.md`
 
-- [ ] Fungsi `fetchPage` membaca header `X-Total-Count` secara tepat.
-- [ ] Custom hook `useDebouncedValue` memiliki timer dan fungsi cleanup `clearTimeout`.
-- [ ] Nilai input pencarian terbagi menjadi dua: `urlFilters.q` (instan) dan `activeFilters.q` (debounced).
-- [ ] Objek filter selalu menyertakan `page: 1` setiap kali query teks atau kategori berganti.
-- [ ] Komponen `ProductFilters` bersifat murni terkontrol (*controlled component* tanpa state mandiri).
-- [ ] Komponen `Pagination` otomatis menonaktifkan tombol di batas minimum (1) dan maksimum (`totalPages`).
-- [ ] Halaman dapat di-refresh dan dibagikan link-nya tanpa kehilangan kondisi filter.
-- [ ] `npm run lint` dan `npm run build` lulus tanpa kesalahan.
+1. Tuliskan identitas diri (Nama, Squad, Tanggal).
+2. Dokumentasikan skenario uji Empty State & tombol Back/Forward: apa yang muncul di layar saat kata kunci `"zzzzzzz"` diketik, dan apakah `Reset Semua Filter` membersihkan query string URL?
+3. Jalankan `npm run lint` dan `npm run build` dan tempelkan output suksesnya.
+
+---
+
+## Checklist Code Review Dasar Slice 7 (PR Repo Pribadi)
+
+Ajukan PR ke branch `main` repositori pribadimu, lalu minta review minimal **1 rekan satu squad**:
+
+- [ ] **Nama & Struktur Jelas:** `fetchPage`, `useDebouncedValue`, `ProductFilters`, `Pagination` dan tipe `ProductFilters` tertata rapi.
+- [ ] **Tipe TypeScript Benar:** Header `X-Total-Count` dibaca via `fetchPage<T>` tanpa `any`; props `ProductFilters` dan `Pagination` bertipe eksplisit.
+- [ ] **Cek Celah Bug:** `useDebouncedValue` punya cleanup `clearTimeout`; `urlFilters.q` terpisah dari `activeFilters.q`; perubahan filter mereset `page: 1`; `F5` dan tombol Back/Forward mempertahankan filter.
+- [ ] **Bisa Dijalankan & Lolos Audit:** `npm run lint` (`oxlint`) dan `npm run build` lulus tanpa kesalahan atau warning.
+
+---
+
+## Misi Squad Mingguan (Persiapan Sprint Review 3 — Sabtu)
+
+1. **PR Cross-Review Antaranggota:** Pastikan ke-4 anggota squad sudah selesai me-review PR Slice 7 masing-masing.
+2. **Siap Diundi Mentor:** Cek bersama bahwa `db.seed.json` punya cukup data uji (minimal > 6 produk bila ingin menguji 2 halaman, atau klik `Tambah Produk` agar pagination aktif di keempat laptop!).
+3. **Pembagian Peran Demo Squad (12-15 menit):**
+   - **Driver Demo:** Mendemokan ketik pencarian → ganti kategori → pindah halaman 2 → tekan **F5** (filter tetap utuh) → uji `"zzzzzzz"` (*Empty State*) → Reset Filter.
+   - **Network Inspector:** Membuktikan jeda debounce 400ms (hanya 1 request terkirim) dan menunjukkan header `X-Total-Count` di tab Response Headers.
+   - **Code & Bug Storyteller:** Menjelaskan kenapa dependency array `useProducts` harus field-by-field (`filters.q`, dst) dan menceritakan 1 bug paling berkesan minggu ini.
 
 ---
 

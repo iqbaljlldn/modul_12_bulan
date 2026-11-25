@@ -18,7 +18,7 @@ Tiga capaian produk nyata sekaligus yang saling berkaitan:
 
 Kategori adalah **data relasi pertama** yang kita gunakan secara nyata di aplikasi (`products.category_id` merujuk pada `categories.id`) — ini menjadi modal penting sebelum kita mempelajari relasi tabel *Foreign Key* di database PostgreSQL asli pada Bulan 4.
 
-Standar styling Tailwind disepakati sekali di awal Bulan 3 agar saat nanti peserta dipecah menjadi beberapa squad di fase berikutnya, antarmuka produk tetap konsisten dan tidak saling tabrak gaya.
+Standar styling Tailwind disepakati sekali di awal Bulan 3 agar ke-3 squad bekerja dengan standar komponen yang seragam sebelum nanti berkolaborasi penuh dalam satu repositori produk di Bulan 5.
 
 ---
 
@@ -132,16 +132,17 @@ Terapkan hal yang sama pada `src/components/ProductEditForm.tsx`.
 
 ---
 
-### 4. Tampilkan Badge Kategori di Kartu Produk
+### 4. Teruskan `categories` di `ProductList.tsx` & Tampilkan Badge di `ProductCard.tsx`
 
-Buka `src/components/ProductCard.tsx`.
-Terima prop `categories: Category[]`. Cari nama kategori yang sesuai dengan `product.category_id`:
+1. Buka `src/components/ProductList.tsx`. Tambahkan prop `categories: Category[]` pada `ProductListProps`, lalu teruskan `categories={categories}` ke setiap `<ProductCard />`.
+2. Buka `src/components/ProductCard.tsx`. Terima prop `categories: Category[]`. Cari nama kategori yang sesuai dengan `product.category_id`:
 
 ```tsx
-const categoryName = categories.find((cat) => cat.id === product.category_id)?.name ?? 'Tanpa Kategori'
+const categoryName =
+  categories.find((cat) => cat.id === Number(product.category_id))?.name ?? 'Tanpa Kategori'
 ```
 
-Tampilkan sebagai badge di dalam kartu:
+Tampilkan sebagai badge sementara di dalam kartu *(akan kita refaktor memakai komponen `<Badge />` di unit `01d`)*:
 ```tsx
 <div className="flex items-center gap-2">
   <span className="rounded bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-600">
@@ -215,6 +216,17 @@ export default ProductsPage
 | Tampilan polos tanpa style Tailwind | Lupa `@import "tailwindcss";` di `index.css` atau plugin belum terdaftar di `vite.config.ts` | Periksa konfigurasi Vite dan import CSS |
 | Badge kategori tertulis "Tanpa Kategori" | Data `categories` masih kosong saat render awal atau tipe `id` tidak cocok (string vs number) | Pastikan perbandingan menggunakan tipe angka: `cat.id === Number(product.category_id)` |
 | Hook error: "Rendered fewer hooks than expected" | Memanggil hook di dalam blok `if` atau `try/catch` | Pindahkan semua panggilan hook ke baris-baris paling atas komponen |
+
+---
+
+## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
+
+Kerjakan individual di kelas dan simpan hasilnya di repositori proyekmu pada:  
+`tugas/tugas_01c.md`
+
+1. Tuliskan identitas diri (Nama, Squad, Tanggal).
+2. Bandingkan secara ringkas struktur `ProductsPage.tsx` milikmu di akhir Bulan 2 dengan sesudah memakai `useProducts` + `useCategories`: logika apa saja yang berhasil dipindahkan keluar dari komponen UI?
+3. Tambahkan 1 produk baru dari form dengan kategori `Kerajinan` atau `Fashion`, lalu catat isi objek produk terbaru tersebut dari `db.json` (pastikan `category_id` bukan lagi selalu `1`).
 
 ---
 

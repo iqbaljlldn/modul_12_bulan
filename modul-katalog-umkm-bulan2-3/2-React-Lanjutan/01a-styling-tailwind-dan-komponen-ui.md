@@ -18,9 +18,9 @@ Di Bulan 3, tribe mengambil **keputusan standar styling**. Modul ini memakai **T
 
 ## 1. Menyiapkan Tailwind CSS v4 di Vite
 
-Di project kita, Tailwind v4 terintegrasi langsung lewat plugin Vite `@tailwindcss/vite`:
+Di project `katalog-umkm` yang sudah kita rakit dari Bulan 2, Tailwind v4 terintegrasi langsung lewat plugin Vite `@tailwindcss/vite`:
 
-### Instalasi paket (sudah disiapkan di starter v2)
+### Instalasi paket di folder proyek `katalog-umkm`
 ```bash
 npm install tailwindcss @tailwindcss/vite
 ```
@@ -140,22 +140,31 @@ Perhatikan:
 
 ---
 
-## Latihan Mandiri (30 Menit)
+## Latihan Terbimbing & Pairing (Blok 2, 30 Menit)
 
+Kerjakan berpasangan (driver/navigator):
 1. **Uji coba di sandbox:** Buat komponen uji coba yang menampilkan ketiga varian `Button` (`primary`, `secondary`, `danger`) serta kondisi `disabled={true}`. Pastikan cursor berubah menjadi `not-allowed` dan opacity berkurang saat disabled.
 2. **Buat komponen `Badge.tsx`:**
-   Buat file `src/components/ui/Badge.tsx` dengan varian:
-   - `default`: latar abu-abu (`bg-slate-100 text-slate-700`)
-   - `success`: latar hijau muda (`bg-emerald-50 text-emerald-700 border border-emerald-200`)
-   - `warning`: latar kuning/oranye (`bg-amber-50 text-amber-700 border border-amber-200`)
+   Buat file `src/components/ui/Badge.tsx` dengan `type BadgeVariant = 'neutral' | 'success' | 'warning' | 'info'` dan mapping kelas:
+   - `neutral`: `bg-slate-100 text-slate-700`
+   - `success`: `bg-emerald-50 text-emerald-700 border border-emerald-200`
+   - `warning`: `bg-amber-50 text-amber-700 border border-amber-200`
+   - `info`: `bg-sky-50 text-sky-700 border border-sky-200`
 
 ---
 
-## Cek Pemahaman
+## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
 
-1. Apa keuntungan `extends ButtonHTMLAttributes<HTMLButtonElement>` dibanding menulis sendiri prop `onClick` dan `disabled`?
-2. Mengapa kita menggabungkan `className` bawaan dengan `className` tambahan dari prop (`${variantClasses[variant]} ${className}`)?
-3. Jika tribe memutuskan menggunakan CSS Module alih-alih Tailwind, apa saja yang perlu diubah dari komponen `Button` di atas?
+Kerjakan individual di kelas dan simpan hasilnya di repositori proyekmu pada:  
+`tugas/tugas_01a.md`
+
+1. Tuliskan identitas diri (Nama, Squad, Tanggal).
+2. Tempelkan kode komponen `src/components/ui/Badge.tsx` yang kamu buat beserta contoh pemakaian keempat variannya.
+3. Jawab 3 pertanyaan pemahaman berikut:
+   - Apa keuntungan `extends ButtonHTMLAttributes<HTMLButtonElement>` dibanding menulis sendiri prop `onClick` dan `disabled`?
+   - Mengapa kita menggabungkan `className` bawaan dengan `className` tambahan dari prop (`${variantClasses[variant]} ${className}`)?
+   - Jika tribe memutuskan menggunakan CSS Module alih-alih Tailwind, apa saja yang perlu diubah dari komponen `Button` di atas?
+4. Commit dan ajukan PR ke repositori pribadimu untuk direview rekan squad.
 
 ---
 

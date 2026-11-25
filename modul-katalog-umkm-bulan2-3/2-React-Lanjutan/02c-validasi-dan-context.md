@@ -7,7 +7,7 @@
 
 ## Tujuan Slice Ini
 
-1. Form tambah produk dan edit produk sekarang **memvalidasi input sebelum dikirim ke API** (bukan hanya mengandalkan `required` HTML bawaan).
+1. Form tambah produk dan form edit inline sekarang **memvalidasi input sebelum dikirim ke API** (bukan hanya mengandalkan `required` HTML bawaan).
 2. Input yang bermasalah ditandai secara visual dengan border merah, atribut `aria-invalid`, dan pesan kesalahan teks di bawahnya.
 3. Aplikasi memiliki sistem **notifikasi mengambang (toast)** yang muncul saat produk berhasil ditambah, diubah, atau dihapus, memanfaatkan React Context.
 
@@ -21,34 +21,34 @@ Sementara itu, notifikasi toast memberikan kepastian tindakan (*action feedback*
 
 ---
 
-## Langkah demi Langkah Implementasi
+## Langkah demi Langkah Implementasi (Blok 1)
 
-### 1. Hubungkan Validasi ke `ProductForm.tsx`
+### 1. Hubungkan Validasi & Toast ke `ProductForm.tsx`
 
 Buka file `src/components/ProductForm.tsx`.
-Impor fungsi `validate` dan tipe `FormErrors` dari `../utils/validate`:
+Impor fungsi `validate` dan tipe `FormErrors` dari `../utils/validate`, tetap pertahankan field `description` (sesuai kontrak `CreateProductInput` dari Bulan 2) serta dropdown `<select>` kategori dari Slice 5, dan perhatikan status produk memakai `'active'` sesuai `ProductStatus`:
 
 ```tsx
 import { useState } from 'react'
 import type { FormEvent } from 'react'
+import { useToast } from '../hooks/useToast'
 import type { Category } from '../types/category'
 import type { CreateProductInput } from '../types/product'
 import { validate } from '../utils/validate'
 import type { FormErrors } from '../utils/validate'
 import Button from './ui/Button'
 import Input from './ui/Input'
-import { useToast } from '../hooks/useToast'
 
 interface ProductFormProps {
   categories: Category[]
   onSubmit: (input: CreateProductInput) => Promise<void>
 }
 
-// ...
 export default function ProductForm({ categories, onSubmit }: ProductFormProps) {
   const { showToast } = useToast()
   const [values, setValues] = useState({
     name: '',
+    description: '',
     price: '',
     stock: '',
     merchant_name: '',
@@ -76,11 +76,12 @@ export default function ProductForm({ categories, onSubmit }: ProductFormProps) 
     try {
       await onSubmit({
         name: values.name.trim(),
+        description: values.description.trim(),
         price: Number(values.price),
         stock: Number(values.stock),
         merchant_name: values.merchant_name.trim(),
         category_id: Number(values.category_id),
-        status: 'published',
+        status: 'active',
       })
 
       // 3. Tampilkan toast sukses!
@@ -89,6 +90,7 @@ export default function ProductForm({ categories, onSubmit }: ProductFormProps) 
       // Reset form
       setValues({
         name: '',
+        description: '',
         price: '',
         stock: '',
         merchant_name: '',
@@ -122,6 +124,14 @@ export default function ProductForm({ categories, onSubmit }: ProductFormProps) 
         />
 
         <Input
+          id="merchant_name"
+          label="Nama UMKM"
+          value={values.merchant_name}
+          error={fieldErrors.merchant_name}
+          onChange={(e) => setValues({ ...values, merchant_name: e.target.value })}
+        />
+
+        <Input
           id="price"
           label="Harga (Rp)"
           type="number"
@@ -139,12 +149,27 @@ export default function ProductForm({ categories, onSubmit }: ProductFormProps) 
           onChange={(e) => setValues({ ...values, stock: e.target.value })}
         />
 
+        <label className="grid gap-1 text-sm font-medium text-slate-700" htmlFor="category_id">
+          Kategori
+          <select
+            id="category_id"
+            value={values.category_id}
+            onChange={(e) => setValues({ ...values, category_id: Number(e.target.value) })}
+            className="rounded-md border border-slate-300 px-3 py-1.5 text-sm text-slate-900 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 focus:outline-none"
+          >
+            {categories.map((cat) => (
+              <option key={cat.id} value={cat.id}>
+                {cat.name}
+              </option>
+            ))}
+          </select>
+        </label>
+
         <Input
-          id="merchant_name"
-          label="Nama UMKM"
-          value={values.merchant_name}
-          error={fieldErrors.merchant_name}
-          onChange={(e) => setValues({ ...values, merchant_name: e.target.value })}
+          id="description"
+          label="Deskripsi Singkat (Opsional)"
+          value={values.description}
+          onChange={(e) => setValues({ ...values, description: e.target.value })}
         />
       </div>
 
@@ -162,13 +187,13 @@ export default function ProductForm({ categories, onSubmit }: ProductFormProps) 
 
 ---
 
-### 2. Terapkan Validasi pada `ProductEditForm.tsx`
+### 2. Terapkan Validasi pada Form Edit Inline (`ProductEditForm.tsx`)
 
-Terapkan pola yang persis sama pada komponen modal edit `src/components/ProductEditForm.tsx`:
-- Tambahkan `state fieldErrors`
-- Jalankan `validate(values)` di `handleSubmit`
-- Teruskan `error={fieldErrors.fieldName}` ke tiap `<Input>`
-- Panggil `showToast('Perubahan produk disimpan!')` saat penyimpanan sukses
+Terapkan pola yang sama pada komponen form edit inline `src/components/ProductEditForm.tsx` (yang mengedit harga & stok dari Bulan 2):
+- Tambahkan state `fieldErrors` dengan tipe `Pick<FormErrors, 'price' | 'stock'>`
+- Jalankan `validateEdit({ price, stock })` di awal `handleSubmit` — hentikan eksekusi jika ada error
+- Ganti `<input>` biasa dengan `<Input error={fieldErrors.price} ... />` dan `<Input error={fieldErrors.stock} ... />`
+- Panggil `showToast('Perubahan produk disimpan!')` setelah `onSave(...)` sukses
 
 ---
 
@@ -187,9 +212,11 @@ async function handleDeleteProduct(id: number) {
 }
 ```
 
+Pastikan `onDelete={handleDeleteProduct}` diteruskan ke `<ProductList />`.
+
 ---
 
-## Verifikasi & Pengujian Hasil
+## Verifikasi & Pengujian Hasil (Blok 2 — Pairing)
 
 Lakukan pengujian skenario berikut di browser:
 
@@ -197,16 +224,27 @@ Lakukan pengujian skenario berikut di browser:
    - Buka halaman produk.
    - Langsung klik tombol **Tambah Produk** tanpa mengisi input apa pun.
    - Pastikan border input berubah menjadi merah dan muncul teks error di bawah masing-masing kolom ("Nama produk wajib diisi", "Harga wajib diisi angka", dst).
-   - Buka tab **Network** di DevTools — pastikan **TIDAK ADA** request HTTP POST yang dikirim ke server.
+   - Buka tab **Network** di DevTools — pastikan **TIDAK ADA** request HTTP `POST` yang dikirim ke server.
 2. **Uji Validasi Angka:**
    - Isi harga dengan `-5000` atau `0`.
    - Submit form — pastikan muncul pesan error spesifik: *"Harga harus lebih dari 0"*.
 3. **Uji Notifikasi Toast:**
    - Isi form dengan data valid, lalu submit.
-   - Kotak hitam mengambang di bawah layar muncul: *"Produk berhasil ditambahkan!"*.
+   - Kotak notifikasi mengambang di bawah layar muncul: *"Produk berhasil ditambahkan!"*.
    - Amati toast tersebut: setelah 3 detik, toast harus menghilang secara mulus.
 4. **Uji Toast Edit dan Hapus:**
-   - Lakukan edit produk dan hapus salah satu produk — pastikan toast yang sesuai muncul untuk setiap tindakan.
+   - Lakukan edit harga/stok secara inline dan hapus salah satu produk contoh — pastikan toast yang sesuai muncul untuk setiap tindakan.
+
+---
+
+## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
+
+Kerjakan individual di kelas dan simpan hasilnya di repositori proyekmu pada:  
+`tugas/tugas_02c.md`
+
+1. Tuliskan identitas diri (Nama, Squad, Tanggal).
+2. Dokumentasikan hasil verifikasi tab Network saat mencoba submit form kosong vs data valid (lampirkan screenshot/catatan status HTTP).
+3. Jelaskan secara singkat mengapa atribut `required` bawaan browser perlu dilepas setelah kita memakai `validate()` kustom.
 
 ---
 

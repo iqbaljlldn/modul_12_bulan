@@ -11,7 +11,7 @@ Di akhir Bulan 2, coba buka kembali file `ProductsPage.tsx`. File tersebut mulai
 - Menyimpan state `products`, `isLoading`, `errorMessage`
 - Menjalankan `useEffect` untuk fetching data saat mount
 - Mengatur logika `handleCreate`, `handleSave`, `handleDelete`
-- Sekaligus merender form, daftar produk, dan modal edit
+- Sekaligus merender form, daftar produk, dan alur edit/hapus produk
 
 Semua tercampur dalam satu komponen tampilan. Jika nanti halaman lain (misalnya halaman dasbor admin atau halaman statistik) membutuhkan data produk yang sama, kita terpaksa menyalin-tempel (*copy-paste*) logika `useState` dan `useEffect` tersebut.
 
@@ -147,8 +147,9 @@ Bandingkan jika setiap komponen harus menulis `useState`, `useEffect`, `catch`, 
 
 ---
 
-## Latihan Mandiri (30 Menit)
+## Latihan Terbimbing & Pairing (Blok 2, 30 Menit)
 
+Kerjakan berpasangan (driver/navigator):
 1. **Uji Isolasi Hook:**
    Buat komponen pengujian kecil yang memanggil `useCategories()`. Periksa tab **Network** di browser DevTools untuk memastikan request `GET /categories` terpanggil sekali saat komponen dimuat.
 2. **Eksperimen Error:**
@@ -156,11 +157,17 @@ Bandingkan jika setiap komponen harus menulis `useState`, `useEffect`, `catch`, 
 
 ---
 
-## Cek Pemahaman
+## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
 
-1. Apa perbedaan utama antara fungsi utilitas biasa (misalnya `formatRupiah`) dengan custom hook (misalnya `useCategories`)?
-2. Mengapa React melarang pemanggilan hook di dalam blok `if (isLoggedIn) { useState(...) }`?
-3. Apa fungsi variabel boolean `ignore` di dalam `useEffect`?
+Kerjakan individual di kelas dan simpan hasilnya di repositori proyekmu pada:  
+`tugas/tugas_01b.md`
+
+1. Tuliskan identitas diri (Nama, Squad, Tanggal).
+2. Jelaskan dengan bahasamu sendiri jawaban atas 3 pertanyaan di bawah ini:
+   - Apa perbedaan utama antara fungsi utilitas biasa (misalnya `formatRupiah`) dengan custom hook (misalnya `useCategories`)?
+   - Mengapa React melarang pemanggilan hook di dalam blok `if (isLoggedIn) { useState(...) }`?
+   - Apa fungsi variabel boolean `ignore` di dalam `useEffect` pada `useCategories.ts`?
+3. Ajukan commit & buka PR di repositori pribadimu untuk direview rekan satu squad.
 
 ---
 

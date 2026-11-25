@@ -144,20 +144,27 @@ Contoh: Ada 14 produk dengan `PAGE_SIZE = 6`.
 
 ---
 
-## Latihan Mandiri (30 Menit)
+## Latihan Terbimbing & Pairing (Blok 2, 30 Menit)
 
+Kerjakan berpasangan (driver/navigator):
 1. **Inspeksi Header di DevTools:**
-   Buka tab **Network** di DevTools browser, klik request `GET /products?...`, lalu buka tab **Headers**. Temukan baris `x-total-count` di bagian *Response Headers*.
+   Buka tab **Network** di DevTools browser, klik request `GET /products?...`, lalu buka tab **Headers**. Temukan baris `x-total-count` di bagian *Response Headers* (didukung oleh `json-server@0.17.4` yang sudah kita kunci sejak `0-Persiapan`).
 2. **Ketik Langsung di Address Bar:**
    Coba ketik manual di address bar browser: `http://localhost:5173/?page=2`, lalu tekan Enter. Perhatikan bagaimana aplikasi langsung membuka halaman 2 secara otomatis!
 
 ---
 
-## Cek Pemahaman
+## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
 
-1. Mengapa menyimpan state pencarian dan filter di URL jauh lebih unggul dibandingkan menyimpannya di `useState` biasa?
-2. Apa bahaya menggabungkan query string secara manual tanpa menggunakan `new URLSearchParams()`?
-3. Mengapa total seluruh data dikirim lewat header `X-Total-Count`, bukan dimasukkan di dalam array data produk?
+Kerjakan individual di kelas dan simpan hasilnya di repositori proyekmu pada:  
+`tugas/tugas_03b.md`
+
+1. Tuliskan identitas diri (Nama, Squad, Tanggal).
+2. Jelaskan jawaban 3 pertanyaan pemahaman:
+   - Mengapa menyimpan state pencarian dan filter di URL jauh lebih unggul dibandingkan menyimpannya di `useState` biasa?
+   - Apa bahaya menggabungkan query string secara manual tanpa menggunakan `new URLSearchParams()`?
+   - Mengapa total seluruh data dikirim lewat header `X-Total-Count`, bukan dimasukkan di dalam array data produk?
+3. Commit dan buka PR di repositori pribadimu untuk direview rekan squad.
 
 ---
 

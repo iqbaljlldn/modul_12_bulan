@@ -100,20 +100,27 @@ Pengguna merasa inputnya sangat cepat (*smooth*), sementara server dan jaringan 
 
 ---
 
-## Latihan Mandiri (30 Menit)
+## Latihan Terbimbing & Pairing (Blok 2, 30 Menit)
 
+Kerjakan berpasangan (driver/navigator):
 1. **Eksperimen Konsol Jeda:**
-   Pasang `console.log('Debounce terpicu dengan nilai:', debouncedValue)` di dalam `useEffect`. Ketik sebuah kalimat panjang secara cepat di form, amati di tab Console DevTools bahwa log hanya tercetak satu kali setelah kamu berhenti mengetik.
+   Pasang `console.log('Debounce terpicu dengan nilai:', debouncedValue)` sementara di dalam `useEffect`. Ketik sebuah kalimat panjang secara cepat di form, amati di tab Console DevTools bahwa log hanya tercetak satu kali setelah kamu berhenti mengetik *(hapus kembali `console.log` setelah selesai agar bersih dari linter)*.
 2. **Uji Performa Latensi:**
-   Ubah jeda waktu dari 400ms menjadi 1000ms (1 detik), lalu coba rasakan perbedaannya. Kenapa 300ms - 500ms dianggap sebagai *sweet spot* (titik ideal) untuk debounce pencarian web?
+   Ubah jeda waktu dari 400ms menjadi 1000ms (1 detik), lalu coba rasakan perbedaannya sebelum mengembalikan ke 400ms. Kenapa 300ms - 500ms dianggap sebagai *sweet spot* (titik ideal) untuk debounce pencarian web?
 
 ---
 
-## Cek Pemahaman
+## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
 
-1. Mengapa fungsi `clearTimeout(timeoutId)` wajib ditaruh di bagian `return` dari `useEffect`?
-2. Apa yang akan terjadi jika kita lupa menyertakan cleanup function tersebut?
-3. Apa perbedaan konsep antara **Debounce** dan **Throttle**?
+Kerjakan individual di kelas dan simpan hasilnya di repositori proyekmu pada:  
+`tugas/tugas_03a.md`
+
+1. Tuliskan identitas diri (Nama, Squad, Tanggal).
+2. Jelaskan jawaban 3 pertanyaan pemahaman:
+   - Mengapa fungsi `clearTimeout(timeoutId)` wajib ditaruh di bagian `return` dari `useEffect`?
+   - Apa yang akan terjadi jika kita lupa menyertakan cleanup function tersebut?
+   - Apa perbedaan konsep antara **Debounce** dan **Throttle**?
+3. Commit dan buka PR di repositori pribadimu untuk direview rekan squad.
 
 ---
 

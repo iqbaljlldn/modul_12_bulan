@@ -317,7 +317,7 @@ export default Pagination
 
 ---
 
-### 7. Gabungkan Semuanya di `src/pages/ProductsPage.tsx`
+### 7. Gabungkan Semuanya di `src/pages/ProductsPage.tsx` *(tetap pertahankan `useToast` dari Slice 6)*
 
 Lihat kode lengkap penggabungannya:
 
@@ -330,6 +330,7 @@ import ProductList from '../components/ProductList'
 import { useCategories } from '../hooks/useCategories'
 import { useDebouncedValue } from '../hooks/useDebouncedValue'
 import { useProducts } from '../hooks/useProducts'
+import { useToast } from '../hooks/useToast'
 import type { ProductFilters as Filters } from '../types/productFilters'
 import { defaultFilters } from '../types/productFilters'
 
@@ -345,6 +346,7 @@ function readFilters(searchParams: URLSearchParams): Filters {
 
 function ProductsPage() {
   const [searchParams, setSearchParams] = useSearchParams()
+  const { showToast } = useToast()
   const urlFilters = readFilters(searchParams)
 
   // Nilai pencarian di-debounce 400ms sebelum dikirim ke API
@@ -364,6 +366,17 @@ function ProductsPage() {
       order: merged.order,
       page: String(merged.page),
     })
+  }
+
+  async function handleDeleteProduct(id: number) {
+    if (confirm('Yakin ingin menghapus produk ini?')) {
+      try {
+        await remove(id)
+        showToast('Produk berhasil dihapus!', 'success')
+      } catch {
+        showToast('Gagal menghapus produk', 'error')
+      }
+    }
   }
 
   return (
@@ -386,7 +399,7 @@ function ProductsPage() {
             products={products}
             categories={categories}
             onSave={save}
-            onDelete={remove}
+            onDelete={handleDeleteProduct}
           />
           <Pagination
             page={urlFilters.page}
@@ -404,7 +417,7 @@ export default ProductsPage
 
 ---
 
-## Verifikasi & Pengujian Hasil
+## Verifikasi & Pengujian Hasil (Blok 2 — Pairing)
 
 Buka browser dan lakukan uji komprehensif berikut:
 1. **Uji Debounce:** Ketik kata pencarian di kolom "Cari Produk". Buka tab Network — pastikan hanya 1 request yang terkirim setelah kamu berhenti mengetik selama 400ms.
@@ -412,6 +425,17 @@ Buka browser dan lakukan uji komprehensif berikut:
 3. **Uji Pengurutan:** Pilih "Harga: Rendah ke Tinggi" — pastikan produk termurah berada di posisi teratas.
 4. **Uji Paginasi:** Klik "Berikutnya" — halaman berpindah ke 2, produk halaman berikutnya muncul. Tombol "Sebelumnya" menjadi aktif.
 5. **Uji Ketahanan Refresh:** Salin URL lengkap dari address bar (misal: `http://localhost:5173/?category=2&sort=price&order=asc&page=2`), buka di tab baru atau tekan F5 — pastikan seluruh filter tetap aktif sama persis!
+
+---
+
+## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
+
+Kerjakan individual di kelas (unit ini dijalankan 2 hari: Hari 13 untuk langkah 1-4 dan Hari 14 untuk langkah 5-7) dan simpan hasilnya di repositori proyekmu pada:  
+`tugas/tugas_03c.md`
+
+1. Tuliskan identitas diri (Nama, Squad, Tanggal).
+2. Salin contoh full query URL yang dikirim ke API saat kamu mencari produk, memilih 1 kategori, dan membuka halaman 2 (lihat tab Network).
+3. Jelaskan dengan kata-katamu sendiri: mengapa `useProducts` memakai `reloadToken` dan mendaftarkan `[filters.q, filters.categoryId, filters.sort, filters.order, filters.page, reloadToken]` di `useEffect` daripada `[filters]`?
 
 ---
 

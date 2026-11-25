@@ -103,20 +103,27 @@ Jangan menunggu meminjam HP teman untuk mengetes! Gunakan **Device Mode** di Chr
 
 ---
 
-## Latihan Mandiri (30 Menit)
+## Latihan Terbimbing & Pairing (Blok 2, 30 Menit)
 
+Kerjakan berpasangan (driver/navigator):
 1. **Uji Layar 320px:**
    Di DevTools Device Toolbar, ubah lebar layar menjadi `320px` (layar HP sangat kecil). Periksa apakah ada teks atau tombol yang terpotong ke samping (*horizontal scrollbar* yang tidak disengaja). Jika ada, perbaiki menggunakan kelas `max-w-full` atau `overflow-hidden`.
 2. **Navigasi Pagination di HP:**
-   Periksa komponen `Pagination.tsx` di layar 375px. Pastikan tombol "Sebelumnya" dan "Berikutnya" tidak menabrak teks "Halaman X dari Y".
+   Periksa komponen `Pagination.tsx` di layar `375px`. Pastikan tombol "Sebelumnya" dan "Berikutnya" tidak menabrak teks "Halaman X dari Y".
 
 ---
 
-## Cek Pemahaman
+## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
 
-1. Mengapa pendekatan *Mobile-First* lebih disukai dibandingkan *Desktop-First* di Tailwind CSS?
-2. Jika sebuah elemen diberi class `p-2 sm:p-4 lg:p-8`, berapa ukuran padding yang aktif saat website dibuka di layar selebar 800px?
-3. Apa risiko jika tombol aksi di layar HP diberi padding terlalu kecil (misalnya `p-0.5`)?
+Kerjakan individual di kelas dan simpan hasilnya di repositori proyekmu pada:  
+`tugas/tugas_04a.md`
+
+1. Tuliskan identitas diri (Nama, Squad, Tanggal).
+2. Jelaskan jawaban 3 pertanyaan pemahaman:
+   - Mengapa pendekatan *Mobile-First* lebih disukai dibandingkan *Desktop-First* di Tailwind CSS?
+   - Jika sebuah elemen diberi class `p-2 sm:p-4 lg:p-8`, berapa ukuran padding yang aktif saat website dibuka di layar selebar `800px`?
+   - Apa risiko jika tombol aksi di layar HP diberi padding terlalu kecil (misalnya `p-0.5`)?
+3. Commit dan buka PR di repositori pribadimu untuk direview rekan squad.
 
 ---
 

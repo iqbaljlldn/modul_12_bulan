@@ -78,6 +78,27 @@ export function validate(values: RawValues): FormErrors {
 
   return errors
 }
+
+// Validasi khusus form edit inline (ProductEditForm) yang hanya mengubah harga & stok
+export function validateEdit(values: { price: string; stock: string }): Pick<FormErrors, 'price' | 'stock'> {
+  const errors: Pick<FormErrors, 'price' | 'stock'> = {}
+
+  const price = Number(values.price)
+  if (values.price.trim().length === 0 || Number.isNaN(price)) {
+    errors.price = 'Harga wajib diisi angka'
+  } else if (price <= 0) {
+    errors.price = 'Harga harus lebih dari 0'
+  }
+
+  const stock = Number(values.stock)
+  if (values.stock.trim().length === 0 || Number.isNaN(stock)) {
+    errors.stock = 'Stok wajib diisi angka'
+  } else if (stock < 0) {
+    errors.stock = 'Stok tidak boleh negatif'
+  }
+
+  return errors
+}
 ```
 
 ### Mengapa Tipe `FormErrors` Menggunakan Tanda Tanya (`?`)?
@@ -152,22 +173,30 @@ Dengan pola ini, server kita terhindar dari request data sampah, dan pengguna me
 
 ---
 
-## Latihan Mandiri (30 Menit)
+## Latihan Terbimbing & Pairing (Blok 2, 30 Menit)
 
-1. **Uji Fungsi `validate` di Console:**
+Kerjakan berpasangan (driver/navigator):
+1. **Uji Fungsi `validate` dan `validateEdit` di Console:**
    Coba panggil fungsi `validate` dengan berbagai kombinasi input:
    - `{ name: '   ', price: 'abc', stock: '-5', merchant_name: '' }`
-   - Pastikan objek error yang dihasilkan memuat pesan spesifik untuk keempat field.
+   - Pastikan objek error yang dihasilkan memuat pesan spesifik untuk keempat field, dan `validateEdit({ price: '0', stock: '-1' })` mengembalikan error untuk `price` serta `stock`.
 2. **Tambahkan Aturan Validasi Baru:**
-   Tambahkan aturan bahwa nama UMKM tidak boleh kurang dari 3 karakter.
+   Tambahkan aturan bahwa `merchant_name` (nama UMKM) tidak boleh kurang dari 3 karakter.
 
 ---
 
-## Cek Pemahaman
+## Tugas Mandiri (Blok 3, Estimasi 20-30 Menit)
 
-1. Mengapa kita menggunakan `values.name.trim().length === 0` daripada sekadar `values.name === ''`?
-2. Mengapa `Number.isNaN(price)` perlu diperiksa setelah pemanggilan `Number(values.price)`?
-3. Apa keunggulan menulis aturan validasi di `src/utils/validate.ts` dibandingkan menulis `if/else` langsung di dalam komponen `ProductForm.tsx`?
+Kerjakan individual di kelas dan simpan hasilnya di repositori proyekmu pada:  
+`tugas/tugas_02a.md`
+
+1. Tuliskan identitas diri (Nama, Squad, Tanggal).
+2. Tempelkan kode `validate` yang sudah ditambahkan aturan panjang minimal nama UMKM.
+3. Jawab 3 pertanyaan pemahaman:
+   - Mengapa kita menggunakan `values.name.trim().length === 0` daripada sekadar `values.name === ''`?
+   - Mengapa `Number.isNaN(price)` perlu diperiksa setelah pemanggilan `Number(values.price)`?
+   - Apa keunggulan menulis aturan validasi di `src/utils/validate.ts` dibandingkan menulis `if/else` langsung di dalam komponen `ProductForm.tsx`?
+4. Commit dan buka PR di repositori pribadimu untuk direview rekan squad.
 
 ---
 

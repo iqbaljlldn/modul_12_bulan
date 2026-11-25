@@ -331,4 +331,17 @@ Data tersimpan di `db.json`:
 
 ---
 
+## Misi Squad Mingguan (Persiapan Sprint Review 2 — Sabtu)
+
+Walaupun kode berada di **repositori pribadi** masing-masing, squad berkolaborasi memastikan seluruh anggota siap untuk Sprint Review Sabtu (**12-15 menit per squad**):
+
+1. **PR Cross-Review Antaranggota:** Pastikan semua anggota squad sudah me-review PR Slice 1 & 2 milik temannya (cek apakah `useEffect` punya dependency array `[]` dan cleanup `ignore`, serta tombol submit punya `disabled={isSubmitting}`).
+2. **Gladi Resik Demo (Repo Diundi Mentor):** Pastikan `db.json` terisi rapi dan seluruh langkah `npm run dev`, `lint`, serta `build` berjalan bersih di laptop ke-4 anggota.
+3. **Pembagian Peran Demo Squad:**
+   - **Driver Demo:** Mendemokan loading state → daftar produk dari `json-server` → tambah produk baru tanpa reload halaman.
+   - **Network Inspector:** Membuka tab **Network** di DevTools untuk membuktikan request `GET /products` dan `POST /products` (`201 Created`).
+   - **Error & Bug Storyteller:** Menunjukkan simulasi saat `json-server` dimatikan (error state ramah) dan 1 pelajaran dari bug minggu ini.
+
+---
+
 Lanjut ke: **[03a-http-methods-dan-api-patterns.md](03a-http-methods-dan-api-patterns.md)** *(Minggu 3)*

@@ -119,4 +119,17 @@ Tanggal: 18 November 2026
 
 ---
 
+## Misi Squad Mingguan (Persiapan Sprint Review 3 — Sabtu)
+
+Sebelum masuk ke minggu terakhir Bulan 2, siapkan demo squad untuk Sprint Review Sabtu (**12-15 menit per squad**) bersama rekan satu squad pada sesi Konsolidasi Hari 15:
+
+1. **PR Cross-Review CRUD Lengkap:** Pastikan keempat anggota squad sudah menyelesaikan PR Slice 3 (`PATCH` edit inline & `DELETE` produk) dan saling cek kasus tepi (*apakah klik "Edit" hanya membuka 1 kartu, bukan semua kartu?*).
+2. **Cek Kualitas Kolektif:** Pastikan keempat laptop siap tampil jika diundi mentor (`npm run lint` & `npm run build` hijau).
+3. **Pembagian Peran Demo Squad:**
+   - **Driver Demo:** Mendemokan fitur edit harga/stok inline dan hapus produk dengan dialog konfirmasi.
+   - **Architecture Narrator:** Menjelaskan pemisahan state `products` (di induk `ProductsPage`) vs `isEditing` (lokal di `ProductCard`) menggunakan alur data satu arah.
+   - **Error & Bug Storyteller:** Mendemokan respons `ApiError` saat gagal `PATCH`/`DELETE` dan menceritakan bug paling berkesan minggu ini.
+
+---
+
 Lanjut ke: **[04a-react-router-dasar.md](04a-react-router-dasar.md)** *(Minggu 4)*

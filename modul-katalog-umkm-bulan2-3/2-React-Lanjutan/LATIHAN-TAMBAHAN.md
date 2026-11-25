@@ -1,6 +1,6 @@
 # Latihan Tambahan — React Lanjutan (Bulan 3)
 
-Latihan-latihan ini ditujukan untuk peserta atau squad yang **menyelesaikan slice mingguan lebih cepat** dan ingin tantangan ekstra sebelum masuk ke Bulan 4.
+Latihan-latihan opsional (*stretch challenge*) ini ditujukan untuk peserta atau squad yang **menyelesaikan slice mingguan lebih cepat** di Blok 2/3 atau ingin eksplorasi ekstra sebelum masuk ke Bulan 4. Semua dikerjakan pada branch terpisah di repositori pribadimu (`katalog-umkm`).
 
 ---
 

@@ -21,7 +21,7 @@ Jadwal harian residensial berdurasi 250 menit dibagi menjadi 3 blok terstruktur:
 
 ### Sabtu: Sprint Review & Retrospektif Mingguan
 
-- **Sprint Review (09.00 - 10.00):** Demo live tiap squad (3 squad @12-15 menit). Murid mendemokan fitur slice yang berjalan di browser, tab Network saat memanggil API, dan menjelaskan potongan kodenya.
+- **Sprint Review (09.00 - 10.00):** Demo live tiap squad (3 squad @12-15 menit). Setiap akhir minggu (`01d`, `02e`, `03c`, `04c`) memuat **Misi Squad Mingguan**: seluruh anggota squad memastikan repo masing-masing sudah di-review lewat PR, lalu membagi peran demo (Driver Demo, Inspector DevTools/Kode, Storyteller Bug). Mentor mengundi repo anggota mana yang ditampilkan di proyektor agar seluruh squad saling peduli progres rekannya.
 - **Sprint Retrospektif (10.15 - 11.30):** Evaluasi ritme kerja tim menggunakan papan **Mad / Sad / Glad** atau **I Like / I Wish / What If**. Mentor memfasilitasi tanpa menghakimi, menyepakati perbaikan kerja sama untuk minggu berikutnya. *(Sabtu bebas PR setelah kelas selesai.)*
 
 ---
